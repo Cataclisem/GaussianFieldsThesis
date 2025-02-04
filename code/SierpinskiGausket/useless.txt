@@ -1,0 +1,22 @@
+
+    def showPlot(self):
+        # Stuff for the graph
+        #Ensure equal aspect ration
+        plt.gca().set_aspect("equal", adjustable="box")
+    
+        # Computer limites based on n
+        buffer = pow(2,self.n)/10
+        x_min, x_max =-pow(2,self.n)  -buffer, pow(2,self.n) + buffer
+        y_min, y_max = -buffer, pow(2,self.n) + buffer
+
+        plt.xlim(x_min, x_max)
+        plt.ylim(y_min, y_max)
+
+        #Compute Ticks intervals
+        x_tick_interval = pow(2, self.n-2)
+        y_tick_interval = pow(2, self.n-2)
+
+        plt.xticks(np.arange(x_min + buffer, x_max - buffer + x_tick_interval, x_tick_interval))
+        plt.yticks(np.arange(y_min + buffer, y_max - buffer + y_tick_interval, y_tick_interval))
+        plt.grid()
+        plt.show()
