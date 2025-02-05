@@ -1,0 +1,171 @@
+\documentclass{memoir}
+\usepackage[a4paper, margin=2.5cm, includefoot=true]{geometry}
+\usepackage[english]{babel} %Adds Danish grammer
+\usepackage{lmodern}
+\usepackage{csquotes}
+\usepackage{amsmath} %Enables a lot, such as align
+\usepackage{mathtools} %Math tools stuff
+\usepackage{amssymb} %math symbols
+\usepackage{amsthm} %Something with proof enviorments
+\usepackage{commath}
+\usepackage{fancyhdr} %Needed for headers, see options below
+\usepackage[dvipsnames]{xcolor} %Adds colors and ability to define new colors
+\usepackage{lastpage} %Allows one to reference number of pages
+\usepackage{titlesec} %Change spacing around sections
+\usepackage{ifthen}
+\usepackage{tikz} %Making graphs
+\usetikzlibrary{babel} %Makes quiver work ehn babel is not set to english
+\usepackage{etoolbox}
+\usepackage[backend=biber, style=alphabetic]{biblatex} %For bibliography
+%\usepackage{mdframed}
+\usepackage{hyperref}
+\usepackage[figurename=Diagram]{caption}
+
+
+%-------- PAGESTYLING ----------
+
+%titlesec dependency
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt} %Command for above
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt} %Command for above
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt} %Command for above
+
+
+%Pagestyle fancy
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[EL]{\leftmark}
+\fancyfoot[C]{\thepage \ of \ \pageref{LastPage}}
+\fancyhead[OL]{\leftmark}
+
+%New Chapter style
+\newcommand*{\appendixchapter}{%
+	\titleformat{\chapter}%
+	[display]%
+	{\normalfont\Huge\bfseries \chaptertitlename }%
+	{\thechapter.}%
+	{1em}%
+	{\huge}
+	
+	\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+}
+
+
+%-------------------- COMMANDS ---------------------------------
+\newcommand{\cbra}[1]{\left\lbrace #1 \right\rbrace} %Making curly brackets easier
+\newcommand{\func}[3]{#1\colon #2 \to #3} %Making a function easier
+
+
+\newcommand{\inn}[2]{\langle #1, #2 \rangle} %inner product
+\newcommand{\prt}[2]{\frac{\partial #1}{\partial #2}} %partial differential
+
+\newcommand{\eul}{\mathrm{e}} %Common constants & symbols
+\newcommand{\img}{\mathrm{i}}
+\newcommand{\ree}{\mathbb{R}}
+\newcommand{\zee}{\mathbb{Z}}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\rat}{\mathbb{Q}}
+\newcommand{\cee}{\mathbb{C}}
+\newcommand{\ve}{\mathcal{V}}
+\newcommand{\bee}{\mathcal{B}}
+\newcommand{\filt}{\mathcal{F}}
+\newcommand{\fee}{\mathbb{F}}
+\newcommand{\pee}{\mathbb{P}}
+\newcommand{\hee}{\mathbb{H}}
+\newcommand{\dee}{\mathbb{D}}
+\newcommand{\kee}{\mathbf{K}}
+\newcommand{\tee}{\mathbf{T}}
+\newcommand{\chee}{\mathbf{Ch}}
+\newcommand{\Dee}{\mathbf{D}}
+\newcommand{\gee}{\mathbf{G}}
+\newcommand{\e}{\mathbb{E}}
+\newcommand{\ex}[1]{\e \left[ #1 \right]}
+\newcommand{\nl}{\newline}
+\newcommand{\noi}{\noindent}
+\newcommand{\vphi}{\upvarphi}
+\newcommand{\infunc}[1]{\mathds{1}_{#1}}
+\newcommand{\cd}{\cdot}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Hom}{\text{Hom}}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\cyl}{cyl}
+\DeclareMathOperator{\id}{id}
+
+
+
+%----------------------- THEOREMS AND EQUATIONS ---------------------------
+%Theorem styles
+\newtheoremstyle{upright}% <name>
+{3pt}% <Space above>
+{3pt}% <Space below>
+{\upshape}% <Body font>
+{}% <Indent amount>
+{\bfseries}% <Theorem head font>
+{:}% <Punctuation after theorem head>
+{.5em}% <Space after theorem heading>
+{}% <Theorem head spec (can be left empty, meaning `normal')>
+
+\newtheoremstyle{remarks}% <name>
+{3pt}% <Space above>
+{3pt}% <Space below>
+{}% <Body font>
+{}% <Indent amount>
+{\bfseries}% <Theorem head font>
+{:}% <Punctuation after theorem head>
+{.5em}% <Space after theorem heading
+{}% <Theorem head spec (can be left empty, meaning `normal')>
+
+
+
+% Upright With box theorem style
+\def\theoremColor{lightgray}
+\theoremstyle{upright}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{coro}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{defi}[theorem]{Definition}
+\newtheorem{prop}[theorem]{Proposition}
+
+
+%Remark theorem style
+\theoremstyle{remarks}
+\newtheorem*{remark*}{Remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{example*}{Example}
+
+\newtheorem{exercise}[theorem]{Exercise}
+
+\mathtoolsset{showonlyrefs=true} %Only shows equation number when ref to eq.
+\numberwithin{equation}{chapter} %Makes equation number (x.1, x.2, y.1, y.2 ...), where x, y are section
+
+
+\addbibresource{cite.bib}
+\title{Master Thesis}
+\author{J Christopher Lentfer Kristiansen}
+\date{\today}
+
+
+\begin{document}
+	
+	\pagestyle{plain}
+	
+	\input{frontPage}
+	
+	\frontmatter
+	
+	\input{abstact}
+
+	\newpage
+	\tableofcontents
+	
+	\mainmatter
+	\pagestyle{fancy}
+	
+	
+	\backmatter
+	\nocite{*}
+	\printbibliography
+\end{document}
