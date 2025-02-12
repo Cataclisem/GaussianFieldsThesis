@@ -1,0 +1,49 @@
+\chapter{Questions from \today}
+
+\section*{Question 1}
+We have defined 
+\begin{equation}
+	\psi_x^{(m)} = \delta_{xy} = \begin{cases}
+		1, \quad \text{if } x = y \\
+		0, \quad \text{else}
+	\end{cases}.
+\end{equation}
+
+It is stated in \cite[][page 35]{strichartz}\footnote{\fullcite{strichartz}}:
+
+\enquote{Since f is assumed continuos and the support of $\psi_x^{(m)}$ is close to $x$ then,
+\begin{equation}\label{inDoubt}
+	\int_{K}f \psi_x^{(m)} \dd \mu \approx f(x) \int_{K} \psi_x^{(m)} \dd \mu 
+\end{equation}.}
+
+But $\text{supp}(\psi_x^{(m)})= \left\{ x \right\}$, in which case i think it would be
+
+$$\int_{K}f \psi_x^{(m)} \dd \mu = \int_{x} f \dd \mu = 0$$
+but this is not the case, so why does \eqref{inDoubt} hold? And further don't we still need to integrate $f$?
+
+This question is mostly asked to figure out why $\frac{\int_{K}f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu}$ converges uniformly to $f$.
+
+\section*{Question 2}
+When showing that
+\begin{equation} \label{q2Eqution1}
+	\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}
+\end{equation}
+converges uniformly to $v(x)f(x)$ \cite[][eq. (2.2.10)]{strichartz}, i have run into a few problems. 
+
+\begin{enumerate}
+	\item What is the value of \eqref{q2Eqution1}, because $ \forall \omega \in V_m \backslash V_0$ i would assume (when showing the uniform convergence) that
+	\begin{equation}
+		\abs{\left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(\omega) \right) - v(\omega)f(\omega)} = \abs{v(\omega) f_m(\omega) - v(\omega) f(\omega)}.
+	\end{equation}
+	so i am mostly just asking if i have understood the sum correctly.
+	
+	\item Assuming that the above understanding of the sum is correct, i have gotten
+	\begin{align*}
+				\abs{\left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(\omega) \right) - v(\omega)f(\omega)} &= \abs{v(\omega) f_m(\omega) - v(\omega) f(\omega)} \\
+				&= \abs{v(\omega)} \abs{f_m(\omega) -f(\omega)}
+	\end{align*}
+	to finish this will use the fact that $f_m (\omega) \to f(\omega)$ uniformly to get some $\frac{\varepsilon'}{\abs{v(\omega)}}$ to use as bound. But the this bound uses $\omega$ as variable, so i would like some upper bound of $\abs{v(\omega)}$ to use and i can not quite figure out if there is a bound. This is probably due to my poor understanding of what i means that $v \in \dom_0 \mathcal{E}$.
+	
+	\item Lastly in \cite[][eq (2.2.9)]{strichartz} he moves the summation into the integral, which i am assuming is due do the $\mathcal{L}^1(\mu)$ measurability of $v(\omega), f_m(\omega)$
+\end{enumerate}
+

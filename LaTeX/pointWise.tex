@@ -1,0 +1,25 @@
+\chapter{We gotta start somewhere}
+
+Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: V_m \to \ree$ we define the energy to be
+\begin{equation}
+	E_K(u) = \sum_{x \sim y} \left(u(x) - u(y) \right)^2 
+\end{equation}
+
+
+\begin{theorem}
+	Let $u \in \dom \Delta_\mu$. Then the pointwise formula
+	\begin{equation}
+		\Delta_{\mu} u(x) = \lim_{m \to \infty} r^{m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \delta_m u(x)
+	\end{equation}
+	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuos function and the right side of the limit converges uniformly to a continuos function on $V_* \backslash V_0$. Then $u \in \dom \Delta_{\mu}$ and the equation holds.
+\end{theorem}
+
+\begin{proof}
+	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \textcolor{red}{[INSERT REF]} we have that 
+	\begin{equation}
+		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\ \mu}{\int_{K} \psi_x^{(m)} \dd\ \mu}
+	\end{equation}
+	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$. \marginpar[]{Something with the fact that $\int_{K} f \psi_x^{(m)} \dd \mu \approx f(x) \int_{K} \psi_x^{(m)} \dd \mu$}
+	
+	Moving on to the second half of the proof
+\end{proof}

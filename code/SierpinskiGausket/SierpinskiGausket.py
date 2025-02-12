@@ -78,7 +78,7 @@ class sierpinski:
         else:
             # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top tirangle
             return [[tuple(midLeft), tuple(midRight), tuple(midBottom), tuple(midLeft)]] + self.findMidTriangle([points[0], midBottom, midLeft], n-1) + self.findMidTriangle([midBottom, points[1], midRight], n-1) + self.findMidTriangle([midLeft, midRight, points[2]], n-1) 
-            
+             
         
     
     def findMidpoint(self, startPoint: np.ndarray, endPoint: np.ndarray)-> np.ndarray:
@@ -116,15 +116,14 @@ class sierpinski:
         # If no n choosen just choose the one define from the class
         if n == None:
             n = self.n
-        n = n + 1 
         
-        # Sets up initial Triangle
-        init_val = [np.array([0,0]), np.array([2 ** n, 0]), np.array([2**(n-1),2 ** n]), np.array([0,0])]
-        
-        # If initial n <= 0, then we just draw the triangle
-        if n <= 1:
-            line_collection = [[tuple(x) for x in init_val]]
+        if n <= 0:
+            n = 1
+            line_collection = [[tuple(x) for x in [np.array([0,0]), np.array([2, 0]), np.array([1,2]), np.array([0,0])]]]
         else:
+            n = n + 1 
+             # Sets up initial Triangle
+            init_val = [np.array([0,0]), np.array([2 ** n, 0]), np.array([2**(n-1),2 ** n]), np.array([0,0])]
             line_collection = self.findMidTriangle(init_val, n) + [[tuple(x) for x in init_val]]
 
         # Create subplots
@@ -144,5 +143,5 @@ class sierpinski:
         
 
 
-test = sierpinski(n=7)
+test = sierpinski(n=6)
 test.makeTriangle()
