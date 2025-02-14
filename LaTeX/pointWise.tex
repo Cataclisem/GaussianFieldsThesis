@@ -17,9 +17,42 @@ Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: 
 \begin{proof}
 	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \textcolor{red}{[INSERT REF]} we have that 
 	\begin{equation}
-		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\ \mu}{\int_{K} \psi_x^{(m)} \dd\ \mu}
+		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}
 	\end{equation}
-	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$. \marginpar[]{Something with the fact that $\int_{K} f \psi_x^{(m)} \dd \mu \approx f(x) \int_{K} \psi_x^{(m)} \dd \mu$}
+	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$. Since
+	\begin{align}
+		\lim_{m \to \infty} \int_{K} f \psi_x^{(m)} \dd \mu &= \int_{K} f \lim_{m \to \infty} \psi_x^{(m)} \dd \mu \\
+		&= \int_{K} f \delta_{xy} \dd \mu \\
+		&= f(x) \int_{K} \delta_{xy} \dd \mu
+	\end{align}
+	in which case
+	\begin{equation}
+		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd\ \mu}{\int_{K} \psi_x^{(m)} \dd\ \mu} = f(x) = \Delta_{\mu} u(x)
+	\end{equation}
 	
-	Moving on to the second half of the proof
+	
+	Moving on to the second half of the proof. Suppose that $r^{m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \delta_m u(x)$ converges uniformly to a continuos function $f$. Now for any $v \in \dom_0 \mathcal{E}$ we have 
+	\begin{equation}
+		\mathcal{E}_m(u,v) = r^{-m} \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right)\left(v(y) - v(x) \right).
+	\end{equation}
+	
+	If we collect all the terms that contain the factor $v(x)$ for a fixed $x \in V_m \backslash V_0$ then each $v(x)$ will be of the form $-v(x) \left(u(y) - u(x) \right)$ for each $y \underset{m}{\sim} x$. In which case we get
+	\begin{align}
+				\mathcal{E}_m(u,v) &= - r^{-m}  \sum_{x \in V_m \backslash v_0} v(x) \left( \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right) \right) \\
+				&= -\sum_{x \in V_m \backslash V_0} v(x) r^{-m} \Delta_{m}u(x)
+	\end{align}
+	
+	While it seems we lose many terms by removing $v(y)$, but they are instead contained in $\sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right)$. Note that the sum is "reset" for every $x$ so we count both the relation $x \sim y$ and $y \sim x$.
+	
+	Now if we define $f_m(x) = r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \Delta_{m}u(x)$ then $f_m \to f$ uniformly by assumption and we can rewrite the above as   
+	\begin{align}
+		\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \Delta_{m}u(x) \\
+		&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m \psi_x^{(m)}\right) \dd \mu.
+	\end{align}
+	
+	Looking at the sum in the above, we find the following \marginnote[left]{I am using dominated convergence with the counting measure}[voffset]
+	\begin{align}
+		\lim_{m \to \infty} \sum_{x \in V_*} v(x) f_m(x) \psi_x^{(m)} &= 		\lim_{m \to \infty} \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)} \infunc{V_m \backslash V_0} \\
+		&=
+	\end{align}
 \end{proof}
