@@ -1,10 +1,96 @@
 \chapter{We gotta start somewhere}
 
 Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: V_m \to \ree$ we define the energy to be
-\begin{equation}
+\begin{equation}\label{graphEnergy}
 	E_K(u) = \sum_{x \sim y} \left(u(x) - u(y) \right)^2 
 \end{equation}
 
+\section{Minimizing Energy}
+Given some graph $K$ and a function $u^{(m)}: V_m \to \ree$, let's say we want to extend this function to $V_{m+1}$. This leads us to defining an extension in the following way
+
+\begin{defi}
+	Let $K$ be a graph and $u: V_m \to \ree$, then an \emph{extension of} $u$ is a function \nl $u': V_{m+n} \to \ree$ where $u' \mid_{V_m} = u$.
+\end{defi}
+
+It is obvious that $E_{m+n}(u') \geq E_m(u)$. Further one quickly notices that there must be a function that minimizes the energy of a given graph. We denote such a function with $\tilde{u}$ and call it a \emph{harmonic extension}.
+
+\begin{defi}
+	Let $\tilde{u}: V_{m+n} \to \ree$ with $\title{u} \mid_{V_m} = u$ is called a \emph{harmonic extension} if $E_{m+n}(\tilde{u}) \leq E_{m+n}(u')$ for all $u': V_{m+n} \to \ree$ with $u' \mid _{V_m} = u$.
+\end{defi}
+
+In some cases we have that $E_{m+n}(\tilde{u}) = r E_{m}(u)$ for some $r \in (0, 1)$. But instead of normalizing the values on $E_m$ we will normalize $E_{m+n}$, and getting
+\begin{equation}
+	r^{-1} E_{m+n}(\tilde{u}) = E_m(u), \quad \text{and} \quad r^{-1} E_{m+n}(u') \geq E_m(u)
+\end{equation}
+for every extension $u'$ of $u$. From the equality above we can define the following
+\begin{defi}\label{renormalizedGraphEnergies}
+	The \emph{renormalized graph energies} are defined as
+	\begin{equation}
+		\eee_{m}(u) = r^{-m}E_m(u)
+	\end{equation} 
+\end{defi}
+\begin{remark}
+	The sequence $\cbr{\eee_{m}(u)}$ is a non-decreasing sequence. \textcolor{red}{Something with it being constant if $u$ is linear and how is $u$ defined? In the sequence $\cbr{\eee_{m}(u)}$ if we have $u$ defined on $V_m$ what is $\eee_{m+1}(u)$? Any extension or the harmonic extension?}
+\end{remark}
+
+
+Now that we have \ref{renormalizedGraphEnergies}, we can define what it means to be a harmonic function.
+
+\begin{defi}
+	$u$ is a \emph{harmonic function} if $u$ minimizes $\eee_{m}(u)$ for all $m$, given boundary values $V_0$.
+\end{defi}
+
+\subsection{Minimizing Energy on the Sierpinski Gasket}
+
+I the previous section we have talked about a harmonic function, but without every constructing one. We will therefore in this next section show how to create an harmonic function for the Sierpinski gasket for any start boundary values.
+
+Given $V_0 = \cbr{q_0, q_1, q_2}$ and $u: V_0 \to \ree$ with $u(q_0) = \alpha_0, u(q_1) = \alpha_1$ and $u(q_2) = \alpha_2$. Then we have that 
+\begin{equation}
+	E_0(u) = \left(u(q_0) - u(q_1)\right)^2 + \left(u(q_0) - u(q_2)\right)^2 + \left(u(q_2) - u(q_1)\right)^2.
+\end{equation} 
+Wanting to minimize $E_1(u')$, we see that
+\begin{multline}
+	E_1(u') = \left(u'(q_0) - u'(p_0)\right)^2 + \left(u'(q_0) - u'(p_2)\right)^2 + \left(u'(q_1) - u'(y_0)\right)^2 + \left(u'(q_1) - u'(y_1)\right)^2 + \left(u'(q_2) - u'(y_1)\right)^2 \\
+	 + \left(u'(q_0) - u'(y_2)\right)^2 + \left(u'(y_0) - u'(y_1)\right)^2 + \left(u'(y_0) - u'(y_2)\right)^2 + \left(u'(y_1) - u'(y_2)\right)^2.
+\end{multline}
+We are then going to optimize with regards to $u'(y_0), u'(y_1)$ and $u'(y_2)$. Taking the derivative of the right side and solving for $0$ we get the following
+\begin{align}
+	4 u'(y_0) &= u'(q_0) + u'(q_1) + u'(y_1) + u'(y_2) \\
+	4 u'(y_1) &= u'(q_1) + u'(q_2) + u'(y_0) + u'(y_2) \\
+	4 u'(y_2) &= u'(q_1) + u'(q_2) + u'(y_0) + u'(y_1) \\
+\end{align}
+adding the equations yields
+\begin{equation}
+	u'(y_0) + u'(y_1) + u'(y_2) = u'(q_0) + u'(q_1) + u'(q_2)
+\end{equation}
+in which case we get
+\begin{align}
+	5 u'(y_0) &= u'(q_0) + u'(q_1) + u'(q_0) + u'(q_1) + u'(q_2)\\
+	5 u'(y_1) &= u'(q_1) + u'(q_2) + u'(q_0) + u'(q_1) + u'(q_2) \\
+	5 u'(y_2) &= u'(q_1) + u'(q_2) + u'(q_0) + u'(q_1) + u'(q_2) \\
+\end{align}
+
+
+
+
+
+\begin{coro}
+	Let $v: K \to \ree$ be a harmonic function. If $x \underset{m}{\sim} y_i$ for and $v(x) = v(y_i) = 0$ for all neighbours $y_i$ then $v \left. \right\vert_{\cup_{i} [x, y_i]} = 0$
+\end{coro}
+\begin{proof}
+	
+\end{proof}
+
+\begin{lemma}\label{FmSmaller}
+	Set $F_m = \supp \psi_{x}^{(m)}$, then
+	\begin{equation}
+		F_0 \supset F_1 \supset F_2 \supset F_3 \supset \dots
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Since $F_0 = K \backslash \left(V_0 \backslash {x} \right)$
+\end{proof}
 
 \begin{theorem}
 	Let $u \in \dom \Delta_\mu$. Then the pointwise formula
@@ -19,15 +105,17 @@ Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: 
 	\begin{equation}
 		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}
 	\end{equation}
-	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$. Since
+	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$, so let $\epsilon > 0$ be given, then by \cref{FmSmaller} we can choose $m$ large enough so for all $x, y \in F_m$ that $\abs{f(x) - f(y)} < \epsilon$, then
 	\begin{align}
-		\lim_{m \to \infty} \int_{K} f \psi_x^{(m)} \dd \mu &= \int_{K} f \lim_{m \to \infty} \psi_x^{(m)} \dd \mu \\
-		&= \int_{K} f \delta_{xy} \dd \mu \\
-		&= f(x) \int_{K} \delta_{xy} \dd \mu
+		\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+		&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+		&\leq \frac{\int_{F_m} \abs{f(y) -f(x)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+		&\leq \frac{\epsilon \int_{F_m} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+		&= \epsilon
 	\end{align}
 	in which case
 	\begin{equation}
-		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd\ \mu}{\int_{K} \psi_x^{(m)} \dd\ \mu} = f(x) = \Delta_{\mu} u(x)
+		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \Delta_{\mu} u(x)
 	\end{equation}
 	
 	
@@ -50,9 +138,10 @@ Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: 
 		&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m \psi_x^{(m)}\right) \dd \mu.
 	\end{align}
 	
-	Looking at the sum in the above, we find the following \marginnote[left]{I am using dominated convergence with the counting measure}[voffset]
+	Looking at the sum in the above, we find the following \marginnote[]{I am using dominated convergence with the counting measure}
 	\begin{align}
-		\lim_{m \to \infty} \sum_{x \in V_*} v(x) f_m(x) \psi_x^{(m)} &= 		\lim_{m \to \infty} \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)} \infunc{V_m \backslash V_0} \\
-		&=
+		\lim_{m \to \infty} \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)} 
+		&= \lim_{m \to \infty} \sum_{x \in V_*} v(x) f_m(x) \psi_x^{(m)} \infunc{V_m \backslash V_0} \\
+		&=\sum_{x \in V_*} v(x) \lim_{m \to \infty} f_m(x) \psi_x^{(m)} \infunc{V_m \backslash V_0}
 	\end{align}
 \end{proof}

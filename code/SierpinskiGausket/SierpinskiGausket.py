@@ -96,6 +96,21 @@ class sierpinski:
         --
             np.ndarray """
         return (startPoint + endPoint) // 2
+    
+    def trianglePoints(self, n: int = None) -> list:
+        
+        # If no n choosen just choose the one define from the class
+        if n == None:
+            n = self.n
+        
+        if n <= 0:
+            n = 1
+            return [[tuple(x) for x in [np.array([0,0]), np.array([2, 0]), np.array([1,2]), np.array([0,0])]]]
+        else:
+            n = n + 1 
+             # Sets up initial Triangle
+            init_val = [np.array([0,0]), np.array([2 ** n, 0]), np.array([2**(n-1),2 ** n]), np.array([0,0])]
+            return self.findMidTriangle(init_val, n) + [[tuple(x) for x in init_val]]
 
     def makeTriangle(self, n: int = None)-> None:
         """Given an amount of iterations gives a plot for the Sierpinski triangle after n iterations.
@@ -113,18 +128,11 @@ class sierpinski:
             None
         """
 
-        # If no n choosen just choose the one define from the class
         if n == None:
             n = self.n
         
-        if n <= 0:
-            n = 1
-            line_collection = [[tuple(x) for x in [np.array([0,0]), np.array([2, 0]), np.array([1,2]), np.array([0,0])]]]
-        else:
-            n = n + 1 
-             # Sets up initial Triangle
-            init_val = [np.array([0,0]), np.array([2 ** n, 0]), np.array([2**(n-1),2 ** n]), np.array([0,0])]
-            line_collection = self.findMidTriangle(init_val, n) + [[tuple(x) for x in init_val]]
+
+        line_collection = self.trianglePoints(n)
 
         # Create subplots
         fig, ax = plt.subplots()
@@ -140,8 +148,3 @@ class sierpinski:
 
         #plt.grid()
         plt.show()
-        
-
-
-test = sierpinski(n=6)
-test.makeTriangle()

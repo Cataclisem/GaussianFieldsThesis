@@ -1,49 +1,46 @@
-\chapter{Questions from \today}
+{\Huge{\textbf{Questions from \today}}}
+
+\section*{Question}
+
+
 
 \section*{Question 1}
-We have defined 
-\begin{equation}
-	\psi_x^{(m)} = \delta_{xy} = \begin{cases}
-		1, \quad \text{if } x = y \\
-		0, \quad \text{else}
-	\end{cases}.
-\end{equation}
+I have written
+"
+Uniform converges of the right side is because of continuity of $f(x)$, so let $\epsilon > 0$ be given, then by lemma 1.7 (this lemma states for $F_m = \supp \psi_{x}^{(m)}$ then $F_0 \supset F_1 \supset F_2 \supset \dots$) we can choose $m$ large enough so for all $x, y \in F_m$ that $\abs{f(x) - f(y)} < \epsilon$, then
+\begin{align}
+	\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+	&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+	&\leq \frac{\int_{F_m} \abs{f(y) -f(x)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+	&\leq \frac{\epsilon \int_{F_m} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+	&= \epsilon
+\end{align}"
 
-It is stated in \cite[][page 35]{strichartz}\footnote{\fullcite{strichartz}}:
 
-\enquote{Since f is assumed continuos and the support of $\psi_x^{(m)}$ is close to $x$ then,
-\begin{equation}\label{inDoubt}
-	\int_{K}f \psi_x^{(m)} \dd \mu \approx f(x) \int_{K} \psi_x^{(m)} \dd \mu 
-\end{equation}.}
+We talked about $F_m$ being compact, but i find that $F_m$ is open and therefore not compact. This is since we remove the end points from $F_m$ namely the points in $V_m$.
 
-But $\text{supp}(\psi_x^{(m)})= \left\{ x \right\}$, in which case i think it would be
+But do we even need $F_m$ to be compact, can't we just use continuity of $f$ to prove it as i have done above?
 
-$$\int_{K}f \psi_x^{(m)} \dd \mu = \int_{x} f \dd \mu = 0$$
-but this is not the case, so why does \eqref{inDoubt} hold? And further don't we still need to integrate $f$?
-
-This question is mostly asked to figure out why $\frac{\int_{K}f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu}$ converges uniformly to $f$.
 
 \section*{Question 2}
+I think i can solve the convergence of $\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y)$, but i think I am getting confused by the notation.
+
+We have gotten
+\begin{align}
+	\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)}(y) \dd\mu(y) \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)}(y) \dd\mu(y) \right)^{-1} \Delta_{m}u(x) \\
+	&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m \psi_x^{(m)}(y) \right) \dd \mu (y).
+\end{align}
 When showing that
 \begin{equation} \label{q2Eqution1}
-	\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}
+	\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) \to v(x)f(x) \quad \text{as } m \to \infty
 \end{equation}
-converges uniformly to $v(x)f(x)$ \cite[][eq. (2.2.10)]{strichartz}, i have run into a few problems. 
+But here i would still say that
+\begin{equation}
+	\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) = v(y)f_m(y)
+\end{equation}
+and from this point it is just taking the limit.
 
-\begin{enumerate}
-	\item What is the value of \eqref{q2Eqution1}, because $ \forall \omega \in V_m \backslash V_0$ i would assume (when showing the uniform convergence) that
-	\begin{equation}
-		\abs{\left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(\omega) \right) - v(\omega)f(\omega)} = \abs{v(\omega) f_m(\omega) - v(\omega) f(\omega)}.
-	\end{equation}
-	so i am mostly just asking if i have understood the sum correctly.
-	
-	\item Assuming that the above understanding of the sum is correct, i have gotten
-	\begin{align*}
-				\abs{\left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(\omega) \right) - v(\omega)f(\omega)} &= \abs{v(\omega) f_m(\omega) - v(\omega) f(\omega)} \\
-				&= \abs{v(\omega)} \abs{f_m(\omega) -f(\omega)}
-	\end{align*}
-	to finish this will use the fact that $f_m (\omega) \to f(\omega)$ uniformly to get some $\frac{\varepsilon'}{\abs{v(\omega)}}$ to use as bound. But the this bound uses $\omega$ as variable, so i would like some upper bound of $\abs{v(\omega)}$ to use and i can not quite figure out if there is a bound. This is probably due to my poor understanding of what i means that $v \in \dom_0 \mathcal{E}$.
-	
-	\item Lastly in \cite[][eq (2.2.9)]{strichartz} he moves the summation into the integral, which i am assuming is due do the $\mathcal{L}^1(\mu)$ measurability of $v(\omega), f_m(\omega)$
-\end{enumerate}
+But we talked about that the proof of this convergence would be similar to the one for $\int_{K} f\psi_x^{(m)} \dd \mu$, so i think i am doing something wrong. 
+
+Again i am sure this is because of my misunderstanding of $\psi_{x}^{(m)}$ and the notation of the book, but i cannot quite figure out how i am suppose to understand this.
 

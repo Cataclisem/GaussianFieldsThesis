@@ -7,6 +7,7 @@
 \usepackage{mathtools} %Math tools stuff
 \usepackage{amssymb} %math symbols
 \usepackage{amsthm} %Something with proof enviorments
+\usepackage{dsfont}
 \usepackage{marginnote} %Make margin notes
 \usepackage{commath}
 \usepackage{fancyhdr} %Needed for headers, see options below
@@ -20,11 +21,19 @@
 \usepackage[backend=biber, style=alphabetic]{biblatex} %For bibliography
 %\usepackage{mdframed}
 \usepackage{hyperref}
+\usepackage{cleveref} %Makes reference with "lemma" or "theorem" and not just number
 \usepackage[figurename=Diagram]{caption}
-\usepackage{ifthen}
+
+% ----- TK -----
+% Necessary packages for TK sum
+\usepackage{ifthen}     
+\usepackage{scalerel}
+\usepackage{xkeyval}
+\usepackage{etoolbox}
+\usepackage{tket}
 
 %-------- Some variables ------
-\def\TK{0}
+\def\TK{1}
 
 
 %-------- PAGESTYLING ----------
@@ -54,6 +63,8 @@
 	\titlespacing*{\chapter}{0pt}{-19pt}{0pt}
 }
 
+\setsecheadstyle{\huge\bfseries}
+\setsubsecheadstyle{\Large\bfseries}
 
 %-------------------- COMMANDS ---------------------------------
 \newcommand{\cbra}[1]{\left\lbrace #1 \right\rbrace} %Making curly brackets easier
@@ -83,6 +94,7 @@
 \newcommand{\Dee}{\mathbf{D}}
 \newcommand{\gee}{\mathbf{G}}
 \newcommand{\e}{\mathbb{E}}
+\newcommand{\eee}{\mathcal{E}}
 \newcommand{\ex}[1]{\e \left[ #1 \right]}
 \newcommand{\nl}{\newline}
 \newcommand{\noi}{\noindent}
@@ -97,10 +109,31 @@
 \DeclareMathOperator{\cyl}{cyl}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\dom}{dom}
-
+\DeclareMathOperator{\supp}{supp}
 
 \DeclareMathOperator{\dd}{d}
 
+
+%Redefine Epsilon
+\let\varepsilon\epsilon
+\renewcommand{\epsilon}{\varepsilon}
+
+
+% TÅGEKAMMERET
+
+\TKsetup{
+	cermC=\ensuremath{\mathbb{C}},
+	vcC=\ensuremath{\mathbb{C}},
+	gf=2024,
+}
+
+% TK-Sum Setup
+% Change '\ikonCERM' to whatever. Consider putting into $...$ for math-symbols.
+\let\temp\sum
+\DeclareMathOperator*{\TKS}{\scalerel*{\rotatebox{0}{\ikonINKA}}{\temp}}
+\newboolean{TK}
+\setboolean{TK}{true}   % Turn on or off by 'true' or 'false'
+\ifthenelse{\boolean{TK}}{\let\sum\TKS}{\let\sum\temp}
 
 %----------------------- THEOREMS AND EQUATIONS ---------------------------
 %Theorem styles
