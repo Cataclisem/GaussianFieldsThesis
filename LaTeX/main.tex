@@ -32,10 +32,6 @@
 \usepackage{etoolbox}
 \usepackage{tket}
 
-%-------- Some variables ------
-\def\TK{1}
-
-
 %-------- PAGESTYLING ----------
 
 %titlesec dependency
@@ -132,7 +128,7 @@
 \let\temp\sum
 \DeclareMathOperator*{\TKS}{\scalerel*{\rotatebox{0}{\ikonINKA}}{\temp}}
 \newboolean{TK}
-\setboolean{TK}{true}   % Turn on or off by 'true' or 'false'
+\setboolean{TK}{false}   % Turn on or off by 'true' or 'false'
 \ifthenelse{\boolean{TK}}{\let\sum\TKS}{\let\sum\temp}
 
 %----------------------- THEOREMS AND EQUATIONS ---------------------------
