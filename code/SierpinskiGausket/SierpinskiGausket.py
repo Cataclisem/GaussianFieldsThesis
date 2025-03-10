@@ -78,9 +78,68 @@ class sierpinski:
         else:
             # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top tirangle
             return [[tuple(midLeft), tuple(midRight), tuple(midBottom), tuple(midLeft)]] + self.findMidTriangle([points[0], midBottom, midLeft], n-1) + self.findMidTriangle([midBottom, points[1], midRight], n-1) + self.findMidTriangle([midLeft, midRight, points[2]], n-1) 
-             
-        
+
+
+    def pointsWithOrientation(self, points: list = None, n: int = None, i: int = None):
+        if n == None:
+            n = self.n
+        if points == None:
+            points = [(np.array([0,0]), "left"), (np.array([2 ** n, 0]), "right"), (np.array([2**(n-1),2 ** n]), "top")]
+        midLeft = (self.findMidpoint(points[0][0], points[2][0]), "left")
+        midRight= (self.findMidpoint(points[1][0], points[2][0]), "right")
+        midBottom = (self.findMidpoint(points[0][0], points[1][0]), "bottom")
+        if n-2 == 0:
+            return [midLeft, midRight, midBottom]
+        else:
+            # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top tirangle
+            return [midLeft, midRight, midBottom] + self.pointsWithOrientation([points[0], midBottom, midLeft], n-1) + self.pointsWithOrientation([midBottom, points[1], midRight], n-1)+ self.pointsWithOrientation([midLeft, midRight, points[2]], n-1) 
     
+    def pointsAndNeighbours(self, n: int = None): 
+        if n == None:
+            n = self.n
+        
+        sierpinskiGasket = {(tuple(x[0]), x[1]) for x in self.pointsWithOrientation(n = n)} | {(tuple(x[0]), x[1]) for x in [(np.array([0,0]), "left"), (np.array([2 ** n, 0]), "right"), (np.array([2**(n-1),2 ** n]), "top")]}
+        allPoints, orientation = zip(*sierpinskiGasket)
+        allPointsList = list(allPoints)
+        allPointsDict = {}
+
+        for i in range(len(allPoints)):
+            neighbours = set()
+            if orientation[i] == "left":
+                neighborsToCheck = [(1, 2), (2, 0), (1, -2), (-1, -2)]
+            elif orientation[i] == "right":
+                neighborsToCheck = [(-1, 2), (-2, 0), (-1, -2), (1, -2)]
+            elif orientation[i] == "bottom":
+                neighborsToCheck = [(-2, 0), (-1, 2), (1, 2), (2, 0)]
+            elif orientation[i] == "top":
+                neighborsToCheck = [(-1, -2), (1, -2)]
+
+            for j in neighborsToCheck:
+                potentialNeighbour = tuple(np.add(allPointsList[i], j))
+                if  potentialNeighbour in allPoints:
+                    neighbours.add(potentialNeighbour)
+
+            allPointsDict[f"x{i}"] = {"pos" : allPointsList[i], "neighbours" : neighbours, "neighboursSet" : set()}
+
+        return allPointsDict
+    
+    def laplacianOperatorMatrix(self):
+
+        allPointsDict = self.pointsAndNeighbours()
+        return [[-len(allPointsDict[i]["neighbours"]) if i == j else 1 if allPointsDict[j]["pos"] in allPointsDict[i]["neighbours"] else 0 for i in allPointsDict] for j in allPointsDict]
+
+
+    def printLaplacianOperatorMatrix(self) -> None:
+        for i in self.laplacianOperatorMatrix():
+            print(i)
+        return None
+
+    def eigenVectorsAndValues(self):
+        matrix = self.laplacianOperatorMatrix()
+        print(np.diag(matrix))
+        return np.linalg.eig(matrix)
+
+
     def findMidpoint(self, startPoint: np.ndarray, endPoint: np.ndarray)-> np.ndarray:
         """ Finds midpoint from two points.
         
@@ -148,3 +207,8 @@ class sierpinski:
 
         #plt.grid()
         plt.show()
+
+
+test = sierpinski(n=2)
+
+test.printLaplacianOperatorMatrix()

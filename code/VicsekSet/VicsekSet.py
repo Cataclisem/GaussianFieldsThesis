@@ -108,7 +108,7 @@ class vicsek:
         plt.show()
     
 
-    def pointsAndNeighbours(self, n: int = None, init_length: int = None, indexing: bool = True):
+    def pointsAndNeighbours(self, n: int = None, init_length: int = None):
         
         if n == None:
             n = self.n
@@ -130,26 +130,29 @@ class vicsek:
 
             allPointsDict[f"x{i}"] = {"pos" : allPointsList[i], "neighbours" : neighbours, "neighboursSet" : set()}
 
-        if indexing == True:
-
-            for i in allPointsDict:
-                    for k in allPointsDict:
-                        if i != k and allPointsDict[k]["pos"] in allPointsDict[i]["neighbours"] and i not in allPointsDict[i]["neighboursSet"]:
-                            allPointsDict[i]["neighboursSet"].add(k)
-                            allPointsDict[k]["neighboursSet"].add(i)
-
         return allPointsDict
 
     def laplacianOperatorMatrix(self):
 
-        allPointsDict = self.pointsAndNeighbours(indexing=False)
+        allPointsDict = self.pointsAndNeighbours()
         return [[-len(allPointsDict[i]["neighbours"]) if i == j else 1 if allPointsDict[j]["pos"] in allPointsDict[i]["neighbours"] else 0 for i in allPointsDict] for j in allPointsDict]
 
+    def eigenVectorsAndValues(self):
+        matrix = self.laplacianOperatorMatrix()
+        print(np.diag(matrix))
+        return np.linalg.eig(matrix)
+
+    def printLaplacianOperatorMatrix(self) -> None:
+        for i in self.laplacianOperatorMatrix():
+            print(i)
+        return None
+    
 
 test = vicsek(n=1)
 #test.makeVicsek(n=0)
 #pprint(test.pointsAndNeighbours())
+w, v = test.eigenVectorsAndValues()
 
-for i in test.laplacianOperatorMatrix():
-    print(i)
+print('E-value:', w)
+print('E-vector', v)
 #test.makeVicsek()
