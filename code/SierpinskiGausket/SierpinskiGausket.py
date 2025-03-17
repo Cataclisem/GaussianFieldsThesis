@@ -27,44 +27,41 @@ def timer(n: int) -> None:
 class sierpinski:
     """
     A class to contain all the functions to draw the sierpinski triangle. 
-    To actually draw the trinangle one only needs the function "makeTriangle".
+    To actually draw the triangle one only needs the function "makeTriangle".
 
-    Attributes:
-    -
-        n : int
-            How many recursion of the sierpinski triangle is needed.
+    Attributes
+    ---------
+        n how many recursion of the sierpinski triangle is needed.
 
     """
 
     def __init__(self, n):
        """ Initializes the Sierpinski class
 
-       Args:
-       -
+       Args
+       ----
         n : int
-            Defines the number of default reccursions should be done
+            Defines the number of default recursions should be done
        
        """
        self.n = int(n) 
 
 
     def findMidTriangle(self, points: list, n: int) -> list:
-        """A recursive function that finds all the "inner" triangles of the sierpinski triangle.
+        """A recursive function that finds all the upside down triangles of the sierpinski triangle. Meaning it finds all the triangle consisting of the midpoints of the previous triangle
 
-        Meaning it finds all the triangle consisting of the midpoints of the previous triangle
-
-        Args:
-        -
+        Args
+        ----
             points : list 
-                A list of points (often a triangle) for which we find the "inner" triangle
+                A list of points (often a triangle) for which we find the upside down triangle
             
             n : int
                 An integer to measure how far we are in the iteration of the function
 
-        Returns:
-        -   
+        Returns
+        -------
             list
-                A list of all the inner triangles until n = 0
+                A list of all the upside down triangles until n = 0
         """
         
         # Find the midpoints
@@ -72,93 +69,46 @@ class sierpinski:
         midRight= self.findMidpoint(points[1], points[2])
         midBottom = self.findMidpoint(points[0], points[1])
 
-        # Stops at n-2, because we use interger division and midLeft and MidRight are at (1/4 * 2^n, 2^(n-1)) and (3/4 * 2^n, 2^(n-1))
+        # Stops at n-2, because we use integer division and midLeft and MidRight are at (1/4 * 2^n, 2^(n-1)) and (3/4 * 2^n, 2^(n-1))
         if n-2 == 0:
             return [[tuple(midLeft), tuple(midRight), tuple(midBottom), tuple(midLeft)]]
         else:
-            # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top tirangle
+            # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top triangle
             return [[tuple(midLeft), tuple(midRight), tuple(midBottom), tuple(midLeft)]] + self.findMidTriangle([points[0], midBottom, midLeft], n-1) + self.findMidTriangle([midBottom, points[1], midRight], n-1) + self.findMidTriangle([midLeft, midRight, points[2]], n-1) 
-
-
-    def pointsWithOrientation(self, points: list = None, n: int = None, i: int = None):
-        if n == None:
-            n = self.n
-        if points == None:
-            points = [(np.array([0,0]), "left"), (np.array([2 ** n, 0]), "right"), (np.array([2**(n-1),2 ** n]), "top")]
-        midLeft = (self.findMidpoint(points[0][0], points[2][0]), "left")
-        midRight= (self.findMidpoint(points[1][0], points[2][0]), "right")
-        midBottom = (self.findMidpoint(points[0][0], points[1][0]), "bottom")
-        if n-2 == 0:
-            return [midLeft, midRight, midBottom]
-        else:
-            # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top tirangle
-            return [midLeft, midRight, midBottom] + self.pointsWithOrientation([points[0], midBottom, midLeft], n-1) + self.pointsWithOrientation([midBottom, points[1], midRight], n-1)+ self.pointsWithOrientation([midLeft, midRight, points[2]], n-1) 
-    
-    def pointsAndNeighbours(self, n: int = None): 
-        if n == None:
-            n = self.n
-        
-        sierpinskiGasket = {(tuple(x[0]), x[1]) for x in self.pointsWithOrientation(n = n)} | {(tuple(x[0]), x[1]) for x in [(np.array([0,0]), "left"), (np.array([2 ** n, 0]), "right"), (np.array([2**(n-1),2 ** n]), "top")]}
-        allPoints, orientation = zip(*sierpinskiGasket)
-        allPointsList = list(allPoints)
-        allPointsDict = {}
-
-        for i in range(len(allPoints)):
-            neighbours = set()
-            if orientation[i] == "left":
-                neighborsToCheck = [(1, 2), (2, 0), (1, -2), (-1, -2)]
-            elif orientation[i] == "right":
-                neighborsToCheck = [(-1, 2), (-2, 0), (-1, -2), (1, -2)]
-            elif orientation[i] == "bottom":
-                neighborsToCheck = [(-2, 0), (-1, 2), (1, 2), (2, 0)]
-            elif orientation[i] == "top":
-                neighborsToCheck = [(-1, -2), (1, -2)]
-
-            for j in neighborsToCheck:
-                potentialNeighbour = tuple(np.add(allPointsList[i], j))
-                if  potentialNeighbour in allPoints:
-                    neighbours.add(potentialNeighbour)
-
-            allPointsDict[f"x{i}"] = {"pos" : allPointsList[i], "neighbours" : neighbours, "neighboursSet" : set()}
-
-        return allPointsDict
-    
-    def laplacianOperatorMatrix(self):
-
-        allPointsDict = self.pointsAndNeighbours()
-        return [[-len(allPointsDict[i]["neighbours"]) if i == j else 1 if allPointsDict[j]["pos"] in allPointsDict[i]["neighbours"] else 0 for i in allPointsDict] for j in allPointsDict]
-
-
-    def printLaplacianOperatorMatrix(self) -> None:
-        for i in self.laplacianOperatorMatrix():
-            print(i)
-        return None
-
-    def eigenVectorsAndValues(self):
-        matrix = self.laplacianOperatorMatrix()
-        print(np.diag(matrix))
-        return np.linalg.eig(matrix)
 
 
     def findMidpoint(self, startPoint: np.ndarray, endPoint: np.ndarray)-> np.ndarray:
         """ Finds midpoint from two points.
         
-        Args:
-        -
+        Args
+        ----
             StartPoint : np.ndarray
                 First point
 
             EndPoint : np.ndarray
                 Second point
 
-        Returns:
-        --
+        Returns
+        -------
             np.ndarray """
         return (startPoint + endPoint) // 2
     
+
     def trianglePoints(self, n: int = None) -> list:
+        """ Find the points in the Sierpinski Gasket from integer. Such you don't have to make your own triangle but can start with a default
         
-        # If no n choosen just choose the one define from the class
+        Args
+        ----
+            n : int
+                Amount of iterations
+        
+        Returns
+        -------
+            list
+                List of tuples of coordinates of each point
+        """
+        
+        # Setup if None is given as arguments
         if n == None:
             n = self.n
         
@@ -171,31 +121,29 @@ class sierpinski:
             init_val = [np.array([0,0]), np.array([2 ** n, 0]), np.array([2**(n-1),2 ** n]), np.array([0,0])]
             return self.findMidTriangle(init_val, n) + [[tuple(x) for x in init_val]]
 
-    def makeTriangle(self, n: int = None)-> None:
-        """Given an amount of iterations gives a plot for the Sierpinski triangle after n iterations.
-            The plot output will be in the scale of 2**n, to avoid float division and to take advantage of interger division
 
-            Futher the function "findMidTriangle" finds all the middle triangles, to draw as few lines as possible
+    def makeTriangle(self, n: int = None)-> None:
+        """Given an amount of iterations gives a plot for the Sierpinski triangle after n iterations. The plot output will be in the scale of 2**n, to avoid float division and to take advantage of interger division. Further the function "findMidTriangle" finds all the middle triangles, to draw as few lines as possible
         
-        Args:
-        -
-            n : int (default = None)
+        Args
+        ----
+            n : int
                 Amount of iterations to run through. If no input is given input from __init__ will be used.
         
-        Returns:
-        -
-            None
+        Returns
+        -------
+            None : 
         """
 
+        # Setup if None is given as arguments
         if n == None:
             n = self.n
-        
-
-        line_collection = self.trianglePoints(n)
 
         # Create subplots
         fig, ax = plt.subplots()
-        ax.add_collection(LineCollection(line_collection, colors = "black", linewidths=1/n))
+
+        # Add all the lines to the figure
+        ax.add_collection(LineCollection(self.trianglePoints(n), colors = "black", linewidths=1/n))
 
         # Computes limites of graph (how far x and y axis should stretch out) based on n
         buffer = pow(2, n)/10 # A buffer to make the final graph not look as cramped
@@ -207,8 +155,95 @@ class sierpinski:
 
         #plt.grid()
         plt.show()
+    
 
+    def pointsWithOrientation(self, points: list = None, n: int = None):
+        """ A recursive function that finds all the points to the upside down triangles in the Sierpinski Gasket along with the points "orientation". By orientation we mean if the points are on the "right", "left" or bottom of the triangle. This is so the it can be used later to find each points neighbour.
+        
+        Args
+        ----
+            points : list 
+                A list of points (often a triangle) for which we find the upside down triangle
+            
+            n : int
+                An integer to measure how far we are in the iteration of the function
 
-test = sierpinski(n=2)
+        Returns
+        -------
+            list
+                A list of tuples on the following form::
+                    
+                    [((2, 4), "left"), ((8, 0), "right")... ]
+        """
 
-test.printLaplacianOperatorMatrix()
+        # Setup if None is given as arguments
+        if n == None:
+            n = self.n
+        if points == None:
+            points = [(np.array([0,0]), "left"), (np.array([2 ** n, 0]), "right"), (np.array([2**(n-1),2 ** n]), "top")]
+        
+        # Find midpoints and their orientation
+        midLeft = (self.findMidpoint(points[0][0], points[2][0]), "left")
+        midRight= (self.findMidpoint(points[1][0], points[2][0]), "right")
+        midBottom = (self.findMidpoint(points[0][0], points[1][0]), "bottom")
+
+        # Stops at n-2, because we use integer division and midLeft and MidRight are at (1/4 * 2^n, 2^(n-1)) and (3/4 * 2^n, 2^(n-1))
+        if n-2 == 0:
+            return [midLeft, midRight, midBottom, (np.array([0,0]), "left"), (np.array([2 ** self.n, 0]), "right"), (np.array([2**(self.n-1),2 ** self.n]), "top")]
+        else:
+            # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top tirangle
+            return [midLeft, midRight, midBottom] + self.pointsWithOrientation([points[0], midBottom, midLeft], n-1) + self.pointsWithOrientation([midBottom, points[1], midRight], n-1)+ self.pointsWithOrientation([midLeft, midRight, points[2]], n-1) 
+    
+
+    def pointsAndNeighbours(self, n: int = None): 
+        """ A method to find the neighbours of the points of the Sierpinski gasket. The naming convention of the points follow whatever order python chooses in sets.
+
+        Args
+        ----
+            n : int
+                Set the level of recursion
+        
+        Returns
+        -------
+            dict
+                A dictionary of all points, their coordinate position and their neighbours
+        """
+        # Setup if None is given as arguments
+        if n == None:
+            n = self.n
+        
+        assert int(n) <= 2, "n should be larger or equal 1"
+
+        if n <= 1:
+            n = 1
+            sierpinskiGasket = {((0,0), "left"), ((2 ** n, 0), "right"), ((2**(n-1),2 ** n), "top")}
+        else:
+            sierpinskiGasket = {(tuple(x[0]), x[1]) for x in self.pointsWithOrientation(n = n + 1)} # Finds points and their orientation and makes them into a set so we don't have any duplicates
+        
+        allPoints, orientation = zip(*sierpinskiGasket) # Split sierpinskiGasket into their coordinates and orientation 
+        allPointsList = list(allPoints) # Makes list so it is iterable
+        allPointsDict = {} # initialize dictionary
+
+        # Nested loops yah :))))))))))
+        for i in range(len(allPoints)):
+            neighbours = set()
+
+            # check what is the orientation of a points, so we check the correct neighbours
+            if orientation[i] == "left":
+                neighboursToCheck = [(1, 2), (2, 0), (1, -2), (-1, -2)]
+            elif orientation[i] == "right":
+                neighboursToCheck = [(-1, 2), (-2, 0), (-1, -2), (1, -2)]
+            elif orientation[i] == "bottom":
+                neighboursToCheck = [(-2, 0), (-1, 2), (1, 2), (2, 0)]
+            elif orientation[i] == "top":
+                neighboursToCheck = [(-1, -2), (1, -2)]
+
+            for j in neighboursToCheck:
+                potentialNeighbour = tuple(np.add(allPointsList[i], j))
+                if  potentialNeighbour in allPoints:
+                    neighbours.add(potentialNeighbour)
+
+            # Names the points as the appear on allpoints
+            allPointsDict[f"x{i}"] = {"pos" : allPointsList[i], "neighbours" : neighbours}
+
+        return allPointsDict
