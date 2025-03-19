@@ -180,7 +180,7 @@ class sierpinski:
         if n == None:
             n = self.n
         if points == None:
-            points = [(np.array([0,0]), "left"), (np.array([2 ** n, 0]), "right"), (np.array([2**(n-1),2 ** n]), "top")]
+            points = [(np.array([0,0]), "left"), (np.array([pow(2, n), 0]), "right"), (np.array([pow(2, n-1),pow(2,n)]), "top")]
         
         # Find midpoints and their orientation
         midLeft = (self.findMidpoint(points[0][0], points[2][0]), "left")
@@ -189,7 +189,7 @@ class sierpinski:
 
         # Stops at n-2, because we use integer division and midLeft and MidRight are at (1/4 * 2^n, 2^(n-1)) and (3/4 * 2^n, 2^(n-1))
         if n-2 == 0:
-            return [midLeft, midRight, midBottom, (np.array([0,0]), "left"), (np.array([2 ** self.n, 0]), "right"), (np.array([2**(self.n-1),2 ** self.n]), "top")]
+            return [midLeft, midRight, midBottom, (np.array([0,0]), "left"), (np.array([pow(2, self.n), 0]), "right"), (np.array([pow(2, self.n -1),pow(2, self.n)]), "top")]
         else:
             # Gives us the points we just found and run the function again. First on left triangle, then right triangle and lastly the top tirangle
             return [midLeft, midRight, midBottom] + self.pointsWithOrientation([points[0], midBottom, midLeft], n-1) + self.pointsWithOrientation([midBottom, points[1], midRight], n-1)+ self.pointsWithOrientation([midLeft, midRight, points[2]], n-1) 
@@ -211,14 +211,12 @@ class sierpinski:
         # Setup if None is given as arguments
         if n == None:
             n = self.n
-        
-        assert int(n) <= 2, "n should be larger or equal 1"
 
         if n <= 1:
             n = 1
             sierpinskiGasket = {((0,0), "left"), ((2 ** n, 0), "right"), ((2**(n-1),2 ** n), "top")}
         else:
-            sierpinskiGasket = {(tuple(x[0]), x[1]) for x in self.pointsWithOrientation(n = n + 1)} # Finds points and their orientation and makes them into a set so we don't have any duplicates
+            sierpinskiGasket = {(tuple(x[0]), x[1]) for x in self.pointsWithOrientation(n = n)} # Finds points and their orientation and makes them into a set so we don't have any duplicates
         
         allPoints, orientation = zip(*sierpinskiGasket) # Split sierpinskiGasket into their coordinates and orientation 
         allPointsList = list(allPoints) # Makes list so it is iterable
@@ -226,6 +224,7 @@ class sierpinski:
 
         # Nested loops yah :))))))))))
         for i in range(len(allPoints)):
+            #print(f"i: {i}")
             neighbours = set()
 
             # check what is the orientation of a points, so we check the correct neighbours
@@ -244,6 +243,6 @@ class sierpinski:
                     neighbours.add(potentialNeighbour)
 
             # Names the points as the appear on allpoints
-            allPointsDict[f"x{i}"] = {"pos" : allPointsList[i], "neighbours" : neighbours}
+            allPointsDict[allPointsList[i]] = {"pos" : allPointsList[i], "neighbours" : neighbours, "name": f"x{i}"}
 
         return allPointsDict

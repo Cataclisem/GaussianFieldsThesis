@@ -229,7 +229,9 @@ class vicsek:
                     initDict[potentialNeighbour]["neighbours"].add(tuple(allPointsList[i]))
                 
             initDict[allPointsList[i]] = {"pos" : allPointsList[i], "name": f"x{i+maximalValInDict}", "neighbours" : neighbours}
-    
+
+        for x in initDict:
+            print(f"initDict: {x}: {initDict[x]}")
         return initDict, vicsekSet + points
 
     def laplacianOperatorMatrix(self):

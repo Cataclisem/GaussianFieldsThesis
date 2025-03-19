@@ -14,10 +14,16 @@ np.random.seed(100)
 
 class simulation:
 
-    def __init__(self, n: int,  fractalConstruction, s: int):
+    def __init__(self, n: int,  fractalConstruction, s: int, fractalType: str):
         self.fractal = fractalConstruction
         self.n = int(n)
         self.s = int(s)
+
+        if fractalType.lower() in {"sierpinski", "vicsek"}:
+            self.fractalType = fractalType.lower()
+            self.pointAmount = (pow(5, self.n) *4 +1)*(self.fractalType == "vicsek") + (int(3*(pow(3,self.n) + 3)/2))*(self.fractalType=="sierpinski")
+        else:
+            raise Exception("Did you mean 'vicsek' or 'sierpinski'")
 
 
     def laplacianOperatorMatrix(self, n: int = None) -> list:
@@ -70,7 +76,7 @@ class simulation:
         return vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1)
     
 
-    def DFDGsim(self, eigenfunction, s: int = None):
+    def DFDGsim(self, eigenfunction, s: int = None, whiteNoise: np.ndarray = None):
         n = self.n
         if s == None:
             s = self.s
@@ -78,7 +84,11 @@ class simulation:
         eigVal, eigVec = eigenfunction()
         Vn = self.fractal()
 
-        whiteNoise = np.random.standard_normal(size = len(Vn))
+        for x in Vn:
+            print(f"allDict: {x}: {Vn[x]}")
+
+        if not isinstance(whiteNoise, np.ndarray):
+            whiteNoise = np.random.standard_normal(size = len(Vn))
 
         j = 0
         for point in Vn:
@@ -88,56 +98,100 @@ class simulation:
         return Vn
     
 
-    def drawThePretty(self):
-        sim = self.DFDGsim(eigenfunction=self.npEigenVectorsAndValues, s = 1)
+    def MakeThePretty(self, s: int, whiteNoise: list = None):
+        sim = self.DFDGsim(eigenfunction=self.npEigenVectorsAndValues, s = s, whiteNoise=whiteNoise)
         pointx, pointy, colorValues = zip(*[[sim[x]["pos"][0], sim[x]["pos"][1], sim[x]["X"]] for x in sim])
         #pointxList, pointyList, colorValueList = list(pointx), list(pointy), list(colorValues)
-        pointxList, pointyList, colorValueList = [], [], []
+        pointxList, pointyList, colorValuesList = [], [], []
         
-        for midpoint in [ele for ele in sim if len(sim[ele]["neighbours"]) > 2 ]:
-            pointxTemp, pointyTemp, colorValuesTemp = zip(*[(np.linspace(midpoint[0], point[0]),np.linspace(midpoint[1], point[1]), np.linspace(sim[midpoint]["X"], sim[point]["X"])) for point in sim[midpoint]["neighbours"]])
-            pointxList += [x for arrays in pointxTemp for x in arrays]
-            pointyList += [x for arrays in pointyTemp for x in arrays]
-            colorValueList += [x for arrays in colorValuesTemp for x in arrays]
+        if self.fractalType == "vicsek":
+            for midpoint in [ele for ele in sim if len(sim[ele]["neighbours"]) > 2 ]:
+                pointxTemp, pointyTemp, colorValuesTemp = zip(*[(np.linspace(midpoint[0], point[0]),np.linspace(midpoint[1], point[1]), np.linspace(sim[midpoint]["X"], sim[point]["X"])) for point in sim[midpoint]["neighbours"]])
+                pointxList += [x for arrays in pointxTemp for x in arrays]
+                pointyList += [x for arrays in pointyTemp for x in arrays]
+                colorValuesList += [x for arrays in colorValuesTemp for x in arrays]
+
+        elif self.fractalType == "sierpinski":
+            checkedPoints = set()
+            #for x in sim:
+                #pprint(f"{x}: {sim[x]}")
+            for midpoint in sim:
+                for point in [x for x in sim[midpoint]["neighbours"] if (midpoint, x) not in checkedPoints]:
+                    pointxTemp, pointyTemp, colorValuesTemp = zip(*[(np.linspace(midpoint[0], point[0]),np.linspace(midpoint[1], point[1]), np.linspace(sim[midpoint]["X"], sim[point]["X"])) for point in sim[midpoint]["neighbours"]])
+                    pointxList += [x for arrays in pointxTemp for x in arrays]
+                    pointyList += [x for arrays in pointyTemp for x in arrays]
+                    colorValuesList += [x for arrays in colorValuesTemp for x in arrays]
+                    checkedPoints.update({(midpoint, point)}, {(point, midpoint)})
+                    #print(f"midpoint: {midpoint} \n Neigh point: {point} \n checked: {checkedPoints}")
 
 
-        print(f"{len(pointxList)}, {len(pointyList)}, {len(colorValueList)}")
+
+        print(f"{len(pointxList)}, {len(pointyList)}, {len(colorValuesList)}")
+        #print(f"{s}: {colorValues}")
+
+        return pointx, pointy, colorValues, pointxList, pointyList, colorValuesList
         
-        tis = colorValueList + list(colorValues)
-        floored = [math.floor(x) for x in tis]
-        xtra = floored.sort()
-        xtra2 = tis.sort()
-        pprint(f"{xtra}")
-        pprint(f"{tis}")
+    
+    def drawThePretty(self, sValues: list, sameWhiteNoise: bool = False, nrows: int = 2):
+        
+        if sameWhiteNoise == True:
+            whiteNoise = np.random.standard_normal(size = self.pointAmount)
+        else:
+            whiteNoise = None
 
-        fig, ax = plt.subplots()
+        if len(sValues) > 1:
+            sValHalfRdUp = math.ceil(len(sValues)/nrows) 
+            fig, axes = plt.subplots(nrows= nrows, ncols=sValHalfRdUp)
+            for i in range(nrows):
+                for ax, s in zip(axes[i], sValues[i*sValHalfRdUp:i*sValHalfRdUp + sValHalfRdUp]):
+                    self.genGraph(fig = fig, ax=ax, s=s, whiteNoise=whiteNoise)
+        else:
+            fig, ax = plt.subplots()
+            self.genGraph(fig=fig, ax=ax, s=sValues[0], whiteNoise=whiteNoise)
 
-        plt.scatter(pointxList, pointyList, c=cm.RdYlBu(colorValueList), s = 1)
-        plt.scatter(pointx, pointy, c=cm.RdYlBu(colorValues),s = 5)
 
-        init_length=3
+    def genGraph(self, fig: plt.Figure, ax: plt.Axes, s: int, whiteNoise: np.ndarray):
+        pointx, pointy, colorValues, pointxList, pointyList, colorValuesList = self.MakeThePretty(s=s, whiteNoise=whiteNoise)
+        ax.set_title(f"s = {s}")
+        ax.scatter(pointxList, pointyList, c=cm.brg(colorValuesList), s = 1)
+        ax.scatter(pointx, pointy, c=cm.brg(colorValues),s = 3)
         # Computes limites of graph (how far x and y axis should stretch out) based on n
-        buffer = (pow(3, self.n) * init_length)/10 # A buffer to make the final graph not look as cramped
-        x_min, x_max = -pow(3, self.n) * init_length - buffer, pow(3, self.n) * init_length + buffer
-        y_min, y_max = -pow(3, self.n) * init_length - buffer, pow(3, self.n) * init_length + buffer
-
+        if self.fractalType == "vicsek":
+            init_length=3
+            buffer = (pow(3, self.n) * init_length)/10 # A buffer to make the final graph not look as cramped
+            x_min, x_max = -pow(3, self.n) * init_length - buffer, pow(3, self.n) * init_length + buffer
+            y_min, y_max = -pow(3, self.n) * init_length - buffer, pow(3, self.n) * init_length + buffer
+        elif self.fractalType == "sierpinski":
+            buffer = pow(2, self.n)/10 # A buffer to make the final graph not look as cramped
+            x_min, x_max = -buffer, pow(2, self.n) + buffer
+            y_min, y_max = -buffer, pow(2, self.n) + buffer
+        
         ax.set_xlim(x_min, x_max)
         ax.set_ylim(y_min, y_max)
-        
-
-        plt.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min(colorValues), vmax=max(colorValues)), cmap=cm.RdYlBu),ax = ax, location="right", orientation="vertical")
-        plt.show()
+        fig.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min(colorValues), vmax=max(colorValues)), cmap=cm.brg),ax = ax, location="right", orientation="vertical")
 
 
 
-h = 5
+h = 2
 
-#sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours)
+sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours, fractalType="sierpinski")
 #vicsek = simulation(n = h, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours)
-vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbours)
+vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbours, fractalType="vicsek")
 
-vicsek.drawThePretty()
+#needs = sg.sierpinski(n=h).pointsAndNeighbours()
+#for x in needs:
+#   print(f"{x}: {needs[x]}")
 
+print("Sier")
+sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=True)
+
+print("vic")
+vicsek.drawThePretty(sValues=[1], sameWhiteNoise=True)
+plt.show()
+
+#vicsek.drawThePrettyVicsek(sValues = [0.01, 1, 2, 10], sameWhiteNoise=True)
+
+#plt.show()
 #print(f"n=0: {vicsekSet.vicsek(n=0).pointsAndNeighbours()}")
 #print(f"n=1: {vicsekSet.vicsek(n=1).pointsAndNeighbours()}")
 
