@@ -216,33 +216,32 @@ class sierpinski:
             n = 1
             sierpinskiGasket = {((0,0), "left"), ((2 ** n, 0), "right"), ((2**(n-1),2 ** n), "top")}
         else:
-            sierpinskiGasket = {(tuple(x[0]), x[1]) for x in self.pointsWithOrientation(n = n)} # Finds points and their orientation and makes them into a set so we don't have any duplicates
+            sierpinskiGasket = {(int(x[0][0]), int(x[0][1])): x[1] for x in self.pointsWithOrientation(n=n)}
         
-        allPoints, orientation = zip(*sierpinskiGasket) # Split sierpinskiGasket into their coordinates and orientation 
-        allPointsList = list(allPoints) # Makes list so it is iterable
-        allPointsDict = {} # initialize dictionary
-
+        allPointsDict = {}
         # Nested loops yah :))))))))))
-        for i in range(len(allPoints)):
+        counter = 0
+        for i in sierpinskiGasket:
             #print(f"i: {i}")
             neighbours = set()
-
             # check what is the orientation of a points, so we check the correct neighbours
-            if orientation[i] == "left":
+            if sierpinskiGasket[i] == "left":
                 neighboursToCheck = [(1, 2), (2, 0), (1, -2), (-1, -2)]
-            elif orientation[i] == "right":
+            elif sierpinskiGasket[i] == "right":
                 neighboursToCheck = [(-1, 2), (-2, 0), (-1, -2), (1, -2)]
-            elif orientation[i] == "bottom":
+            elif sierpinskiGasket[i] == "bottom":
                 neighboursToCheck = [(-2, 0), (-1, 2), (1, 2), (2, 0)]
-            elif orientation[i] == "top":
+            elif sierpinskiGasket[i] == "top":
                 neighboursToCheck = [(-1, -2), (1, -2)]
 
             for j in neighboursToCheck:
-                potentialNeighbour = tuple(np.add(allPointsList[i], j))
-                if  potentialNeighbour in allPoints:
+                potentialNeighbour = tuple(np.add(i, j))
+                #print(f"poin: {allPointsList[i]}, or: {orientation[i]}, pot: {potentialNeighbour}, t: {potentialNeighbour in allPointsSet}, neigh: {neighboursToCheck}")
+                if  potentialNeighbour in sierpinskiGasket:
                     neighbours.add(potentialNeighbour)
 
             # Names the points as the appear on allpoints
-            allPointsDict[allPointsList[i]] = {"pos" : allPointsList[i], "neighbours" : neighbours, "name": f"x{i}"}
+            allPointsDict[i] = {"pos" : i, "neighbours" : neighbours, "name": f"x{counter}"}
+            counter +=1
 
         return allPointsDict

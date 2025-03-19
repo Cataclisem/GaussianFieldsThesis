@@ -9,6 +9,7 @@ from pprint import pprint
 import mpmath
 import sympy
 import math
+import timeit
 
 np.random.seed(100)
 
@@ -84,9 +85,6 @@ class simulation:
         eigVal, eigVec = eigenfunction()
         Vn = self.fractal()
 
-        for x in Vn:
-            print(f"allDict: {x}: {Vn[x]}")
-
         if not isinstance(whiteNoise, np.ndarray):
             whiteNoise = np.random.standard_normal(size = len(Vn))
 
@@ -94,6 +92,9 @@ class simulation:
         for point in Vn:
             Vn[point][f"X"] = sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[j] if eigVal[i] > 0 else 0 for i in range(len(eigVal))])
             j +=1
+
+        #for x in Vn:
+        #    print(f"allDict: {x}: {Vn[x]}")
 
         return Vn
     
@@ -154,7 +155,7 @@ class simulation:
         pointx, pointy, colorValues, pointxList, pointyList, colorValuesList = self.MakeThePretty(s=s, whiteNoise=whiteNoise)
         ax.set_title(f"s = {s}")
         ax.scatter(pointxList, pointyList, c=cm.brg(colorValuesList), s = 1)
-        ax.scatter(pointx, pointy, c=cm.brg(colorValues),s = 3)
+        ax.scatter(pointx, pointy, c=cm.brg(colorValues), s = 3)
         # Computes limites of graph (how far x and y axis should stretch out) based on n
         if self.fractalType == "vicsek":
             init_length=3
@@ -172,7 +173,7 @@ class simulation:
 
 
 
-h = 2
+h = 5
 
 sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours, fractalType="sierpinski")
 #vicsek = simulation(n = h, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours)
@@ -182,11 +183,21 @@ vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).poin
 #for x in needs:
 #   print(f"{x}: {needs[x]}")
 
-print("Sier")
-sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=True)
+whatToRun = 2
 
-print("vic")
-vicsek.drawThePretty(sValues=[1], sameWhiteNoise=True)
+if whatToRun == 1:
+    start = timeit.default_timer()
+    print("Sier")
+    sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=True)
+    end = timeit.default_timer()
+    print(f"It took {end - start} seconds")
+
+if whatToRun == 2:
+    start = timeit.default_timer()
+    print("vic")
+    vicsek.drawThePretty(sValues=[1], sameWhiteNoise=True)
+    end = timeit.default_timer()
+    print(f"It took {end - start} seconds")
 plt.show()
 
 #vicsek.drawThePrettyVicsek(sValues = [0.01, 1, 2, 10], sameWhiteNoise=True)
