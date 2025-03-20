@@ -214,7 +214,7 @@ class sierpinski:
 
         if n <= 1:
             n = 1
-            sierpinskiGasket = {((0,0), "left"), ((2 ** n, 0), "right"), ((2**(n-1),2 ** n), "top")}
+            sierpinskiGasket = {(0,0): "left", (2 ** n, 0): "right", (2**(n-1),2 ** n): "top"}
         else:
             sierpinskiGasket = {(int(x[0][0]), int(x[0][1])): x[1] for x in self.pointsWithOrientation(n=n)}
         
@@ -222,8 +222,6 @@ class sierpinski:
         # Nested loops yah :))))))))))
         counter = 0
         for i in sierpinskiGasket:
-            #print(f"i: {i}")
-            neighbours = set()
             # check what is the orientation of a points, so we check the correct neighbours
             if sierpinskiGasket[i] == "left":
                 neighboursToCheck = [(1, 2), (2, 0), (1, -2), (-1, -2)]
@@ -233,15 +231,10 @@ class sierpinski:
                 neighboursToCheck = [(-2, 0), (-1, 2), (1, 2), (2, 0)]
             elif sierpinskiGasket[i] == "top":
                 neighboursToCheck = [(-1, -2), (1, -2)]
-
-            for j in neighboursToCheck:
-                potentialNeighbour = tuple(np.add(i, j))
-                #print(f"poin: {allPointsList[i]}, or: {orientation[i]}, pot: {potentialNeighbour}, t: {potentialNeighbour in allPointsSet}, neigh: {neighboursToCheck}")
-                if  potentialNeighbour in sierpinskiGasket:
-                    neighbours.add(potentialNeighbour)
-
+            # Find all potential neighbours
+            neighbours = {tuple(np.add(i, j)) for j in neighboursToCheck if tuple(np.add(i, j)) in sierpinskiGasket}
             # Names the points as the appear on allpoints
-            allPointsDict[i] = {"pos" : i, "neighbours" : neighbours, "name": f"x{counter}"}
+            allPointsDict[i] = {"neighbours" : neighbours, "name": f"x{counter}"}
             counter +=1
 
         return allPointsDict

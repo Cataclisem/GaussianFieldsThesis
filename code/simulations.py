@@ -22,7 +22,7 @@ class simulation:
 
         if fractalType.lower() in {"sierpinski", "vicsek"}:
             self.fractalType = fractalType.lower()
-            self.pointAmount = (pow(5, self.n) *4 +1)*(self.fractalType == "vicsek") + (int(3*(pow(3,self.n) + 3)/2))*(self.fractalType=="sierpinski")
+            self.pointAmount = (pow(5, self.n) *4 +1)*(self.fractalType == "vicsek") + (int(3*(pow(3,self.n) + 1)/2))*(self.fractalType=="sierpinski")
         else:
             raise Exception("Did you mean 'vicsek' or 'sierpinski'")
 
@@ -49,8 +49,12 @@ class simulation:
         # Setup if None is given as arguments
         if n == None:
             n = self.n
+        timeStart =timeit.default_timer()
+        print(f"Start Laplacian {timeStart}")
         allPointsDict = self.fractal(n)
-        return [[len(allPointsDict[i]["neighbours"]) if i == j else -1 if allPointsDict[j]["pos"] in allPointsDict[i]["neighbours"] else 0 for i in allPointsDict] for j in allPointsDict]
+        timeEnd = timeit.default_timer()
+        print(f"end Laplacian {timeEnd}, and i took: {timeEnd - timeStart}")
+        return [[len(allPointsDict[i]["neighbours"]) if i == j else -1 if j in allPointsDict[i]["neighbours"] else 0 for i in allPointsDict] for j in allPointsDict]
 
     def printLaplacianOperatorMatrix(self, n: int = None) -> None:
         """ Function to print out the laplacian in a managable way.
@@ -73,7 +77,11 @@ class simulation:
         return np.array([float(x) for x in vector]) * -(np.isclose(np.array([float(x) for x in vector], dtype=np.float64), 0) - 1), np.matrix(matrix.tolist(), dtype=np.float64) * -(np.isclose(np.matrix(matrix.tolist(), dtype=np.float64),0)-1)
     
     def npEigenVectorsAndValues(self):
+        timeStart =timeit.default_timer()
+        print(f"Start Eigen {timeStart}")
         vector, matrix = np.linalg.eigh(self.laplacianOperatorMatrix())
+        timeEnd = timeit.default_timer()
+        print(f"end Eigen {timeEnd}, and i took: {timeEnd - timeStart}")
         return vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1)
     
 
@@ -92,6 +100,8 @@ class simulation:
         for point in Vn:
             Vn[point][f"X"] = sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[j] if eigVal[i] > 0 else 0 for i in range(len(eigVal))])
             j +=1
+            if j % 1000 == 0:
+                print(f"j: {j}")
 
         #for x in Vn:
         #    print(f"allDict: {x}: {Vn[x]}")
@@ -101,7 +111,7 @@ class simulation:
 
     def MakeThePretty(self, s: int, whiteNoise: list = None):
         sim = self.DFDGsim(eigenfunction=self.npEigenVectorsAndValues, s = s, whiteNoise=whiteNoise)
-        pointx, pointy, colorValues = zip(*[[sim[x]["pos"][0], sim[x]["pos"][1], sim[x]["X"]] for x in sim])
+        pointx, pointy, colorValues = zip(*[[x[0], x[1], sim[x]["X"]] for x in sim])
         #pointxList, pointyList, colorValueList = list(pointx), list(pointy), list(colorValues)
         pointxList, pointyList, colorValuesList = [], [], []
         
@@ -155,7 +165,7 @@ class simulation:
         pointx, pointy, colorValues, pointxList, pointyList, colorValuesList = self.MakeThePretty(s=s, whiteNoise=whiteNoise)
         ax.set_title(f"s = {s}")
         ax.scatter(pointxList, pointyList, c=cm.brg(colorValuesList), s = 1)
-        ax.scatter(pointx, pointy, c=cm.brg(colorValues), s = 3)
+        ax.scatter(pointx, pointy, c=cm.brg(colorValues), s = 20)
         # Computes limites of graph (how far x and y axis should stretch out) based on n
         if self.fractalType == "vicsek":
             init_length=3
@@ -173,11 +183,11 @@ class simulation:
 
 
 
-h = 5
+h = 7
 
 sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours, fractalType="sierpinski")
 #vicsek = simulation(n = h, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours)
-vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbours, fractalType="vicsek")
+vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
 
 #needs = sg.sierpinski(n=h).pointsAndNeighbours()
 #for x in needs:
@@ -186,6 +196,7 @@ vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).poin
 whatToRun = 2
 
 if whatToRun == 1:
+    print(f"# points: {sierpinski.pointAmount}")
     start = timeit.default_timer()
     print("Sier")
     sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=True)
@@ -193,6 +204,7 @@ if whatToRun == 1:
     print(f"It took {end - start} seconds")
 
 if whatToRun == 2:
+    print(f"# points: {vicsek.pointAmount}")
     start = timeit.default_timer()
     print("vic")
     vicsek.drawThePretty(sValues=[1], sameWhiteNoise=True)
