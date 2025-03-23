@@ -261,49 +261,6 @@ class vicsek:
         return allPointsDict
     
 
-    def pointsAndNeighbours(self, n: int = None, init_length: int = None):
-        """A method for getting a dictionary of all the points and neigbors in the Vicsek set. The neighbours are found by calculating all the potential neighbors and checking if they are a point in the Vicsek set. The naming of the points is "random", since the order of the points are decided by the order that they are in the unordered set. This could probably run faster if we had a good naming convention for the points.
-        
-        Args
-        ----
-            n : int
-                recursion depth
-            init_length : int
-                Length of the line pieces between any two points
-        
-        Returns
-        -------
-            dictionary
-                a dictionary of all points who are each a dictionary containing their position and neighbours  
-        """
-
-        # Setup if None is given as argument
-        if n == None:
-            n = self.n        
-        if init_length == None:
-            init_length = 3
-
-        # Find all the points of the Vicsek set and turn them into a set, such we can do fast lookup.
-        vicsekSet = self.findPointsForLineCollection(n = n, init_length= init_length)
-        allPoints =  {tuple(x) for lists in vicsekSet for x in lists} | set([(0, 0)] + [tuple((x[0] + x[1]) // 2) for x in vicsekSet]) 
-        allPointsList = list(allPoints) # Makes a list so we can iterate over points
-        allPointsDict = {} # Initialize dictionary
-
-        # Loop over all points
-        for i in range(len(allPoints)):
-            neighbours = set()
-            # Find all potential neighbours
-            for j in [(0, init_length), (0, -init_length), (init_length, 0), (-init_length, 0)]:
-                potentialNeighbour = tuple(np.add(allPointsList[i], j))
-                if  potentialNeighbour in allPoints:
-                    neighbours.add(potentialNeighbour)
-
-            # Creates the dictionary for x_i
-            allPointsDict[allPointsList[i]] = {"pos" : allPointsList[i],"name": f"x{i}", "neighbours" : neighbours}
-
-        return allPointsDict
-
-
     def laplacianOperatorMatrix(self):
         """Finds the laplacain operators matrix. It is given by L = A - D, where
 

@@ -7,9 +7,12 @@ from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 import numpy as np
 from pprint import pprint
 import mpmath
-import sympy
+from scipy import sparse
+from scipy.sparse import linalg
 import math
 import timeit
+
+import multiprocessing as mp
 
 np.random.seed(100)
 
@@ -19,6 +22,7 @@ class simulation:
         self.fractal = fractalConstruction
         self.n = int(n)
         self.s = int(s)
+        self.SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 
         if fractalType.lower() in {"sierpinski", "vicsek"}:
             self.fractalType = fractalType.lower()
@@ -34,7 +38,8 @@ class simulation:
             L : is the laplacian
             A : is the adjacency matrix
             D : is the degree matrix
-
+        
+        This function is now multiprocessing, since this has to go fast.
         Args
         ----
             n : int
@@ -50,11 +55,22 @@ class simulation:
         if n == None:
             n = self.n
         timeStart =timeit.default_timer()
-        print(f"Start Laplacian {timeStart}")
+        print(f"Start Laplacian {int(timeStart)}")
         allPointsDict = self.fractal(n)
+        pool = mp.Pool(mp.cpu_count()) #Initialize the multiprocessing
+        who = pool.starmap(self.laplacianOperatorMatrixFunction, [([x], allPointsDict) for x in allPointsDict])
         timeEnd = timeit.default_timer()
-        print(f"end Laplacian {timeEnd}, and i took: {timeEnd - timeStart}")
-        return [[len(allPointsDict[i]["neighbours"]) if i == j else -1 if j in allPointsDict[i]["neighbours"] else 0 for i in allPointsDict] for j in allPointsDict]
+        print(f"end Laplacian {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
+        return who
+    
+    
+    def laplacianOperatorMatrixFunction(self, i, allPointsDict: dict):
+        """ This is a function for multiprocessing
+        
+        """
+        return [len(allPointsDict[i[0]]["neighbours"]) if i[0] == j else -1 if j in allPointsDict[i[0]]["neighbours"] else 0 for j in allPointsDict]
+
+
 
     def printLaplacianOperatorMatrix(self, n: int = None) -> None:
         """ Function to print out the laplacian in a managable way.
@@ -78,15 +94,24 @@ class simulation:
     
     def npEigenVectorsAndValues(self):
         timeStart =timeit.default_timer()
-        print(f"Start Eigen {timeStart}")
+        print(f"Start Eigen {int(timeStart)}")
         vector, matrix = np.linalg.eigh(self.laplacianOperatorMatrix())
         timeEnd = timeit.default_timer()
-        print(f"end Eigen {timeEnd}, and i took: {timeEnd - timeStart}")
+        print(f"end Eigen {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
         return vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1)
+    
+    def scipyEigenVectorsAndValues(self):
+        """ scipys sparse, cant find all eigenvectors but it can find close to all. We can therefore use the fact that the graph is connected to know that there is 1 zero eigenvalue. By some miracle it is also the one scipy doesn't find.
+        """
+        timeStart =timeit.default_timer()
+        print(f"Start Scipy Eigen {int(timeStart)}")
+        vector, matrix = linalg.eigsh(sparse.csc_matrix(self.laplacianOperatorMatrix()), k=self.pointAmount - 1)
+        timeEnd = timeit.default_timer()
+        print(f"end scipy Eigen {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
+        return vector, matrix
     
 
     def DFDGsim(self, eigenfunction, s: int = None, whiteNoise: np.ndarray = None):
-        n = self.n
         if s == None:
             s = self.s
         
@@ -101,10 +126,7 @@ class simulation:
             Vn[point][f"X"] = sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[j] if eigVal[i] > 0 else 0 for i in range(len(eigVal))])
             j +=1
             if j % 1000 == 0:
-                print(f"j: {j}")
-
-        #for x in Vn:
-        #    print(f"allDict: {x}: {Vn[x]}")
+                print(f"Point reached: {j}")
 
         return Vn
     
@@ -112,7 +134,6 @@ class simulation:
     def MakeThePretty(self, s: int, whiteNoise: list = None):
         sim = self.DFDGsim(eigenfunction=self.npEigenVectorsAndValues, s = s, whiteNoise=whiteNoise)
         pointx, pointy, colorValues = zip(*[[x[0], x[1], sim[x]["X"]] for x in sim])
-        #pointxList, pointyList, colorValueList = list(pointx), list(pointy), list(colorValues)
         pointxList, pointyList, colorValuesList = [], [], []
         
         if self.fractalType == "vicsek":
@@ -124,8 +145,7 @@ class simulation:
 
         elif self.fractalType == "sierpinski":
             checkedPoints = set()
-            #for x in sim:
-                #pprint(f"{x}: {sim[x]}")
+      
             for midpoint in sim:
                 for point in [x for x in sim[midpoint]["neighbours"] if (midpoint, x) not in checkedPoints]:
                     pointxTemp, pointyTemp, colorValuesTemp = zip(*[(np.linspace(midpoint[0], point[0]),np.linspace(midpoint[1], point[1]), np.linspace(sim[midpoint]["X"], sim[point]["X"])) for point in sim[midpoint]["neighbours"]])
@@ -133,12 +153,8 @@ class simulation:
                     pointyList += [x for arrays in pointyTemp for x in arrays]
                     colorValuesList += [x for arrays in colorValuesTemp for x in arrays]
                     checkedPoints.update({(midpoint, point)}, {(point, midpoint)})
-                    #print(f"midpoint: {midpoint} \n Neigh point: {point} \n checked: {checkedPoints}")
 
-
-
-        print(f"{len(pointxList)}, {len(pointyList)}, {len(colorValuesList)}")
-        #print(f"{s}: {colorValues}")
+        print(f"Total amount of points: {len(pointxList)}, {len(pointyList)}, {len(colorValuesList)} \n")
 
         return pointx, pointy, colorValues, pointxList, pointyList, colorValuesList
         
@@ -150,22 +166,27 @@ class simulation:
         else:
             whiteNoise = None
 
-        if len(sValues) > 1:
+        if len(sValues) > 2:
             sValHalfRdUp = math.ceil(len(sValues)/nrows) 
             fig, axes = plt.subplots(nrows= nrows, ncols=sValHalfRdUp)
             for i in range(nrows):
                 for ax, s in zip(axes[i], sValues[i*sValHalfRdUp:i*sValHalfRdUp + sValHalfRdUp]):
                     self.genGraph(fig = fig, ax=ax, s=s, whiteNoise=whiteNoise)
+        elif len(sValues) == 2:
+            fig, axes = plt.subplots(ncols=2)
+            for ax, s in zip(axes, sValues):
+                self.genGraph(fig = fig, ax=ax, s=s, whiteNoise=whiteNoise)
         else:
             fig, ax = plt.subplots()
             self.genGraph(fig=fig, ax=ax, s=sValues[0], whiteNoise=whiteNoise)
 
 
     def genGraph(self, fig: plt.Figure, ax: plt.Axes, s: int, whiteNoise: np.ndarray):
+        print(f"Starting on s={s}")
         pointx, pointy, colorValues, pointxList, pointyList, colorValuesList = self.MakeThePretty(s=s, whiteNoise=whiteNoise)
-        ax.set_title(f"s = {s}")
+        ax.set_title(f"V{self.n}: s = {s}")
         ax.scatter(pointxList, pointyList, c=cm.brg(colorValuesList), s = 1)
-        ax.scatter(pointx, pointy, c=cm.brg(colorValues), s = 20)
+        ax.scatter(pointx, pointy, c=cm.brg(colorValues), s = 3)
         # Computes limites of graph (how far x and y axis should stretch out) based on n
         if self.fractalType == "vicsek":
             init_length=3
@@ -183,7 +204,7 @@ class simulation:
 
 
 
-h = 7
+h = 5
 
 sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours, fractalType="sierpinski")
 #vicsek = simulation(n = h, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours)
@@ -193,24 +214,44 @@ vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).poin
 #for x in needs:
 #   print(f"{x}: {needs[x]}")
 
-whatToRun = 2
 
-if whatToRun == 1:
-    print(f"# points: {sierpinski.pointAmount}")
-    start = timeit.default_timer()
-    print("Sier")
-    sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=True)
-    end = timeit.default_timer()
-    print(f"It took {end - start} seconds")
+if __name__ == '__main__':    
+    print(f"h : {h}")
+    #vicsek.printLaplacianOperatorMatrix()
+    #vec, mat = vicsek.scipyEigenVectorsAndValues()
+    #npm, npe = vicsek.npEigenVectorsAndValues()
 
-if whatToRun == 2:
-    print(f"# points: {vicsek.pointAmount}")
-    start = timeit.default_timer()
-    print("vic")
-    vicsek.drawThePretty(sValues=[1], sameWhiteNoise=True)
-    end = timeit.default_timer()
-    print(f"It took {end - start} seconds")
-plt.show()
+    #print(f"Scipy vec: \n {vec}")
+    #print(f"NP Eigenvalues: \n {npm}")
+
+    #for i in range(len(vec)):
+    #    if not np.isclose(vec[i], npm[i+1]) or vec[i] == 0:
+    #        print(f"sci: {vec[i]}, NP: {npm[i+1]}")
+
+    #for x in mat:
+    #    print(x)
+
+    whatToRun = 2
+
+    if whatToRun == 1:
+        print(f"# points: {sierpinski.pointAmount}")
+        start = timeit.default_timer()
+        print("Sier")
+        sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=True)
+        end = timeit.default_timer()
+        print(f"It took {end - start} seconds")
+
+    if whatToRun == 2:
+        print(f"Starting process with: \n # Vicsek points: {vicsek.pointAmount}")
+        start = timeit.default_timer()
+        vicsek.drawThePretty(sValues=[0.001], sameWhiteNoise=True)
+        vicsek.drawThePretty(sValues=[1], sameWhiteNoise=True)
+        vicsek.drawThePretty(sValues=[5], sameWhiteNoise=True)
+        vicsek.drawThePretty(sValues=[20], sameWhiteNoise=True)
+        end = timeit.default_timer()
+        print(f"It took {end - start} seconds")
+    plt.show()
+
 
 #vicsek.drawThePrettyVicsek(sValues = [0.01, 1, 2, 10], sameWhiteNoise=True)
 
