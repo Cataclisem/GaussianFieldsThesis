@@ -1,11 +1,45 @@
 \chapter{We gotta start somewhere}
+In this thesis we will be studying the Vicsek set, so therefore we will in this section start by constructing the set and proving some basic properties of the Vicsek set.
+
+
+\section{Construction the Vicsek set}
+
+Let $V_0 = \cbr{p_1, p_2, p_3, p_4, p_5}$ be the set of vertices in a plus with a middle point in $\cee$. Then define
+\begin{equation}
+	\fracConst_i(z) = \frac{1}{3} \left(z - p_i\right) +p_i, \quad \text{for } i = 1,2,\ldots 5.
+\end{equation}
+
+The Vicsek set $K$ is then the unique non-empty compact subset in $\cee$ such that
+\begin{equation}
+	K = \bigcup_{i = 1}^{5} \fracConst_i(K) 
+\end{equation}
+$V_0$ is the boundary of $K$.
+
+Next we can then define a sequence of sets $(V_m)_{m \geq 0}$ inductively:
+\begin{equation}
+	V_{m+1} = \bigcup_{i = 1}^{5} \fracConst_i(V_m)
+\end{equation}
+this gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$. Further we will use the notation of $V_{\ast} = \cup_{m \geq 0} V_m$ and for any $p \in V_m$ we denote the collection of neighbours of $p$ in $G_m$ by $V_{m,p}$. Lastly note that $\# V_m = 5^{m}\cd 4 + 1$
+
+
+\section{Minimizing Energy}
+In this section we will follow arguments given by \cite{strichartz}.
 
 Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: V_m \to \ree$ we define the energy to be
 \begin{equation}\label{graphEnergy}
 	E_K(u) = \sum_{x \sim y} \left(u(x) - u(y) \right)^2 
 \end{equation}
+\begin{remark*}
+	While \cite{strichartz} often calls this form graph energies, it is the Dirichlet form.
+\end{remark*}
 
-\section{Minimizing Energy}
+\begin{prop}
+	Equation \eqref{graphEnergy} is indeed a Dirichlet form
+\end{prop}
+\begin{proof}
+	obvious?
+\end{proof}
+
 Given some graph $K$ and a function $u^{(m)}: V_m \to \ree$, let's say we want to extend this function to $V_{m+1}$. This leads us to defining an extension in the following way
 
 \begin{defi}
@@ -40,7 +74,7 @@ Now that we have \ref{renormalizedGraphEnergies}, we can define what it means to
 	$u$ is a \emph{harmonic function} if $u$ minimizes $\eee_{m}(u)$ for all $m$, given boundary values $V_0$.
 \end{defi}
 
-\subsection{Minimizing Energy on the Vicsek set}
+\subsection{Minimizing Energy and finding renormalization constant on the Vicsek set}
 
 I the previous section we have talked about a harmonic function, but without every constructing one. We will therefore in this next section show how to create an harmonic function for the Vicsek set for any start boundary values.
 
@@ -48,11 +82,11 @@ Given $V_0 = \cbr{q_0, q_1, q_2, q_3, q_4}$ and $u: V_0 \to \ree$ with $u(q_i) =
 \begin{equation}
 	E_0(u) = \left(u(q_0) - u(q_1)\right)^2 + \left(u(q_0) - u(q_2)\right)^2 + \left(u(q_0) - u(q_3)\right)^2 + \left(u(q_0) - u(q_4)\right)^2.
 \end{equation} 
-We are going to exploit symmetry of the Vicsek set. Since all four "limbs" of the Vicsek set are identical we will only look at one of the limbs since the other limbs will be the same computations. So if we want to minimize $E_1(u')$, we see (for one limb) that 
-\begin{multline}
+We are going to exploit symmetry of the Vicsek set. Since all four "limbs" of the Vicsek set are identical we will only look at one of the limbs since the other limbs will be the same computations. So if we want to minimize $E_1(u')$, we see for the limb between $q_0$ and $q_1$ that 
+\begin{equation}
 	E_1(u') = \left(u'(q_1) - u'(p_0)\right)^2 + \left(u'(p_0) - u'(p_2)\right)^2 + \left(u'(p_0) - u'(p_3)\right)^2 + \left(u'(p_0) - u'(p_4)\right)^2 + \left(u'(p_3) - u'(q_0)\right)^2
-\end{multline}
-We are then going to optimize with regards to $u'(p_i)$ for $i = 1, 2, 3$. Taking the derivative of the right side and solving for $0$ we get the following
+\end{equation}
+We are then going to optimize with regards to $u'(p_i)$ for $i = 0, 1, 2, 3$. Taking the derivative of the right side and solving for $0$ we get the following
 \begin{align}
 	4 u'(p_0) &= u'(q_1) + u'(p_2) + u'(p_3) + u'(p_4) \\
 	2 u'(p_3) &= u'(q_0) + u'(p_0) \\
@@ -67,20 +101,30 @@ Solving these equations we get
 	u'(p_3) &= \frac{2}{3} u'(q_0) + \frac{1}{3} u'(q_1).
 \end{align}
 
-So what we have found is that to minimize the energy of the Vicsek set, then the energy of the next point is going to be $2/3$ the energy from the closest point and $1/3$ the energy from the next closest point.
+So what we have found is that to minimize the energy of the Vicsek set, then the energy of the next point is going to be $2/3$ the energy from the closest point and $1/3$ the energy from the next closest point. 
 
+If one calculates the energies then you will get
+\begin{equation}
+	E_1(u') =\frac{1}{3}\sum_{i = 1}^{4}(u'(q_i) - u'(q_0))^2 = \frac{1}{3}E_0(u')
+\end{equation}
 
+Since the Vicsek set is constructed from $V_m$ to $V_{m+1}$ by creating a "plus" between any two points that are neighbours in $V_m$. So going from $V_1$ to $V_2$ is the same as going from $V_m$ to $V_{m+1}$. In which case
+\begin{equation}
+	E_{m+1}(u') = \frac{1}{3}E_m(u')
+\end{equation}
 
-
+Thus we get our renormalization constant to be $r = \frac{1}{3}$
 
 \begin{lemma}\label{itIsZero}
-	Let $v: K \to \ree$ be a harmonic function on the Vicsek set. If $x \underset{m}{\sim} y_i$ for and $v(x) = v(y_i) = 0$ for all neighbours $y$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{\ \abs{w} > 0} F_w x \right) \cup \left(\bigcup_{i} \{y_i\} \right)$
+	Let $v: K \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{\ \abs{w} > 0} F_w x \right) \cup \left(\bigcup_{i} \{y_i\} \right)$
 \end{lemma}
 \begin{proof}
 	It is clear that $v(\omega) = 0$ for any $\omega \in B_x$, since the energy of the points $F_w x$ with $\abs{w} > 0$ depends on the energy of $x$ and its neighbours. 
 	
 	So we need to check the points in $\overline{B_x} \backslash B_x$. Now since $B_x$ is dense in $\overline{B_x}$, then for any $\omega \in \overline{B_x}$ we have that there exists a sequence $x_n \in B_x$ such that $x_n \to \omega$. By the fact that $v$ is continuos on $K$ it is continuos on $\overline{B_x}$, in which case $\abs{v(x_n) - v(\omega)} \to 0$ as $n \to \infty$, but $v(x_n) = 0$ for all $x_n$, so $v(\omega) = 0$ as desired.  
 \end{proof}
+
+What lemma $\ref{itIsZero}$ sates, is if any two points in $V_m$ are neighbours, say $x$ and $y$, and $v(x)=v(y)=0$, then then function value at any point between $x$and $y$ is also zero.
 
 \begin{lemma}\label{FmSmaller}
 	Set $F_m = \supp \psi_{x}^{(m)}$, then
@@ -91,7 +135,7 @@ So what we have found is that to minimize the energy of the Vicsek set, then the
 \end{lemma}
 
 \begin{proof}
-	If we set $\Omega_m = \left\{z \in K : \text{ if } z \underset{m}{\sim} y \text{ then } \psi_{x}^{(m)}(z) = \psi_{x}^{(m)}(y) = 0 \right\}$ then $F_m = K \backslash \left(\bigcup_{\alpha \in \Omega_m} \right) \overline{B_\alpha}$. It is clear that $\Omega_m \subset \Omega_{m+1}$ and that there are new points in $\Omega_{m+1}$ that are not just a point between some already existing points $x_1, x_2 \in \Omega_m$. We therefore have from the way that $F_m$ is constructed that $F_m \supset F_{m+1}$.
+	If we set $\Omega_m = \left\{z \in K : \psi_{x}^{(m)}(z) = \psi_{x}^{(m)}(y) = 0, \forall y \in V_{m,z}  \right\}$ then $F_m = K \backslash \left(\bigcup_{\alpha \in \Omega_m} \overline{B_\alpha} \right)$. It is clear that $\Omega_m \subset \Omega_{m+1}$ and that there are new points in $\Omega_{m+1}$ that are not just a point between some already existing points $x_1, x_2 \in \Omega_m$. We therefore have from the way that $F_m$ is constructed that $F_m \supset F_{m+1}$.
 	
 	The containment of $F_m$ in $B(x, \epsilon_m)$ follows from \cref{itIsZero} and that $F_m \supset F_{m+1}$.
 \end{proof}
@@ -111,12 +155,12 @@ So what we have found is that to minimize the energy of the Vicsek set, then the
 	\end{equation}
 	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$, so let $\epsilon > 0$ be given, then by \cref{FmSmaller} we can choose $m$ large enough so for all $x, y \in F_m$ that $\abs{f(x) - f(y)} < \epsilon$, then
 	\begin{align}
-		\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
-		&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
-		&\leq \frac{\int_{F_m} \abs{f(y) -f(x)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
-		&\leq \frac{\epsilon \int_{F_m} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
-		&= \epsilon
-	\end{align}
+	\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+	&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+	&\leq \frac{\int_{F_m} \abs{f(y) -f(x)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+	&\leq \frac{\epsilon \int_{F_m} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+	&= \epsilon
+\end{align}
 	in which case
 	\begin{equation}
 		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \Delta_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \Delta_{\mu} u(x)
@@ -130,53 +174,54 @@ So what we have found is that to minimize the energy of the Vicsek set, then the
 	
 	If we collect all the terms that contain the factor $v(x)$ for a fixed $x \in V_m \backslash V_0$ then each $v(x)$ will be of the form $-v(x) \left(u(y) - u(x) \right)$ for each $y \underset{m}{\sim} x$. In which case we get
 	\begin{align}
-				\mathcal{E}_m(u,v) &= - r^{-m}  \sum_{x \in V_m \backslash v_0} v(x) \left( \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right) \right) \\
-				&= -\sum_{x \in V_m \backslash V_0} v(x) r^{-m} \Delta_{m}u(x)
+		\mathcal{E}_m(u,v) &= - r^{-m}  \sum_{x \in V_m \backslash v_0} v(x) \left( \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right) \right) \\
+		&= -\sum_{x \in V_m \backslash V_0} v(x) r^{-m} \Delta_{m}u(x)
 	\end{align}
 	
 	While it seems we lose many terms by removing $v(y)$, but they are instead contained in $\sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right)$. Note that the sum is "reset" for every $x$ so we count both the relation $x \sim y$ and $y \sim x$.
 	
 	Now if we define $f_m(x) = r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \Delta_{m}u(x)$ then $f_m \to f$ uniformly by assumption and we can rewrite the above as   
-	\begin{align}
-		\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \Delta_{m}u(x) \\
-		&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. \\
-	\end{align}
-	
-	Following a quite lengthy argument, we have that 
-	
-	\begin{align}
-		\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. = - \int_{K} v(y)f(y) \dd \mu.
-	\end{align}
-	so $u \in \dom_{\mu}$
-	\begin{multline}
-		\abs{\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) -v(y)f(y)} \\
-		\leq \abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} + \abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}
-	\end{multline}
+\begin{align}
+	\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \Delta_{m}u(x) \\
+	&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. \\
+\end{align}
+
+Following a quite lengthy argument, we have that 
+
+\begin{equation}
+	\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. = - \int_{K} v(y)f(y) \dd \mu.
+\end{equation}
+so $u \in \dom_{\mu}$
+\begin{multline}
+	\abs{\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) -v(y)f(y)} \\
+	\leq \abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} + \abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}
+\end{multline}
 	
 	Looking at each term individually we see that
 	\begin{multline}
-		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}} \\ \leq \sum_{x \in V_m \backslash V_0} \left(\abs{v(x) f_m(x) - v(y)f_m(y)} + \abs{v(y)f_m(y) - v(y)f(y)}\right) \psi_x^{(m)}(y)
+		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}} \\ 
+		\leq \sum_{x \in V_m \backslash V_0} \left(\abs{v(x) f_m(x) - v(y)f_m(y)} + \abs{v(y)f_m(y) - v(y)f(y)}\right) \psi_x^{(m)}(y)
 	\end{multline}
 	now again we will look at each term starting with $\abs{v(y) f_m(y) - v(y)f(y)}$. Here
 	$$\abs{v(y) f_m(y) - v(y)f(y)} = \abs{v(y)}\abs{f_m(y) - f(y)}$$
 	and since $v$ is continuos on $K$, which is compact, there is a constant $C_1$ so $\abs{v(y)} \leq C_1$ for all $x \in K$. Since $f_m$ converges uniformly to $f$ we can choose $m_1$ such that $\abs{f_m(y)- f(y)} \leq \frac{\epsilon}{C_1}$ and the convergence of that term follows.
 	
 	Next is $\abs{v(x) f_m(x) - v(y)f_m(y)}$, here we find
-	\begin{align}
+	\begin{equation}
 		\abs{v(x) f_m(x) - v(y)f_m(y)} \leq \abs{v(x)}\abs{f_m(x)-f(y)} + \abs{f_m(y)}\abs{v(x)-v(y)}
-	\end{align}
+	\end{equation}
 	First $\abs{f_m(y)}\abs{v(x)-v(y)}$, here $\abs{f_m(y)} \leq C_2$ is uniformly bounded by some $C_2$ \textcolor{red}{why?}. By \cref{FmSmaller} and continuity of $v$ we can choose $m_2$ so $\abs{v(x)-v(y)} \leq \frac{\epsilon}{C_2}$ for all $x \in F_{m_2}$. The reason we can choose $m_2$ is because $\psi_{x}^{(m)}$ is multiplied onto all the terms so we just restrict $v$ to $F_{m_2}$.
 	
 	Second $\abs{v(x)}\abs{f_m(x)-f(y)}$, again $\abs{v(x)} \leq C_1$, but
-	\begin{align}
+	\begin{equation}
 		\abs{f_m(x)-f(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) - f_m(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) -f(y)} + \abs{f(y) - f_m(y)}
-	\end{align}
+	\end{equation}
 	First choose $m_3$ so $\abs{f_{m_3}(x)-f(x)} \leq \frac{\epsilon}{3 C_1}$, next by continuity of $f$ choose $m_4$ so $\abs{f(x) -f(y)} \leq \frac{\epsilon}{3 C_1}$ for all $x \in F_{m_4}$, lastly choose $m_5$ so $\abs{f(y)-f_{m_5}(y)} \leq \frac{\epsilon}{3 C_1}$.
 	
 	So we now have for $m \geq \max \{m_1, m_2, \ldots, m_5\}$ that
-	\begin{align}
+	\begin{equation}
 			\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}} \leq \epsilon \sum_{x \in V_m \backslash V_0} \psi_x^{(m)} \leq \epsilon \sum_{x \in V_m \backslash V_0} 1 \leq \epsilon.
-	\end{align}
+	\end{equation}
 	
 	We are now going to look at $\abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}$ here
 	\begin{equation}
@@ -192,3 +237,205 @@ So what we have found is that to minimize the energy of the Vicsek set, then the
 	
 	Now choose an $n_1$ so $\abs{\psi_{x}^{(m)}(x_{n_1}) - \psi_{x}^{(m)}(y)} \leq \epsilon$ and an $m_7$ so $x_{n_1} \in V_{m_7}$. Both can then be bounded by $m \geq \max \{n_1, m_7\}$
 \end{proof}
+
+
+
+% A drawing i may use later
+\begin{comment}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Straight Lines [id:da9355532760762474] 
+	\draw    (144,170.67) -- (234,170.67) ;
+	%Straight Lines [id:da5964144690386572] 
+	\draw    (234,260.67) -- (234,170.67) ;
+	%Straight Lines [id:da5166966545229968] 
+	\draw    (234,170.67) -- (234,80.67) ;
+	%Straight Lines [id:da7391858819502877] 
+	\draw    (234,170.67) -- (324,170.67) ;
+	%Straight Lines [id:da41589773867971025] 
+	\draw    (294,140.67) -- (294,200.67) ;
+	%Straight Lines [id:da4050702977235453] 
+	\draw    (174,140.67) -- (174,200.67) ;
+	%Straight Lines [id:da20582092340457592] 
+	\draw    (204,230.67) -- (264,230.67) ;
+	%Straight Lines [id:da7390405916041646] 
+	\draw    (204,110.67) -- (264,110.67) ;
+	%Straight Lines [id:da9899906610101565] 
+	\draw    (164,150.67) -- (184,150.67) ;
+	%Straight Lines [id:da41457128538077226] 
+	\draw    (164,190.67) -- (184,190.67) ;
+	%Straight Lines [id:da9932510119621577] 
+	\draw    (224,210.67) -- (244,210.67) ;
+	%Straight Lines [id:da570039755936011] 
+	\draw    (224,190.67) -- (244,190.67) ;
+	%Straight Lines [id:da9084396530899645] 
+	\draw    (224,250.67) -- (244,250.67) ;
+	%Straight Lines [id:da15309407933463914] 
+	\draw    (284,190.67) -- (304,190.67) ;
+	%Straight Lines [id:da13095833774901533] 
+	\draw    (284,150.67) -- (304,150.67) ;
+	%Straight Lines [id:da020887221653102972] 
+	\draw    (224,150.67) -- (244,150.67) ;
+	%Straight Lines [id:da7345561966712231] 
+	\draw    (224,130.67) -- (244,130.67) ;
+	%Straight Lines [id:da5362120333436483] 
+	\draw    (224,90.67) -- (244,90.67) ;
+	%Straight Lines [id:da7975638462661379] 
+	\draw    (154,160.67) -- (154,180.67) ;
+	%Straight Lines [id:da8143493857329925] 
+	\draw    (194,160.67) -- (194,180.67) ;
+	%Straight Lines [id:da6627411558310876] 
+	\draw    (214,160.67) -- (214,180.67) ;
+	%Straight Lines [id:da12362191876414352] 
+	\draw    (254,160.67) -- (254,180.67) ;
+	%Straight Lines [id:da7069540589636689] 
+	\draw    (274,160.67) -- (274,180.67) ;
+	%Straight Lines [id:da3928153922840286] 
+	\draw    (314,160.67) -- (314,180.67) ;
+	%Straight Lines [id:da2169381780841021] 
+	\draw    (214,100.67) -- (214,120.67) ;
+	%Straight Lines [id:da18731609764130341] 
+	\draw    (254,100.67) -- (254,120.67) ;
+	%Straight Lines [id:da38901588544180077] 
+	\draw    (214,220.67) -- (214,240.67) ;
+	%Straight Lines [id:da6421174062198961] 
+	\draw    (254,220.67) -- (254,240.67) ;
+	%Straight Lines [id:da12226658820871228] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (221,20) -- (191,50) ;
+	%Straight Lines [id:da026721583537768434] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (234,80.67) -- (324,170.67) ;
+	%Straight Lines [id:da44767478808636885] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (234,80.67) -- (144,170.67) ;
+	%Straight Lines [id:da8112435482228784] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (321.4,78.2) -- (351.4,108.2) ;
+	%Straight Lines [id:da23293877478548286] 
+	\draw    (392,167.67) -- (482,167.67) ;
+	%Straight Lines [id:da31990691332235865] 
+	\draw    (482,257.67) -- (482,167.67) ;
+	%Straight Lines [id:da13550842011059172] 
+	\draw    (482,167.67) -- (482,77.67) ;
+	%Straight Lines [id:da3786525368516451] 
+	\draw    (482,167.67) -- (572,167.67) ;
+	%Straight Lines [id:da23559495977997336] 
+	\draw    (542,137.67) -- (542,197.67) ;
+	%Straight Lines [id:da5695314439620682] 
+	\draw    (422,137.67) -- (422,197.67) ;
+	%Straight Lines [id:da19055834634380375] 
+	\draw    (452,227.67) -- (512,227.67) ;
+	%Straight Lines [id:da47149166103464524] 
+	\draw    (452,107.67) -- (512,107.67) ;
+	%Straight Lines [id:da025803623276352994] 
+	\draw    (412,147.67) -- (432,147.67) ;
+	%Straight Lines [id:da9002536538330218] 
+	\draw    (412,187.67) -- (432,187.67) ;
+	%Straight Lines [id:da3616034380123587] 
+	\draw    (472,207.67) -- (492,207.67) ;
+	%Straight Lines [id:da4659684911643208] 
+	\draw    (472,187.67) -- (492,187.67) ;
+	%Straight Lines [id:da6887240700183824] 
+	\draw    (472,247.67) -- (492,247.67) ;
+	%Straight Lines [id:da2075043300929269] 
+	\draw    (532,187.67) -- (552,187.67) ;
+	%Straight Lines [id:da7689395446852341] 
+	\draw    (532,147.67) -- (552,147.67) ;
+	%Straight Lines [id:da04283164908020154] 
+	\draw    (472,147.67) -- (492,147.67) ;
+	%Straight Lines [id:da7025075395144438] 
+	\draw    (472,127.67) -- (492,127.67) ;
+	%Straight Lines [id:da7129905877661015] 
+	\draw    (472,87.67) -- (492,87.67) ;
+	%Straight Lines [id:da13929958260781106] 
+	\draw    (402,157.67) -- (402,177.67) ;
+	%Straight Lines [id:da8805394368238584] 
+	\draw    (442,157.67) -- (442,177.67) ;
+	%Straight Lines [id:da9105517645243818] 
+	\draw    (462,157.67) -- (462,177.67) ;
+	%Straight Lines [id:da7375666971763377] 
+	\draw    (502,157.67) -- (502,177.67) ;
+	%Straight Lines [id:da519970374400013] 
+	\draw    (522,157.67) -- (522,177.67) ;
+	%Straight Lines [id:da9345793756328389] 
+	\draw    (562,157.67) -- (562,177.67) ;
+	%Straight Lines [id:da04789107971266471] 
+	\draw    (462,97.67) -- (462,117.67) ;
+	%Straight Lines [id:da1529122556111825] 
+	\draw    (502,97.67) -- (502,117.67) ;
+	%Straight Lines [id:da6146433793251727] 
+	\draw    (462,217.67) -- (462,237.67) ;
+	%Straight Lines [id:da494420762135248] 
+	\draw    (502,217.67) -- (502,237.67) ;
+	%Straight Lines [id:da495638130506715] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (324,170.67) -- (234,260.67) ;
+	%Straight Lines [id:da9417630463945195] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (144,170.67) -- (234,260.67) ;
+	%Straight Lines [id:da19448076333166897] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (480.6,76.2) -- (510.6,106.2) ;
+	%Straight Lines [id:da6966329371071581] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (542,137.67) -- (572,167.67) ;
+	%Straight Lines [id:da12519608396312176] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,107.67) -- (482,137.67) ;
+	%Straight Lines [id:da3844455078172324] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (392,167.67) -- (422,197.67) ;
+	%Straight Lines [id:da1083008562556157] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (422,137.67) -- (452,167.67) ;
+	%Straight Lines [id:da39018704416668093] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,197.67) -- (512,227.67) ;
+	%Straight Lines [id:da3591047819220503] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,227.67) -- (482,257.67) ;
+	%Straight Lines [id:da15564315798481743] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,137.67) -- (512,167.67) ;
+	%Straight Lines [id:da4754136960692654] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,167.67) -- (542,197.67) ;
+	%Straight Lines [id:da6921279716462709] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,167.67) -- (482,197.67) ;
+	%Straight Lines [id:da981122508969177] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (422,137.67) -- (392,167.67) ;
+	%Straight Lines [id:da3358448702724307] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,167.67) -- (422,197.67) ;
+	%Straight Lines [id:da3442244600026939] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,107.67) -- (482,137.67) ;
+	%Straight Lines [id:da6736183170796659] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,77.67) -- (452,107.67) ;
+	%Straight Lines [id:da38092812763972483] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (542,137.67) -- (512,167.67) ;
+	%Straight Lines [id:da43846868808333506] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,197.67) -- (452,227.67) ;
+	%Straight Lines [id:da438615072840856] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,227.67) -- (482,257.67) ;
+	%Straight Lines [id:da6064811902257697] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (480.6,76.2) -- (570.6,166.2) ;
+	%Straight Lines [id:da43605936381046007] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (392,167.67) -- (482,257.67) ;
+	%Straight Lines [id:da3042979851972285] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (572,167.67) -- (482,257.67) ;
+	%Straight Lines [id:da7604788032026776] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (572,167.67) -- (542,197.67) ;
+	%Straight Lines [id:da5827531272516981] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,77.67) -- (392,167.67) ;
+	%Straight Lines [id:da09759145386501367] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,137.67) -- (452,167.67) ;
+	%Straight Lines [id:da730504504375001] 
+	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,167.67) -- (482,197.67) ;
+	%Shape: Rectangle [id:dp3057385361936208] 
+	%\draw  [draw opacity=0][fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=0.21 ] (234,80.67) -- (324,170.67) -- (234,260.67) -- (144,170.67) -- cycle ;
+	%Shape: Rectangle [id:dp9853880598725157] 
+	%\draw  [draw opacity=0][fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=0.21 ] (482,77.67) -- (572,167.67) -- (482,257.67) -- (392,167.67) -- cycle ;
+	%Shape: Rectangle [id:dp036729546666227186] 
+	\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (360,98.92) -- (390,128.92) -- (360,158.92) -- (330,128.92) -- cycle ;
+	%Shape: Rectangle [id:dp06678489772991758] 
+	\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (415.25,74.42) -- (445.25,104.42) -- (415.25,134.42) -- (385.25,104.42) -- cycle ;
+	%Shape: Rectangle [id:dp3996131973661289] 
+	\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (532.25,47.67) -- (562.25,77.67) -- (532.25,107.67) -- (502.25,77.67) -- cycle ;
+	%Shape: Rectangle [id:dp41852476179520226] 
+	\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (567.25,87.42) -- (597.25,117.42) -- (567.25,147.42) -- (537.25,117.42) -- cycle ;
+	%Shape: Rectangle [id:dp19499344407905783] 
+	\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (380,207.17) -- (410,237.17) -- (380,267.17) -- (350,237.17) -- cycle ;
+	
+		
+\end{tikzpicture}
+
+
+\end{comment}

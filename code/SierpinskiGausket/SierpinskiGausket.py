@@ -122,7 +122,7 @@ class sierpinski:
             return self.findMidTriangle(init_val, n) + [[tuple(x) for x in init_val]]
 
 
-    def makeTriangle(self, n: int = None)-> None:
+    def makeTriangle(self, n: int = None, markers: bool = False)-> None:
         """Given an amount of iterations gives a plot for the Sierpinski triangle after n iterations. The plot output will be in the scale of 2**n, to avoid float division and to take advantage of interger division. Further the function "findMidTriangle" finds all the middle triangles, to draw as few lines as possible
         
         Args
@@ -142,13 +142,21 @@ class sierpinski:
         # Create subplots
         fig, ax = plt.subplots()
 
+        sierpinski = self.trianglePoints(n)
         # Add all the lines to the figure
-        ax.add_collection(LineCollection(self.trianglePoints(n), colors = "black", linewidths=1/n))
+        ax.add_collection(LineCollection(sierpinski, colors = "black", linewidths=1/n))
+
+        if markers == True:
+            # Creates points for scatterplot
+            point_x = [x[0] for lists in sierpinski for x in lists[:3]]
+            point_y = [y[1] for lists in sierpinski for y in lists[:3]]
+            
+            ax.scatter(point_x, point_y, marker="o", s=5, c='k')
 
         # Computes limites of graph (how far x and y axis should stretch out) based on n
-        buffer = pow(2, n)/10 # A buffer to make the final graph not look as cramped
-        x_min, x_max = -buffer, pow(2, n) + buffer
-        y_min, y_max = -buffer, pow(2, n) + buffer
+        buffer = pow(2, n+1)/10 # A buffer to make the final graph not look as cramped
+        x_min, x_max = -buffer, pow(2, n+1) + buffer
+        y_min, y_max = -buffer, pow(2, n+1) + buffer
 
         ax.set_xlim(x_min, x_max)
         ax.set_ylim(y_min, y_max)

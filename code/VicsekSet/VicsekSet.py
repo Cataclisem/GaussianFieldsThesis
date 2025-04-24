@@ -197,7 +197,7 @@ class vicsek:
 
         # Create subplots
         fig, ax = plt.subplots(figsize=(10,10))
-        ax.add_collection(LineCollection(line_collection, colors = "black", linewidths=1/line_frac))
+        ax.add_collection(LineCollection(line_collection, colors = "black", linewidths=1/2))
 
         if markers == True:
             # Creates points for scatterplot
@@ -205,7 +205,7 @@ class vicsek:
             point_x = [x[0] for lists in line_collection for x in lists] + [x[0] for x in midpoints]
             point_y = [y[1] for lists in line_collection for y in lists] + [y[1] for y in midpoints]
             
-            ax.scatter(point_x, point_y, marker="o", s=5)
+            ax.scatter(point_x, point_y, marker="o", s=1, c="k")
 
         # Computes limites of graph (how far x and y axis should stretch out) based on n
         buffer = (pow(3, n) * init_length)/10 # A buffer to make the final graph not look as cramped
@@ -300,17 +300,6 @@ class vicsek:
 
 
 
-#test = vicsek(n=2)
+test = vicsek(n=7)
 
-#init_dict = test.pointsAndNeighbourswhat()
-#pprint(f"dict: {init_dict}")
-#print(f"not iter: {init_dict}")
-#x, y = test.pointsAndNeighboursIterative(initDict=init_dict, points=test.findPointsForLineCollection(n=0), n=1)
-#pprint(f"iter: {x}")
-
-#huh = test.harmonicExtension((0,0), 0, 1)
-
-#or i in huh:
-#    pprint(f"{i}, {huh[i]}")
-
-#test.printLaplacianOperatorMatrix()
+test.makeVicsek(markers=False)

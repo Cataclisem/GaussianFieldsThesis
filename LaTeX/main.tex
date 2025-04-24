@@ -107,6 +107,7 @@
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\supp}{supp}
 
+\newcommand{\fracConst}{\mathcal{S}}
 \DeclareMathOperator{\dd}{d}
 
 
@@ -128,7 +129,7 @@
 \let\temp\sum
 \DeclareMathOperator*{\TKS}{\scalerel*{\rotatebox{0}{\ikonINKA}}{\temp}}
 \newboolean{TK}
-\setboolean{TK}{false}   % Turn on or off by 'true' or 'false'
+\setboolean{TK}{true}   % Turn on or off by 'true' or 'false'
 \ifthenelse{\boolean{TK}}{\let\sum\TKS}{\let\sum\temp}
 
 %----------------------- THEOREMS AND EQUATIONS ---------------------------
@@ -189,16 +190,19 @@
 \begin{document}
 	
 	\ifthenelse{\equal{\Question}{1}}{%
-	\input{Questions}}
+	\input{Questions}%
+	}
 	{
 	\pagestyle{plain}
 	
+	\hypersetup{pageanchor=false}
 	\input{frontPage}
 	
 	\frontmatter
 	
 	\input{abstact}
-
+	
+	\hypersetup{pageanchor=true}
 	\newpage
 	\tableofcontents
 	
@@ -206,6 +210,8 @@
 	\pagestyle{fancy}
 	
 	\input{pointWise}
+	
+	\input{PreliminaryProofs}
 	
 	
 	\backmatter

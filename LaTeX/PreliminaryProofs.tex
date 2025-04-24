@@ -1,0 +1,75 @@
+\chapter{And now for something completely different}
+
+In the previous chapter we constructed the Vicsek set, now we will consider the discrete Laplacian on this
+
+\begin{defi}
+	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
+	\begin{equation}
+		\Delta_m f(p) = \text{\textcolor{red}{{CONST}}} \sum_{q \in V_{m,p}} (f(q) - f(p)), \quad p \in V_m \backslash V_0
+	\end{equation}
+\end{defi}
+
+Now let $C(K)$ be the set of continuos functions on $K$. We then define
+\begin{equation}
+	\mathcal{D} = \cbr{f \in C(K) \ : \ \exists g \in C(K), \lim_{m \to \infty} \max_{p \in V_m \backslash V_0} \abs{\Delta_m f(p) - g(p)} = 0}
+\end{equation}
+
+This set leads us to defining
+\begin{defi}
+	The Kigami Laplacian $\Delta : \mathcal{D} \to C(K)$ is defined as
+	\begin{equation}
+		\Delta f(p) = g(p)
+	\end{equation}
+	where $g$ satisfies: $\lim_{m \to \infty} \max_{p \in V_m\backslash V_0}\abs{\Delta_m f(p) - g(p)} = 0$
+\end{defi}
+
+\begin{theorem}[Bochner-Minlos]\label{BochnerMinlos}
+	Assume $\mathbb{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathbb{X}$ satisfying $\lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathbb{X}'$
+	\textcolor{red}{REFERENCE IS FROM WIKIPEDIA} \href{https://web.archive.org/web/20160304081333/http://www3.math.uni-paderborn.de/~johansen/seminars/minlos.pdf}{Ref is here}
+\end{theorem}
+
+
+\begin{theorem}
+	Let $s \geq 0$, there exists a centered Gaussian distribution $X_s$ on $S'(K)$ such that for $f,g \in S(K)$
+	\begin{equation}
+		\e[X_s(f)X_s(g)] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	The space $S(K)$ is a nuclear space \textcolor{red}{WHY}, it is enough to use Bochner-Minlos  \cref{BochnerMinlos} on the functional
+	\begin{equation}
+		\Lambda : f \to \exp\left(-\frac{1}{2} \norm{f}^2_{k}\right).
+	\end{equation}
+\textcolor{red}{DEFINE NORM}
+
+This is enough since \cref{BochnerMinlos} then gives an unique probability measure $\nu$ such
+\begin{equation}
+	\exp \left(-\frac{1}{2} \norm{f}^{2}_{k}\right) = \int_{S'(K)} e^{i \inn{x}{f}} \dd \nu (x).
+\end{equation}
+Notice that the right side is an characteristic function for some random variable. If we choose $f= t\cd g$ for some $g \in S(K)$ and $t \in \ree$ \textcolor{red}{Where is $t$ from?}(notice that $t \cd g \in S(K)$) then the left side of the equation becomes the characteristic function for the normal distribution with mean zero and variance $\norm{f}_{s}^{2}$. Thus we have the $X_s$ we wanted.
+
+
+Now to prove that $\Lambda$ is satisfies the requirements of \cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, further it follows from the fact that $\norm{t\cdot f}_{k}^{2}$ is an inner product that with\textcolor{red}{THEOREM: 2.4 A SURVEY} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at zero. 
+
+First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$.
+
+Now let $\epsilon > 0$ be given, choose $$\delta = \begin{cases}
+	\left(\frac{-2\cd \ln(1-\epsilon)}{C}\right)^{\frac{1}{2}}, & \text{when } \epsilon \in (0,1) \\
+	1,& \text{when } \epsilon \geq 1.
+\end{cases}$$
+First if $\epsilon \geq 1$ notice that 
+\begin{equation}
+	\abs{\exp\left(-\frac{1}{2} \norm{f}_{s}^{2}\right) - \exp\left(-\frac{1}{2} \norm{0}_{s}^{2}\right)} \leq 1 \leq \epsilon, \quad \forall f \in S(K)
+\end{equation} 
+in which we can choose $\delta$ to be any real number larger than $0$. Moving on to $\epsilon \in (0,1)$ we get
+\begin{align}
+	\abs{\exp\left(-\frac{1}{2} \norm{f}_{s}^{2}\right) - \exp\left(-\frac{1}{2} \norm{0}_{s}^{2}\right)} &\leq \abs{\exp\left(-\frac{1}{2} C\norm{f}_{L^2(K,\mu)}\right) - 1} \\
+	&= \abs{\exp\left(-\frac{1}{2} C \int_{K}\abs{f}^2 \dd \mu\right) - 1} \\
+	&\leq \abs{\exp\left(-\frac{1}{2} C \int_{K} \delta^2 \dd \mu\right) - 1} \\
+	&= \abs{\exp\left(-\frac{1}{2} C \int_{K} \frac{-2\cd \ln(1-\epsilon)}{ C} \dd \mu\right) - 1}  \\
+	&= \abs{\exp\left(\ln(1-\epsilon)\right) -1}\\
+	& = \epsilon
+\end{align}
+in the third to last equality using that $\mu$ is a probability measure. In which case we have continuity in $0$ as desired.
+\end{proof}
