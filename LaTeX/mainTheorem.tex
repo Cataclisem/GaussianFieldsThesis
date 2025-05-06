@@ -1,0 +1,39 @@
+\chapter{Main Theorem}
+
+We have now proven the existence of the gaussian fields and are now ready to prove the convergence.
+
+\begin{theorem}
+	Let $s \geq 0$, then $X_{s}^{m}$ converges to $X_s$ in distribution in $S'(K)$ when $m \to \infty$
+\end{theorem}
+
+\begin{proof}
+	First since $S(K)$ is a nuclear space, it is enough to prove the convergence of the characteristic functional \textcolor{red}{WHY???}, e.i that for all $f \in S(K)$
+	\begin{equation}
+		\e \left[\exp(itX_{s}^{m}(f_m))\right] \to \e \left[\exp(itX_{s}(f))\right], \quad \text{ as } m \to \infty
+	\end{equation} 
+	where $f_m = f \mid_{V_m}$. It follows fra \textcolor{red}{INSERT REF} that
+	\begin{equation}
+		\e \left[\exp(itX_{s}^{m}(f_m))\right] = \exp \left(-\frac{1}{2} t^2 \e \left[(X_{s}^{m}(f_m))^2\right]\right) = \exp \left(-\frac{1}{2a_m} t^2  \sum_{p \in V_m} f_m(p) (-\Delta_m)^{-2s} f_m(p)\right)
+	\end{equation}
+	Likewise we find that via \textcolor{red}{coll. 2.11 + 2.9} we get that
+	\begin{equation}
+		\e \left[\exp(i t X_{s}(f))\right] = \exp\left(-\frac{1}{2} t^2 \e \left[(X_{s}(f))^2\right]\right) = \exp\left(-\frac{1}{2}t^2 \int_{K} f (-\Delta)^{-2s}f \dd \mu\right).
+	\end{equation} 
+	Where we notice that
+	\begin{align}
+		\e \left[(X_{s}(f))^2\right] &= \int_{K} (-\Delta)^{s}f (-\Delta)^{s}f \dd \mu \\
+		& = \int_{K} \int_{K} f(p)f(q) G_{2s}(p,q) \dd\mu(p) \dd \mu(q) \\
+		& = \int_{K} f (-\Delta)^{-2s}f \dd \mu.
+	\end{align}
+	The proof now follows from \cref{convergence}.
+\end{proof}
+
+\begin{lemma}\label{convergence}
+	For all $f \in S(K)$ and $s \geq 0$ the following holds
+	\begin{equation}
+		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) (-\Delta_m)^{-2s}f_m(p) \to \int_{K}f(x)(-\Delta)^{-2s}f(x) \dd \mu(x), \quad \text{as } m \to \infty
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	For $s = 0$ the lemma follows from \textcolor{red}{REF!!!}. 
+\end{proof}

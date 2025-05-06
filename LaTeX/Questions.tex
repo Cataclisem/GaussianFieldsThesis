@@ -1,46 +1,27 @@
 {\Huge{\textbf{Questions from \today}}}
 
-\section*{Question}
-
-
-
-\section*{Question 1}
-I have written
-"
-Uniform converges of the right side is because of continuity of $f(x)$, so let $\epsilon > 0$ be given, then by lemma 1.7 (this lemma states for $F_m = \supp \psi_{x}^{(m)}$ then $F_0 \supset F_1 \supset F_2 \supset \dots$) we can choose $m$ large enough so for all $x, y \in F_m$ that $\abs{f(x) - f(y)} < \epsilon$, then
-\begin{align}
-	\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
-	&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
-	&\leq \frac{\int_{F_m} \abs{f(y) -f(x)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
-	&\leq \frac{\epsilon \int_{F_m} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
-	&= \epsilon
-\end{align}"
-
-
-We talked about $F_m$ being compact, but i find that $F_m$ is open and therefore not compact. This is since we remove the end points from $F_m$ namely the points in $V_m$.
-
-But do we even need $F_m$ to be compact, can't we just use continuity of $f$ to prove it as i have done above?
-
-
-\section*{Question 2}
-I think i can solve the convergence of $\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y)$, but i think I am getting confused by the notation.
-
-We have gotten
-\begin{align}
-	\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)}(y) \dd\mu(y) \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)}(y) \dd\mu(y) \right)^{-1} \Delta_{m}u(x) \\
-	&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m \psi_x^{(m)}(y) \right) \dd \mu (y).
-\end{align}
-When showing that
-\begin{equation} \label{q2Eqution1}
-	\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) \to v(x)f(x) \quad \text{as } m \to \infty
-\end{equation}
-But here i would still say that
+\subsection*{Question 1}
+In the proof of Theorem 4.5 why does the second equality in the next equation hold?
 \begin{equation}
-	\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) = v(y)f_m(y)
+	\e[\exp(i t X_s(f))] = \exp \left(-\frac{1}{2} t^2 \e [(X_s(f))^2] \right) = \exp\left(-\frac{1}{2}t^2\int_{K} f (-\Delta)^{-2s}f \dd \mu\right)
 \end{equation}
-and from this point it is just taking the limit.
 
-But we talked about that the proof of this convergence would be similar to the one for $\int_{K} f\psi_x^{(m)} \dd \mu$, so i think i am doing something wrong. 
+\subsection*{Question 2}
+In lemma 4.4 for $s = 0$ why is
+\begin{equation}
+	(-\Delta_m)^{0} f_m(p) = 1.
+\end{equation}
+I cannot get it to fit with the definition of $(-\Delta_m)^{-s}$
 
-Again i am sure this is because of my misunderstanding of $\psi_{x}^{(m)}$ and the notation of the book, but i cannot quite figure out how i am suppose to understand this.
+\subsection*{Question 3}
+Again in the proof of lemma 4.4 you state that
+\begin{equation}
+	\sup_{m} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)^2 < \infty.
+\end{equation}
+My guess is that it is because $V_m$ is a subset of the compact set $K$ and $f_m \in \ell(V_m) \subset C(K)$.
 
+\subsection*{Question 4}
+In the end of lemma 4.4, why does the following equality hold?
+\begin{equation}
+	\frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \int_{K}f(x)P_tf(x) \dd \mu(x) \dd t = \int_{K}f(x)(-\Delta)^{-2s}f(x) \dd \mu(x)
+\end{equation}
