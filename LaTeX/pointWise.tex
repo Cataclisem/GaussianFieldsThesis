@@ -1,10 +1,9 @@
 \chapter{We gotta start somewhere}
 In this thesis we will be studying the Vicsek set, so therefore we will in this section start by constructing the set and proving some basic properties of the Vicsek set.
 
-
 \section{Construction the Vicsek set}
 
-Let $V_0 = \cbr{p_1, p_2, p_3, p_4, p_5}$ be the set of vertices in a plus with a middle point in $\cee$. Then define
+Let $V_0 = \cbr{p_1, p_2, p_3, p_4, p_5}$ be the set of vertices in a plus with a middle point in $\ree^{2}$. Then define
 \begin{equation}
 	\fracConst_i(z) = \frac{1}{3} \left(z - p_i\right) +p_i, \quad \text{for } i = 1,2,\ldots 5.
 \end{equation}
@@ -19,19 +18,28 @@ Next we can then define a sequence of sets $(V_m)_{m \geq 0}$ inductively:
 \begin{equation}
 	V_{m+1} = \bigcup_{i = 1}^{5} \fracConst_i(V_m)
 \end{equation}
-this gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$. Further we will use the notation of $V_{\ast} = \cup_{m \geq 0} V_m$ and for any $p \in V_m$ we denote the collection of neighbours of $p$ in $G_m$ by $V_{m,p}$. Lastly note that $\# V_m = 5^{m}\cd 4 + 1$
+this gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$. Further we will use the notation of $V_{\ast} = \cup_{m \geq 0} V_m$ and for any $p \in V_m$ we denote the collection of neighbours of $p$ in $G_m$ by $V_{m,p}$. Lastly note that $N_m = \# V_m = 5^{m}\cd 4 + 1$.
 
 
-\section{Minimizing Energy}
+\section{Dirichlet Forms}
 In this section we will follow arguments given by \cite{strichartz}.
 
-Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: V_m \to \ree$ we define the energy to be
-\begin{equation}\label{graphEnergy}
-	E_K(u) = \sum_{x \sim y} \left(u(x) - u(y) \right)^2 
-\end{equation}
-\begin{remark*}
-	While \cite{strichartz} often calls this form graph energies, it is the Dirichlet form.
-\end{remark*}
+In this section we wish to introduce the notion of Dirichlet forms. This will allow us to introduce the Dirichlet Laplacian and an important constant. Let us start by introducing the Dirichlet form.
+
+\begin{defi}
+	Let $V$ be a finite set. A symmetric bilinear form on $\ell(V)$ 
+\end{defi}
+
+ the standard graph Dirichlet form.
+
+
+
+\begin{defi}
+	Given a finite connected graph $K$ and it vertices $V_m$ the for a function $u: V_m \to \ree$ we define the \emph{standard graph Dirichlet form} to be
+	\begin{equation}\label{graphEnergy}
+		E_K(u) = \sum_{x \sim y} \left(u(x) - u(y) \right)^2 
+	\end{equation}
+\end{defi}
 
 \begin{prop}
 	Equation \eqref{graphEnergy} is indeed a Dirichlet form
@@ -113,7 +121,7 @@ Since the Vicsek set is constructed from $V_m$ to $V_{m+1}$ by creating a "plus"
 	E_{m+1}(u') = \frac{1}{3}E_m(u')
 \end{equation}
 
-Thus we get our renormalization constant to be $r = \frac{1}{3}$
+Thus we get our renormalization constant to be $r = 3$
 
 \begin{lemma}\label{itIsZero}
 	Let $v: K \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{\ \abs{w} > 0} F_w x \right) \cup \left(\bigcup_{i} \{y_i\} \right)$
@@ -140,7 +148,7 @@ What lemma $\ref{itIsZero}$ sates, is if any two points in $V_m$ are neighbours,
 	The containment of $F_m$ in $B(x, \epsilon_m)$ follows from \cref{itIsZero} and that $F_m \supset F_{m+1}$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem} \label{pointwiseFormula}
 	Let $u \in \dom \Delta_\mu$. Then the pointwise formula
 	\begin{equation}
 		\Delta_{\mu} u(x) = \lim_{m \to \infty} r^{m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \delta_m u(x)
@@ -436,6 +444,132 @@ so $u \in \dom_{\mu}$
 	
 		
 \end{tikzpicture}
-
-
 \end{comment}
+
+
+\section{Iterated Function System}
+The iterated functions systems (IFS) gives us a way to work with self-similarly sets. Another reason for constructing the IFS is that we are able to prove that the Vicsek set actually exists.
+
+\begin{defi}
+	A finite family of functions $\cbr{\fracConst_1, \fracConst_2, \ldots, \fracConst_m}$ with $m \geq 2$ is called an \emph{iterated function system} (or IFS) if exists $c_i \in (0, 1)$ such that all $\fracConst_i$ are \emph{contractions}. Which is exactly
+	\begin{equation}
+		\abs{\fracConst_i(x) -\fracConst_i(y)} \leq c_i \abs{x-y}.
+	\end{equation}
+	Further we call a non-empty compact subset $K$ of $X$ an \emph{invariant set} for the IFS if
+	\begin{equation}\label{invariantSet}
+			K = \bigcup_{i = 1}^{m} \fracConst_i(K)
+	\end{equation}
+\end{defi}
+
+Next we will show when there exists a unique invariant set.
+
+For the proof we quickly define the Hausdorff metric
+\begin{defi}
+	Define $A_{\delta} = \cbr{x \in \mathcal{A} : \exists a \in A, \abs{x-a} < \delta }$ 
+	The \emph{Hausdorff metric} is given by
+	\begin{equation}
+		d_H(X,Y) = \inf \cbr{\delta : X \subset Y_\delta \text{ and } Y \subset X_\delta}
+	\end{equation}
+\end{defi}
+The proof that $d_H$ metric can be found in \cite{Henrikson1999CompletenessAT}.
+
+
+\begin{theorem}
+	Consider the IFS given by $\cbr{\fracConst_1, \fracConst_2, \ldots, \fracConst_m}$, then there is a unique invariante set $K$ for the IFS.
+	
+	Moreover, if we define a transformation $S$, on the class $\mathcal{A}$ of non-empty compact sets, by
+	\begin{equation}
+		S(E) = \bigcup_{i = 1}^{m} \fracConst_i(E), \quad \text{for } E \in \mathcal{A}
+	\end{equation}
+	and write $S^k$ to be the$k$'th iterate of $S$, so $S^{0} = E$ and $S^{k}(E) = S(S^{k-1}(E))$ for $k \geq 1$. Then
+	\begin{equation}
+		F = \bigcap_{i = 0}^{\infty} S^{k}(E)
+	\end{equation}
+	for every set $E \in \mathcal{A}$ such that $S_i(E) \subset E$ for all $i$.
+\end{theorem}
+
+\begin{proof}
+	Let $E$ be any set in $\mathcal{A}$ such that $S_i(E) \subset E$ for all $i$. By induction we find that $S^{k}(E) \subset S^{k-1}(E)$. Since
+	$S^{0} = E \supset S(E) = S^{1}(E)$, then $S^{k+1}(E) = S(S^{k}(E)) \subset S(S^{K-1}(E)) = S^{k}(E)$ by the induction assumption that $S^{k} \subset S^{k-1}$. So $S^{k}(E)$ is a decreasing sequence of non-empty compact sets, in which case it must have a non.empty compact intersection $K = \bigcap_{k \geq 0} S^{k}(E)$. Since $S^{k}(E)$ is decreasing, then $S(F) = F$ \textcolor{red}{why?} fulfilling \eqref{invariantSet}.
+	
+	Now moving on to uniqueness, We will need the following inequality
+		\begin{equation}\label{eq:hausdorffMetricInequality}
+		d_H(S(A), S(B)) = d_H \left(\bigcup_{i = 1}^{m} \fracConst_i(A), \bigcup_{i = 1}^{m} \fracConst_i(B)\right) \leq \max_{1 \leq i \leq m} d_H(\fracConst_i(A), \fracConst_i(B)) \leq \max_{1 \leq i \leq m} c_i \cd d_H(A,B).
+	\end{equation}
+	So assume $A$ and $B$ are both invariant sets, then $S(A) = A$ and $S(B) = B$, but that gives us that
+	\begin{equation}
+		d_H(A,B) = d_H(\fracConst_i(A), \fracConst_i(B)) \leq \max_{1 \leq i \leq m} c_i \cd d_H(A,B)
+	\end{equation}
+	and since $0 < \max_{1 \leq i \leq m}  c_i < 1$, then $d_H(A,B) = 0$ so $A = B$ and it is unique.
+	
+	Lastly we will prove \eqref{eq:hausdorffMetricInequality}. The first inequality comes by choosing $\delta = \max_{1 \leq i \leq m} d_H(\fracConst_i(A), \fracConst_i(B))$ since that means that $\fracConst_i(B) \subset (\fracConst_i(A))_{\delta}$ for all $0 \leq i \leq m$, thus it will definitely hold for $\bigcup_{i = 1}^{m} \fracConst_i(B) \subset \left(\bigcup_{i = 1}^{m} \fracConst_i(B)\right) _{\delta}$ and vice versa. 
+	The second inequality comes from letting $\delta = d(A,B)$ then for every $a \in A$ we can choose some $b \in B$ such that $\abs{a-b} \leq \delta$ in which case $\abs{\fracConst_i(a) -\fracConst_i(b)} \leq c_i \delta$ and therefore $\fracConst_i(A) \subset \left(\fracConst_i(B)\right)_{c_i \delta}$. 
+\end{proof}
+
+
+Now showing the existence of the Vicsek set is simply just checking that $\fracConst_i$ are contractions. Which can be seen simply as
+\begin{equation}
+	\abs{\fracConst_i(x) - \fracConst_i(y)} = \abs{\frac{1}{3} \left(x - p_i\right) +p_i - \left(\frac{1}{3} \left(y - p_i\right) +p_i\right)} = \frac{1}{3} \abs{x-y} 
+\end{equation} 
+
+
+
+\section{Something About Hausdorff and Walk Dimensions}
+
+What is hausdorff dimension? We first have to look at Hausdorff measure. 
+
+We say the countable collection of set ${U_i}_{i \geq 1}$ is a \emph{$\delta$-cover} of $K$ if $K \subset \bigcup_{i \geq 1} U_i$ and $0 \leq \diam U_i \leq \delta$. Here $\diam(A):= \sup_{x, y \in A}d(x,y)$ where $d(\cdot, \cdot)$ is a metric.
+
+\begin{defi}
+	Let $X$ be a metric space. If $K \subset X$ and $d \in [0, \infty)$ then let
+	\begin{equation}
+		H^{d}_{\delta}(K) = \inf \cbr{\sum_{i =1}^{\infty} \diam(U_i)^d \ : \ \bigcup_{i = 1}^{\infty} U_i \supseteq K, \diam(U_i) < \delta}.
+	\end{equation}
+	The $d$-dimensional \emph{Hausdorff measure} is given by
+	\begin{equation}
+		\mathcal{H}^d(K) = \lim_{\delta \to 0} H^{d}_{\delta}(K)
+	\end{equation}
+\end{defi}
+
+The Hausdorff measure defined above, is not a measure i the normal measure theory sense but ratherit is an outer measure. Though it is possible to prove that the Hausdorff measure restricted to Borel-set is a measure.
+
+Moving swiftly along, we notice that if $\delta < 1 $ then $H^s_{\delta}(K)$ is non-increasing with $d$. So by definition of $\mathcal{H}^s(K)$ is also non-increasing. We actually have an even stronger statement regarding $\mathcal{H}^{s}(K)$: if $t > s$ and ${U_i}_{i \geq 1}$ is a $\delta$-cover of $K$ then we have
+\begin{equation}
+	\sum_{i \geq 1} \diam(U_i)^{t} = \sum_{i \geq 1} \diam(U_i)^{t-s}\diam(U_i)^{s} \leq \delta^{t-s}\sum_{i \geq 1}\diam(U_i)^{s}.
+\end{equation}
+Taking infima on both sides we get that $H^t_{\delta}(K) \leq \delta^{t-s}H^s_{\delta}(K)$. If we let $\delta \to 0$ we see that if $\mathcal{H}^{s}(K) < \infty$ then $\mathcal{H}^{s}(K) = 0$ for $t > s$. There must then exists a value $s$ such that $\mathcal{H}^{s}(K) \neq 0$ the smallest such value is called the \emph{Hausdorff Dimension} of $K$. Formally written:
+\begin{defi}
+	The \emph{Hausdorff dimension}, denoted $d_h(K)$ is given by
+	\begin{equation}
+		d_h(K) = \inf\cbr{s \geq 0 : \mathcal{H}^{s}(K) = 0} = \sup\cbr{s : \mathcal{H}^{s}(K) = \infty}.
+	\end{equation}
+\end{defi} 
+When there is no confusion with regard to what set we are working with, we denote the Hausdorff dimension by $d_h$.
+
+Now it is quite difficult to determine the Hausdorff dimension from the definition. Luckily we can with a few assumption find the Hausdorff dimension quite easily.
+
+
+We first define the open set condition
+\begin{defi}\label{OpenSetCondition}
+	We say that a IFS $\fracConst_i$ satisfy the \emph{open set condition} if there exists a non-empty bounded open set $V$ such that
+	\begin{equation}
+		V \supset \bigcup_{i = 1}^{5} \fracConst_i(V)
+	\end{equation}
+\end{defi}
+
+
+\begin{theorem}
+	Suppose \cref{OpenSetCondition} holds for the similarities $\fracConst_i$ on $\ree^{n}$ with ratios $0 < c_i < 1$ for $1 \leq i \leq m$. If there for $K$ holds
+	\begin{equation}
+		K = \bigcup_{i = 1}^{m} \fracConst_i(K)
+	\end{equation}
+	then $d_h = \kappa$ where $\kappa$ is given by
+	\begin{equation}
+		\sum_{i = 1}^{m} c_i^{\kappa} = 1.
+	\end{equation}
+	Moreover, for this value of $s$, $0 < \mathcal{H}^s(K) < \infty$
+\end{theorem}
+
+\begin{proof}
+	Let $\mathcal{I}_k$ denote the set of all $k$-term sequences $(i_1, \ldots i_k)$ with $1 \leq i_j \leq m$. 
+\end{proof}

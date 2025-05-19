@@ -1,5 +1,6 @@
 \chapter{Main Theorem}
 
+\section{Something}
 We have now proven the existence of the gaussian fields and are now ready to prove the convergence.
 
 \begin{theorem}
@@ -7,7 +8,7 @@ We have now proven the existence of the gaussian fields and are now ready to pro
 \end{theorem}
 
 \begin{proof}
-	First since $S(K)$ is a nuclear space, it is enough to prove the convergence of the characteristic functional \textcolor{red}{WHY???}, e.i that for all $f \in S(K)$
+	First since $S(K)$ is a nuclear space, by \cite[Corollary~2.4]{biermé2017generalizedrandomfieldslevys} it is enough to prove the convergence of the characteristic functional, e.i that for all $f \in S(K)$
 	\begin{equation}
 		\e \left[\exp(itX_{s}^{m}(f_m))\right] \to \e \left[\exp(itX_{s}(f))\right], \quad \text{ as } m \to \infty
 	\end{equation} 
@@ -35,5 +36,81 @@ We have now proven the existence of the gaussian fields and are now ready to pro
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	For $s = 0$ the lemma follows from \textcolor{red}{REF!!!}. 
+	For $s = 0$  we find that 
+	\begin{align}
+		(-\Delta_m)^{-0} f&= \sum_{i = 1}^{N_m} \frac{1}{(\lambda_i^{m})^{0}} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \psi_{i}^{m}(y) f(y) \\
+	&= \sum_{i = 1}^{N_m} \phi_{i}^{m}(x) \int_{V_m} \phi_i^{m}(y)f(y) \dd \mu_{m} \\
+	& = f_m.
+	\end{align}
+	Likewise by definition of $(-\Delta)^{-s}$ we find
+	\begin{align}
+		(-\Delta)^{-0} f = \sum_{i = 1}^{\infty} \phi_{i} \int_{K} \phi_i(y) f(y) \dd \mu = f.
+	\end{align}
+	and the lemma follows from \textcolor{red}{REF!!!}. Now assume $s > 0$ then by Fubini's theorem and \textcolor{red}{Some random ass fact} we have that
+	\begin{align}
+		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_t^{m} f_m(p) (-\Delta_{m})^{-2s}f_m(p)  = \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p).
+	\end{align}
+	Now by B.2.7 in \cite{Kigami_2001} and the definition of $f_m$ we find that
+	\textcolor{red}{INSERT CALCULATION HERE}
+	\begin{align}
+		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p) &= \frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} \sum_{j =1}^{\infty} \inn{f_m}{\phi_i} \phi_{i} \\
+		&= \frac{1}{a_m} \sum_{p \in V_m} f_m(p) \sum_{j =1}^{\infty} \inn{f_m}{\phi_j} P_{t}^{m} \phi_{j} \\
+		& = \frac{1}{a_m} \sum_{p \in V_m} f_m(p) \sum_{j =1}^{\infty} \inn{f_m}{\phi_j} e^{-\lambda_{j}^{m} t} \phi_{j} \\
+		 &\leq e^{-\lambda_1^{m}t} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)^2
+	\end{align}
+	where we can guarantee the inequality for all $j$ since $0 < \lambda_1 < \lambda_2 < .\lambda_3 <..$. 
+	
+	Note that $\sup_{m} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)^2 < \infty$ since $f \in S(K) \subset C(K)$ so $f$ is bounded and $\# V_m < \infty$ for all $m$. We can now by dominated convergence, Fubini's theorem and \cref{convergenceOfSemigroups} find that 
+	\begin{align}
+		\lim_{m \to \infty} \frac{1}{a_m} \sum_{p \in V_m} f_m(p) (-\Delta_{m})^{-2s} f_m(p) &= \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} t^{2s-1} \lim_{m \to \infty}\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p) \dd t \\
+		&= \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \int_{K} f(x) P_t f(x) \dd\mu(x) \dd t \\
+		&= \frac{1}{\Gamma(2s)} \int_{K} f(x) \int_{0}^{\infty} t^{2s-1}P_t f(x) \dd t \dd\mu(x) \\
+		&= \int_{K} f(x) (-\Delta)^{-2s}f(x) \dd \mu(x)
+	\end{align}
+	as desired.
 \end{proof}
+
+
+In the following proof we will use results from \cite{KURTZ1969354}. Before stating the lemma and proof we will give some arguments as to why we are allowed to use these results.
+
+Firstly we note that since $\Delta$ is a bounded operator the by \cite[Theorem 1.2]{Pazy} it is the infinitesimal generator of a uniformly continuos semigroup.
+
+Secondly we have that the sequence of \textcolor{red}{laplacians} $\cbr{\Delta_m}_{m \geq 0}$ indeed coincides with extended limit defined in \cite[page 355]{KURTZ1969354}. This follows from \cref{pointwiseFormula}.
+
+Lastly the range $\mathcal{R}(\lambda_0 - \Delta)$ is dense in $L^2$ \textcolor{red}{why?}
+
+
+\begin{lemma}\label{convergenceOfSemigroups}
+	For all $f \in S(K)$ and $t > 0$,
+	\begin{equation}
+		\lim_{m \to \infty} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)P_t^{m} f_m(p) = \int_{K}f(x)P_tf(x) \dd\mu (x)
+	\end{equation}
+	where $f_m = f \mid_{V_m}$.
+\end{lemma}
+\begin{proof}
+	In this proof we wish to use \cite[theorem 2.1]{KURTZ1969354}  so recall that by the definition of the Laplacian on $K$ we have that
+	\begin{equation}
+		\lim_{m \to \infty} \sup_{p \in V_m} \abs{\Delta_{m}f_m(p) -\Delta f(p)}.
+	\end{equation}
+	Thus by \cite[theorem 2.1]{KURTZ1969354} we have that for all $t \geq 0$
+	\begin{equation}\label{convergensofPt}
+		\lim_{m \to \infty} \sup_{p \in V_m} \abs{P_t^{m}f_m(p) - P_t f(p)} = 0.
+	\end{equation}
+	So if we now write 
+	\begin{equation}
+		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_t^{m}f_m(p) = \int_{V_m} f_m P_t^{m} f_m \dd \mu_m.
+	\end{equation}
+	Thus 
+	\begin{equation}
+		\int_{V_m} f_m P_t^{m} f_m \dd\mu_m = 		\int_{V_m} f_m \left(P_t^{m} f_m - (P_t f)_m \right) \dd\mu_m + \int_{V_m} f_m (P_t f)_m \dd \mu_m .
+	\end{equation}
+	The first integral converges to $0$ as $m\to \infty$ because of \eqref{convergensofPt}. Further by lemma we ave$\int_{V_m} f_m (P_t f)_m \dd \mu_m \to \int_{K} fP_tf \dd \mu$ as $m \to \infty$.
+\end{proof}
+
+
+\begin{lemma}
+	The sequence of measure $(\mu_m)_{m \geq 0}$ defined in \textcolor{red}{REF!!!} converges to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$ in the weak topology. That is
+	\begin{equation}
+		\lim_{m \to \infty} \int_{K}f \dd \mu_m = \int_{K} f \dd \mu
+	\end{equation}
+\end{lemma}

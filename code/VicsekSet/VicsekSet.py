@@ -297,9 +297,3 @@ class vicsek:
         for i in self.laplacianOperatorMatrix():
             print(i)
         return None
-
-
-
-test = vicsek(n=7)
-
-test.makeVicsek(markers=False)

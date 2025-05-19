@@ -9,19 +9,51 @@ In the previous chapter we constructed the Vicsek set, now we will consider the 
 	\end{equation}
 \end{defi}
 
+\begin{remark}\label{discreteMatrix}
+	One is able to describe the discrete Laplacian as a matrix. First let $p_1, \ldots p_{N_m}$ be the vertices in $V_m$ then the \emph{Laplacian matrix} is constructed in the following way:
+	\begin{equation}
+		L_{i,j} = \begin{cases}
+			\#V_{m,p_i}, & \text{if } i= j \\
+			-1, & \text{if } i \neq j \text{ and } p_j \in V_{m,p_i} \\
+			0, & \text{otherwise.}
+		\end{cases}
+	\end{equation}
+Further $\#V_{m,p_i}$ is also called the \emph{degree of $p_i$}
+\end{remark}
+
 Now let $C(K)$ be the set of continuos functions on $K$. We then define
 \begin{equation}
 	\mathcal{D} = \cbr{f \in C(K) \ : \ \exists g \in C(K), \lim_{m \to \infty} \max_{p \in V_m \backslash V_0} \abs{\Delta_m f(p) - g(p)} = 0}
 \end{equation}
+We will use the notation of $C_0(K)$ and $D_0$ to denote the sets of functions in $C(K)$ and $D$ respectively which vanish on the boundary $\partial K$.
 
 This set leads us to defining
-\begin{defi}
+\begin{defi}\label{KigamiLaplacian}
 	The Kigami Laplacian $\Delta : \mathcal{D} \to C(K)$ is defined as
 	\begin{equation}
 		\Delta f(p) = g(p)
 	\end{equation}
 	where $g$ satisfies: $\lim_{m \to \infty} \max_{p \in V_m\backslash V_0}\abs{\Delta_m f(p) - g(p)} = 0$
 \end{defi}
+
+We will further consider the following discrete measure
+\begin{equation}
+	\mu_m = \frac{1}{5^{m}\cd 4 + 1} \sum_{p \in V_m} \delta_p
+\end{equation}
+
+
+\section{Discrete Fractional Gaussian Fields}
+Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ of $-\Delta_m$. Next let $(\Psi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following
+
+\begin{defi}
+	Let $s \geq 0$ we define the \emph{discrete Riesz kernel} on $V_m$ as
+	\begin{equation}
+		G_s^{m}(x,y) = \sum_{i = 1}^{N_m} (\lambda_i^{m})^{-s} \phi_{i}^{m}(x)\phi_{i}^{m}(y), \quad \text{for }x, y \in V_m
+	\end{equation}
+\end{defi}
+
+We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m}$ is symmetric and is non-negative \textcolor{red}{Why?}, thus it can be the covariance matrix of a Gaussian vector.
+
 
 \begin{theorem}[Bochner-Minlos]\label{BochnerMinlos}
 	Assume $\mathbb{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathbb{X}$ satisfying $\lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathbb{X}'$

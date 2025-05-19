@@ -106,6 +106,7 @@
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\diam}{diam}
 
 \newcommand{\fracConst}{\mathcal{S}}
 \newcommand{\dd}{\ \text{d}}
@@ -158,7 +159,7 @@
 
 % Upright With box theorem style
 \def\theoremColor{lightgray}
-\theoremstyle{upright}
+\theoremstyle{upright} 
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{coro}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -176,7 +177,8 @@
 
 \newtheorem{exercise}[theorem]{Exercise}
 
-\mathtoolsset{showonlyrefs=true} %Only shows equation number when ref to eq.
+\mathtoolsset{showonlyrefs=false} %Only shows equation number when ref to eq.
+\mathtoolsset{showmanualtags=true}
 \numberwithin{equation}{chapter} %Makes equation number (x.1, x.2, y.1, y.2 ...), where x, y are section
 
 
@@ -185,10 +187,11 @@
 \author{J Christopher Lentfer Kristiansen}
 \date{\today}
 
-\def\Question{0}
+\def\Question{0} % Is it question file or not
 
 \begin{document}
 	
+	% This below is so i can generate a tex file for questions without having to copy preable
 	\ifthenelse{\equal{\Question}{1}}{%
 	\input{Questions}%
 	}

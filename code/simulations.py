@@ -14,7 +14,7 @@ import timeit
 
 import multiprocessing as mp
 
-np.random.seed(100)
+#np.random.seed(100)
 
 class simulation:
 
@@ -204,7 +204,7 @@ class simulation:
 
 
 
-h = 5
+h = 4
 
 sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours, fractalType="sierpinski")
 #vicsek = simulation(n = h, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours)
@@ -237,23 +237,24 @@ if __name__ == '__main__':
         print(f"# points: {sierpinski.pointAmount}")
         start = timeit.default_timer()
         print("Sier")
-        sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=True)
+        sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=False)
         end = timeit.default_timer()
         print(f"It took {end - start} seconds")
 
     if whatToRun == 2:
         print(f"Starting process with: \n # Vicsek points: {vicsek.pointAmount}")
         start = timeit.default_timer()
-        vicsek.drawThePretty(sValues=[0.001], sameWhiteNoise=True)
-        vicsek.drawThePretty(sValues=[1], sameWhiteNoise=True)
-        vicsek.drawThePretty(sValues=[5], sameWhiteNoise=True)
-        vicsek.drawThePretty(sValues=[20], sameWhiteNoise=True)
+        vicsek.drawThePretty(sValues=[(2* (math.log(5)/math.log(3)))/(1+(math.log(5)/math.log(3))), (2* (math.log(5)/math.log(3)))/(1+(math.log(5)/math.log(3)))])
+        vicsek.drawThePretty(sValues=[(math.log(5)/math.log(3))/(2* (1+(math.log(5)/math.log(3)))), (math.log(5)/math.log(3))/(2* (1+(math.log(5)/math.log(3))))])
+        #vicsek.drawThePretty(sValues=[0.001, 0.001], sameWhiteNoise=False)
+        #vicsek.drawThePretty(sValues=[1,1], sameWhiteNoise=False)
+        #vicsek.drawThePretty(sValues=[5,5], sameWhiteNoise=False)
+        #vicsek.drawThePretty(sValues=[20,20], sameWhiteNoise=False)
         end = timeit.default_timer()
         print(f"It took {end - start} seconds")
     plt.show()
 
 
-#vicsek.drawThePrettyVicsek(sValues = [0.01, 1, 2, 10], sameWhiteNoise=True)
 
 #plt.show()
 #print(f"n=0: {vicsekSet.vicsek(n=0).pointsAndNeighbours()}")
