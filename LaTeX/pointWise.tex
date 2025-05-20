@@ -474,7 +474,7 @@ For the proof we quickly define the Hausdorff metric
 The proof that $d_H$ metric can be found in \cite{Henrikson1999CompletenessAT}.
 
 
-\begin{theorem}
+\begin{theorem}\label{uniqueInvariantSet}
 	Consider the IFS given by $\cbr{\fracConst_1, \fracConst_2, \ldots, \fracConst_m}$, then there is a unique invariante set $K$ for the IFS.
 	
 	Moreover, if we define a transformation $S$, on the class $\mathcal{A}$ of non-empty compact sets, by
@@ -507,9 +507,9 @@ The proof that $d_H$ metric can be found in \cite{Henrikson1999CompletenessAT}.
 \end{proof}
 
 
-Now showing the existence of the Vicsek set is simply just checking that $\fracConst_i$ are contractions. Which can be seen simply as
+Now showing the existence of the Vicsek set is simply just checking that $\fracConst_i$ are contractions. Which follows from
 \begin{equation}
-	\abs{\fracConst_i(x) - \fracConst_i(y)} = \abs{\frac{1}{3} \left(x - p_i\right) +p_i - \left(\frac{1}{3} \left(y - p_i\right) +p_i\right)} = \frac{1}{3} \abs{x-y} 
+	\abs{\fracConst_i(x) - \fracConst_i(y)} = \abs{\frac{1}{3} \left(x - p_i\right) +p_i - \left(\frac{1}{3} \left(y - p_i\right) +p_i\right)} = \frac{1}{3} \abs{x-y} .
 \end{equation} 
 
 
@@ -518,7 +518,7 @@ Now showing the existence of the Vicsek set is simply just checking that $\fracC
 
 What is hausdorff dimension? We first have to look at Hausdorff measure. 
 
-We say the countable collection of set ${U_i}_{i \geq 1}$ is a \emph{$\delta$-cover} of $K$ if $K \subset \bigcup_{i \geq 1} U_i$ and $0 \leq \diam U_i \leq \delta$. Here $\diam(A):= \sup_{x, y \in A}d(x,y)$ where $d(\cdot, \cdot)$ is a metric.
+We say the countable collection of set $\cbr{U_i}_{i \geq 1}$ is a \emph{$\delta$-cover} of $K$ if $K \subset \bigcup_{i \geq 1} U_i$ and $\diam U_i \leq \delta$. Here $\diam(A):= \sup_{x, y \in A}d(x,y)$ where $d(\cdot, \cdot)$ is a metric.
 
 \begin{defi}
 	Let $X$ be a metric space. If $K \subset X$ and $d \in [0, \infty)$ then let
@@ -533,20 +533,39 @@ We say the countable collection of set ${U_i}_{i \geq 1}$ is a \emph{$\delta$-co
 
 The Hausdorff measure defined above, is not a measure i the normal measure theory sense but ratherit is an outer measure. Though it is possible to prove that the Hausdorff measure restricted to Borel-set is a measure.
 
-Moving swiftly along, we notice that if $\delta < 1 $ then $H^s_{\delta}(K)$ is non-increasing with $d$. So by definition of $\mathcal{H}^s(K)$ is also non-increasing. We actually have an even stronger statement regarding $\mathcal{H}^{s}(K)$: if $t > s$ and ${U_i}_{i \geq 1}$ is a $\delta$-cover of $K$ then we have
+%we notice that if $\delta < 1 $ then $H^s_{\delta}(K)$ is non-increasing with $d$. So by definition of $\mathcal{H}^s(K)$ is also non-increasing. We actually have an even stronger statement regarding 
+
+Moving swiftly along, we now want to look at the behaviour of $\mathcal{H}^{s}$ as $s$ changes. So let ${U_i}_{i \geq 1}$ is a $\delta$-cover of $K$ then we have for $0 \geq s < t$ that
 \begin{equation}
 	\sum_{i \geq 1} \diam(U_i)^{t} = \sum_{i \geq 1} \diam(U_i)^{t-s}\diam(U_i)^{s} \leq \delta^{t-s}\sum_{i \geq 1}\diam(U_i)^{s}.
 \end{equation}
-Taking infima on both sides we get that $H^t_{\delta}(K) \leq \delta^{t-s}H^s_{\delta}(K)$. If we let $\delta \to 0$ we see that if $\mathcal{H}^{s}(K) < \infty$ then $\mathcal{H}^{s}(K) = 0$ for $t > s$. There must then exists a value $s$ such that $\mathcal{H}^{s}(K) \neq 0$ the smallest such value is called the \emph{Hausdorff Dimension} of $K$. Formally written:
-\begin{defi}
+Taking infima on both sides we get that $H^t_{\delta}(K) \leq \delta^{t-s}H^s_{\delta}(K)$. If we let $\delta \to 0$ we see that if $\mathcal{H}^{s}(K) < \infty$ then $\mathcal{H}^{s}(K) = 0$ since $\delta^{t-s} \to 0$. Likewise if $\mathcal{H}^{t} > 0$ then $\mathcal{H}^{s} = \infty$. 
+T
+his tells us that if there is a point, say $\kappa$, such $\mathcal{H}^{\kappa}$ is both positive and finite, then $\mathcal{H}^{s}$ will be 0 for all $s > \kappa$ and $\infty$ for all $s < \kappa$. That such value is called the \emph{Hausdorff Dimension} of $K$. Formally written:
+\begin{defi}\label{hausdorffDimDefi}
 	The \emph{Hausdorff dimension}, denoted $d_h(K)$ is given by
 	\begin{equation}
-		d_h(K) = \inf\cbr{s \geq 0 : \mathcal{H}^{s}(K) = 0} = \sup\cbr{s : \mathcal{H}^{s}(K) = \infty}.
+		d_h(K) = \inf\cbr{s \geq 0 : \mathcal{H}^{s}(K) = 0} = \sup\cbr{s \geq 0 : \mathcal{H}^{s}(K) = \infty}.
 	\end{equation}
 \end{defi} 
 When there is no confusion with regard to what set we are working with, we denote the Hausdorff dimension by $d_h$.
 
-Now it is quite difficult to determine the Hausdorff dimension from the definition. Luckily we can with a few assumption find the Hausdorff dimension quite easily.
+Now it is quite difficult to determine the Hausdorff dimension from the definition. Luckily we can with a few assumption find the Hausdorff dimension quite easily. For that theorem we need an important lemma.
+
+\begin{lemma}\label{massDistribution}
+	Let $\mu$ be a measure such that $\mu(F) \in (0, \infty)$ and suppose there are numbers $c, \epsilon > 0$ such that for some $s \geq 0$
+	\begin{equation}
+		\mu(U) \leq c \diam(U)^{s}
+	\end{equation}
+	for all sets $U$ with $\diam(U) \leq \epsilon$. Then $\mathcal{H}^{s}(F) \geq \frac{\mu(F)}{c}$ and $s \leq d_h$
+\end{lemma}
+\begin{proof}
+	If $\cbr{U_i}_{i \in I}$ is any cover of $F$ then
+	\begin{equation}
+		0 < \mu(F) \leq \mu \left(\bigcup_{i \in I} U_i\right) \leq \sum_{i \in I} \mu(U_i) \leq c \sum_{i \in I} \diam(U_i)^{s}
+	\end{equation}
+	by definition of measures and properties of $\mu$. Taking infimum we get $\mathcal{H}^{s}_{\delta} \geq \frac{\mu(F)}{c}$ and therefore $\mathcal{H}^{s} \geq \frac{\mu(F)}{c} > 0$ so by \cref{hausdorffDimDefi} $s \leq d_h$.
+\end{proof}
 
 
 We first define the open set condition
@@ -560,16 +579,44 @@ We first define the open set condition
 
 \begin{theorem}
 	Suppose \cref{OpenSetCondition} holds for the similarities $\fracConst_i$ on $\ree^{n}$ with ratios $0 < c_i < 1$ for $1 \leq i \leq m$. If there for $K$ holds
-	\begin{equation}
+	\begin{equation}\label{hausDorffDimCondition}
 		K = \bigcup_{i = 1}^{m} \fracConst_i(K)
 	\end{equation}
-	then $d_h = \kappa$ where $\kappa$ is given by
-	\begin{equation}
-		\sum_{i = 1}^{m} c_i^{\kappa} = 1.
+	then $d_h = s$ where $s$ is given by
+	\begin{equation}\label{hausDorffDimRatioSum}
+		\sum_{i = 1}^{m} c_i^{s} = 1.
 	\end{equation}
 	Moreover, for this value of $s$, $0 < \mathcal{H}^s(K) < \infty$
 \end{theorem}
 
 \begin{proof}
-	Let $\mathcal{I}_k$ denote the set of all $k$-term sequences $(i_1, \ldots i_k)$ with $1 \leq i_j \leq m$. 
+	Let $\mathcal{I}_k$ denote the set of all $k$-term sequences $(i_1, \ldots i_k)$ with $1 \leq i_j \leq m$. For any set $A$ and any sequence $(i_1, \ldots i_k)\in \mathcal{I}_k$ we denote $A_{i_1, \ldots i_k} = \fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}(A)$.
+	
+	We will start by finding an upper bound for the Hausdorff measure. We do this by finding an appropriate $\delta$-cover for $K$. It follows that by repeated use of \eqref{hausDorffDimCondition} that
+	\begin{align}
+		K = \bigcup_{i = 1}^{m} \fracConst_i(K) =\bigcup_{i = 1}^{m} \fracConst_i \left(\bigcup_{j = 1}^{m} \fracConst_j(K) \right) = \bigcup_{i, j =1}^{m} \fracConst_i \circ \fracConst_j (K) = \ldots =  \bigcup_{\mathcal{I}_k} \fracConst_{i_1, \ldots i_k}(K) =    \bigcup_{\mathcal{I}_k} K_{i_1, \ldots i_k}.
+	\end{align}
+	Now noting that $\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}$ has the ratios $c_{i_1} \dots c_{i_k}$, we see
+	\begin{equation}
+		\sum_{\mathcal{I}_k} \diam(K_{i_1, \ldots i_k})^{s} = \sum_{\mathcal{I}_k} (c_{i_1} \dots c_{i_k})^{s} \diam(K)^{s} = \left(\sum_{i_1} c_{i_1}^{s}\right) \dots \left(\sum_{i_k}c_{i_k}^{s}\right) \diam(K)^{s} = \diam(K)^{s}
+	\end{equation}
+	where the last equality comes from \eqref{hausDorffDimRatioSum}. Now for any $\delta > 0$ we can choose $k$ so \newline $\diam(K_{i_1, \ldots i_k}) \left(\max_{1 \leq i \leq m} c_i\right)^{k}\diam(K) \leq \delta$ since $\max_{1 \leq i \leq m} c_i \in (0,1)$. Thus $\cbr{K_{i_1, \ldots i_k}}_{\mathcal{I}_k}$ is a $\delta$-cover for $K$ thus $\mathcal{H}_{\delta}^{s}(K) \leq \diam(K)^{s}$ in which case $\mathcal{H}^{s}(K) \leq \diam(K)^{s}$ and we have an upper bound.
+	
+	Next we need a lower bound for the Hausdorff dimension, which is substantially more difficult. 
+	
+	Let $\mathcal{I} = \cbr{(i_1, i_2, \ldots) : 1 \leq i_j \leq m}$ be the set of all infinite sequences and let \newline $\mathcal{I}_{i_1, \ldots i_k} = \cbr{(i_1, \ldots , i_k, q_{k+1}, \ldots ) : 1 \leq q_j \leq m}$, so the first initial $k$ "terms" are chosen and then the rest are the remaining permutations.
+	
+	Now we create an outer measure $\mu$ on subset of $\mathcal{I}$ defined by $\mu(\mathcal{I}_{i_1, \ldots i_k}) = (c_{i_1} \dots c_{i_k})^{s}$. From this outer measure $\mu$ we construct an outer measure on $K$ named $\tilde{\mu}$ defined in the following way. For some subset $A \subseteq K$
+-	\begin{equation}
+		\tilde{\mu}(A) = \mu \left(\cbr{(i_1, i_2, \ldots)\in \mathcal{I} : x_{i_1, i_2, \ldots} \in A \cap K}\right)
+	\end{equation}  where 
+	\begin{equation}
+		\cbr{x_{i_1, i_2, \ldots}} = \bigcap_{k \geq 0} F_{i_1, \ldots i_k}.
+	\end{equation}
+	This is possible since $S^{k}$ is decreasing as k increases. Proofs that $\mu$ and $\tilde{\mu}$ are indeed outer measures can be found in \cite[Section 7]{mona}.
+	
+	Now we want to show that $\tilde{\mu}$ fulfills the properties of \cref{massDistribution}. 
+	
+	Let $V$ be the open set that satisfies \cref{OpenSetCondition}.  Since $\overline{V} \supset \fracConst(\overline{V}) = \cup_{i = 1}^{m} \fracConst_{i}(\overline{V})$, then by \cref{uniqueInvariantSet} the decreasing sequence $S^{k}(\overline{V})$ converges to $K$. In particullarly we have $\overline{V} \supset S(\overline{V}) \supseteq \cup_{i = 1}^{m} \fracConst_i(\overline{V}) = F$ and $\overline{V}_{i_1, \ldots i_k} =\fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{V}) \supseteq \fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{F}) = F_{i_1, \ldots i_k}$ for each finite sequence $(i_1, \ldots, i_k)$. Now let $B$ be any ball $r < 1$
+	
 \end{proof}

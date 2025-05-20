@@ -20,8 +20,9 @@
 \usepackage{etoolbox}
 \usepackage[backend=biber, style=alphabetic]{biblatex} %For bibliography
 %\usepackage{mdframed}
-\usepackage{hyperref}
+\usepackage[hypertexnames=false]{hyperref}
 \usepackage{cleveref} %Makes reference with "lemma" or "theorem" and not just number
+\usepackage{autonum}
 \usepackage[figurename=Diagram]{caption}
 
 % ----- TK -----
@@ -30,6 +31,7 @@
 \usepackage{scalerel}
 \usepackage{xkeyval}
 \usepackage{etoolbox}
+\cslet{blx@noerroretextools}\empty
 \usepackage{tket}
 
 %-------- PAGESTYLING ----------
@@ -176,9 +178,8 @@
 \newtheorem*{example*}{Example}
 
 \newtheorem{exercise}[theorem]{Exercise}
-
-\mathtoolsset{showonlyrefs=false} %Only shows equation number when ref to eq.
-\mathtoolsset{showmanualtags=true}
+%\mathtoolsset{showonlyrefs=false} %Only shows equation number when ref to eq.
+%\mathtoolsset{showmanualtags=true}
 \numberwithin{equation}{chapter} %Makes equation number (x.1, x.2, y.1, y.2 ...), where x, y are section
 
 
