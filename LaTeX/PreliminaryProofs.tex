@@ -1,6 +1,6 @@
 \chapter{And now for something completely different}
 
-In the previous chapter we constructed the Vicsek set, now we will consider the discrete Laplacian on this
+In the previous chapter we constructed the Vicsek set, now we will consider the discrete Laplacian on the fractal.
 
 \begin{defi}
 	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
@@ -41,9 +41,16 @@ We will further consider the following discrete measure
 	\mu_m = \frac{1}{5^{m}\cd 4 + 1} \sum_{p \in V_m} \delta_p
 \end{equation}
 
+For any function $f: V_{*} \to \ree$ we consider the quadratic form
+\begin{equation}
+	content...
+\end{equation}
+
 
 \section{Discrete Fractional Gaussian Fields}
 Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ of $-\Delta_m$. Next let $(\Psi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following
+
+\textcolor{red}{Why are the eigenvalues greater than zero?}
 
 \begin{defi}
 	Let $s \geq 0$ we define the \emph{discrete Riesz kernel} on $V_m$ as
@@ -54,12 +61,222 @@ Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^
 
 We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m}$ is symmetric and is non-negative \textcolor{red}{Why?}, thus it can be the covariance matrix of a Gaussian vector.
 
+Having constructed a discrete Laplacian we continue with constructing another Laplacian.
+
+\begin{defi}\label{discreteFractionalLaplacian}
+	For $f \in \ell(V_m)$ and $s \geq 0$, the discrete fractional Laplacain $(-\Delta_m)^{s}: L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ is defined by
+	\begin{equation}
+		(-\Delta_{m})^{s}f(x) = \frac{1}{a_m} \sum_{y \in V_m} G_{s}^{m}(x,y)f(y) = \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y).
+	\end{equation}
+\end{defi}
+
+\begin{prop}
+	$(-\Delta_{m})^{s}$ is a uniformly bounded operator
+\end{prop}
+\begin{proof}
+	Since
+	\begin{align}
+		\norm{(-\delta_m)^{s}f(x)}_{L^{2}(V_m, \mu_m)} &\leq \norm{\sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y).}_{L^{2}(V_m, \mu_m)} \\
+		& \leq \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \frac{1}{a_m}\norm{\phi_{i}^{m}(x)\sum_{y \in V_m} \phi_{i}^{m}(y)f(y)}_{L^{2}(V_m, \mu_m)} \\
+		& \leq (\lambda_1^{m})^{-s} \norm{f}_{L^{2}(V_m, \mu_m)}
+	\end{align}
+	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$
+\end{proof}
+
+
+Since we have now described the discrete fractional laplacian we will move on to the continuos fractional Laplacian.
+
+\subsection{Fractional Laplacian}
+Before we can define the continuos fractional Laplacian, we need to define the eigenvalues and eigenfunctions for $-\Delta$. A proof of the existence of the eigenvalues and eigenfunctions will not be given, but we will state the theorem.
+
+The Laplacian $\Delta$ with domain $\mathcal{D}(\Delta)$ is the generator of a strongly continuos Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. This semigroup admits a bicontinous heat kernel $p_t(x,y), t > 0, x,y \in K$, wrt. the Hausdorff measure $\mu$. It is called the Dirichlet heat kernel on $K$. Further this heat kernel satisfies for some $c_1, c_2 \in (0, \infty)$
+\begin{equation}
+	p_t(x,y) \leq c_1 t^{-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right)
+\end{equation}
+for every $x,y \in K \times K$ and $t \in (0, \infty)$ where$d_h$ is the Hausdorff dimension and $d_w$ is the walk dimension. The 
+ 
+\begin{theorem}\label{heatKernelWritten}
+	There exists a an orthonormal basis $\cbr{\phi_{i}}^{\infty}_{i = 1}$ of $L^2(K, \mu)$ with $\phi_j \in \mathcal{D}(\Delta)$ for all $j$. If $\lambda_i$ is the eigenvalue beloning to $\phi_i$, then $\lambda_i >0$ and $\lim_{i \to \infty} \lambda_i = \infty$. Moreover
+	\begin{equation}
+		p_t(x,y) = \sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)
+	\end{equation}
+	where the convergence is uniform for all $t \in (0, \infty)$ and $x,y \in K \times K$
+\end{theorem}
+A detailed proof can be found in \cite[Theorem 2.2]{Jozef}.
+
+We further note that for $s > \frac{d_h}{2d_w}$
+\begin{equation}\label{convergenceOfEigenvaluesOfLaplacian}
+	\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty.
+\end{equation}
+this follows from \cite[lemma 5.1.3]{Kigami_2001} which states that there exists a constant $c$ such that $\lambda_{n} \leq c\cd n^{2/d_s}$.
+
+
+Thus we are ready to define the fractional Laplacian. 
+\begin{defi}
+	Let $s \geq 0$, for $f \in L^2(K, \mu)$ the fraction Laplacian $(-\Delta)^{-s}$ is defined as
+	\begin{equation}
+		(-\Delta)^{-s}f = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y) \dd \mu(y)
+	\end{equation}
+\end{defi}
+
+\begin{prop}
+	$(-\Delta)^{-s}$ is a linear operator
+\end{prop}
+\begin{proof}
+	Let $f,g \in L^{2}(K, \mu)$ and $\alpha$ some constant, then by definition of $(-\Delta)^{-s}$ we have
+	\begin{align}
+		(-\Delta)^{-s}(\alpha f + g) &= \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)(\alpha f(y) + g(y)) \dd \mu(y)\\
+		& = \alpha \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y)  \dd \mu(y) + \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)g(y) \dd \mu(y) \\
+		&=\alpha (-\Delta)^{-s}f + (-\Delta)^{-s}g
+	\end{align}
+\end{proof}
+
+\begin{prop}
+	$(-\Delta)^{-s}$ is a bounded operator
+\end{prop}
+\begin{proof}
+	\begin{align}
+			\norm{(-\Delta)^{s}f} &= \norm{\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y) \dd \mu(y)} \\
+			&\leq 
+	\end{align}
+	\textcolor{red}{I don't know why since $\sum_{j \geq 0} \frac{1}{\lambda_i}^{s}$ is not convergent} 
+\end{proof}
+
+While the definition of the fractional Laplacian is not the most complicated, we are still able to rewrite it in another form.
+
+We therefore define the fractional Reisz kernel \textcolor{red}{Why is the definition different from other articles mainly $s > 0$ vs $s \geq 0$ and also $p_t +1$}
+\begin{defi}
+	For parameter $s \geq 0$ we define the fractional Riesz kernel $G_s$ by
+	\begin{equation}
+		G_{s}(x,y) = \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t, \quad x, y \in K, x \neq y
+	\end{equation}
+	where $\gamma$ denotes the gamma function.
+\end{defi}
+Before moving on we will state some important properties of $G_s$ 
+\begin{prop}
+	\begin{enumerate}\label{boundsOfRieszKernel}
+		1. If $s \in [0, d_h/d_w)$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
+		\begin{equation}
+			G_s(x,y) \leq \frac{C}{d(x,y)^{d_h-sd_w}}
+		\end{equation}
+		
+		2. If $s = d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
+			\begin{equation}
+				G_s(x,y) \leq C \abs{ln d(x,y)}
+			\end{equation}
+			
+		3. If $s > d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
+		\begin{equation}
+			G_s(x,y) \leq C 
+		\end{equation}
+	\end{enumerate}
+\end{prop}
+
+The proof is again omitted.
+
+\section{The fractional Laplacian and its bounds}
+In the following we will prove some bounds for the fractional Laplacian. Since the goal of this thesis is to prove convergence of fractional gaussian fields within a specific space of test functions, we will only prove the lemmas for that space. The space of functions is given by
+
+\begin{defi}
+	We consider the following space of test functions
+	\begin{equation}
+		S(K) = \cbr{f \in C_0(K) : \forall k \geq 0 \lim_{n \to \infty} n ^{k} \abs{\int_{K} \phi_n(y)f(y) \dd \mu (y)} = 0}
+	\end{equation}
+	We consider this space with the topology defined by the family of norms
+	\begin{equation}
+		\norm{f}_k = \norm{(-\Delta)^{-k}f}_{L^2(K, \mu)}.
+	\end{equation}
+\end{defi}
+By \cite[Theorem 2]{germanOne} and \eqref{convergenceOfEigenvaluesOfLaplacian} we have that $S(K)$ is a Frèchet Nuclear space. \textcolor{red}{why? $D(T^{\infty}) = \cap_{n \geq 0} D(T^{n})$ which doesn't look like our space}.
+While the concepts of nuclear spaces is quite complicated, its properties will be very useful. It will allow us to prove convergence of Gaussian fields through the characteristics function and existence of Fractional Gaussian fields through a functional.
+
+But first we will prove some lemmas regarding the fractional Laplacian and the fractional Reisz kernel.
+\begin{lemma}
+	Let $s > 0$. For $f \in S(K)$ and $x \in K$
+	\begin{equation}
+		(-\Delta)^{-s}f = \int_{K}G_s(x,y)f(y) \dd \mu(y)
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	We will first make sure the integral on the left side actually converges. But this holds because $S(K) \subset C(K)$ so $f$ will be bounded on $K$. Thus we just need that for every $x \in K$ $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent. for $s \in [d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Lastly for $s \in (0, d_h/d_w)$ then $d_h-sd_w < d_h$ we see that
+	\begin{equation}
+		\int_{K}G_s(x,y)\dd \mu (y) \leq \int_{K}\frac{1}{d(x,y)^{d_h-sd_w}}  \dd \mu (Y) < \infty
+	\end{equation}
+	which follows from the Alfons regular hausdorff measure \textcolor{red}{why?????}.
+	
+	Now using Fubini's theorem, \cref{heatKernelWritten} and the definition of $G_s$ we get
+	\begin{align}
+		\int_{K} G_s(x,y) f(y) \dd \mu (y) & = \int_{K} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t f(y)\dd \mu (y) \\
+		&= \int_{K} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1} \sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)  \dd t f(y)\dd \mu (y) \\
+		&= \sum_{j = 1}^{\infty} \phi_j(x) \int_{K}\phi_{j}(y) f(y)  \frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t \dd \mu(y) \\
+		&= \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j(x) \int_{K}\phi_j(y)f(y) \dd \mu(y) \\
+		&= (-\Delta)^{-s}f
+ 	\end{align}
+ 	where we use that $\frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t  = e^{-\lambda_j t}$ \textcolor{red}{why?}
+\end{proof}
+
+An immediate corollary follows:
+\begin{coro}
+	Let $s > 0$, for $f,g \in S(K)$
+	\begin{equation}
+		\int_{K} (-\Delta)^{-s} f (-\Delta)^{-s} g \dd \mu = \int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
+ 	\end{equation}
+\end{coro}
+\begin{proof}
+	First note that since
+	\begin{equation}
+		\int_{K}\phi_j \phi_i \dd \mu = \begin{cases}
+			0, & \text{if } i \neq j \\
+			1, & \text{if } i = j
+		\end{cases}
+	\end{equation}
+	so for any eigenfunction $\phi_n$ we have
+	\begin{equation}
+		(-\Delta)^{-s}\phi_n = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j(x) \int_{K}\phi_j(y)\phi_n \dd \mu(y) = \frac{1}{\lambda_{n}^{-s}}\phi_{n}.
+	\end{equation}
+	Now from the definition of $(-\Delta)^{-s}$ and the previous lemma, we find that
+	\begin{align}
+		\int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu &= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}g} \\
+		&= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}\sum_{j = 1}^{\infty} \int_K\phi_j g \dd \mu\phi_j} \\
+		& =\inn{(-\Delta)^{-s}f}{\sum_{j = 1}^{\infty} \int_K\phi_j g \dd \mu \frac{1}{\lambda_{j}^{-s}}\phi_j} \\
+		 &= \inn{f}{(-\Delta)^{-s} \sum_{j = 1}^{\infty} \int_K\phi_j g \dd \mu \frac{1}{\lambda_{j}^{-s}}\phi_j} \\
+		 &= \inn{f}{ \sum_{j = 1}^{\infty} \int_K \phi_j g \dd \mu \frac{1}{\lambda_{j}^{-2s}}\phi_j} \\
+		 & = \int_{K}f (-\Delta)^{-2s}g \dd \mu \\
+		 & =\int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
+	\end{align}
+	\textcolor{red}{I use that $(-\Delta)^{-s}$ is a symmetric operator, but why?} 
+\end{proof}
+
+\section{Fractional Gaussian Fields}
+Now that we have the fractional Laplacian let us state the fractional Gaussian field.
+
+\begin{defi}\label{fracGaussianField}
+	Let $s \geq 0$. A \emph{fractional Gaussian field} $X_s$ with parameter $s$ on $K$ is a centered Gaussian field $\cbr{X_s(f): f \in S(K)}$ such that for any $f,g \in S(K)$
+	\begin{equation}
+		\e \left[X_s(f) X_s(g)\right] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu
+	\end{equation}
+\end{defi}
+
+We now quickly move to proving that the fractional Gaussian fields exist. First we will state the Bochner-Minlos theorem for nuclear spaces. This theorem is need for the proof of existence. It will be given without proof but can be found in \cite{minlos}.
 
 \begin{theorem}[Bochner-Minlos]\label{BochnerMinlos}
-	Assume $\mathbb{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathbb{X}$ satisfying $\lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathbb{X}'$
-	\textcolor{red}{REFERENCE IS FROM WIKIPEDIA} \href{https://web.archive.org/web/20160304081333/http://www3.math.uni-paderborn.de/~johansen/seminars/minlos.pdf}{Ref is here}
+	Assume $\mathcal{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathcal{X}$ satisfying $\Lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathcal{X}'$
 \end{theorem}
 
+\begin{lemma}\label{LambdaPosDefinite}
+	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $Phi(v) = \exp(-\frac{1}{2} \inn{v}{v})$ is positive definite.
+\end{lemma}
+\begin{proof}
+	Let $v_1, \ldots v_n$ be elements of $\mathcal{X}$ and choose an orthonormal basis $e_1, \ldots e_m$ of $\text{span}\cbr{v_1, \ldots, v_n}$. Further let $Z = (Z_1, \ldots, Z_m)$ be a vector of independent standard normal real random variables, and note that for all $u \in \ree^{m}$ we have that
+	\begin{equation}
+		\Phi \left(\sum_{j = 1}^{\infty} u_j e_j\right) = \exp \left(-\frac{1}{2} \sum_{i = 1}^{m} u_i^2\right) = \e \left[e^{ \img u \cd Z}\right].
+	\end{equation}
+	\textcolor{red}{How can $u \in \ree^{n}$ be decomposed with another basis}. This leads us to for $z \in ?^{n}?$ \textcolor{red}{where is $z$ from? + definition of semi definite}
+	\begin{equation}
+		z^{T}A^{\Phi}z =\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] = \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0
+	\end{equation}
+	\textcolor{red}{where does the last equality come from?}
+\end{proof}
 
 \begin{theorem}
 	Let $s \geq 0$, there exists a centered Gaussian distribution $X_s$ on $S'(K)$ such that for $f,g \in S(K)$
@@ -69,11 +286,10 @@ We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m
 \end{theorem}
 
 \begin{proof}
-	The space $S(K)$ is a nuclear space \textcolor{red}{WHY}, it is enough to use Bochner-Minlos  \cref{BochnerMinlos} on the functional
+	The space $S(K)$ is a nuclear space why it is enough to use \cref{BochnerMinlos}(Bochner-Minlos) on the functional
 	\begin{equation}
 		\Lambda : f \to \exp\left(-\frac{1}{2} \norm{f}^2_{k}\right).
 	\end{equation}
-\textcolor{red}{DEFINE NORM}
 
 This is enough since \cref{BochnerMinlos} then gives an unique probability measure $\nu$ such
 \begin{equation}
@@ -82,7 +298,7 @@ This is enough since \cref{BochnerMinlos} then gives an unique probability measu
 Notice that the right side is an characteristic function for some random variable. If we choose $f= t\cd g$ for some $g \in S(K)$ and $t \in \ree$ \textcolor{red}{Where is $t$ from?}(notice that $t \cd g \in S(K)$) then the left side of the equation becomes the characteristic function for the normal distribution with mean zero and variance $\norm{f}_{s}^{2}$. Thus we have the $X_s$ we wanted.
 
 
-Now to prove that $\Lambda$ is satisfies the requirements of \cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, further it follows from the fact that $\norm{t\cdot f}_{k}^{2}$ is an inner product that with\textcolor{red}{THEOREM: 2.4 A SURVEY} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at zero. 
+Now to prove that $\Lambda$ is satisfies the requirements of \cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, further it follows from the fact that $\norm{t\cdot f}_{k}^{2}$ is an inner product that with\cref{LambdaPosDefinite} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at zero. 
 
 First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$.
 
@@ -105,3 +321,11 @@ in which we can choose $\delta$ to be any real number larger than $0$. Moving on
 \end{align}
 in the third to last equality using that $\mu$ is a probability measure. In which case we have continuity in $0$ as desired.
 \end{proof}
+
+
+In the following we want to prove that a FGF has an $L^2$ density \textcolor{red}{What is it?} if and only if $s > \frac{d_h}{2d_w}$. But for this we need to construct white noise. This will be done following \cite{LeGall}.
+
+\textcolor{red}{This whole section}
+Let $\mathcal{K}$ be the Borel $\sigma$-algebra on $K$ then since $\mu$ is a finite measure and therefore $\sigma$- finite. It then follows from \cite[Prop. 1.13]{LeGall} that there exists a probability field $(\Omega, \mathcal{F}, \pee)$ with a real-valued centered Gaussian random measure $W:L^{2}(\Omega, \mathcal{F}, \pee) \to \mathcal{K}$ with \textcolor{red}{density/intesity?} $\mu$.
+
+If we now write $W(A) = W$

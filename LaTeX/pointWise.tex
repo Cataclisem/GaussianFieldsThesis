@@ -513,6 +513,14 @@ Now showing the existence of the Vicsek set is simply just checking that $\fracC
 \end{equation} 
 
 
+\cref{uniqueInvariantSet} gives us a way to create a (not necessarily unique) sequence $(i_1, i_2, \ldots)$ such that each $x \in F$ we can write
+\begin{equation}
+	\cbr{x} = \cbr{x_{i_1, i_2, \ldots}} = \bigcap_{k \geq 0} K_{i_1, \ldots i_k}.
+\end{equation}
+This is possible since $S^{k}$ is decreasing as k increases. This further lets us describe $K$ as
+\begin{equation}\label{InvSetAsPoint}
+	K = \bigcup_{\mathcal{I}} \cbr{x_{i_1, i_2, \ldots}}.
+\end{equation}
 
 \section{Something About Hausdorff and Walk Dimensions}
 
@@ -567,6 +575,12 @@ Now it is quite difficult to determine the Hausdorff dimension from the definiti
 	by definition of measures and properties of $\mu$. Taking infimum we get $\mathcal{H}^{s}_{\delta} \geq \frac{\mu(F)}{c}$ and therefore $\mathcal{H}^{s} \geq \frac{\mu(F)}{c} > 0$ so by \cref{hausdorffDimDefi} $s \leq d_h$.
 \end{proof}
 
+\begin{lemma}\label{theConstq}
+	Let $\cbr{V_i}$ be a collection of disjoint open subset of $\ree^{n}$ such that each $V_i$ contains a ball of radius $a_1r$ and is contained in a ball of radius $a_2r$. Then any ball $B$ of radius $R$ intersects at most $(1+2a_2)^{n}a_{1}^{n}$ of the closures $\overline{V}_i$
+\end{lemma}
+\begin{proof}
+	By assumption we know that $\diam(V_i) \leq 2a_2 r$ for all $V_i$. So if some $\overline{V}_i$ intersect the ball with radius $r$, then $\overline{V}_i$ must be contained in the ball with radius $(2a_2 + 1)r$ concentric with the ball with radius $r$.  Now let $q$ denote the number of closures $\overline{V}_i$ that are intersecting with the ball with radius $r$. Then there exists $q$ disjoint balls with radius $a_1r$ that are contained in the ball with radius $(2a_2 +1)r$, since by assumption each $\overline{V}_i$ contains a ball of radius $a_1r$ . It then follows that $q(a_1r)^{n} \leq (2a_2 +1)^{n}r^{n}$ which gives us the bound for $q$.
+\end{proof}
 
 We first define the open set condition
 \begin{defi}\label{OpenSetCondition}
@@ -574,6 +588,7 @@ We first define the open set condition
 	\begin{equation}
 		V \supset \bigcup_{i = 1}^{5} \fracConst_i(V)
 	\end{equation}
+	and each $\fracConst_{i}(V)$ is disjoint.
 \end{defi}
 
 
@@ -609,14 +624,54 @@ We first define the open set condition
 	Now we create an outer measure $\mu$ on subset of $\mathcal{I}$ defined by $\mu(\mathcal{I}_{i_1, \ldots i_k}) = (c_{i_1} \dots c_{i_k})^{s}$. From this outer measure $\mu$ we construct an outer measure on $K$ named $\tilde{\mu}$ defined in the following way. For some subset $A \subseteq K$
 -	\begin{equation}
 		\tilde{\mu}(A) = \mu \left(\cbr{(i_1, i_2, \ldots)\in \mathcal{I} : x_{i_1, i_2, \ldots} \in A \cap K}\right)
-	\end{equation}  where 
-	\begin{equation}
-		\cbr{x_{i_1, i_2, \ldots}} = \bigcap_{k \geq 0} F_{i_1, \ldots i_k}.
-	\end{equation}
-	This is possible since $S^{k}$ is decreasing as k increases. Proofs that $\mu$ and $\tilde{\mu}$ are indeed outer measures can be found in \cite[Section 7]{mona}.
+	\end{equation}  Proofs that $\mu$ and $\tilde{\mu}$ are indeed outer measures can be found in \cite[Section 7]{mona}.
 	
 	Now we want to show that $\tilde{\mu}$ fulfills the properties of \cref{massDistribution}. 
 	
-	Let $V$ be the open set that satisfies \cref{OpenSetCondition}.  Since $\overline{V} \supset \fracConst(\overline{V}) = \cup_{i = 1}^{m} \fracConst_{i}(\overline{V})$, then by \cref{uniqueInvariantSet} the decreasing sequence $S^{k}(\overline{V})$ converges to $K$. In particullarly we have $\overline{V} \supset S(\overline{V}) \supseteq \cup_{i = 1}^{m} \fracConst_i(\overline{V}) = F$ and $\overline{V}_{i_1, \ldots i_k} =\fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{V}) \supseteq \fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{F}) = F_{i_1, \ldots i_k}$ for each finite sequence $(i_1, \ldots, i_k)$. Now let $B$ be any ball $r < 1$
+	Let $V$ be the open set that satisfies \cref{OpenSetCondition}.  Since $\overline{V} \supset \fracConst(\overline{V}) = \cup_{i = 1}^{m} \fracConst_{i}(\overline{V})$, then by \cref{uniqueInvariantSet} the decreasing sequence $S^{k}(\overline{V})$ converges to $K$. In particullarly we have $\overline{V} \supset S(\overline{V}) \supseteq \cup_{i = 1}^{m} \fracConst_i(\overline{V}) = F$ and $\overline{V}_{i_1, \ldots i_k} =\fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{V}) \supseteq \fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{F}) = F_{i_1, \ldots i_k}$ for each finite sequence $(i_1, \ldots, i_k)$. 
 	
+	Now let $B$ be any ball $r < 1$. We estimate $\tilde{\mu}(B)$ by considering sets $V_{i_1, \ldots i_k}$ with diameters comparable with that of $B$ with closures intersecting $F \cap B$. Further we define $\mathcal{Q}$ as the set of sequences $(i_1, \ldots, i_k) \in \mathcal{I}$ such that $i_k$ is the smallest $k$ for which the following holds
+	\begin{equation}
+		\left(\min_{1 \leq i \leq m} c_i\right) r \leq c_{i_1} \dots c_{i_k} \leq r.
+	\end{equation}
+	Note that no sequence in $\mathcal{Q}$ extends to another sequence. Since if two sequences are the same, but one is longer than the other the shorter sequence would be the one in $\mathcal{Q}$.  Now by \cref{OpenSetCondition} $V_1, \ldots, V_m$ are disjoint and so are $V_{i_1, \ldots i_k, 1}, \ldots, V_{i_1, \ldots i_k, m}$ for each $(i_1, \ldots, i_k)$. In particular we have that $\cbr{V_{i_1, \ldots i_k} : (i_1, \ldots, i_k) \in \mathcal{Q}}$ is a collection of disjoint sets. We further note that by \eqref{InvSetAsPoint} we have
+	\begin{equation}\label{KasCompactV}
+		K = \bigcup_{\mathcal{I}} \cbr{x_{i_1, i_2, \ldots}} \subseteq \bigcup_{\mathcal{Q}} K_{i_1, \ldots, i_k} \subseteq \bigcup_{\mathcal{Q}} \overline{V}_{i_1, \ldots, i_k}.
+	\end{equation}
+	
+	Next we choose $a_1$ and $a_2$ so that $V$ contains a ball of radius $a_1$ and is contained in a ball of radius $a_2$. Then for all $(i_1, \ldots i_k) \in \mathcal{Q}$ the set $V_{i_1, \ldots i_k}$ contains a ball of radius $c_{i_1} \dots c_{i_k} a_1$ and therefore one of radius $\left(\min_{1 \leq i \leq m} c_i\right) a_1 r$. Further it is contained in a ball of radius $c_{i_1} \dots c_{i_k} a_2$ and therefore one of radius $a_2 r$.
+	
+	Now let $\mathcal{Q}_{B}$ be theset of all sequences $(i_1, \ldots, i_k) \in \mathcal{Q}$ such that $\overline{V}_{i_1, \ldots i_k}$ intersects $B$. By \textcolor{red}{BALL LEMMA HERE} there are at most
+	$$q = (1+2b)^{n} \left(\min_{1\leq i \leq m} c_i\right)^{-n} a^{-n}$$
+	sequences in $\mathcal{Q}_{B}$. Thus we find that if
+	\begin{equation}
+		x_{i_1, \ldots i_k} \in F \cap B \subseteq \bigcup_{\mathcal{Q}_{B}} \overline{V}_{i_1, \ldots i_k}, \quad \text{ by \eqref{KasCompactV}, }
+	\end{equation}
+	then there must be some $k$ such that $(i_1, \ldots, i_k) \in \mathcal{Q}_{B}$ and therefore $(i_1, i_2, \ldots) \in \cup_{\mathcal{Q}_{B}} I_{i_1, \ldots i_k}$. We can thus conclude that
+	\begin{equation}
+		\tilde{\mu}(B) = \mu \left(\cbr{(i_1, i_2, \ldots) \in \mathcal{I} : x_{i_1, i_2, \ldots} \in F \cap B}\right) \leq \mu \left(\bigcup_{\mathcal{Q}_{B}} I_{i_1, \ldots, i_k}\right).
+	\end{equation}
+	It then follows that
+	\begin{equation}
+		\tilde{\mu}(B) \leq \sum_{\mathcal{Q}_{B}} \mu\left(I_{i_1, \ldots, i_k}\right) = \sum_{\mathcal{Q}_{B}} \left(c_{i_1} \dots c_{i_k}\right)^{s} \leq \sum_{\mathcal{Q}_{B}} r^{s} \leq qr^{s}.
+	\end{equation}
+	Since any set $U$ is contained in a ball of radius $\diam(U)$, we have that $\tilde{\mu} \leq q \diam(U)^{s}$. Thus by \cref{massDistribution} we have that $\mathcal{H}^{s}(F) \geq \frac{\tilde{\mu}(F)}{q} = q^{-1} > 0$, thus $0 < q^{-1} \leq \mathcal{H}^{s}(F) \leq \diam(F)^{s} < \infty$ thus by \cref{hausdorffDimDefi} we have that $s = d_h$
 \end{proof}
+
+\subsection{Spectral and Walk dimension}
+Further in this thesis we will wish to bound certain \textcolor{red}{functions/fields/GRF?} by a constant we call the spectral dimension. I depends on two other factors, namely the Hausdorff dimension, which we have just found, and of the walk dimension. Properly explaining the walk dimension is outside of the scope of this thesis, but we will give some intuition as to what it is.
+
+Let $B_t$ be a Brownian motion on $K$\textcolor{red}{Dont know where?}, and $B(x,r)$ be the ball centered at $x$ with radius $r$. then the \emph{walk dimension} is the constant $d_w > 0$ such that
+\begin{equation}
+	c_1 r^{d_w} \leq \e \left[\tau(x,r)\right] \leq c_2 r^{d_w}
+\end{equation}
+where $\tau(x,r) = \inf\cbr{t \geq 0 : B_t \notin B(x,r)}$. \textcolor{red}{The intuition behind the walk dimension is that it is a bound for when a Brownian motion leaves the fractal.} This explanation for the walk dimension is a rather simplified and condensed one, for further reference see \cite[Chapter 3]{barlow}.
+
+
+This then leads us to being able to define the spectral dimension as following:
+\begin{defi}\label{spectralDimDefi}
+	Let $d_h$ be the Hausdorff dimension and $d_w$ the walk dimension then the spectral dimension is
+	\begin{equation}
+		d_s = \frac{2 d_h}{d_W}
+	\end{equation}
+\end{defi}
