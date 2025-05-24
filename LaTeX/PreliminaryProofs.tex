@@ -104,11 +104,41 @@ for every $x,y \in K \times K$ and $t \in (0, \infty)$ where$d_h$ is the Hausdor
 \end{theorem}
 A detailed proof can be found in \cite[Theorem 2.2]{Jozef}.
 
-We further note that for $s > \frac{d_h}{2d_w}$
-\begin{equation}\label{convergenceOfEigenvaluesOfLaplacian}
-	\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty.
-\end{equation}
-this follows from \cite[lemma 5.1.3]{Kigami_2001} which states that there exists a constant $c$ such that $\lambda_{n} \leq c\cd n^{2/d_s}$.
+We actually have a result regarding the convergence of the eigenvalues.
+
+\begin{lemma}\label{convergenceOfEigenvaluesOfLaplacian}
+	\begin{equation}
+		\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty. \iff s > \frac{d_h}{2d_w}
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	This follows from \cite[lemma 5.1.3]{Kigami_2001} which states that there exists a constant $c_1, c_2 >0$ such that 
+	\begin{equation} \label{convergenceOfEigenvaluesOfLaplcianBounds}
+			c_1\cd n^{2/d_s} \leq \lambda_{n} \leq c_2\cd n^{2/d_s}
+	\end{equation}
+
+	
+	Assume $s > \frac{d_h}{2d_w}$ then by \eqref{convergenceOfEigenvaluesOfLaplcianBounds}
+	\begin{equation}
+		\sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{2s}} \leq \sum_{j = 1}^{\infty} \frac{1}{(c_1 n^{2/ds})^{2s}} < \infty
+	\end{equation}
+	since 
+	\begin{equation}
+		\frac{4s}{d_s} > \frac{\frac{2d_h}{d_w}}{\frac{2d_h}{d_w}} = 1
+	\end{equation}
+	the series is convergent.
+	
+	Assume now that 
+	\begin{equation}
+		\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty.
+	\end{equation}
+	then again by \eqref{convergenceOfEigenvaluesOfLaplcianBounds} we have that
+	\begin{equation}
+						\sum_{j = 1}^{\infty} \frac{1}{(c_2 n^{2/d_s})^{2s}} \leq \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty
+	\end{equation}
+	and the left sum only converges if $4s/d_s > 1$ in which case $s > d_s/4 = d_h/2d_w$ as desired.
+\end{proof}
+
 
 
 Thus we are ready to define the fractional Laplacian. 
@@ -119,16 +149,31 @@ Thus we are ready to define the fractional Laplacian.
 	\end{equation}
 \end{defi}
 
-\begin{prop}
-	$(-\Delta)^{-s}$ is a linear operator
+\begin{prop}\label{fracLaplacianProperties}\phantom{a}
+	
+	\begin{enumerate}[(i)]
+		\item 	$(-\Delta)^{-s}$ is a linear operator\label{fracGausItem1}
+		\item Let $\phi_n$ be an eigenfunction. Then $(-\Delta)^{-s}\phi_n = \frac{1}{\lambda_{n}^{-s}}\phi_{n}$ \label{fracGausItem2}
+	\end{enumerate}
 \end{prop}
 \begin{proof}
+	
+	We start with the proof of (\ref{fracGausItem1})
 	Let $f,g \in L^{2}(K, \mu)$ and $\alpha$ some constant, then by definition of $(-\Delta)^{-s}$ we have
 	\begin{align}
 		(-\Delta)^{-s}(\alpha f + g) &= \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)(\alpha f(y) + g(y)) \dd \mu(y)\\
 		& = \alpha \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y)  \dd \mu(y) + \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)g(y) \dd \mu(y) \\
 		&=\alpha (-\Delta)^{-s}f + (-\Delta)^{-s}g
 	\end{align}
+	
+	Moving on to (\ref{fracGausItem2}). We note that since
+	\begin{equation}
+		\int_{K}\phi_j \phi_i \dd \mu = \delta_{ij}
+	\end{equation}
+	where $\delta_{ij}$ is the Kronecker delta. So for any eigenfunction $\phi_n$ we have
+	\begin{equation}
+		(-\Delta)^{-s}\phi_n = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j(x) \int_{K}\phi_j(y)\phi_n/y) \dd \mu(y) = \frac{1}{\lambda_{n}^{-s}}\phi_{n}.
+	\end{equation}
 \end{proof}
 
 \begin{prop}
@@ -187,7 +232,7 @@ In the following we will prove some bounds for the fractional Laplacian. Since t
 		\norm{f}_k = \norm{(-\Delta)^{-k}f}_{L^2(K, \mu)}.
 	\end{equation}
 \end{defi}
-By \cite[Theorem 2]{germanOne} and \eqref{convergenceOfEigenvaluesOfLaplacian} we have that $S(K)$ is a Frèchet Nuclear space. \textcolor{red}{why? $D(T^{\infty}) = \cap_{n \geq 0} D(T^{n})$ which doesn't look like our space}.
+By \cite[Theorem 2]{germanOne} and \cref{convergenceOfEigenvaluesOfLaplacian} we have that $S(K)$ is a Frèchet Nuclear space. \textcolor{red}{why? $D(T^{\infty}) = \cap_{n \geq 0} D(T^{n})$ which doesn't look like our space}.
 While the concepts of nuclear spaces is quite complicated, its properties will be very useful. It will allow us to prove convergence of Gaussian fields through the characteristics function and existence of Fractional Gaussian fields through a functional.
 
 But first we will prove some lemmas regarding the fractional Laplacian and the fractional Reisz kernel.
@@ -223,24 +268,13 @@ An immediate corollary follows:
  	\end{equation}
 \end{coro}
 \begin{proof}
-	First note that since
-	\begin{equation}
-		\int_{K}\phi_j \phi_i \dd \mu = \begin{cases}
-			0, & \text{if } i \neq j \\
-			1, & \text{if } i = j
-		\end{cases}
-	\end{equation}
-	so for any eigenfunction $\phi_n$ we have
-	\begin{equation}
-		(-\Delta)^{-s}\phi_n = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j(x) \int_{K}\phi_j(y)\phi_n \dd \mu(y) = \frac{1}{\lambda_{n}^{-s}}\phi_{n}.
-	\end{equation}
-	Now from the definition of $(-\Delta)^{-s}$ and the previous lemma, we find that
+	Now from the definition of $(-\Delta)^{-s}$, \cref{fracLaplacianProperties} and the previous lemma, we find that
 	\begin{align}
 		\int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu &= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}g} \\
 		&= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}\sum_{j = 1}^{\infty} \int_K\phi_j g \dd \mu\phi_j} \\
-		& =\inn{(-\Delta)^{-s}f}{\sum_{j = 1}^{\infty} \int_K\phi_j g \dd \mu \frac{1}{\lambda_{j}^{-s}}\phi_j} \\
-		 &= \inn{f}{(-\Delta)^{-s} \sum_{j = 1}^{\infty} \int_K\phi_j g \dd \mu \frac{1}{\lambda_{j}^{-s}}\phi_j} \\
-		 &= \inn{f}{ \sum_{j = 1}^{\infty} \int_K \phi_j g \dd \mu \frac{1}{\lambda_{j}^{-2s}}\phi_j} \\
+		& =\inn{(-\Delta)^{-s}f}{\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{-s}} \int_K\phi_j g \dd \mu \phi_j} \\
+		 &= \inn{f}{(-\Delta)^{-s} \sum_{j = 1}^{\infty}\frac{1}{\lambda_{j}^{-s}} \int_K\phi_j g \dd \mu \phi_j} \\
+		 &= \inn{f}{ \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{-2s}} \int_K \phi_j g \dd \mu \phi_j} \\
 		 & = \int_{K}f (-\Delta)^{-2s}g \dd \mu \\
 		 & =\int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
 	\end{align}
@@ -257,14 +291,14 @@ Now that we have the fractional Laplacian let us state the fractional Gaussian f
 	\end{equation}
 \end{defi}
 
-We now quickly move to proving that the fractional Gaussian fields exist. First we will state the Bochner-Minlos theorem for nuclear spaces. This theorem is need for the proof of existence. It will be given without proof but can be found in \cite{minlos}.
+We now quickly move to proving that the fractional Gaussian fields exist. First we will state the Bochner-Minlos theorem for nuclear spaces, since it is needed for the proof of existence. It will be given without proof but one can be found in \cite{minlos}.
 
 \begin{theorem}[Bochner-Minlos]\label{BochnerMinlos}
 	Assume $\mathcal{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathcal{X}$ satisfying $\Lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathcal{X}'$
 \end{theorem}
 
 \begin{lemma}\label{LambdaPosDefinite}
-	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $Phi(v) = \exp(-\frac{1}{2} \inn{v}{v})$ is positive definite.
+	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $\Phi(v) = \exp(-\frac{1}{2} \inn{v}{v})$ is positive definite.
 \end{lemma}
 \begin{proof}
 	Let $v_1, \ldots v_n$ be elements of $\mathcal{X}$ and choose an orthonormal basis $e_1, \ldots e_m$ of $\text{span}\cbr{v_1, \ldots, v_n}$. Further let $Z = (Z_1, \ldots, Z_m)$ be a vector of independent standard normal real random variables, and note that for all $u \in \ree^{m}$ we have that
@@ -323,9 +357,93 @@ in the third to last equality using that $\mu$ is a probability measure. In whic
 \end{proof}
 
 
-In the following we want to prove that a FGF has an $L^2$ density \textcolor{red}{What is it?} if and only if $s > \frac{d_h}{2d_w}$. But for this we need to construct white noise. This will be done following \cite{LeGall}.
+In the following we want to prove that a FGF has an $L^2$ density \textcolor{red}{What is it?} if and only if $s > \frac{d_h}{2d_w}$. But for this we need to construct white noise.  
+
+Let $\mathcal{K}$ be the Borel $\sigma$-algebra on $K$, then we can define
+
+Let $W$ the measure which is uniquely defined by the char. function 
+\begin{equation}
+	\int_{S'(K)} \exp(i \inn{\omega}{\phi}) \dd W(\omega) = \exp\left(-\frac{1}{2}\norm{\phi}_{L^2}^{2}\right)
+\end{equation}
+for $\phi \in S(K)$. This measure again comes from \cref{BochnerMinlos}. \textcolor{red}{I dunno if this is correct}
+
+
+This will be done following \cite{LeGall}.
 
 \textcolor{red}{This whole section}
-Let $\mathcal{K}$ be the Borel $\sigma$-algebra on $K$ then since $\mu$ is a finite measure and therefore $\sigma$- finite. It then follows from \cite[Prop. 1.13]{LeGall} that there exists a probability field $(\Omega, \mathcal{F}, \pee)$ with a real-valued centered Gaussian random measure $W:L^{2}(\Omega, \mathcal{F}, \pee) \to \mathcal{K}$ with \textcolor{red}{density/intesity?} $\mu$.
+ then since $\mu$ is a finite measure and therefore $\sigma$- finite. It then follows from \cite[Prop. 1.13]{LeGall} that there exists a probability field $(\Omega, \mathcal{F}, \pee)$ with a real-valued centered Gaussian random measure $W:L^{2}(\Omega, \mathcal{F}, \pee) \to \mathcal{K}$ with \textcolor{red}{density/intesity?} $\mu$.
 
 If we now write $W(A) = W$
+
+\begin{defi}
+	Let $s > \frac{d_h}{2d_w}$. The fractional Brownian field with parameter $s$ is defined as 
+	\begin{equation}
+		\widetilde{X}_s(x) = \int_{K} G_s(x,y)W(\dd y)
+	\end{equation}
+\end{defi}
+
+Note that since $s > \frac{d_h}{2d_w}$ we can write
+\begin{equation}
+	\widetilde{X}_s(x) = \sum_{i = 1}^{\infty} \lambda_i^{-s}\phi_i(x)W_i
+\end{equation}
+where$W_i = W(\phi_i)$ is an i.i.d sequence of Gaussian random variables with mean zero and variance one.
+
+We will now show that one can construct a fractional Gaussian Field from the fractional Brownian field
+\begin{prop}
+	Let $s > \frac{d_h}{2d_w}$. Then the Gaussian random field defined by
+	\begin{equation}
+		X_s(f) = \int_{K}f(x) \widetilde{X}_{s}(x) \dd \mu (x), \quad f \in S(K)
+	\end{equation}
+	has the law of a fractional Gaussian field with parameter $s$. Moreover, if there exists a Gaussian field $\left(\widetilde{X}_{s}(x)\right)_{x \in K}$ on $K$ with
+	\begin{equation}
+		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty
+	\end{equation}
+	such that the Gaussian field defined by
+	\begin{equation}
+				Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
+	\end{equation}
+	has the law of fractional Gaussian field with parameter $s$, then $s > \frac{d_h}{2d_w}$
+\end{prop}
+\begin{proof}
+	Assume $s > \frac{d_h}{2d_w}$. The from Fubini's theorem we have for every $f \in S(K)$ that a.s 
+	\begin{equation}
+		\int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x) =\int_{K}f(x) \int_{K} G_s(x,y) W(\dd y) \dd \mu(x) = \int_{K}(-\Delta)^{-s} f(y) W(\dd y)
+	\end{equation}
+	in which case by definition of $W$ we have that $X_s(f) = \int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x)$ is a Gaussian random variable with mean zero and variance
+	\begin{equation}
+		\int_{K}\abs{(-\Delta)^{-s}f(x)}^{2}\dd \mu(x).
+	\end{equation}
+	and thus a fractional Gaussian field with parameter $s$. 
+	
+	Now assume that there is a Gaussian field $\left(\widetilde{X}_{s}(x)\right)_{x \in K}$ on $K$ with
+	\begin{equation}
+		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty
+	\end{equation}
+	such that the Gaussian field defined by
+	\begin{equation}
+		Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
+	\end{equation}
+	has the law of fractional Gaussian field with parameter $s$. Then by spectral decomposition\textcolor{red}{reference?} we have
+	\begin{equation}
+		\widetilde{Y}_s(x) = \sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x).
+	\end{equation}
+	
+	Note that $(Y(\phi_i))_{i \geq 1}$ is a sequence of independent Gaussian random variables with mean zero \textcolor{red}{why mean zero? and why independent Gaussian?} and variance $()\lambda_{i}^{s})_{i \geq 1}$. By \cref{fracGaussianField} and \cref{fracLaplacianProperties} we have that
+	\begin{equation}
+		\e \left[Y_s(\phi_i)Y_s(\phi_j)\right] = \int_{K}  (-\Delta)^{-s}\phi_i (-\Delta)^{-s}\phi_j \dd \mu = \frac{1}{(\lambda_{j}\lambda_i)^{s}} \int_{K} \phi_i \phi_j \dd \mu = \frac{1}{(\lambda_{j}\lambda_i)^{s}} \delta_{ij}.
+	\end{equation}
+	Since $\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right] < \infty$  we have that
+	\begin{align}
+		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right]  &= \e \left[\int_{K} \left(\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x)\right)^{2}\dd\mu(x)\right] \\
+		& = \e \left[\sum_{i = 1}^{\infty} Y_s(\phi_i)^2\int_{K} \phi_i(x)\phi_i(x) \dd \mu (x) \right] \\
+		& = \sum_{i = 1}^{\infty}\e \left[Y_s(\phi_i)^2\right] \\
+		& = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
+	\end{align}
+	where we use that $\int_{K} (\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x))^2 \dd \mu(x) = \int_{K} \sum_{i = 1}^{\infty} Y_s(\phi_i)^2 \phi_i(x)^2 \dd \mu (x)$ which stems from the fact that $\int_{K}\phi_i \phi_j \dd \mu = \delta_{ij}$ and $Y_s(\phi_i)$ is a constant wrt. $\mu(x)$.
+	
+	We now have that
+	\begin{equation}
+		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right] = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
+	\end{equation}
+in which case by \cref{convergenceOfEigenvaluesOfLaplacian} we have that $s > \frac{d_h}{2d_w}$
+\end{proof}
