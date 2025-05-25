@@ -116,6 +116,8 @@ class simulation:
             s = self.s
         
         eigVal, eigVec = eigenfunction()
+        print(f"eigenVec: {eigVec}")
+        print(f"eigenvec: {eigVec[0,1]}")
         Vn = self.fractal()
 
         if not isinstance(whiteNoise, np.ndarray):
@@ -123,7 +125,7 @@ class simulation:
 
         j = 0
         for point in Vn:
-            Vn[point][f"X"] = sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[j] if eigVal[i] > 0 else 0 for i in range(len(eigVal))])
+            Vn[point][f"X"] = sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[i] if eigVal[i] > 0 else 0 for i in range(len(eigVal))])
             j +=1
             if j % 1000 == 0:
                 print(f"Point reached: {j}")
@@ -231,7 +233,10 @@ if __name__ == '__main__':
     #for x in mat:
     #    print(x)
 
-    whatToRun = 2
+    whatToRun = 3
+
+    dh = math.log(5)/math.log(3)
+    dw = dh +1
 
     if whatToRun == 1:
         print(f"# points: {sierpinski.pointAmount}")
@@ -252,6 +257,13 @@ if __name__ == '__main__':
         #vicsek.drawThePretty(sValues=[20,20], sameWhiteNoise=False)
         end = timeit.default_timer()
         print(f"It took {end - start} seconds")
+    
+    if whatToRun == 3:
+        for h in range(1,6):
+            print(f"Vm: {h}")
+            vicsek = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
+            vicsek.drawThePretty(sValues=[0.000001])
+            
     plt.show()
 
 
