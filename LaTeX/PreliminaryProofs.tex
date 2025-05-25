@@ -1,7 +1,7 @@
 \chapter{And now for something completely different}
+In future section the Gaussian random fields will be defined using the eigenvalues and eigenfunctions of the Laplacian. We will therefore start by introducing first the discrete Laplacian, then the Kigami Laplacian and will culminate in the Dirichlet Laplacian.
 
-In the previous chapter we constructed the Vicsek set, now we will consider the discrete Laplacian on the fractal.
-
+We will now consider the discrete Laplacian on the fractal.
 \begin{defi}
 	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
 	\begin{equation}
@@ -36,21 +36,468 @@ This set leads us to defining
 	where $g$ satisfies: $\lim_{m \to \infty} \max_{p \in V_m\backslash V_0}\abs{\Delta_m f(p) - g(p)} = 0$
 \end{defi}
 
-We will further consider the following discrete measure
+The definition above is one way of defining the Kigami Laplacian, but the domain doesn't lend itself to show what functions are actually contained in $\mathcal{D}$. We will therefore in this next section show another way to define the Kigami Laplacian with a more transparent domain and being able to define the Kigami Laplacian pointwise.
+
+\section{We're going to define it again}
+In this section we will follow arguments given by \cite{strichartz}. Much of the proof are going to rely on the standard graph Dirichlet form. Thus we are first going to define and prove some properties of this graph Dirichlet form. \textcolor{red}{What to call these energies? Also the renormalized one}
+
+\begin{defi}
+	Given a finite connected graph $G$ and it vertices $V_m$ the for functions $u, v: V_m \to \ree$ we define the \emph{standard graph Dirichlet form} to be
+	\begin{equation}\label{graphEnergy}
+		E_m(u,v) = \sum_{x \sim y} \left(u(x) - u(y) \right)(v(x)-v(y)).
+	\end{equation}
+\end{defi}
+\noindent \textbf{Notation: } we write $E_m(u) = E_m(u,u)$.
+
+Given some graph $G$ and a function $u: V_m \to \ree$, since we in the end want to work on the whole of the Vicsek set $K$, we now define an extension of $u$ to $V_m$. This is done in the following way
+
+\begin{defi}
+	Let $K$ be a graph and $u: V_m \to \ree$, then an \emph{extension of} $u$ is a function \nl $u': V_{m+n} \to \ree$ where $u' \mid_{V_m} = u$.
+\end{defi}
+
+It is obvious that $E_{m+n}(u') \geq E_m(u)$. Further one quickly notices that there must be a function that minimizes the graph Dirichlet form of a given graph. We denote such a function with $\tilde{u}$ and call it a \emph{harmonic extension}.
+
+\begin{defi}
+	Let $\tilde{u}: V_{m+n} \to \ree$ with $\title{u} \mid_{V_m} = u$ is called a \emph{harmonic extension} if $E_{m+n}(\tilde{u}) \leq E_{m+n}(u')$ for all $u': V_{m+n} \to \ree$ with $u' \mid _{V_m} = u$.
+\end{defi}
+
+In some cases we have that $E_{m+n}(\tilde{u}) = r^{n} E_{m}(u)$ for some $r \in (0, 1)$. But instead of normalizing the values on $E_m$ we will normalize $E_{m+n}$. Thus  getting
 \begin{equation}
-	\mu_m = \frac{1}{5^{m}\cd 4 + 1} \sum_{p \in V_m} \delta_p
+	r^{-n} E_{m+n}(\tilde{u}) = E_m(u), \quad \text{and} \quad r^{-n} E_{m+n}(u') \geq E_m(u)
+\end{equation}
+for every extension $u'$ of $u$. The constant $r$ is called the \emph{renormalization constant} From the equality above we can define the following
+\begin{defi}\label{renormalizedGraphEnergies}
+	The \emph{renormalized graph energies} are defined as
+	\begin{equation}
+		\eee_{m}(u) = r^{-m}E_m(u)
+	\end{equation}
+	Note that the sequence $\cbr{\eee_{m}(u)}$ is a non-decreasing sequence. 
+\end{defi}
+
+Based on this definition we see that for a harmonic extension $\tilde{u}$ of $u$ we have that 
+\begin{equation}
+	\mathcal{E}_{m+1}(\tilde{u}) = r^{-(m+1)}E_{m+1}(\tilde{u}) = r^{-m}E_{m}(u) = \mathcal{E}_{m}(u).
+\end{equation}
+Extending this to the bilinear form we have for harmonic extension $\tilde{u}, \tilde{v}$ of $u, v$ that
+\begin{equation}
+	\mathcal{E}_{m+1}(\tilde{u}, \tilde{v}) = \mathcal{E}_{m}(u,v).
 \end{equation}
 
+Actually one even has that for the bilinear form then if $\tilde{u}$ is the harmonic extension of $u$ and $v'$ is any extension of $v$ then
+\begin{equation}\label{bilinearFormRenormalized}
+	\mathcal{E}_{m+1}(\tilde{u}, v') = \mathcal{E}_{m}(u,v).
+\end{equation}
+See \cite{strichartz} for more information.
+
+Now that we have \ref{renormalizedGraphEnergies}, we can define what it means to be a harmonic function.
+
+
+\begin{defi}
+	$u$ is a \emph{harmonic function} if $u$ minimizes $\eee_{m}(u)$ for all $m$, given boundary values $V_0$.
+\end{defi}
+
+The harmonic functions will be used extensively throughout this section. We start by finding the renormalization constant for the Vicsek set.
+
+\subsection{Renormalization constant on the Vicsek set}
+
+I the previous section we have talked about a harmonic function, but without every constructing one. We will therefore in this next section show how to create an harmonic function for the Vicsek set for any start boundary values.
+
+Given $V_0 = \cbr{q_0, q_1, q_2, q_3, q_4}$ and $u: V_0 \to \ree$ then we have that
+\begin{equation}
+	E_0(u) = \left(u(q_0) - u(q_1)\right)^2 + \left(u(q_0) - u(q_2)\right)^2 + \left(u(q_0) - u(q_3)\right)^2 + \left(u(q_0) - u(q_4)\right)^2.
+\end{equation} 
+We are going to exploit symmetry of the Vicsek set. Since all four "limbs" of the Vicsek set are identical we will only look at one of the limbs since the other limbs will be the same computations. So if we want to minimize $E_1(u')$, we see for the limb between $q_0$ and $q_1$ that
+\begin{multline}
+	E_1(u') = \left(u'(q_1) - u'(p_0)\right)^2 + \left(u'(p_0) - u'(p_2)\right)^2 \\
+	 + \left(u'(p_0) - u'(p_3)\right)^2 + \left(u'(p_0) - u'(p_4)\right)^2 + \left(u'(p_3) - u'(q_0)\right)^2.
+\end{multline}
+
+
+\begin{figure}[!ht] \label{renormVicsekDiagram}
+	\centering
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Straight Lines [id:da6304295946642043] 
+		\draw    (200,120) -- (200,240) ;
+		\draw [shift={(200,240)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(200,120)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da15009868113581337] 
+		\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (140,180) -- (260,180) ;
+		\draw [shift={(260,180)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(140,180)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6360387946571586] 
+		\draw    (160,160) -- (160,200) ;
+		\draw [shift={(160,200)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(160,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da967738390323848] 
+		\draw    (240,160) -- (240,200) ;
+		\draw [shift={(240,200)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(240,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da22729733453474055] 
+		\draw    (220,140) -- (180,140) ;
+		\draw [shift={(180,140)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(220,140)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da18095273720450344] 
+		\draw    (170,180) -- (185.5,180) -- (190,180) ;
+		%Straight Lines [id:da24264648223015173] 
+		\draw    (220,220) -- (180,220) ;
+		\draw [shift={(180,220)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(220,220)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6311736325856517] 
+		\draw    (180,180) -- (160,180) ;
+		\draw [shift={(160,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(180,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da868237351757014] 
+		\draw    (240,180) -- (220,180) ;
+		\draw [shift={(220,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(240,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da7980791265955824] 
+		\draw    (200,220) -- (200,200) ;
+		\draw [shift={(200,200)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(200,220)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da7384137154814034] 
+		\draw    (200,160) -- (200,140) ;
+		\draw [shift={(200,140)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(200,160)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da3701955076323855] 
+		\draw    (200,200) -- (200,180) ;
+		\draw [shift={(200,180)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		
+		% Text Node
+		\draw (200,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{0}$};
+		% Text Node
+		\draw (262,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{1}$};
+		% Text Node
+		\draw (194,108) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{4}$};
+		% Text Node
+		\draw (194,243.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{2}$};
+		% Text Node
+		\draw (126,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{3}$};
+		% Text Node
+		\draw (241,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{0}$};
+		% Text Node
+		\draw (220,168.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{3}$};
+		% Text Node
+		\draw (234,204) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{2}$};
+		% Text Node
+		\draw (235,148) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{4}$};
+				
+	\end{tikzpicture}
+	\caption{Points on the Vicsek set}
+\end{figure}
+We are then going to optimize with regards to $u'(p_i)$ for $i = 0, 1, 2, 4$. Taking the derivative of the right side and solving for $0$ we get the following
+\begin{align}
+	4 u'(p_0) &= u'(q_1) + u'(p_2) + u'(p_3) + u'(p_4) \\
+	2 u'(p_3) &= u'(q_0) + u'(p_0) \\
+	u'(p_2) &= u'(p_0)\\
+	u'(p_4) &= u'(p_0).
+\end{align}
+Solving these equations we get
+\begin{align}
+	u'(p_0) &=  \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0)\\
+	u'(p_2) &= \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0) \\
+	u'(p_4) &= \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0) \\
+	u'(p_3) &= \frac{2}{3} u'(q_0) + \frac{1}{3} u'(q_1).
+\end{align}
+
+So what we have found is that to minimize the energy of the Vicsek set, then the energy of the next point is going to be $2/3$ the energy from the closest point and $1/3$ the energy from the next closest point. 
+
+If one calculates the energies then you will get
+\begin{equation}
+	E_1(u') =\frac{1}{3}\sum_{i = 1}^{4}(u'(q_i) - u'(q_0))^2 = \frac{1}{3}E_0(u')
+\end{equation}
+
+Since the Vicsek set is a self-similar set, we have that going from $V_1$ to $V_2$ is the same as going from $V_m$ to $V_{m+1}$. Thus we can just extend the above calculations to doing it $m$ times, in which case
+\begin{equation}
+	E_{m+1}(u') = \frac{1}{3}E_m(u')
+\end{equation}
+
+Thus we get our renormalization constant for the vicsek set to be $r = 3$.
+
+
+With the renormalization constant found we will return to finding the Kigmai Laplacian.
+
+By \cref{renormalizedGraphEnergies} we have defined a sequence $\mathcal{E}_m$ for functions on $V^{*}$. It will therefore make sense to define the following limit
+\begin{defi} Let $u: V^{*} \to \ree$ then define the limit
+	\begin{equation}
+		\mathcal{E}(u) = \lim_{m \to \infty} \mathcal{E}_{m}(u)
+	\end{equation}
+	where we set
+	\begin{equation}
+		\dom \mathcal{E} = \cbr{u : \mathcal{E}(u) < \infty}.
+	\end{equation}
+	and denote $\dom_0 \mathcal{E}$ with the functions in $\dom \mathcal{E}$ that vanish $V_0$.
+\end{defi}
+
+This definition only involves functions defined on $V^{*}$, but we find that functions in $\dom \mathcal{E}$ are uniformly continuos and therefore has an unique extension to $K$. We even have that $\dom \mathcal{E}$ is dense in $C(K)$.
+\begin{prop} \phantom{a}
+	\begin{enumerate}[(i)] 
+		\item 	Let $u \in \dom \mathcal{E}$ then $u$ is uniformly continuos on $V^{*}$. \label{uniCont1}
+		\item $\dom \mathcal{E}$ is dense in $C(K)$. \label{uniCont2}
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	We start with \cref{uniCont1}. Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
+	\begin{equation}\label{uniFormContiousEstimate}
+		r^{-m}(u(x) -u(y))^{2} \leq \mathcal{E}_m(u) \leq \mathcal{E}(u)
+	\end{equation}
+	since $r^{-m}(u(x) -u(y))^{2}$ is a term in $\mathcal{E}_m(u)$. Thus
+	\begin{equation}
+		\abs{u(x)-u(y)} \leq r^{\frac{m}{2}} \mathcal{E}(u)^{\frac{1}{2}}.
+	\end{equation}
+	Now consider a chain of points $x_m, x_{m+1}, \ldots, x_{m+k}$ where $x_{m+j} \in V_{m+j}$ and $x_{m+j} \in V_{m+j+1, x_{m+j+1}}$. Then we have
+	\begin{equation}
+		\abs{u(x_m)-u(x_{m+k})} \leq r^{\frac{m}{2}}\left(1 + r^{\frac{1}{2}} + \ldots + r^{\frac{k}{2}}\right)\mathcal{E}(u)^{\frac{1}{2}} \leq \frac{r^{m}}{1-r^{\frac{1}{2}}} \mathcal{E}^{\frac{1}{2}}
+	\end{equation}
+	by using \eqref{uniFormContiousEstimate} and the triangle inequality multiple times. From the geometry of $K$ we see that $x, y \in V^{*}$ belong to the same or adjacent $m$-cells then we can connect $x$ to $y$ by at most $2$ such chains \textcolor{red}{What does he mean?}, so
+	\begin{equation}
+		\abs{u(x) - u(y)} \leq \frac{2r^{m/2}}{1-r^{\frac{1}{2}}} \mathcal{E}(u)^{\frac{1}{2}}
+	\end{equation}
+	and we have a bound for all $x,y \in V^{*}$.
+	
+	For proof of \cref{uniCont2} we refer to \cite{strichartz}.
+\end{proof}
+
+
+We are now going to state another way to define the Kigama Laplacian. We denote this Laplacian as $\Delta_{\mu}$ since as we will see in the definition it depends on the measure $\mu$.
+\begin{defi}
+	Let $u \in \dom \mathcal{E}$ and let $f$ be continuos, then $u \in \dom(\Delta_{\mu})$ and $\Delta_{\mu}u =f$ if
+	\begin{equation}
+		\mathcal{E}(u,v) = \int_{K}fv \dd \mu, \quad \forall v \in \dom_{0}\mathcal{E}
+	\end{equation}
+\end{defi}
+
+While $\Delta_{\mu}$ depends on the measure $\mu$, we will still find that it coincides with the Kigami Laplacian $\Delta$. Like with $\Delta$ we are going to want $\Delta_{\mu}$ to be defined as the limit of a discrete operator. We are therefore going to again define a discrete graph Laplacian, the difference is that the following will be without constants.
+
+\begin{defi}\label{discreteLaplaceNoConst}
+	We define the laplacian $\widetilde{\Delta}_{m}$ as
+	\begin{equation}
+		\widetilde{\Delta}_{m} = \sum_{y \in V_{m,x}} (f(y) -f(x))
+	\end{equation}
+\end{defi}
+
+Before moving on we will define a harmonic function which will be used extensively in the following proofs.
+\begin{defi}
+	Given $m$ and a point $x \in V_m \backslash V_0$ then define $\psi_x^{(m)}(y) = \delta_{xy}$ for $y \in V_m$.
+\end{defi}
+I might seem that we have only defined $\psi_x^{(m)}$ on $V_m$, but actually it is defined on the whole of $K$. It simply follows that we create an harmonic extension of $\psi_x^{(m)}$.
+
+The function $\phi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
+\begin{prop}\label{pointwiseEqualityofpsi}
+	Let $u \in \dom \mathcal{E}$ then
+	\begin{equation}
+		r^{-m}\widetilde{\Delta}_{m}u(x) = \int_{K}f \psi_{x}^{(m)} \dd \mu
+	\end{equation}
+\end{prop}
+\begin{proof}
+	Since 
+	\begin{equation}
+		\mathcal{E}_{m}(u, \psi_{x}^{(m)}) = r^{-m} \sum_{p \underset{m}{\sim} q}(u(q)-u(p))(\psi_{x}^{(m)}(p) -\psi_{x}^{(m)}(q)) = r^{-m}\sum_{q \in V_{m,x}}(u(x)-u(q)) = r^{-m}\widetilde{\Delta}_{m}u(x)
+	\end{equation}
+	where the second equality comes the fact that only edges containing $x$ are going to see change in $\psi_{x}^{(m)}$. Now by \eqref{bilinearFormRenormalized} we have that
+	\begin{equation}
+		r^{-m}\widetilde{\Delta}_{m}u(x) = \mathcal{E}_{m}(u, \psi_{x}^{(m)}) = \mathcal{E}(u, \psi_{x}^{(m)}) = \int_{K}f \psi_{x}^{(m)} \dd \mu
+	\end{equation}
+	as desired.
+\end{proof}
+
+Before we begin the proof $\Delta_{\mu}$ is the limit of $\widetilde{\Delta}_{m}$ we need some preliminary lemmas.
+
+\begin{lemma}\label{itIsZero}
+	Let $v: K \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{k > 0} S^{k}(x) \right) \cup \left(\bigcup_{i} \{y_i\} \right)$
+\end{lemma}
+\begin{proof}
+	It is clear that $v(\omega) = 0$ for any $\omega \in B_x$, since the energy of the points $F_w x$ with $\abs{w} > 0$ depends on the energy of $x$ and its neighbours. 
+	
+	So we need to check the points in $\overline{B_x} \backslash B_x$. Now since $B_x$ is dense in $\overline{B_x}$, then for any $\omega \in \overline{B_x}$ we have that there exists a sequence $x_n \in B_x$ such that $x_n \to \omega$. By the fact that $v$ is continuos on $K$ it is continuos on $\overline{B_x}$, in which case $\abs{v(x_n) - v(\omega)} \to 0$ as $n \to \infty$, but $v(x_n) = 0$ for all $x_n$, so $v(\omega) = 0$ as desired.  
+\end{proof}
+
+What lemma $\ref{itIsZero}$ sates, is if any two points in $V_m$ are neighbours, say $x$ and $y$, and $v(x)=v(y)=0$, then then function value at any point between $x$ and $y$ is also zero.
+
+\begin{lemma}\label{FmSmaller}
+	Set $F_m = \supp \psi_{x}^{(m)}$, then
+	\begin{equation}
+		F_0 \supset F_1 \supset F_2 \supset F_3 \supset \dots
+	\end{equation}
+	Further $F_m$ is contained in the open ball $B(x, \epsilon_m)$ where $\epsilon_m \to 0$ as $m \to \infty$.
+\end{lemma}
+
+\begin{proof}
+	If we set $\Omega_m = \left\{z \in K : \psi_{x}^{(m)}(z) = \psi_{x}^{(m)}(y) = 0, \forall y \in V_{m,z}  \right\}$ then $F_m = K \backslash \left(\bigcup_{\alpha \in \Omega_m} \overline{B_\alpha} \right)$. It is clear that $\Omega_m \subset \Omega_{m+1}$ and that there are new points in $\Omega_{m+1}$ that are not just a point between some already existing points $x_1, x_2 \in \Omega_m$. We therefore have from the way that $F_m$ is constructed that $F_m \supset F_{m+1}$.
+	
+	The containment of $F_m$ in $B(x, \epsilon_m)$ follows from \cref{itIsZero} and that $F_m \supset F_{m+1}$.
+\end{proof}
+
+We are now ready to prove the pointwise formula
+
+\begin{theorem} \label{pointwiseFormula}
+	Let $u \in \dom \Delta_\mu$. Then the pointwise formula
+	\begin{equation}
+		\Delta_{\mu} u(x) = \lim_{m \to \infty} r^{-m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)
+	\end{equation}
+	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuos function and the right side of the limit converges uniformly to a continuos function on $V_* \backslash V_0$. Then $u \in \dom \Delta_{\mu}$ and the equation holds.
+\end{theorem}
+
+\begin{proof}
+	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \cref{pointwiseEqualityofpsi} we have that 
+	\begin{equation}
+		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}
+	\end{equation}
+	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$, so let $\epsilon > 0$ be given, then by \cref{FmSmaller} we can choose $m$ large enough so for all $x, y \in F_m$ that $\abs{f(x) - f(y)} < \epsilon$, then
+	\begin{align}
+		\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+		&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+		&\leq \frac{\int_{F_m} \abs{f(y) -f(x)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+		&\leq \frac{\epsilon \int_{F_m} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+		&= \epsilon
+	\end{align}
+	in which case
+	\begin{equation}
+		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \widetilde{\Delta}_{\mu} u(x)
+	\end{equation}
+	
+	
+	Moving on to the second half of the proof. Suppose that $r^{m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)$ converges uniformly to a continuos function $f$. Now for any $v \in \dom_0 \mathcal{E}$ we have 
+	\begin{equation}
+		\mathcal{E}_m(u,v) = r^{-m} \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right)\left(v(y) - v(x) \right).
+	\end{equation}
+	
+	If we collect all the terms that contain the factor $v(x)$ for a fixed $x \in V_m \backslash V_0$ then each $v(x)$ will be of the form $-v(x) \left(u(y) - u(x) \right)$ for each $y \underset{m}{\sim} x$. In which case we get
+	\begin{align}
+		\mathcal{E}_m(u,v) &= - r^{-m}  \sum_{x \in V_m \backslash v_0} v(x) \left( \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right) \right) \\
+		&= -\sum_{x \in V_m \backslash V_0} v(x) r^{-m} \widetilde{\Delta}_{m}u(x)
+	\end{align}
+	
+	While it seems we lose many terms by removing $v(y)$, but they are instead contained in 
+	$$\sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right).$$ 
+	Note that the sum is "reset" for every $x$ so we count both the relation $x \sim y$ and $y \sim x$.
+	
+	Now if we define $f_m(x) = r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \widetilde{\Delta}_{m}u(x)$ then $f_m \to f$ uniformly by assumption and we can rewrite the above as   
+	\begin{align}
+		\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \widetilde{\Delta}_{m}u(x) \\
+		&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. \\
+	\end{align}
+	Following a quite lengthy argument, we have that 
+	\begin{equation}\label{theVeryLongOne}
+		\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. = - \int_{K} v(y)f(y) \dd \mu.
+	\end{equation}
+	and we have that $u \in \text{dom}\Delta_\mu$.
+	
+	We therefore consider
+	\begin{multline}
+		\abs{\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) -v(y)f(y)} \\
+		\leq \abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} + \abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}
+	\end{multline}
+	Looking at each term individually we first see that
+	\begin{multline}
+		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}} \\ 
+		\leq \sum_{x \in V_m \backslash V_0} \left(\abs{v(x) f_m(x) - v(y)f_m(y)} + \abs{v(y)f_m(y) - v(y)f(y)}\right) \psi_x^{(m)}(y)
+	\end{multline}
+	now again we will look at each term starting with $\abs{v(y) f_m(y) - v(y)f(y)}$. Here
+	$$\abs{v(y) f_m(y) - v(y)f(y)} = \abs{v(y)}\abs{f_m(y) - f(y)}$$
+	and since $v$ is continuos on $K$, which is compact, there is a constant $C_1$ so $\abs{v(y)} \leq C_1$ for all $x \in K$. Since $f_m$ converges uniformly to $f$ we can choose $m_1$ such that $\abs{f_m(y)- f(y)} \leq \frac{\epsilon}{C_1}$ and the convergence of that term follows.
+	
+	Next is $\abs{v(x) f_m(x) - v(y)f_m(y)}$, here we find
+	\begin{equation}
+		\abs{v(x) f_m(x) - v(y)f_m(y)} \leq \abs{v(x)}\abs{f_m(x)-f(y)} + \abs{f_m(y)}\abs{v(x)-v(y)}
+	\end{equation}
+	First $\abs{f_m(y)}\abs{v(x)-v(y)}$, here $\abs{f_m(y)} \leq C_2$ is uniformly bounded by some $C_2$. By \cref{FmSmaller} and continuity of $v$ we can choose $m_2$ so $\abs{v(x)-v(y)} \leq \frac{\epsilon}{C_2}$ for all $x \in F_{m_2}$. The reason we can choose $m_2$ is because $\psi_{x}^{(m)}$ is multiplied onto all the terms so we just restrict $v$ to $F_{m_2}$.
+	
+	Second $\abs{v(x)}\abs{f_m(x)-f(y)}$, again $\abs{v(x)} \leq C_1$, but
+	\begin{equation}
+		\abs{f_m(x)-f(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) - f_m(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) -f(y)} + \abs{f(y) - f_m(y)}
+	\end{equation}
+	First choose $m_3$ so $\abs{f_{m_3}(x)-f(x)} \leq \frac{\epsilon}{3 C_1}$, next by continuity of $f$ choose $m_4$ so $\abs{f(x) -f(y)} \leq \frac{\epsilon}{3 C_1}$ for all $x \in F_{m_4}$, lastly choose $m_5$ so $\abs{f(y)-f_{m_5}(y)} \leq \frac{\epsilon}{3 C_1}$.
+	
+	So we now have for $m \geq \max \{m_1, m_2, \ldots, m_5\}$ that
+	\begin{equation}
+		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}} \leq \epsilon \sum_{x \in V_m \backslash V_0} \psi_x^{(m)} \leq \epsilon \sum_{x \in V_m \backslash V_0} 1 \leq \epsilon.
+	\end{equation}
+	
+	We are now going to look at $\abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}$ here
+	\begin{equation}
+		\abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)} = \abs{v(y)f(y)}\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1}
+	\end{equation}
+	
+	Now to show $\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1} = 0$ as $m \to \infty$, we start by looking at $y \in V^*$. Choose $m_6$ so $y \in V_{m_6}$.
+	
+	Next assume $y \in K$, then since $V^{*}$ is dense in $K$ we can choose a sequence $(x_n)_{n = 1}$ where $x_n \to y$ as $n \to \infty$, and since $\psi_{x}^{(m)}$ is continuos on $K$ then $\psi_{x}^{(m)}(x_n) \to \psi_{x}^{(m)}(y)$ as $n \to \infty$. This gives us the following
+	\begin{align}
+		\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1} \leq \abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - \sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(x_n)} + \abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(x_n) - 1}
+	\end{align}
+	
+	Now choose an $n_1$ so $\abs{\psi_{x}^{(m)}(x_{n_1}) - \psi_{x}^{(m)}(y)} \leq \epsilon$ and an $m_7$ so $x_{n_1} \in V_{m_7}$. Both can then be bounded by $m \geq \max \{n_1, m_7\}$. Thus we have the convergence of \eqref{theVeryLongOne}.
+\end{proof}
+
+\section{And back again}
+We notice that the definition of $\Delta$ and $\Delta_{\mu}$ are the same. The definition for $\Delta$ does require us to take the $\max$ wrt. $p \in V_m \backslash V_0$, but since \cref{pointwiseFormula} holds uniformly for any $p \in V^{*} \ V_0$ it does not matter which definition we choose.
+
+We will now extend the Kigami Laplacian to the Dirichlet Laplacian.
+
+We start by considering the following measure. 
+\textcolor{red}{where how and why does this measure come from? Why is it normalized hausdorff?}
+The normalized Hausdorff measure on $K$ which is given by the borel measure $\mu$ on $K$ such for any $i_1, \ldots i_n \in \cbr{1, \ldots, 5}$
+\begin{equation}\label{normalziedHausdorffMeasure}
+	\mu\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_n}(K)\right) = 5^{-n}.
+\end{equation}
+\textcolor{red}{What does this mean?}
+This measure is also $d_h$-Ahlfors regular, thus there exists $c_1, c_2 > 0$ such there for every $x \in K$ and $r \in [0, \diam(K)]$
+\begin{equation}
+	c_1r^{d_h} \leq \mu(B(x,r)) \leq c_2 r^{d_h}.
+\end{equation}
+
+Next we have that we define the measure
+\begin{equation}\label{discreteMeasures}
+	\mu_m = \frac{1}{a_m} \sum_{p \in V_m} \delta_p
+\end{equation}
+where $a_m = 5^{m}\cd 4 + 1$. 
+
+\textcolor{red}{This holds because $\fracConst_i(K)$ are disjoint(except for single point both generate) for each $i$ and each $\fracConst_i$ "shrinks" the fractal down the that 1/5 of a quadrant. So $\sum_{x \in V_m}\delta_x (\fracConst_{i_1, \ldots i_n}) = (1/5)^{-n}\cd (5^{m}\cd 4 +1 )$ since each $\fracConst_{i}$ shrinks down the total number of points to 1/5}
+There is of course some relations between the measures we have just constructed.
+\begin{lemma}
+	The sequence of measure $(\mu_m)_{m \geq 0}$ defined in \eqref{discreteMeasures} converges to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$ in the weak topology. That is
+	\begin{equation}
+		\lim_{m \to \infty} \int_{K}f \dd \mu_m = \int_{K} f \dd \mu
+	\end{equation}
+\end{lemma}
+The proof of this follows from construction of the measures.
+
+
+
+In the following we will follow \cite{Fabrice} and \cite{specAnal} very closely in defining the Dirichlet Laplacian. Here we will encounter the concepts of \emph{local regular Dirichlet form} and the \emph{Friedrichs extension}. These concepts will not be explored in this thesis as they are only needed shortly to generate the Dirichlet Laplacian, thus they will be stated and used accordingly.
+ 
 For any function $f: V_{*} \to \ree$ we consider the quadratic form
 \begin{equation}
-	content...
+	\mathcal{E}_{m}(f,f) = \frac{\textcolor{red}{const}}{a_m} \sum_{x \underset{m}{\sim} y} (f(x)-f(y))^2
 \end{equation}
+\textcolor{red}{the same as the one i already defined? but with constants}. Define
+\begin{equation}
+	\mathcal{E}(f,f) = \lim_{m \to \infty} \mathcal{E}_m(f,f)
+\end{equation}
+and set
+\begin{equation}
+	\mathcal{F}^{0} = \cbr{f \in C(K) : \mathcal{E}(f,f) < \infty, f = 0 \text{ on } \partial K}
+\end{equation}
+By theorem 4.1  we have that $(\mathcal{E}, \mathcal{F}_0)$ is a local Dirichlet form on $L^{2}(K, \mu)$ and lemma 4.1 in \cite{specAnal} we have that for any functions $f,g $ on $V_m$ vanishing on $\partial K$
+\begin{equation}
+	\mathcal{E}_m(f,g) = -\int_{V_m^{0}} \Delta_m f(x) g(x) \dd \mu_m(x)
+\end{equation}
+and for $f \in \mathcal{D}_0$ and $g \in \mathcal{F}_0$ we have
+\begin{equation}
+	\mathcal{E}(f,g) = - \int_{K} \Delta f(x) g(x) \dd \mu.
+\end{equation}
+\textcolor{red}{I need this explained with context from \url{file:///C:/Users/chris/Downloads/BF00249784-2.pdf}}
+
+From theorem 4.2 in \cite{specAnal} the Friedrichs extension of the Kigami Laplacian $\Delta$ is the self-adjoint operator on $L^{2}(K, \mu)$ which is the generator of $(\mathcal{E}, \mathcal{F}_0)$. We still denote this generator $\Delta$ and this operator $\Delta$ with domain $\mathcal{D}(\Delta)$ is referred to as the Dirichlet Laplacian on $K$.
 
 
 \section{Discrete Fractional Gaussian Fields}
 Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ of $-\Delta_m$. Next let $(\Psi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following
 
-\textcolor{red}{Why are the eigenvalues greater than zero?}
+\textcolor{red}{Why are the eigenvalues greater than zero? and what is with the eigenfunctions wrt. measure?}
 
 \begin{defi}
 	Let $s \geq 0$ we define the \emph{discrete Riesz kernel} on $V_m$ as
@@ -80,11 +527,43 @@ Having constructed a discrete Laplacian we continue with constructing another La
 		& \leq \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \frac{1}{a_m}\norm{\phi_{i}^{m}(x)\sum_{y \in V_m} \phi_{i}^{m}(y)f(y)}_{L^{2}(V_m, \mu_m)} \\
 		& \leq (\lambda_1^{m})^{-s} \norm{f}_{L^{2}(V_m, \mu_m)}
 	\end{align}
-	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$
+	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$ \textcolor{red}{How?}
 \end{proof}
 
 
 Since we have now described the discrete fractional laplacian we will move on to the continuos fractional Laplacian.
+
+\subsection{Semi-groups}
+When stating the Fractional Laplacian one use that it admits a heat kernel through a semigroup generated by $-\Delta$. We will therefore first define a semigroup along with showing that $-\Delta$ generates a semigroup and lastly give some intuition to what the heat kernel is.
+
+\begin{defi}\label{semigroupDef}
+	Let $\mathcal{H}$ be a Hilbert space. A strongly continuos self-adjoint contraction semigroup is a family of self-adjoint operators $(P_t)_{t \geq 0}: \mathcal{H} \to \mathcal{H}$
+	\begin{enumerate}
+		\item For $s,t \geq 0$, $P_t \circ P_s = P_{s +t}$ (semi-group property).
+		\item For every $f \in \mathcal{H}, \lim_{t \to 0} P_t f= f$ (strong continuity).
+		\item For every $f \in \mathcal{H}$ and $t \geq 0$, $\norm{P_t f} \leq \norm{f}$.
+	\end{enumerate}
+\end{defi}
+
+The next theorem also holds if we are given $(P_t)_{t \geq 0}$ as a strongly continuous self-adjoint contraction semigroup, then there exists a self-adjoint, non-positive and densly defined operator that generates $(P_t)_{t \geq 0}$, but we only need the the operator to genererate the semi-group.
+\begin{theorem}
+	If $A$ is a densely defined self adjoint operator on $\mathcal{H}$ then it is the generator of the strongly continuous self-adjoint contraction semigroup on $\mathcal{H}$ defined as $P_t = e^{tA}$.
+\end{theorem}
+\begin{proof}
+	We will simply show that $e^{tA}$ fulfills \cref{semigroupDef}. First
+	\begin{align}
+		e^{t A}e^{sA} &= \sum_{n= 0}^{\infty} \frac{(tA)^{n}}{n!}\sum_{n= 0}^{\infty} \frac{(tA)^{n}}{n!} \\
+		& = \sum_{l= 0}^{\infty} \sum_{n +m = l}\frac{t^ns^m A^{l}}{n!m!} \\
+		&= \sum_{l= 0}^{\infty} \frac{(s+t)^{l}A^{l}}{l!} = e^{(s+t)A}.
+	\end{align}
+	Next
+	\begin{align}
+		\abs{e^{tA}f - f} = \abs{e^{tA} -1}\abs{f} = 0
+	\end{align}
+	as $t \to 0$. And lastly \textcolor{red}{need help}
+\end{proof}
+
+
 
 \subsection{Fractional Laplacian}
 Before we can define the continuos fractional Laplacian, we need to define the eigenvalues and eigenfunctions for $-\Delta$. A proof of the existence of the eigenvalues and eigenfunctions will not be given, but we will state the theorem.
