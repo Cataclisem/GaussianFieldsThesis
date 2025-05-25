@@ -2,34 +2,9 @@
 
 Now that we have presented and proved the existence of fractional Gaussian fields $X_s$ on $K$ and discrete fractional Gaussian fields $X_s^{m}$ on $V_m$ out next task is proving they converge. Therefore in this section our main goal is to show that $X_s^{m}$ converges in distribution to $X_s$.
 
-\section{Something}
-We have now proven the existence of the gaussian fields and are now ready to prove the convergence.
+\section{Preliminary lemmas}
+We have now proven the existence of the Gaussian fields and are now ready to prove the convergence.
 
-\begin{theorem}
-	Let $s \geq 0$, then $X_{s}^{m}$ converges to $X_s$ in distribution in $S'(K)$ when $m \to \infty$
-\end{theorem}
-
-\begin{proof}
-	First since $S(K)$ is a nuclear space, by \cite[Corollary~2.4]{biermé2017generalizedrandomfieldslevys} it is enough to prove the convergence of the characteristic functional, e.i that for all $f \in S(K)$
-	\begin{equation}
-		\e \left[\exp(itX_{s}^{m}(f_m))\right] \to \e \left[\exp(itX_{s}(f))\right], \quad \text{ as } m \to \infty
-	\end{equation} 
-	where $f_m = f \mid_{V_m}$. It follows fra \textcolor{red}{INSERT REF} that
-	\begin{equation}
-		\e \left[\exp(itX_{s}^{m}(f_m))\right] = \exp \left(-\frac{1}{2} t^2 \e \left[(X_{s}^{m}(f_m))^2\right]\right) = \exp \left(-\frac{1}{2a_m} t^2  \sum_{p \in V_m} f_m(p) (-\Delta_m)^{-2s} f_m(p)\right)
-	\end{equation}
-	Likewise we find that via \textcolor{red}{coll. 2.11 + 2.9} we get that
-	\begin{equation}
-		\e \left[\exp(i t X_{s}(f))\right] = \exp\left(-\frac{1}{2} t^2 \e \left[(X_{s}(f))^2\right]\right) = \exp\left(-\frac{1}{2}t^2 \int_{K} f (-\Delta)^{-2s}f \dd \mu\right).
-	\end{equation} 
-	Where we notice that
-	\begin{align}
-		\e \left[(X_{s}(f))^2\right] &= \int_{K} (-\Delta)^{s}f (-\Delta)^{s}f \dd \mu \\
-		& = \int_{K} \int_{K} f(p)f(q) G_{2s}(p,q) \dd\mu(p) \dd \mu(q) \\
-		& = \int_{K} f (-\Delta)^{-2s}f \dd \mu.
-	\end{align}
-	The proof now follows from \cref{convergence}.
-\end{proof}
 
 \begin{lemma}\label{convergence}
 	For all $f \in S(K)$ and $s \geq 0$ the following holds
@@ -41,8 +16,8 @@ We have now proven the existence of the gaussian fields and are now ready to pro
 	For $s = 0$  we find that 
 	\begin{align}
 		(-\Delta_m)^{-0} f&= \sum_{i = 1}^{N_m} \frac{1}{(\lambda_i^{m})^{0}} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \psi_{i}^{m}(y) f(y) \\
-	&= \sum_{i = 1}^{N_m} \phi_{i}^{m}(x) \int_{V_m} \phi_i^{m}(y)f(y) \dd \mu_{m} \\
-	& = f_m.
+		&= \sum_{i = 1}^{N_m} \phi_{i}^{m}(x) \int_{V_m} \phi_i^{m}(y)f(y) \dd \mu_{m} \\
+		& = f_m.
 	\end{align}
 	Likewise by definition of $(-\Delta)^{-s}$ we find
 	\begin{align}
@@ -58,7 +33,7 @@ We have now proven the existence of the gaussian fields and are now ready to pro
 		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p) &= \frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} \sum_{j =1}^{\infty} \inn{f_m}{\phi_i} \phi_{i} \\
 		&= \frac{1}{a_m} \sum_{p \in V_m} f_m(p) \sum_{j =1}^{\infty} \inn{f_m}{\phi_j} P_{t}^{m} \phi_{j} \\
 		& = \frac{1}{a_m} \sum_{p \in V_m} f_m(p) \sum_{j =1}^{\infty} \inn{f_m}{\phi_j} e^{-\lambda_{j}^{m} t} \phi_{j} \\
-		 &\leq e^{-\lambda_1^{m}t} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)^2
+		&\leq e^{-\lambda_1^{m}t} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)^2
 	\end{align}
 	where we can guarantee the inequality for all $j$ since $0 < \lambda_1 < \lambda_2 < .\lambda_3 <..$. 
 	
@@ -108,4 +83,35 @@ Lastly the range $\mathcal{R}(\lambda_0 - \Delta)$ is dense in $L^2$ \textcolor{
 	\end{equation}
 	The first integral converges to $0$ as $m\to \infty$ because of \eqref{convergensofPt}. Further by lemma we ave$\int_{V_m} f_m (P_t f)_m \dd \mu_m \to \int_{K} fP_tf \dd \mu$ as $m \to \infty$.
 \end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}
+	Let $s \geq 0$, then $X_{s}^{m}$ converges to $X_s$ in distribution in $S'(K)$ when $m \to \infty$
+\end{theorem}
+
+\begin{proof}
+	First since $S(K)$ is a nuclear space, by \cite[Corollary~2.4]{biermé2017generalizedrandomfieldslevys} it is enough to prove the convergence of the characteristic functional, e.i that for all $f \in S(K)$
+	\begin{equation}
+		\e \left[\exp(itX_{s}^{m}(f_m))\right] \to \e \left[\exp(itX_{s}(f))\right], \quad \text{ as } m \to \infty
+	\end{equation} 
+	where $f_m = f \mid_{V_m}$. It follows fra \textcolor{red}{INSERT REF} that
+	\begin{equation}
+		\e \left[\exp(itX_{s}^{m}(f_m))\right] = \exp \left(-\frac{1}{2} t^2 \e \left[(X_{s}^{m}(f_m))^2\right]\right) = \exp \left(-\frac{1}{2a_m} t^2  \sum_{p \in V_m} f_m(p) (-\Delta_m)^{-2s} f_m(p)\right)
+	\end{equation}
+	Likewise we find that via \textcolor{red}{coll. 2.11 + 2.9} we get that
+	\begin{equation}
+		\e \left[\exp(i t X_{s}(f))\right] = \exp\left(-\frac{1}{2} t^2 \e \left[(X_{s}(f))^2\right]\right) = \exp\left(-\frac{1}{2}t^2 \int_{K} f (-\Delta)^{-2s}f \dd \mu\right).
+	\end{equation} 
+	Where we notice that
+	\begin{align}
+		\e \left[(X_{s}(f))^2\right] &= \int_{K} (-\Delta)^{s}f (-\Delta)^{s}f \dd \mu \\
+		& = \int_{K} \int_{K} f(p)f(q) G_{2s}(p,q) \dd\mu(p) \dd \mu(q) \\
+		& = \int_{K} f (-\Delta)^{-2s}f \dd \mu.
+	\end{align}
+	The proof now follows from \cref{convergence}.
+\end{proof}
+
+\section{Simulations}
+I have some pretty pictures. Want to se the fields $X_s^{m}(x) = \sum\lambda_j \phi_j$ to $\widetilde{X}_s$?
 
