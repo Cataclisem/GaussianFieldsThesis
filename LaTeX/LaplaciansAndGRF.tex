@@ -1,0 +1,1043 @@
+\chapter{And now for something completely different}
+In future section the Gaussian random fields will be defined using the eigenvalues and eigenfunctions of the Laplacian. We will therefore start by introducing first the discrete Laplacian, then the Kigami Laplacian and will culminate in the Dirichlet Laplacian.
+
+We will now consider the discrete Laplacian on the fractal.
+\begin{defi}
+	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
+	\begin{equation}
+		\Delta_m f(p) = \text{\textcolor{red}{{CONST}}} \sum_{q \in V_{m,p}} (f(q) - f(p)), \quad p \in V_m \backslash V_0
+	\end{equation}
+\end{defi}
+
+\begin{remark}\label{discreteMatrix}
+	One is able to describe the discrete Laplacian as a matrix. First let $p_1, \ldots p_{N_m}$ be the vertices in $V_m$ then the \emph{Laplacian matrix} is constructed in the following way:
+	\begin{equation}
+		L_{i,j} = \begin{cases}
+			\#V_{m,p_i}, & \text{if } i= j \\
+			-1, & \text{if } i \neq j \text{ and } p_j \in V_{m,p_i} \\
+			0, & \text{otherwise.}
+		\end{cases}
+	\end{equation}
+Further $\#V_{m,p_i}$ is also called the \emph{degree of $p_i$}
+\end{remark}
+
+Now let $C(K)$ be the set of continuos functions on $K$. We then define
+\begin{equation}
+	\mathcal{D} = \cbr{f \in C(K) \ : \ \exists g \in C(K), \lim_{m \to \infty} \max_{p \in V_m \backslash V_0} \abs{\Delta_m f(p) - g(p)} = 0}
+\end{equation}
+We will use the notation of $C_0(K)$ and $D_0$ to denote the sets of functions in $C(K)$ and $D$ respectively which vanish on the boundary $\partial K$.
+
+This set leads us to defining
+\begin{defi}\label{KigamiLaplacian}
+	The Kigami Laplacian $\Delta : \mathcal{D} \to C(K)$ is defined as
+	\begin{equation}
+		\Delta f(p) = g(p)
+	\end{equation}
+	where $g$ satisfies: $\lim_{m \to \infty} \max_{p \in V_m\backslash V_0}\abs{\Delta_m f(p) - g(p)} = 0$
+\end{defi}
+
+The definition above is one way of defining the Kigami Laplacian, but the domain doesn't lend itself to show what functions are actually contained in $\mathcal{D}$. We will therefore in this next section show another way to define the Kigami Laplacian with a more transparent domain and being able to define the Kigami Laplacian pointwise.
+
+\section{We're going to define it again}
+In this section we will follow arguments given by \cite{strichartz}. Much of the proof are going to rely on the standard graph Dirichlet form. Thus we are first going to define and prove some properties of this graph Dirichlet form. \textcolor{red}{What to call these energies? Also the renormalized one}
+
+\begin{defi}
+	Given a finite connected graph $G$ and it vertices $V_m$ the for functions $u, v: V_m \to \ree$ we define the \emph{standard graph Dirichlet form} to be
+	\begin{equation}\label{graphEnergy}
+		E_m(u,v) = \sum_{x \sim y} \left(u(x) - u(y) \right)(v(x)-v(y)).
+	\end{equation}
+\end{defi}
+\noindent \textbf{Notation: } we write $E_m(u) = E_m(u,u)$.
+
+Given some graph $G$ and a function $u: V_m \to \ree$, since we in the end want to work on the whole of the Vicsek set $K$, we now define an extension of $u$ to $V_m$. This is done in the following way
+
+\begin{defi}
+	Let $K$ be a graph and $u: V_m \to \ree$, then an \emph{extension of} $u$ is a function \nl $u': V_{m+n} \to \ree$ where $u' \mid_{V_m} = u$.
+\end{defi}
+
+It is obvious that $E_{m+n}(u') \geq E_m(u)$. Further one quickly notices that there must be a function that minimizes the graph Dirichlet form of a given graph. We denote such a function with $\tilde{u}$ and call it a \emph{harmonic extension}.
+
+\begin{defi}
+	Let $\tilde{u}: V_{m+n} \to \ree$ with $\title{u} \mid_{V_m} = u$ is called a \emph{harmonic extension} if $E_{m+n}(\tilde{u}) \leq E_{m+n}(u')$ for all $u': V_{m+n} \to \ree$ with $u' \mid _{V_m} = u$.
+\end{defi}
+
+In some cases we have that $E_{m+n}(\tilde{u}) = r^{n} E_{m}(u)$ for some $r \in (0, 1)$. But instead of normalizing the values on $E_m$ we will normalize $E_{m+n}$. Thus  getting
+\begin{equation}
+	r^{-n} E_{m+n}(\tilde{u}) = E_m(u), \quad \text{and} \quad r^{-n} E_{m+n}(u') \geq E_m(u)
+\end{equation}
+for every extension $u'$ of $u$. The constant $r$ is called the \emph{renormalization constant} From the equality above we can define the following
+\begin{defi}\label{renormalizedGraphEnergies}
+	The \emph{renormalized graph energies} are defined as
+	\begin{equation}
+		\eee_{m}(u) = r^{-m}E_m(u)
+	\end{equation}
+	Note that the sequence $\cbr{\eee_{m}(u)}$ is a non-decreasing sequence. 
+\end{defi}
+
+Based on this definition we see that for a harmonic extension $\tilde{u}$ of $u$ we have that 
+\begin{equation}
+	\mathcal{E}_{m+1}(\tilde{u}) = r^{-(m+1)}E_{m+1}(\tilde{u}) = r^{-m}E_{m}(u) = \mathcal{E}_{m}(u).
+\end{equation}
+Extending this to the bilinear form we have for harmonic extension $\tilde{u}, \tilde{v}$ of $u, v$ that
+\begin{equation}
+	\mathcal{E}_{m+1}(\tilde{u}, \tilde{v}) = \mathcal{E}_{m}(u,v).
+\end{equation}
+
+Actually one even has that for the bilinear form then if $\tilde{u}$ is the harmonic extension of $u$ and $v'$ is any extension of $v$ then
+\begin{equation}\label{bilinearFormRenormalized}
+	\mathcal{E}_{m+1}(\tilde{u}, v') = \mathcal{E}_{m}(u,v).
+\end{equation}
+See \cite{strichartz} for more information.
+
+Now that we have \ref{renormalizedGraphEnergies}, we can define what it means to be a harmonic function.
+
+
+\begin{defi}
+	$u$ is a \emph{harmonic function} if $u$ minimizes $\eee_{m}(u)$ for all $m$, given boundary values $V_0$.
+\end{defi}
+
+The harmonic functions will be used extensively throughout this section. We start by finding the renormalization constant for the Vicsek set.
+
+\subsection{Renormalization constant on the Vicsek set}
+
+I the previous section we have talked about a harmonic function, but without every constructing one. We will therefore in this next section show how to create an harmonic function for the Vicsek set for any start boundary values.
+
+Given $V_0 = \cbr{q_0, q_1, q_2, q_3, q_4}$ and $u: V_0 \to \ree$ then we have that
+\begin{equation}
+	E_0(u) = \left(u(q_0) - u(q_1)\right)^2 + \left(u(q_0) - u(q_2)\right)^2 + \left(u(q_0) - u(q_3)\right)^2 + \left(u(q_0) - u(q_4)\right)^2.
+\end{equation} 
+We are going to exploit symmetry of the Vicsek set. Since all four "limbs" of the Vicsek set are identical we will only look at one of the limbs since the other limbs will be the same computations. So if we want to minimize $E_1(u')$, we see for the limb between $q_0$ and $q_1$ that
+\begin{multline}
+	E_1(u') = \left(u'(q_1) - u'(p_0)\right)^2 + \left(u'(p_0) - u'(p_2)\right)^2 \\
+	 + \left(u'(p_0) - u'(p_3)\right)^2 + \left(u'(p_0) - u'(p_4)\right)^2 + \left(u'(p_3) - u'(q_0)\right)^2.
+\end{multline}
+
+
+\begin{figure}[!ht] \label{renormVicsekDiagram}
+	\centering
+	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+	
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+		
+		%Straight Lines [id:da6304295946642043] 
+		\draw    (200,120) -- (200,240) ;
+		\draw [shift={(200,240)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(200,120)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da15009868113581337] 
+		\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (140,180) -- (260,180) ;
+		\draw [shift={(260,180)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(140,180)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6360387946571586] 
+		\draw    (160,160) -- (160,200) ;
+		\draw [shift={(160,200)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(160,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da967738390323848] 
+		\draw    (240,160) -- (240,200) ;
+		\draw [shift={(240,200)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(240,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da22729733453474055] 
+		\draw    (220,140) -- (180,140) ;
+		\draw [shift={(180,140)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(220,140)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da18095273720450344] 
+		\draw    (170,180) -- (185.5,180) -- (190,180) ;
+		%Straight Lines [id:da24264648223015173] 
+		\draw    (220,220) -- (180,220) ;
+		\draw [shift={(180,220)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(220,220)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6311736325856517] 
+		\draw    (180,180) -- (160,180) ;
+		\draw [shift={(160,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(180,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da868237351757014] 
+		\draw    (240,180) -- (220,180) ;
+		\draw [shift={(220,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(240,180)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da7980791265955824] 
+		\draw    (200,220) -- (200,200) ;
+		\draw [shift={(200,200)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(200,220)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da7384137154814034] 
+		\draw    (200,160) -- (200,140) ;
+		\draw [shift={(200,140)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(200,160)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da3701955076323855] 
+		\draw    (200,200) -- (200,180) ;
+		\draw [shift={(200,180)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		
+		% Text Node
+		\draw (200,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{0}$};
+		% Text Node
+		\draw (262,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{1}$};
+		% Text Node
+		\draw (194,108) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{4}$};
+		% Text Node
+		\draw (194,243.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{2}$};
+		% Text Node
+		\draw (126,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{3}$};
+		% Text Node
+		\draw (241,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{0}$};
+		% Text Node
+		\draw (220,168.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{3}$};
+		% Text Node
+		\draw (234,204) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{2}$};
+		% Text Node
+		\draw (235,148) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{4}$};
+				
+	\end{tikzpicture}
+	\caption{Points on the Vicsek set}
+\end{figure}
+We are then going to optimize with regards to $u'(p_i)$ for $i = 0, 1, 2, 4$. Taking the derivative of the right side and solving for $0$ we get the following
+\begin{align}
+	4 u'(p_0) &= u'(q_1) + u'(p_2) + u'(p_3) + u'(p_4) \\
+	2 u'(p_3) &= u'(q_0) + u'(p_0) \\
+	u'(p_2) &= u'(p_0)\\
+	u'(p_4) &= u'(p_0).
+\end{align}
+Solving these equations we get
+\begin{align}
+	u'(p_0) &=  \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0)\\
+	u'(p_2) &= \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0) \\
+	u'(p_4) &= \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0) \\
+	u'(p_3) &= \frac{2}{3} u'(q_0) + \frac{1}{3} u'(q_1).
+\end{align}
+
+So what we have found is that to minimize the energy of the Vicsek set, then the energy of the next point is going to be $2/3$ the energy from the closest point and $1/3$ the energy from the next closest point. 
+
+If one calculates the energies then you will get
+\begin{equation}
+	E_1(u') =\frac{1}{3}\sum_{i = 1}^{4}(u'(q_i) - u'(q_0))^2 = \frac{1}{3}E_0(u')
+\end{equation}
+
+Since the Vicsek set is a self-similar set, we have that going from $V_1$ to $V_2$ is the same as going from $V_m$ to $V_{m+1}$. Thus we can just extend the above calculations to doing it $m$ times, in which case
+\begin{equation}
+	E_{m+1}(u') = \frac{1}{3}E_m(u')
+\end{equation}
+
+Thus we get our renormalization constant for the vicsek set to be $r = 3$.
+
+
+With the renormalization constant found we will return to finding the Kigmai Laplacian.
+
+By \cref{renormalizedGraphEnergies} we have defined a sequence $\mathcal{E}_m$ for functions on $V^{*}$. It will therefore make sense to define the following limit
+\begin{defi} Let $u: V^{*} \to \ree$ then define the limit
+	\begin{equation}
+		\mathcal{E}(u) = \lim_{m \to \infty} \mathcal{E}_{m}(u)
+	\end{equation}
+	where we set
+	\begin{equation}
+		\dom \mathcal{E} = \cbr{u : \mathcal{E}(u) < \infty}.
+	\end{equation}
+	and denote $\dom_0 \mathcal{E}$ with the functions in $\dom \mathcal{E}$ that vanish $V_0$.
+\end{defi}
+
+This definition only involves functions defined on $V^{*}$, but we find that functions in $\dom \mathcal{E}$ are uniformly continuos and therefore has an unique extension to $K$. We even have that $\dom \mathcal{E}$ is dense in $C(K)$.
+\begin{prop} \phantom{a}
+	\begin{enumerate}[(i)] 
+		\item 	Let $u \in \dom \mathcal{E}$ then $u$ is uniformly continuos on $V^{*}$. \label{uniCont1}
+		\item $\dom \mathcal{E}$ is dense in $C(K)$. \label{uniCont2}
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	We start with \cref{uniCont1}. Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
+	\begin{equation}\label{uniFormContiousEstimate}
+		r^{-m}(u(x) -u(y))^{2} \leq \mathcal{E}_m(u) \leq \mathcal{E}(u)
+	\end{equation}
+	since $r^{-m}(u(x) -u(y))^{2}$ is a term in $\mathcal{E}_m(u)$. Thus
+	\begin{equation}
+		\abs{u(x)-u(y)} \leq r^{\frac{m}{2}} \mathcal{E}(u)^{\frac{1}{2}}.
+	\end{equation}
+	Now consider a chain of points $x_m, x_{m+1}, \ldots, x_{m+k}$ where $x_{m+j} \in V_{m+j}$ and $x_{m+j} \in V_{m+j+1, x_{m+j+1}}$. Then we have
+	\begin{equation}
+		\abs{u(x_m)-u(x_{m+k})} \leq r^{\frac{m}{2}}\left(1 + r^{\frac{1}{2}} + \ldots + r^{\frac{k}{2}}\right)\mathcal{E}(u)^{\frac{1}{2}} \leq \frac{r^{m}}{1-r^{\frac{1}{2}}} \mathcal{E}^{\frac{1}{2}}
+	\end{equation}
+	by using \eqref{uniFormContiousEstimate} and the triangle inequality multiple times. From the geometry of $K$ we see that $x, y \in V^{*}$ belong to the same or adjacent $m$-cells then we can connect $x$ to $y$ by at most $2$ such chains \textcolor{red}{What does he mean?}, so
+	\begin{equation}
+		\abs{u(x) - u(y)} \leq \frac{2r^{m/2}}{1-r^{\frac{1}{2}}} \mathcal{E}(u)^{\frac{1}{2}}
+	\end{equation}
+	and we have a bound for all $x,y \in V^{*}$.
+	
+	For proof of \cref{uniCont2} we refer to \cite{strichartz}.
+\end{proof}
+
+
+We are now going to state another way to define the Kigama Laplacian. We denote this Laplacian as $\Delta_{\mu}$ since as we will see in the definition it depends on the measure $\mu$.
+\begin{defi}
+	Let $u \in \dom \mathcal{E}$ and let $f$ be continuos, then $u \in \dom(\Delta_{\mu})$ and $\Delta_{\mu}u =f$ if
+	\begin{equation}
+		\mathcal{E}(u,v) = \int_{K}fv \dd \mu, \quad \forall v \in \dom_{0}\mathcal{E}
+	\end{equation}
+\end{defi}
+
+While $\Delta_{\mu}$ depends on the measure $\mu$, we will still find that it coincides with the Kigami Laplacian $\Delta$. Like with $\Delta$ we are going to want $\Delta_{\mu}$ to be defined as the limit of a discrete operator. We are therefore going to again define a discrete graph Laplacian, the difference is that the following will be without constants.
+
+\begin{defi}\label{discreteLaplaceNoConst}
+	We define the laplacian $\widetilde{\Delta}_{m}$ as
+	\begin{equation}
+		\widetilde{\Delta}_{m} = \sum_{y \in V_{m,x}} (f(y) -f(x))
+	\end{equation}
+\end{defi}
+
+Before moving on we will define a harmonic function which will be used extensively in the following proofs.
+\begin{defi}
+	Given $m$ and a point $x \in V_m \backslash V_0$ then define $\psi_x^{(m)}(y) = \delta_{xy}$ for $y \in V_m$.
+\end{defi}
+I might seem that we have only defined $\psi_x^{(m)}$ on $V_m$, but actually it is defined on the whole of $K$. It simply follows that we create an harmonic extension of $\psi_x^{(m)}$.
+
+The function $\phi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
+\begin{prop}\label{pointwiseEqualityofpsi}
+	Let $u \in \dom \mathcal{E}$ then
+	\begin{equation}
+		r^{-m}\widetilde{\Delta}_{m}u(x) = \int_{K}f \psi_{x}^{(m)} \dd \mu
+	\end{equation}
+\end{prop}
+\begin{proof}
+	Since 
+	\begin{equation}
+		\mathcal{E}_{m}(u, \psi_{x}^{(m)}) = r^{-m} \sum_{p \underset{m}{\sim} q}(u(q)-u(p))(\psi_{x}^{(m)}(p) -\psi_{x}^{(m)}(q)) = r^{-m}\sum_{q \in V_{m,x}}(u(x)-u(q)) = r^{-m}\widetilde{\Delta}_{m}u(x)
+	\end{equation}
+	where the second equality comes the fact that only edges containing $x$ are going to see change in $\psi_{x}^{(m)}$. Now by \eqref{bilinearFormRenormalized} we have that
+	\begin{equation}
+		r^{-m}\widetilde{\Delta}_{m}u(x) = \mathcal{E}_{m}(u, \psi_{x}^{(m)}) = \mathcal{E}(u, \psi_{x}^{(m)}) = \int_{K}f \psi_{x}^{(m)} \dd \mu
+	\end{equation}
+	as desired.
+\end{proof}
+
+Before we begin the proof $\Delta_{\mu}$ is the limit of $\widetilde{\Delta}_{m}$ we need some preliminary lemmas.
+
+\begin{lemma}\label{itIsZero}
+	Let $v: K \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{k > 0} S^{k}(x) \right) \cup \left(\bigcup_{i} \{y_i\} \right)$
+\end{lemma}
+\begin{proof}
+	It is clear that $v(\omega) = 0$ for any $\omega \in B_x$, since the energy of the points $F_w x$ with $\abs{w} > 0$ depends on the energy of $x$ and its neighbours. 
+	
+	So we need to check the points in $\overline{B_x} \backslash B_x$. Now since $B_x$ is dense in $\overline{B_x}$, then for any $\omega \in \overline{B_x}$ we have that there exists a sequence $x_n \in B_x$ such that $x_n \to \omega$. By the fact that $v$ is continuos on $K$ it is continuos on $\overline{B_x}$, in which case $\abs{v(x_n) - v(\omega)} \to 0$ as $n \to \infty$, but $v(x_n) = 0$ for all $x_n$, so $v(\omega) = 0$ as desired.  
+\end{proof}
+
+What lemma $\ref{itIsZero}$ sates, is if any two points in $V_m$ are neighbours, say $x$ and $y$, and $v(x)=v(y)=0$, then then function value at any point between $x$ and $y$ is also zero.
+
+\begin{lemma}\label{FmSmaller}
+	Set $F_m = \supp \psi_{x}^{(m)}$, then
+	\begin{equation}
+		F_0 \supset F_1 \supset F_2 \supset F_3 \supset \dots
+	\end{equation}
+	Further $F_m$ is contained in the open ball $B(x, \epsilon_m)$ where $\epsilon_m \to 0$ as $m \to \infty$.
+\end{lemma}
+
+\begin{proof}
+	If we set $\Omega_m = \left\{z \in K : \psi_{x}^{(m)}(z) = \psi_{x}^{(m)}(y) = 0, \forall y \in V_{m,z}  \right\}$ then $F_m = K \backslash \left(\bigcup_{\alpha \in \Omega_m} \overline{B_\alpha} \right)$. It is clear that $\Omega_m \subset \Omega_{m+1}$ and that there are new points in $\Omega_{m+1}$ that are not just a point between some already existing points $x_1, x_2 \in \Omega_m$. We therefore have from the way that $F_m$ is constructed that $F_m \supset F_{m+1}$.
+	
+	The containment of $F_m$ in $B(x, \epsilon_m)$ follows from \cref{itIsZero} and that $F_m \supset F_{m+1}$.
+\end{proof}
+
+We are now ready to prove the pointwise formula
+
+\begin{theorem} \label{pointwiseFormula}
+	Let $u \in \dom \Delta_\mu$. Then the pointwise formula
+	\begin{equation}
+		\Delta_{\mu} u(x) = \lim_{m \to \infty} r^{-m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)
+	\end{equation}
+	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuos function and the right side of the limit converges uniformly to a continuos function on $V_* \backslash V_0$. Then $u \in \dom \Delta_{\mu}$ and the equation holds.
+\end{theorem}
+
+\begin{proof}
+	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \cref{pointwiseEqualityofpsi} we have that 
+	\begin{equation}
+		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}
+	\end{equation}
+	for any $x \in V_m \backslash V_0$. Uniform converges of the right side is because of continuity of $f(x)$, so let $\epsilon > 0$ be given, then by \cref{FmSmaller} we can choose $m$ large enough so for all $x, y \in F_m$ that $\abs{f(x) - f(y)} < \epsilon$, then
+	\begin{align}
+		\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+		&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
+		&\leq \frac{\int_{F_m} \abs{f(y) -f(x)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+		&\leq \frac{\epsilon \int_{F_m} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} \\
+		&= \epsilon
+	\end{align}
+	in which case
+	\begin{equation}
+		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \widetilde{\Delta}_{\mu} u(x)
+	\end{equation}
+	
+	
+	Moving on to the second half of the proof. Suppose that $r^{m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)$ converges uniformly to a continuos function $f$. Now for any $v \in \dom_0 \mathcal{E}$ we have 
+	\begin{equation}
+		\mathcal{E}_m(u,v) = r^{-m} \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right)\left(v(y) - v(x) \right).
+	\end{equation}
+	
+	If we collect all the terms that contain the factor $v(x)$ for a fixed $x \in V_m \backslash V_0$ then each $v(x)$ will be of the form $-v(x) \left(u(y) - u(x) \right)$ for each $y \underset{m}{\sim} x$. In which case we get
+	\begin{align}
+		\mathcal{E}_m(u,v) &= - r^{-m}  \sum_{x \in V_m \backslash v_0} v(x) \left( \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right) \right) \\
+		&= -\sum_{x \in V_m \backslash V_0} v(x) r^{-m} \widetilde{\Delta}_{m}u(x)
+	\end{align}
+	
+	While it seems we lose many terms by removing $v(y)$, but they are instead contained in 
+	$$\sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right).$$ 
+	Note that the sum is "reset" for every $x$ so we count both the relation $x \sim y$ and $y \sim x$.
+	
+	Now if we define $f_m(x) = r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \widetilde{\Delta}_{m}u(x)$ then $f_m \to f$ uniformly by assumption and we can rewrite the above as   
+	\begin{align}
+		\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \widetilde{\Delta}_{m}u(x) \\
+		&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. \\
+	\end{align}
+	Following a quite lengthy argument, we have that 
+	\begin{equation}\label{theVeryLongOne}
+		\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. = - \int_{K} v(y)f(y) \dd \mu.
+	\end{equation}
+	and we have that $u \in \text{dom}\Delta_\mu$.
+	
+	We therefore consider
+	\begin{multline}
+		\abs{\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) -v(y)f(y)} \\
+		\leq \abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} + \abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}
+	\end{multline}
+	Looking at each term individually we first see that
+	\begin{multline}
+		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}} \\ 
+		\leq \sum_{x \in V_m \backslash V_0} \left(\abs{v(x) f_m(x) - v(y)f_m(y)} + \abs{v(y)f_m(y) - v(y)f(y)}\right) \psi_x^{(m)}(y)
+	\end{multline}
+	now again we will look at each term starting with $\abs{v(y) f_m(y) - v(y)f(y)}$. Here
+	$$\abs{v(y) f_m(y) - v(y)f(y)} = \abs{v(y)}\abs{f_m(y) - f(y)}$$
+	and since $v$ is continuos on $K$, which is compact, there is a constant $C_1$ so $\abs{v(y)} \leq C_1$ for all $x \in K$. Since $f_m$ converges uniformly to $f$ we can choose $m_1$ such that $\abs{f_m(y)- f(y)} \leq \frac{\epsilon}{C_1}$ and the convergence of that term follows.
+	
+	Next is $\abs{v(x) f_m(x) - v(y)f_m(y)}$, here we find
+	\begin{equation}
+		\abs{v(x) f_m(x) - v(y)f_m(y)} \leq \abs{v(x)}\abs{f_m(x)-f(y)} + \abs{f_m(y)}\abs{v(x)-v(y)}
+	\end{equation}
+	First $\abs{f_m(y)}\abs{v(x)-v(y)}$, here $\abs{f_m(y)} \leq C_2$ is uniformly bounded by some $C_2$. By \cref{FmSmaller} and continuity of $v$ we can choose $m_2$ so $\abs{v(x)-v(y)} \leq \frac{\epsilon}{C_2}$ for all $x \in F_{m_2}$. The reason we can choose $m_2$ is because $\psi_{x}^{(m)}$ is multiplied onto all the terms so we just restrict $v$ to $F_{m_2}$.
+	
+	Second $\abs{v(x)}\abs{f_m(x)-f(y)}$, again $\abs{v(x)} \leq C_1$, but
+	\begin{equation}
+		\abs{f_m(x)-f(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) - f_m(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) -f(y)} + \abs{f(y) - f_m(y)}
+	\end{equation}
+	First choose $m_3$ so $\abs{f_{m_3}(x)-f(x)} \leq \frac{\epsilon}{3 C_1}$, next by continuity of $f$ choose $m_4$ so $\abs{f(x) -f(y)} \leq \frac{\epsilon}{3 C_1}$ for all $x \in F_{m_4}$, lastly choose $m_5$ so $\abs{f(y)-f_{m_5}(y)} \leq \frac{\epsilon}{3 C_1}$.
+	
+	So we now have for $m \geq \max \{m_1, m_2, \ldots, m_5\}$ that
+	\begin{equation}
+		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}} \leq \epsilon \sum_{x \in V_m \backslash V_0} \psi_x^{(m)} \leq \epsilon \sum_{x \in V_m \backslash V_0} 1 \leq \epsilon.
+	\end{equation}
+	
+	We are now going to look at $\abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}$ here
+	\begin{equation}
+		\abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)} = \abs{v(y)f(y)}\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1}
+	\end{equation}
+	
+	Now to show $\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1} = 0$ as $m \to \infty$, we start by looking at $y \in V^*$. Choose $m_6$ so $y \in V_{m_6}$.
+	
+	Next assume $y \in K$, then since $V^{*}$ is dense in $K$ we can choose a sequence $(x_n)_{n = 1}$ where $x_n \to y$ as $n \to \infty$, and since $\psi_{x}^{(m)}$ is continuos on $K$ then $\psi_{x}^{(m)}(x_n) \to \psi_{x}^{(m)}(y)$ as $n \to \infty$. This gives us the following
+	\begin{align}
+		\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1} \leq \abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - \sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(x_n)} + \abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(x_n) - 1}
+	\end{align}
+	
+	Now choose an $n_1$ so $\abs{\psi_{x}^{(m)}(x_{n_1}) - \psi_{x}^{(m)}(y)} \leq \epsilon$ and an $m_7$ so $x_{n_1} \in V_{m_7}$. Both can then be bounded by $m \geq \max \{n_1, m_7\}$. Thus we have the convergence of \eqref{theVeryLongOne}.
+\end{proof}
+
+\section{And back again}
+We notice that the definition of $\Delta$ and $\Delta_{\mu}$ are the same. The definition for $\Delta$ does require us to take the $\max$ wrt. $p \in V_m \backslash V_0$, but since \cref{pointwiseFormula} holds uniformly for any $p \in V^{*} \ V_0$ it does not matter which definition we choose.
+
+We will now extend the Kigami Laplacian to the Dirichlet Laplacian.
+
+We start by considering the following measure. 
+\textcolor{red}{where how and why does this measure come from? Why is it normalized hausdorff?}
+The normalized Hausdorff measure on $K$ which is given by the borel measure $\mu$ on $K$ such for any $i_1, \ldots i_n \in \cbr{1, \ldots, 5}$
+\begin{equation}\label{normalziedHausdorffMeasure}
+	\mu\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_n}(K)\right) = 5^{-n}.
+\end{equation}
+\textcolor{red}{What does this mean?}
+This measure is also $d_h$-Ahlfors regular, thus there exists $c_1, c_2 > 0$ such there for every $x \in K$ and $r \in [0, \diam(K)]$
+\begin{equation}
+	c_1r^{d_h} \leq \mu(B(x,r)) \leq c_2 r^{d_h}.
+\end{equation}
+
+Next we have that we define the measure
+\begin{equation}\label{discreteMeasures}
+	\mu_m = \frac{1}{a_m} \sum_{p \in V_m} \delta_p
+\end{equation}
+where $a_m = 5^{m}\cd 4 + 1$. 
+
+\textcolor{red}{This holds because $\fracConst_i(K)$ are disjoint(except for single point both generate) for each $i$ and each $\fracConst_i$ "shrinks" the fractal down the that 1/5 of a quadrant. So $\sum_{x \in V_m}\delta_x (\fracConst_{i_1, \ldots i_n}) = (1/5)^{-n}\cd (5^{m}\cd 4 +1 )$ since each $\fracConst_{i}$ shrinks down the total number of points to 1/5}
+There is of course some relations between the measures we have just constructed.
+\begin{lemma}\label{convergenceOfMeasures}
+	The sequence of measure $(\mu_m)_{m \geq 0}$ defined in \eqref{discreteMeasures} converges to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$ in the weak topology. That is
+	\begin{equation}
+		\lim_{m \to \infty} \int_{K}f \dd \mu_m = \int_{K} f \dd \mu
+	\end{equation}
+\end{lemma}
+The proof of this follows from construction of the measures.
+
+
+
+In the following we will follow \cite{Fabrice} and \cite{specAnal} very closely in defining the Dirichlet Laplacian. Here we will encounter the concepts of \emph{local regular Dirichlet form} and the \emph{Friedrichs extension}. These concepts will not be explored in this thesis as they are only needed shortly to generate the Dirichlet Laplacian, thus they will be stated and used accordingly.
+ 
+For any function $f: V_{*} \to \ree$ we consider the quadratic form
+\begin{equation}
+	\mathcal{E}_{m}(f,f) = \frac{\textcolor{red}{const}}{a_m} \sum_{x \underset{m}{\sim} y} (f(x)-f(y))^2
+\end{equation}
+\textcolor{red}{the same as the one i already defined? but with constants}. Define
+\begin{equation}
+	\mathcal{E}(f,f) = \lim_{m \to \infty} \mathcal{E}_m(f,f)
+\end{equation}
+and set
+\begin{equation}
+	\mathcal{F}^{0} = \cbr{f \in C(K) : \mathcal{E}(f,f) < \infty, f = 0 \text{ on } \partial K}
+\end{equation}
+By theorem 4.1  we have that $(\mathcal{E}, \mathcal{F}_0)$ is a local Dirichlet form on $L^{2}(K, \mu)$ and lemma 4.1 in \cite{specAnal} we have that for any functions $f,g $ on $V_m$ vanishing on $\partial K$
+\begin{equation}
+	\mathcal{E}_m(f,g) = -\int_{V_m^{0}} \Delta_m f(x) g(x) \dd \mu_m(x)
+\end{equation}
+and for $f \in \mathcal{D}_0$ and $g \in \mathcal{F}_0$ we have
+\begin{equation}
+	\mathcal{E}(f,g) = - \int_{K} \Delta f(x) g(x) \dd \mu.
+\end{equation}
+\textcolor{red}{I need this explained with context from \url{file:///C:/Users/chris/Downloads/BF00249784-2.pdf}}
+
+From theorem 4.2 in \cite{specAnal} the Friedrichs extension of the Kigami Laplacian $\Delta$ is the self-adjoint operator on $L^{2}(K, \mu)$ which is the generator of $(\mathcal{E}, \mathcal{F}_0)$. We still denote this generator $\Delta$ and this operator $\Delta$ with domain $\mathcal{D}(\Delta)$ is referred to as the Dirichlet Laplacian on $K$.
+
+
+\section{Discrete Fractional Gaussian Fields}
+Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ of $-\Delta_m$. Next let $(\Psi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following
+
+\textcolor{red}{Why are the eigenvalues greater than zero? and what is with the eigenfunctions wrt. measure?}
+
+\begin{defi}
+	Let $s \geq 0$ we define the \emph{discrete Riesz kernel} on $V_m$ as
+	\begin{equation}
+		G_s^{m}(x,y) = \sum_{i = 1}^{N_m} (\lambda_i^{m})^{-s} \phi_{i}^{m}(x)\phi_{i}^{m}(y), \quad \text{for }x, y \in V_m
+	\end{equation}
+\end{defi}
+
+We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m}$ is symmetric and is non-negative \textcolor{red}{Why?}, thus it can be the covariance matrix of a Gaussian vector.
+
+Having constructed a discrete Laplacian we continue with constructing another Laplacian.
+
+\begin{defi}\label{discreteFractionalLaplacian}
+	For $f \in \ell(V_m)$ and $s \geq 0$, the discrete fractional Laplacain $(-\Delta_m)^{s}: L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ is defined by
+	\begin{equation}
+		(-\Delta_{m})^{s}f(x) = \frac{1}{a_m} \sum_{y \in V_m} G_{s}^{m}(x,y)f(y) = \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y).
+	\end{equation}
+\end{defi}
+
+\begin{prop}
+	$(-\Delta_{m})^{s}$ is a uniformly bounded operator
+\end{prop}
+\begin{proof}
+	Since
+	\begin{align}
+		\norm{(-\delta_m)^{s}f(x)}_{L^{2}(V_m, \mu_m)} &\leq \norm{\sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y).}_{L^{2}(V_m, \mu_m)} \\
+		& \leq \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \frac{1}{a_m}\norm{\phi_{i}^{m}(x)\sum_{y \in V_m} \phi_{i}^{m}(y)f(y)}_{L^{2}(V_m, \mu_m)} \\
+		& \leq (\lambda_1^{m})^{-s} \norm{f}_{L^{2}(V_m, \mu_m)}
+	\end{align}
+	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$ \textcolor{red}{How? \cite[lemma 5.2]{specAnal}}
+\end{proof}
+
+
+Since we have now described the discrete fractional laplacian we will move on to the continuos fractional Laplacian.
+
+\subsection{Semi-groups}
+When stating the Fractional Laplacian one use that it admits a heat kernel through a semigroup generated by $-\Delta$. We will therefore first define a semigroup along with showing that $-\Delta$ generates a semigroup and lastly give some intuition to what the heat kernel is.
+
+\begin{defi}\label{semigroupDef}
+	Let $\mathcal{H}$ be a Hilbert space. A strongly continuos self-adjoint contraction semigroup is a family of self-adjoint operators $(P_t)_{t \geq 0}: \mathcal{H} \to \mathcal{H}$
+	\begin{enumerate}
+		\item For $s,t \geq 0$, $P_t \circ P_s = P_{s +t}$ (semi-group property).
+		\item For every $f \in \mathcal{H}, \lim_{t \to 0} P_t f= f$ (strong continuity).
+		\item For every $f \in \mathcal{H}$ and $t \geq 0$, $\norm{P_t f} \leq \norm{f}$.
+	\end{enumerate}
+\end{defi}
+
+The next theorem also holds if we are given $(P_t)_{t \geq 0}$ as a strongly continuous self-adjoint contraction semigroup, then there exists a self-adjoint, non-positive and densly defined operator that generates $(P_t)_{t \geq 0}$, but we only need the the operator to genererate the semi-group.
+\begin{theorem}\label{genSemigroup}
+	If $A$ is a densely defined self adjoint operator on $\mathcal{H}$ then it is the generator of the strongly continuous self-adjoint contraction semigroup on $\mathcal{H}$ defined as $P_t = e^{tA}$.
+\end{theorem}
+\begin{proof}
+	We will simply show that $e^{tA}$ fulfils \cref{semigroupDef}. First
+	\begin{align}
+		e^{t A}e^{sA} &= \sum_{n= 0}^{\infty} \frac{(tA)^{n}}{n!}\sum_{n= 0}^{\infty} \frac{(tA)^{n}}{n!} \\
+		& = \sum_{l= 0}^{\infty} \sum_{n +m = l}\frac{t^ns^m A^{l}}{n!m!} \\
+		&= \sum_{l= 0}^{\infty} \frac{(s+t)^{l}A^{l}}{l!} = e^{(s+t)A}.
+	\end{align}
+	Next
+	\begin{align}
+		\abs{e^{tA}f - f} = \abs{e^{tA} -1}\abs{f} = 0
+	\end{align}
+	as $t \to 0$. And lastly since $A$ is a non-positive operator then $e^{tA} < 1$ we find by the same calculations as above that
+	$$\norm{e^{tA}f - f} = \norm{e^{tA} -1}\norm{f} \leq \norm{f}$$
+	\textcolor{red}{Maybe correct?}
+\end{proof}
+
+Now giving some intuition for the heat kernel. If we look at the differential equations
+\begin{equation}
+	\begin{cases}
+		\frac{\dd}{\dd t}u + \Delta u = 0 \\
+		u(x,0) = f(x)
+	\end{cases}
+\end{equation}
+where $u(x, t)$ and $f(x)$ are some continuous functions. \textcolor{red}{Need help defining these...}
+Now we see that $u(x,t) = e^{-t\Delta}f(x)$ is a solution to the differential equation. The heat kernel is then the continuous function $p_t(x,y)$ such that
+\begin{equation}
+	e^{-t\Delta}f(x) = \int_{K} p_t(x,y)f(y) \dd \mu(y).
+\end{equation}
+
+
+
+
+\subsection{Fractional Laplacian}
+Before we can define the continuos fractional Laplacian, we need to define the eigenvalues and eigenfunctions for $-\Delta$. A proof of the existence of the eigenvalues and eigenfunctions will not be given, but we will state the theorem.
+
+The Laplacian $\Delta$ with domain $\mathcal{D}(\Delta)$ is by \cref{genSemigroup} the generator of a strongly continuos Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. This semigroup admits a heat kernel $p_t(x,y), t > 0, x,y \in K$, wrt. the Hausdorff measure $\mu$ by \textcolor{red}{Something above}. It is called the Dirichlet heat kernel on $K$. Further this heat kernel satisfies for some $c_1, c_2 \in (0, \infty)$ \textcolor{red}{find ref}
+\begin{equation}\label{heatKernelBound}
+	p_t(x,y) \leq c_1 t^{-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right)
+\end{equation}
+for every $x,y \in K \times K$ and $t \in (0, \infty)$ where$d_h$ is the Hausdorff dimension and $d_w$ is the walk dimension. 
+ 
+ We will actually find that the heat kernel can be described as a sum of eigenvalues and eigenfunctions. The following theorem both gives us these eigenvalues and functions.
+\begin{theorem}\label{heatKernelWritten}
+	There exists a an orthonormal basis $\cbr{\phi_{i}}^{\infty}_{i = 1}$ of $L^2(K, \mu)$ with $\phi_j$ being eigenfunctions of $\Delta$. If $\lambda_i$ is the eigenvalue beloning to $\phi_i$, then $\lambda_i >0$ and $\lim_{i \to \infty} \lambda_i = \infty$. Moreover
+	\begin{equation}
+		p_t(x,y) = \sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)
+	\end{equation}
+	where the convergence is uniform for all $t \in (0, \infty)$ and $x,y \in K \times K$
+\end{theorem}
+A detailed proof can be found in \cite[Theorem 2.2]{Jozef}.
+
+We actually have a result regarding the convergence of the eigenvalues.
+
+\begin{lemma}\label{convergenceOfEigenvaluesOfLaplacian}
+	\begin{equation}
+		\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty. \iff s > \frac{d_h}{2d_w}
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	This follows from \cite[lemma 5.1.3]{Kigami_2001} which states that there exists a constant $c_1, c_2 >0$ such that 
+	\begin{equation} \label{convergenceOfEigenvaluesOfLaplcianBounds}
+			c_1\cd n^{2/d_s} \leq \lambda_{n} \leq c_2\cd n^{2/d_s}
+	\end{equation}
+
+	
+	Assume $s > \frac{d_h}{2d_w}$ then by \eqref{convergenceOfEigenvaluesOfLaplcianBounds}
+	\begin{equation}
+		\sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{2s}} \leq \sum_{j = 1}^{\infty} \frac{1}{(c_1 n^{2/ds})^{2s}} < \infty
+	\end{equation}
+	since 
+	\begin{equation}
+		\frac{4s}{d_s} > \frac{\frac{2d_h}{d_w}}{\frac{2d_h}{d_w}} = 1
+	\end{equation}
+	the series is convergent.
+	
+	Assume now that 
+	\begin{equation}
+		\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty.
+	\end{equation}
+	then again by \eqref{convergenceOfEigenvaluesOfLaplcianBounds} we have that
+	\begin{equation}
+						\sum_{j = 1}^{\infty} \frac{1}{(c_2 n^{2/d_s})^{2s}} \leq \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty
+	\end{equation}
+	and the left sum only converges if $4s/d_s > 1$ in which case $s > d_s/4 = d_h/2d_w$ as desired.
+\end{proof}
+
+
+
+Thus we are ready to define the fractional Laplacian. 
+\begin{defi}
+	Let $s \geq 0$, for $f \in L^2(K, \mu)$ the fraction Laplacian $(-\Delta)^{-s}$ is defined as
+	\begin{equation}
+		(-\Delta)^{-s}f = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y) \dd \mu(y)
+	\end{equation}
+\end{defi}
+
+\begin{prop}\label{fracLaplacianProperties}\phantom{a}
+	
+	\begin{enumerate}[(i)]
+		\item 	$(-\Delta)^{-s}$ is a linear operator\label{fracGausItem1}
+		\item Let $\phi_n$ be an eigenfunction. Then $(-\Delta)^{-s}\phi_n = \frac{1}{\lambda_{n}^{-s}}\phi_{n}$ \label{fracGausItem2}
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	
+	We start with the proof of (\ref{fracGausItem1})
+	Let $f,g \in L^{2}(K, \mu)$ and $\alpha$ some constant, then by definition of $(-\Delta)^{-s}$ we have
+	\begin{align}
+		(-\Delta)^{-s}(\alpha f + g) &= \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)(\alpha f(y) + g(y)) \dd \mu(y)\\
+		& = \alpha \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y)  \dd \mu(y) + \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)g(y) \dd \mu(y) \\
+		&=\alpha (-\Delta)^{-s}f + (-\Delta)^{-s}g
+	\end{align}
+	
+	Moving on to (\ref{fracGausItem2}). We note that since
+	\begin{equation}
+		\int_{K}\phi_j \phi_i \dd \mu = \delta_{ij}
+	\end{equation}
+	where $\delta_{ij}$ is the Kronecker delta. So for any eigenfunction $\phi_n$ we have
+	\begin{equation}
+		(-\Delta)^{-s}\phi_n = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j(x) \int_{K}\phi_j(y)\phi_n/y) \dd \mu(y) = \frac{1}{\lambda_{n}^{-s}}\phi_{n}.
+	\end{equation}
+\end{proof}
+
+\begin{prop}
+	$(-\Delta)^{-s}$ is a bounded operator
+\end{prop}
+\begin{proof}
+	\begin{align}
+			\norm{(-\Delta)^{s}f} &= \norm{\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y) \dd \mu(y)} \\
+			&\leq 
+	\end{align}
+	\textcolor{red}{I don't know why since $\sum_{j \geq 0} \frac{1}{\lambda_i}^{s}$ is not convergent} 
+\end{proof}
+
+While the definition of the fractional Laplacian is not the most complicated, we are still able to rewrite it in another form.
+
+We therefore define the fractional Reisz kernel \textcolor{red}{Why is the definition different from other articles mainly $s > 0$ vs $s \geq 0$ and also $p_t +1$}
+\begin{defi}
+	For parameter $s \geq 0$ we define the fractional Riesz kernel $G_s$ by
+	\begin{equation}
+		G_{s}(x,y) = \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t, \quad x, y \in K, x \neq y
+	\end{equation}
+	where $\gamma$ denotes the gamma function.
+\end{defi}
+Before moving on we will state some important properties of $G_s$ 
+\begin{prop}
+	\begin{enumerate}\label{boundsOfRieszKernel}
+		1. If $s \in [0, d_h/d_w)$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
+		\begin{equation}
+			G_s(x,y) \leq \frac{C}{d(x,y)^{d_h-sd_w}}
+		\end{equation}
+		
+		2. If $s = d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
+			\begin{equation}
+				G_s(x,y) \leq C \abs{ln d(x,y)}
+			\end{equation}
+			
+		3. If $s > d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
+		\begin{equation}
+			G_s(x,y) \leq C 
+		\end{equation}
+	\end{enumerate}
+\end{prop}
+
+Before stating this proof we will quickly state a lemma needed
+
+\begin{lemma}\label{heatKernelBound2}
+	There exists a constant $C> 0$ such that for every $x,y \in K$ and $t \geq 1$,
+	\begin{equation}
+		\abs{p_t(x,y)} \leq Ce^{-\lambda_1 t}
+	\end{equation}
+	where $\lambda_1 > 0$ is the first non-zero eigenvalue of $-\Delta$.
+\end{lemma}
+\begin{proof}
+	We have from \cref{heatKernelWritten} that $p_t(x,y)$ has the expansion
+	\begin{equation}\label{returnHeatKernel}
+		p_t(x,y) = \sum_{j = 1}^{\infty} e^{-\lambda_j t}\phi_j(x)\phi_j(y).
+	\end{equation}
+	Since $\phi_j$ are eigenvalues, we have from \textcolor{red}{definition of $p_t$?} for any $t > 0$ that
+	\begin{equation}
+		\phi_j(x) = e^{\lambda_jt}\int_{K}p_t(x,y)\phi_j(y) \dd \mu (y).
+	\end{equation}
+	then from Cauchy-Schwarz inequality, we have for every $t > 0$ 
+	\begin{equation}
+		\abs{\phi_j(x)} \leq e^{\lambda_j t} \left(\int_{K} p_t(x,y)^{2} \dd \mu (y)\right)^{\frac{1}{2}}\left(\int_{K} \phi_j(y)^{2} \dd \mu (y)\right)^{\frac{1}{2}}  = e^{\lambda_j t}p_{2t}(x,x)^{1/2}
+	\end{equation}
+	where the last equality comes from the fact that $\int_{K}\phi_i(y)\phi_j(y) \dd \mu = \delta_{ij}$ so $\int_{K} \phi_j(y)^{2} \dd \mu (y) = 1$. That combined with \eqref{returnHeatKernel} gives us $\int_{K} p_t(x,y)^{2} \dd \mu (y) = \int_{K} p_{2t}(x,y) \dd \mu (y)$ which gives us the equality.
+	
+	Now choosing $t = 1/4$ we get along with \eqref{heatKernelBound} that there is a constant $C > 0$ so for every $x \in K$ we have
+	\begin{equation}
+		\abs{\phi_j} \leq C e^{\lambda_j/4}.
+	\end{equation}
+	
+	Returning to \eqref{returnHeatKernel} we ge get for every $x, y \in K$ and $t \geq 1$ that
+	\begin{align}
+		\abs{p_t(x,y)} &\leq \sum_{j = 1}^{\infty} e^{-\lambda_jt} \abs{\phi_j(x)} \abs{\phi_j(x)} \\
+		& \leq C^2 \sum_{j = 1}^{\infty} e^{-\lambda_jt} e^{\lambda_j/2} \\
+		& = C^2 \sum_{j = 1}^{\infty} e^{-\lambda_jt} e^{\lambda_j/2} e^{\lambda_j}e^{-\lambda_j} \\
+		&\leq C^2 e^{-\lambda_1 t}e^{\lambda_1}\sum_{j = 1}^{\infty} e^{-\lambda_j/2}
+	\end{align}
+	here the last inequality comes from the fact that $0 < \lambda_1 < \lambda_2 < \ldots$ and $t \geq 1$ so
+	\begin{equation}
+		e^{\lambda_j(1-t)} \leq e^{\lambda_1(1-t)}.
+	\end{equation}
+	Thus we have the desired bound.
+\end{proof}
+
+It now follows that
+
+\begin{proof}[Proof of \cref{boundsOfRieszKernel}]
+	We have that
+	\begin{align}
+		G_s(x,y) &= \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t \\
+		&=\frac{1}{\Gamma(s)}\int_{0}^{1} t^{s-1}p_t(x,y) \dd t + \frac{1}{\Gamma(s)}\int_{1}^{\infty} t^{s-1}p_t(x,y). \dd t 
+	\end{align}
+	The intergral $\frac{1}{\Gamma(s)}\int_{1}^{\infty} t^{s-1}p_t(x,y) \dd t$ can be uniformly bounded by a constant using \cref{heatKernelBound2}. Thus we only need to bound the integral $\int_{0}^{1} t^{s-1}p_t(x,y) \dd t$. By \eqref{heatKernelBound} we have that
+	\begin{equation}
+		\int_{0}^{1} t^{s-1}p_t(x,y) \dd t \leq c_1 \int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right).
+	\end{equation}
+	Since the bound of the integral relies on the value of $s$ we will split it up into the cases of the proposition.
+	
+	Let $s > d_h/d_w$ then we simply have 
+	\begin{equation}
+		\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right) \leq \int_{0}^{1}t^{s-1-\frac{d_h}{d_w}} \dd t.
+	\end{equation}
+	Next if $s < d_h/d_w$, then using a change of variable $t = u d(x,y)^{d_w}$, we find that
+	\begin{align}
+		&\phantom{=}\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right). \\
+		&=d(x,y)^{sd_w - d_h} \int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
+		&\leq d(x,y)^{sd_w-d_h} \int_{0}^{\infty} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u.
+	\end{align}
+	\textcolor{red}{convergence of these integrals?}. Lastly for $s = d_h/d_w$, we again use the change of variable $t = ud(x,y)^{d_w}$ and setting $R = \diam(K)$ and note that $0 < 1/R^{d_w} < 1/d(x,y)^{d_w}$, thus we find
+	\begin{align}
+		&\phantom{=}\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right). \\
+		&=\int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
+		&\leq \int_{\frac{1}{R^{d_w}}}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u + \int_{0}^{\frac{1}{R^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u  \\
+		&\leq \int_{\frac{1}{R^{d_w}}}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \dd u + \int_{0}^{\frac{1}{R^{d_w}}} u^{-1} \exp\left(-c_2\left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u  \\
+		& \leq d_w \abs{\ln d(x,y)} +\int_{0}^{\frac{1}{R^{d_w}}} u^{-1} \exp\left(-c_2\left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
+		& \leq C \abs{\ln d(x,y)}.
+	\end{align}
+	Thus we have our desired bounds.
+\end{proof}
+
+\section{The fractional Laplacian and its bounds}
+In the following we will prove some bounds for the fractional Laplacian. Since the goal of this thesis is to prove convergence of fractional gaussian fields within a specific space of test functions, we will only prove the lemmas for that space. The space of functions is given by
+
+\begin{defi}
+	We consider the following space of test functions
+	\begin{equation}
+		S(K) = \cbr{f \in C_0(K) : \forall k \geq 0 \lim_{n \to \infty} n ^{k} \abs{\int_{K} \phi_n(y)f(y) \dd \mu (y)} = 0}
+	\end{equation}
+	We consider this space with the topology defined by the family of norms
+	\begin{equation}
+		\norm{f}_k = \norm{(-\Delta)^{-k}f}_{L^2(K, \mu)}.
+	\end{equation}
+\end{defi}
+By \cite[Theorem 2]{germanOne} and \cref{convergenceOfEigenvaluesOfLaplacian} we have that $S(K)$ is a Frèchet Nuclear space. \textcolor{red}{why? $D(T^{\infty}) = \cap_{n \geq 0} D(T^{n})$ which doesn't look like our space}.
+While the concepts of nuclear spaces is quite complicated, its properties will be very useful. It will allow us to prove convergence of Gaussian fields through the characteristics function and existence of Fractional Gaussian fields through a functional. \textcolor{red}{Is this okay to write?}
+
+But first we will prove some lemmas regarding the fractional Laplacian and the fractional Reisz kernel.
+\begin{lemma}
+	Let $s > 0$. For $f \in S(K)$ and $x \in K$
+	\begin{equation}
+		(-\Delta)^{-s}f = \int_{K}G_s(x,y)f(y) \dd \mu(y)
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	We will first make sure the integral on the left side actually converges. But this holds because $S(K) \subset C(K)$ so $f$ will be bounded on $K$. Thus we just need that for every $x \in K$ $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent. for $s \in [d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Lastly for $s \in (0, d_h/d_w)$ then $d_h-sd_w < d_h$ we see that
+	\begin{equation}
+		\int_{K}G_s(x,y)\dd \mu (y) \leq \int_{K}\frac{1}{d(x,y)^{d_h-sd_w}}  \dd \mu (y) < \infty
+	\end{equation}
+	which follows from the Alfons regular hausdorff measure \textcolor{red}{why?????}.
+	
+	Now using Fubini's theorem, \cref{heatKernelWritten} and the definition of $G_s$ we get
+	\begin{align}
+		\int_{K} G_s(x,y) f(y) \dd \mu (y) & = \int_{K} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t f(y)\dd \mu (y) \\
+		&= \int_{K} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1} \sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)  \dd t f(y)\dd \mu (y) \\
+		&= \sum_{j = 1}^{\infty} \phi_j(x) \int_{K}\phi_{j}(y) f(y)  \frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t \dd \mu(y) \\
+		&= \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j(x) \int_{K}\phi_j(y)f(y) \dd \mu(y) \\
+		&= (-\Delta)^{-s}f
+ 	\end{align}
+ 	where we use that $\frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t  = -\lambda_j^{-s}$ \textcolor{red}{why?}
+\end{proof}
+
+An immediate corollary follows:
+\begin{coro}
+	Let $s > 0$, for $f,g \in S(K)$
+	\begin{equation}
+		\int_{K} (-\Delta)^{-s} f (-\Delta)^{-s} g \dd \mu = \int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
+ 	\end{equation}
+\end{coro}
+\begin{proof}
+	Now from the definition of $(-\Delta)^{-s}$, \cref{fracLaplacianProperties} and the previous lemma, we find that
+	\begin{align}
+		\int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu &= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}g} \\
+		&= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}\sum_{j = 1}^{\infty} \int_K\phi_j g \dd \mu\phi_j} \\
+		& =\inn{(-\Delta)^{-s}f}{\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{-s}} \int_K\phi_j g \dd \mu \phi_j} \\
+		 &= \inn{f}{(-\Delta)^{-s} \sum_{j = 1}^{\infty}\frac{1}{\lambda_{j}^{-s}} \int_K\phi_j g \dd \mu \phi_j} \\
+		 &= \inn{f}{ \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{-2s}} \int_K \phi_j g \dd \mu \phi_j} \\
+		 & = \int_{K}f (-\Delta)^{-2s}g \dd \mu \\
+		 & =\int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
+	\end{align}
+	\textcolor{red}{I use that $(-\Delta)^{-s}$ is a symmetric operator, but why?} 
+\end{proof}
+
+\section{Discrete fractional Gaussian fields}
+Now that we have talked bout continuous laplacian we now turn to the discrete again.
+
+\begin{defi}
+	Let $s \geq 0$, then a \emph{discrete fractional Gaussian field}$X_s^{m}$ with parameter $s$ on $V_m$ is a Gaussian vector indexed by $V_m$ with mean zero and covariance matrix $G_2s^{m}(x,y)$
+\end{defi}
+
+For any $f \in \ell(V_m)$ we will use the notation
+\begin{equation}
+	X_s^{m}(f) = \frac{1}{a_m}\sum_{p \in V_m}f(p)X^{m}_{s}(p)
+\end{equation}
+
+We can then note that for $f,g \in \ell(V_m)$ we have that
+\begin{align}
+	\e \left[X_s^{m}(f)X_s^{m}(g)\right] &= \frac{1}{2a_m} \sum_{p,q \in V_m}f(p)g(q)\e\left[X_s^{m}(p)X_s^{m}(q)\right] \\
+	&=  \frac{1}{2a_m} \sum_{p,q \in V_m}f(p)g(q)G_{2s}^{m}(p,q) \\
+	&= \frac{1}{a_m} \sum_{p \in V_m}f(p)\left(\frac{1}{a_m} \sum_{q \in V_m}g(q)G_{2s}^{m}(p,q)\right) \\
+	& = \frac{1}{a_m} \sum_{p \in V_m}f(p)(-\Delta_{m})^{-2s}g(p) \\
+	& = \frac{1}{a_m} \sum_{p \in V_m} (-\Delta_{m})^{-s}f(p)(-\Delta_{m})^{-s}g(p)
+\end{align}
+
+\section{Fractional Gaussian Fields}
+Now that we have the fractional Laplacian let us state the fractional Gaussian field.
+
+\begin{defi}\label{fracGaussianField}
+	Let $s \geq 0$. A \emph{fractional Gaussian field} $X_s$ with parameter $s$ on $K$ is a centered Gaussian field $\cbr{X_s(f): f \in S(K)}$ such that for any $f,g \in S(K)$
+	\begin{equation}
+		\e \left[X_s(f) X_s(g)\right] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu
+	\end{equation}
+\end{defi}
+
+We now quickly move to proving that the fractional Gaussian fields exist. First we will state the Bochner-Minlos theorem for nuclear spaces, since it is needed for the proof of existence. It will be given without proof but one can be found in \cite{minlos}.
+
+\begin{theorem}[Bochner-Minlos]\label{BochnerMinlos}
+	Assume $\mathcal{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathcal{X}$ satisfying $\Lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathcal{X}'$
+\end{theorem}
+
+\begin{lemma}\label{LambdaPosDefinite}
+	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $\Phi(v) = \exp(-\frac{1}{2} \inn{v}{v})$ is positive definite.
+\end{lemma}
+\begin{proof}
+	Let $v_1, \ldots v_n$ be elements of $\mathcal{X}$ and choose an orthonormal basis $e_1, \ldots e_m$ of $\text{span}\cbr{v_1, \ldots, v_n}$. Further let $Z = (Z_1, \ldots, Z_m)$ be a vector of independent standard normal real random variables, and note that for all $u \in \ree^{m}$ we have that
+	\begin{equation}
+		\Phi \left(\sum_{j = 1}^{\infty} u_j e_j\right) = \exp \left(-\frac{1}{2} \sum_{i = 1}^{m} u_i^2\right) = \e \left[e^{ \img u \cd Z}\right].
+	\end{equation}
+	\textcolor{red}{How can $u \in \ree^{n}$ be decomposed with another basis}. This leads us to for $z \in ?^{n}?$ \textcolor{red}{where is $z$ from? + definition of semi definite}
+	\begin{equation}
+		z^{T}A^{\Phi}z =\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] = \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0
+	\end{equation}
+	\textcolor{red}{where does the last equality come from?}
+\end{proof}
+
+\begin{theorem}
+	Let $s \geq 0$, there exists a centered Gaussian distribution $X_s$ on $S'(K)$ such that for $f,g \in S(K)$
+	\begin{equation}
+		\e[X_s(f)X_s(g)] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	The space $S(K)$ is a nuclear space why it is enough to use \cref{BochnerMinlos}(Bochner-Minlos) on the functional
+	\begin{equation}
+		\Lambda : f \to \exp\left(-\frac{1}{2} \norm{f}^2_{k}\right).
+	\end{equation}
+
+This is enough since \cref{BochnerMinlos} then gives an unique probability measure $\nu$ such
+\begin{equation}
+	\exp \left(-\frac{1}{2} \norm{f}^{2}_{k}\right) = \int_{S'(K)} e^{i \inn{x}{f}} \dd \nu (x).
+\end{equation}
+Notice that the right side is an characteristic function for some random variable. If we choose $f= t\cd g$ for some $g \in S(K)$ and $t \in \ree$ \textcolor{red}{Where is $t$ from?}(notice that $t \cd g \in S(K)$) then the left side of the equation becomes the characteristic function for the normal distribution with mean zero and variance $\norm{f}_{s}^{2}$. Thus we have the $X_s$ we wanted.
+
+
+Now to prove that $\Lambda$ is satisfies the requirements of \cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, further it follows from the fact that $\norm{t\cdot f}_{k}^{2}$ is an inner product that with\cref{LambdaPosDefinite} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at zero. 
+
+First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$.
+
+Now let $\epsilon > 0$ be given, choose $$\delta = \begin{cases}
+	\left(\frac{-2\cd \ln(1-\epsilon)}{C}\right)^{\frac{1}{2}}, & \text{when } \epsilon \in (0,1) \\
+	1,& \text{when } \epsilon \geq 1.
+\end{cases}$$
+First if $\epsilon \geq 1$ notice that 
+\begin{equation}
+	\abs{\exp\left(-\frac{1}{2} \norm{f}_{s}^{2}\right) - \exp\left(-\frac{1}{2} \norm{0}_{s}^{2}\right)} \leq 1 \leq \epsilon, \quad \forall f \in S(K)
+\end{equation} 
+in which we can choose $\delta$ to be any real number larger than $0$. Moving on to $\epsilon \in (0,1)$ we get
+\begin{align}
+	\abs{\exp\left(-\frac{1}{2} \norm{f}_{s}^{2}\right) - \exp\left(-\frac{1}{2} \norm{0}_{s}^{2}\right)} &\leq \abs{\exp\left(-\frac{1}{2} C\norm{f}_{L^2(K,\mu)}\right) - 1} \\
+	&= \abs{\exp\left(-\frac{1}{2} C \int_{K}\abs{f}^2 \dd \mu\right) - 1} \\
+	&\leq \abs{\exp\left(-\frac{1}{2} C \int_{K} \delta^2 \dd \mu\right) - 1} \\
+	&= \abs{\exp\left(-\frac{1}{2} C \int_{K} \frac{-2\cd \ln(1-\epsilon)}{ C} \dd \mu\right) - 1}  \\
+	&= \abs{\exp\left(\ln(1-\epsilon)\right) -1}\\
+	& = \epsilon
+\end{align}
+in the third to last equality using that $\mu$ is a probability measure. In which case we have continuity in $0$ as desired.
+\end{proof}
+
+
+In the following we want to prove that a FGF has an $L^2$ density \textcolor{red}{What is it?} if and only if $s > \frac{d_h}{2d_w}$. But for this we need to construct white noise.  
+
+Let $\mathcal{K}$ be the Borel $\sigma$-algebra on $K$, then we can define
+
+Let $W$ the measure which is uniquely defined by the char. function 
+\begin{equation}
+	\int_{S'(K)} \exp(i \inn{\omega}{\phi}) \dd W(\omega) = \exp\left(-\frac{1}{2}\norm{\phi}_{L^2}^{2}\right)
+\end{equation}
+for $\phi \in S(K)$. This measure again comes from \cref{BochnerMinlos}. \textcolor{red}{I dunno if this is correct}
+
+
+This will be done following \cite{LeGall}.
+
+\textcolor{red}{This whole section}
+ then since $\mu$ is a finite measure and therefore $\sigma$- finite. It then follows from \cite[Prop. 1.13]{LeGall} that there exists a probability field $(\Omega, \mathcal{F}, \pee)$ with a real-valued centered Gaussian random measure $W:L^{2}(\Omega, \mathcal{F}, \pee) \to \mathcal{K}$ with \textcolor{red}{density/intesity?} $\mu$.
+
+If we now write $W(A) = W$
+
+\begin{defi}
+	Let $s > \frac{d_h}{2d_w}$. The fractional Brownian field with parameter $s$ is defined as 
+	\begin{equation}
+		\widetilde{X}_s(x) = \int_{K} G_s(x,y)W(\dd y)
+	\end{equation}
+\end{defi}
+
+Note that since $s > \frac{d_h}{2d_w}$ we can write
+\begin{equation}
+	\widetilde{X}_s(x) = \sum_{i = 1}^{\infty} \lambda_i^{-s}\phi_i(x)W_i
+\end{equation}
+where$W_i = W(\phi_i)$ is an i.i.d sequence of Gaussian random variables with mean zero and variance one.
+
+We will now show that one can construct a fractional Gaussian Field from the fractional Brownian field
+\begin{prop}
+	Let $s > \frac{d_h}{2d_w}$. Then the Gaussian random field defined by
+	\begin{equation}
+		X_s(f) = \int_{K}f(x) \widetilde{X}_{s}(x) \dd \mu (x), \quad f \in S(K)
+	\end{equation}
+	has the law of a fractional Gaussian field with parameter $s$. Moreover, if there exists a Gaussian field $\left(\widetilde{X}_{s}(x)\right)_{x \in K}$ on $K$ with
+	\begin{equation}
+		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty
+	\end{equation}
+	such that the Gaussian field defined by
+	\begin{equation}
+				Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
+	\end{equation}
+	has the law of fractional Gaussian field with parameter $s$, then $s > \frac{d_h}{2d_w}$
+\end{prop}
+\begin{proof}
+	Assume $s > \frac{d_h}{2d_w}$. The from Fubini's theorem we have for every $f \in S(K)$ that a.s 
+	\begin{equation}
+		\int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x) =\int_{K}f(x) \int_{K} G_s(x,y) W(\dd y) \dd \mu(x) = \int_{K}(-\Delta)^{-s} f(y) W(\dd y)
+	\end{equation}
+	in which case by definition of $W$ we have that $X_s(f) = \int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x)$ is a Gaussian random variable with mean zero and variance
+	\begin{equation}
+		\int_{K}\abs{(-\Delta)^{-s}f(x)}^{2}\dd \mu(x).
+	\end{equation}
+	and thus a fractional Gaussian field with parameter $s$. 
+	
+	Now assume that there is a Gaussian field $\left(\widetilde{X}_{s}(x)\right)_{x \in K}$ on $K$ with
+	\begin{equation}
+		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty
+	\end{equation}
+	such that the Gaussian field defined by
+	\begin{equation}
+		Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
+	\end{equation}
+	has the law of fractional Gaussian field with parameter $s$. Then by spectral decomposition \textcolor{red}{reference?} we have
+	\begin{equation}
+		\widetilde{Y}_s(x) = \sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x).
+	\end{equation}
+	
+	Note that $(Y(\phi_i))_{i \geq 1}$ is a sequence of independent Gaussian random variables with mean zero \textcolor{red}{why mean zero? and why independent Gaussian?} and variance $()\lambda_{i}^{s})_{i \geq 1}$. By \cref{fracGaussianField} and \cref{fracLaplacianProperties} we have that
+	\begin{equation}
+		\e \left[Y_s(\phi_i)Y_s(\phi_j)\right] = \int_{K}  (-\Delta)^{-s}\phi_i (-\Delta)^{-s}\phi_j \dd \mu = \frac{1}{(\lambda_{j}\lambda_i)^{s}} \int_{K} \phi_i \phi_j \dd \mu = \frac{1}{(\lambda_{j}\lambda_i)^{s}} \delta_{ij}.
+	\end{equation}
+	Since $\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right] < \infty$  we have that
+	\begin{align}
+		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right]  &= \e \left[\int_{K} \left(\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x)\right)^{2}\dd\mu(x)\right] \\
+		& = \e \left[\sum_{i = 1}^{\infty} Y_s(\phi_i)^2\int_{K} \phi_i(x)\phi_i(x) \dd \mu (x) \right] \\
+		& = \sum_{i = 1}^{\infty}\e \left[Y_s(\phi_i)^2\right] \\
+		& = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
+	\end{align}
+	where we use that $\int_{K} (\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x))^2 \dd \mu(x) = \int_{K} \sum_{i = 1}^{\infty} Y_s(\phi_i)^2 \phi_i(x)^2 \dd \mu (x)$ which stems from the fact that $\int_{K}\phi_i \phi_j \dd \mu = \delta_{ij}$ and $Y_s(\phi_i)$ is a constant wrt. $\mu(x)$.
+	
+	We now have that
+	\begin{equation}
+		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right] = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
+	\end{equation}
+in which case by \cref{convergenceOfEigenvaluesOfLaplacian} we have that $s > \frac{d_h}{2d_w}$
+\end{proof}

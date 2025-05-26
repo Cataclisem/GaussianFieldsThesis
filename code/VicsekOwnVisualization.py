@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-n = 2
+n = 4
 
 def genFunc(point, i):
     #print(f"i: {i}, point: {point}")

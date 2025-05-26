@@ -23,7 +23,7 @@ We have now proven the existence of the Gaussian fields and are now ready to pro
 	\begin{align}
 		(-\Delta)^{-0} f = \sum_{i = 1}^{\infty} \phi_{i} \int_{K} \phi_i(y) f(y) \dd \mu = f.
 	\end{align}
-	and the lemma follows from \textcolor{red}{REF!!!}. Now assume $s > 0$ then by Fubini's theorem and \textcolor{red}{Some random ass fact} we have that
+	and the lemma follows from \cref{convergenceOfMeasures}. Now assume $s > 0$ then by Fubini's theorem and teh fact that the semi-group is linear we have that
 	\begin{align}
 		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_t^{m} f_m(p) (-\Delta_{m})^{-2s}f_m(p)  = \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p).
 	\end{align}
@@ -69,7 +69,7 @@ Lastly the range $\mathcal{R}(\lambda_0 - \Delta)$ is dense in $L^2$ \textcolor{
 	\begin{equation}
 		\lim_{m \to \infty} \sup_{p \in V_m} \abs{\Delta_{m}f_m(p) -\Delta f(p)}.
 	\end{equation}
-	Thus by \cite[theorem 2.1]{KURTZ1969354} we have that for all $t \geq 0$
+	Thus by \cite[theorem 2.1]{KURTZ1969354} \textcolor{red}{Is defined with semigroup T(s) and page 354, is $P_n$ in our case $\int_{K}\psi_{x}^{(m)} \dd \mu$} we have that for all $t \geq 0$
 	\begin{equation}\label{convergensofPt}
 		\lim_{m \to \infty} \sup_{p \in V_m} \abs{P_t^{m}f_m(p) - P_t f(p)} = 0.
 	\end{equation}

@@ -457,7 +457,7 @@ where $a_m = 5^{m}\cd 4 + 1$.
 
 \textcolor{red}{This holds because $\fracConst_i(K)$ are disjoint(except for single point both generate) for each $i$ and each $\fracConst_i$ "shrinks" the fractal down the that 1/5 of a quadrant. So $\sum_{x \in V_m}\delta_x (\fracConst_{i_1, \ldots i_n}) = (1/5)^{-n}\cd (5^{m}\cd 4 +1 )$ since each $\fracConst_{i}$ shrinks down the total number of points to 1/5}
 There is of course some relations between the measures we have just constructed.
-\begin{lemma}
+\begin{lemma}\label{convergenceOfMeasures}
 	The sequence of measure $(\mu_m)_{m \geq 0}$ defined in \eqref{discreteMeasures} converges to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$ in the weak topology. That is
 	\begin{equation}
 		\lim_{m \to \infty} \int_{K}f \dd \mu_m = \int_{K} f \dd \mu
