@@ -5,7 +5,7 @@ We will now consider the discrete Laplacian on the fractal.
 \begin{defi}
 	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
 	\begin{equation}
-		\Delta_m f(p) = \text{\textcolor{red}{{CONST}}} \sum_{q \in V_{m,p}} (f(q) - f(p)), \quad p \in V_m \backslash V_0
+		\Delta_m f(p) = 3^{m} \sum_{q \in V_{m,p}} (f(q) - f(p)), \quad p \in V_m \backslash V_0
 	\end{equation}
 \end{defi}
 
@@ -21,25 +21,10 @@ We will now consider the discrete Laplacian on the fractal.
 Further $\#V_{m,p_i}$ is also called the \emph{degree of $p_i$}
 \end{remark}
 
-Now let $C(K)$ be the set of continuos functions on $K$. We then define
-\begin{equation}
-	\mathcal{D} = \cbr{f \in C(K) \ : \ \exists g \in C(K), \lim_{m \to \infty} \max_{p \in V_m \backslash V_0} \abs{\Delta_m f(p) - g(p)} = 0}
-\end{equation}
-We will use the notation of $C_0(K)$ and $D_0$ to denote the sets of functions in $C(K)$ and $D$ respectively which vanish on the boundary $\partial K$.
-
-This set leads us to defining
-\begin{defi}\label{KigamiLaplacian}
-	The Kigami Laplacian $\Delta : \mathcal{D} \to C(K)$ is defined as
-	\begin{equation}
-		\Delta f(p) = g(p)
-	\end{equation}
-	where $g$ satisfies: $\lim_{m \to \infty} \max_{p \in V_m\backslash V_0}\abs{\Delta_m f(p) - g(p)} = 0$
-\end{defi}
-
-The definition above is one way of defining the Kigami Laplacian, but the domain doesn't lend itself to show what functions are actually contained in $\mathcal{D}$. We will therefore in this next section show another way to define the Kigami Laplacian with a more transparent domain and being able to define the Kigami Laplacian pointwise.
+The discrete Laplacian will be used to construct the Dirichlet Laplacian which is the one we will be working with in the rest of this thesis. The construction require the construction of the Kigami Laplacian, which we will define as a pointwise limit of the discrete Laplacian. 
 
 \section{We're going to define it again}
-In this section we will follow arguments given by \cite{strichartz}. Much of the proof are going to rely on the standard graph Dirichlet form. Thus we are first going to define and prove some properties of this graph Dirichlet form. \textcolor{red}{What to call these energies? Also the renormalized one}
+In this section we will follow arguments given by \cite{strichartz}. Much of the proof are going to rely on the standard graph Dirichlet form. Thus we are first going to define and prove some properties of this graph Dirichlet form.
 
 \begin{defi}
 	Given a finite connected graph $G$ and it vertices $V_m$ the for functions $u, v: V_m \to \ree$ we define the \emph{standard graph Dirichlet form} to be
@@ -47,9 +32,9 @@ In this section we will follow arguments given by \cite{strichartz}. Much of the
 		E_m(u,v) = \sum_{x \sim y} \left(u(x) - u(y) \right)(v(x)-v(y)).
 	\end{equation}
 \end{defi}
-\noindent \textbf{Notation: } we write $E_m(u) = E_m(u,u)$.
+\noindent \textbf{Notation:} We will write $E_m(u) = E_m(u,u)$.
 
-Given some graph $G$ and a function $u: V_m \to \ree$, since we in the end want to work on the whole of the Vicsek set $K$, we now define an extension of $u$ to $V_m$. This is done in the following way
+ Since we in the end want to work on the whole of the Vicsek set $K$. We will want to create an extension of a function $u: V_m \to \ree$, such that it is defined on $V_{m+n}$. This is done in the following way
 
 \begin{defi}
 	Let $K$ be a graph and $u: V_m \to \ree$, then an \emph{extension of} $u$ is a function \nl $u': V_{m+n} \to \ree$ where $u' \mid_{V_m} = u$.
@@ -87,13 +72,13 @@ Actually one even has that for the bilinear form then if $\tilde{u}$ is the harm
 \begin{equation}\label{bilinearFormRenormalized}
 	\mathcal{E}_{m+1}(\tilde{u}, v') = \mathcal{E}_{m}(u,v).
 \end{equation}
-See \cite{strichartz} for more information.
+See \cite{strichartz} for further details.
 
 Now that we have \ref{renormalizedGraphEnergies}, we can define what it means to be a harmonic function.
 
 
 \begin{defi}
-	$u$ is a \emph{harmonic function} if $u$ minimizes $\eee_{m}(u)$ for all $m$, given boundary values $V_0$.
+	$u$ is a \emph{harmonic function} if $u$ minimizes $\eee_{m}(u)$ for all $m$, given boundary values on $V_0$.
 \end{defi}
 
 The harmonic functions will be used extensively throughout this section. We start by finding the renormalization constant for the Vicsek set.
@@ -203,11 +188,11 @@ Solving these equations we get
 	u'(p_3) &= \frac{2}{3} u'(q_0) + \frac{1}{3} u'(q_1).
 \end{align}
 
-So what we have found is that to minimize the energy of the Vicsek set, then the energy of the next point is going to be $2/3$ the energy from the closest point and $1/3$ the energy from the next closest point. 
+So what we have found is that to minimize the value in the points of the Vicsek set, then the value in the next point is going to be $2/3$ the value from the closest point and $1/3$ the value from the next closest point. 
 
-If one calculates the energies then you will get
+If one calculates the standard Dirichlet form then you will get
 \begin{equation}
-	E_1(u') =\frac{1}{3}\sum_{i = 1}^{4}(u'(q_i) - u'(q_0))^2 = \frac{1}{3}E_0(u')
+	E_1(u') =\frac{1}{3}\sum_{i = 1}^{4}(u'(q_i) - u'(q_0))^2 = \frac{1}{3}E_0(u').
 \end{equation}
 
 Since the Vicsek set is a self-similar set, we have that going from $V_1$ to $V_2$ is the same as going from $V_m$ to $V_{m+1}$. Thus we can just extend the above calculations to doing it $m$ times, in which case
@@ -215,19 +200,20 @@ Since the Vicsek set is a self-similar set, we have that going from $V_1$ to $V_
 	E_{m+1}(u') = \frac{1}{3}E_m(u')
 \end{equation}
 
-Thus we get our renormalization constant for the vicsek set to be $r = 3$.
+Thus we get our renormalization constant for the vicsek set to be $r = 3$. And altogether we find that from \cref{renormalizedGraphEnergies} we have that 
+\begin{equation}
+	\mathcal{E}_{m}(u) = 3^{-m} E_{m}(u).
+\end{equation}
 
 
-With the renormalization constant found we will return to finding the Kigmai Laplacian.
-
-By \cref{renormalizedGraphEnergies} we have defined a sequence $\mathcal{E}_m$ for functions on $V^{*}$. It will therefore make sense to define the following limit
-\begin{defi} Let $u: V^{*} \to \ree$ then define the limit
+With the renormalization constant found we will return to finding the Kigmai Laplacian. Recall from \cref{renormalizedGraphEnergies} that we have defined a sequence $\mathcal{E}_m$ for functions on $V^{*}$. It will therefore make sense to define the following limit
+\begin{defi}\label{renormalizedGraphEnergiesLimit} Let $u: V^{*} \to \ree$ then define the limit
 	\begin{equation}
-		\mathcal{E}(u) = \lim_{m \to \infty} \mathcal{E}_{m}(u)
+		\mathcal{E}(u, u) = \lim_{m \to \infty} \mathcal{E}_{m}(u, u)
 	\end{equation}
 	where we set
 	\begin{equation}
-		\dom \mathcal{E} = \cbr{u : \mathcal{E}(u) < \infty}.
+		\dom \mathcal{E} = \cbr{u \in \ell(V_{*}) : \mathcal{E}(u) < \infty}.
 	\end{equation}
 	and denote $\dom_0 \mathcal{E}$ with the functions in $\dom \mathcal{E}$ that vanish $V_0$.
 \end{defi}
@@ -240,7 +226,7 @@ This definition only involves functions defined on $V^{*}$, but we find that fun
 	\end{enumerate}
 \end{prop}
 \begin{proof}
-	We start with \cref{uniCont1}. Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
+	We start with (\cref{uniCont1}). Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
 	\begin{equation}\label{uniFormContiousEstimate}
 		r^{-m}(u(x) -u(y))^{2} \leq \mathcal{E}_m(u) \leq \mathcal{E}(u)
 	\end{equation}
@@ -262,15 +248,15 @@ This definition only involves functions defined on $V^{*}$, but we find that fun
 \end{proof}
 
 
-We are now going to state another way to define the Kigama Laplacian. We denote this Laplacian as $\Delta_{\mu}$ since as we will see in the definition it depends on the measure $\mu$.
+We are now ready to define the Kigami Laplacian. We will denote this with $\Delta$ and we will notice that it depends on a measure $\mu$, which will be the one defined in \eqref{normalziedHausdorffMeasure}.
 \begin{defi}
-	Let $u \in \dom \mathcal{E}$ and let $f$ be continuos, then $u \in \dom(\Delta_{\mu})$ and $\Delta_{\mu}u =f$ if
+	Let $u \in \dom \mathcal{E}$ and let $f$ be continuos, then $u \in \dom \Delta$ and $\Delta u =f$ if
 	\begin{equation}
 		\mathcal{E}(u,v) = \int_{K}fv \dd \mu, \quad \forall v \in \dom_{0}\mathcal{E}
 	\end{equation}
 \end{defi}
 
-While $\Delta_{\mu}$ depends on the measure $\mu$, we will still find that it coincides with the Kigami Laplacian $\Delta$. Like with $\Delta$ we are going to want $\Delta_{\mu}$ to be defined as the limit of a discrete operator. We are therefore going to again define a discrete graph Laplacian, the difference is that the following will be without constants.
+As mentioned before  we are going to want $\Delta$ to be defined as the limit of a discrete operator. We are therefore going to again define a discrete graph Laplacian, the difference is that the following will be without constants.
 
 \begin{defi}\label{discreteLaplaceNoConst}
 	We define the laplacian $\widetilde{\Delta}_{m}$ as
@@ -283,9 +269,7 @@ Before moving on we will define a harmonic function which will be used extensive
 \begin{defi}
 	Given $m$ and a point $x \in V_m \backslash V_0$ then define $\psi_x^{(m)}(y) = \delta_{xy}$ for $y \in V_m$.
 \end{defi}
-I might seem that we have only defined $\psi_x^{(m)}$ on $V_m$, but actually it is defined on the whole of $K$. It simply follows that we create an harmonic extension of $\psi_x^{(m)}$.
-
-The function $\phi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
+I might seem that we have only defined $\psi_x^{(m)}$ on $V_m$, but it is actually defined on the whole of $K$. It simply follows that we create an harmonic extension of $\psi_x^{(m)}$. We even have that function $\psi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
 \begin{prop}\label{pointwiseEqualityofpsi}
 	Let $u \in \dom \mathcal{E}$ then
 	\begin{equation}
@@ -304,13 +288,13 @@ The function $\phi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
 	as desired.
 \end{proof}
 
-Before we begin the proof $\Delta_{\mu}$ is the limit of $\widetilde{\Delta}_{m}$ we need some preliminary lemmas.
+Before we begin the proof $\Delta$ is the limit of $\widetilde{\Delta}_{m}$ we need some preliminary lemmas.
 
 \begin{lemma}\label{itIsZero}
 	Let $v: K \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{k > 0} S^{k}(x) \right) \cup \left(\bigcup_{i} \{y_i\} \right)$
 \end{lemma}
 \begin{proof}
-	It is clear that $v(\omega) = 0$ for any $\omega \in B_x$, since the energy of the points $F_w x$ with $\abs{w} > 0$ depends on the energy of $x$ and its neighbours. 
+	It is clear that $v(\omega) = 0$ for any $\omega \in B_x$, since the value of the points $S^{k}(x)$ with $k > 0$ depends on the value of $x$ and its neighbours. 
 	
 	So we need to check the points in $\overline{B_x} \backslash B_x$. Now since $B_x$ is dense in $\overline{B_x}$, then for any $\omega \in \overline{B_x}$ we have that there exists a sequence $x_n \in B_x$ such that $x_n \to \omega$. By the fact that $v$ is continuos on $K$ it is continuos on $\overline{B_x}$, in which case $\abs{v(x_n) - v(\omega)} \to 0$ as $n \to \infty$, but $v(x_n) = 0$ for all $x_n$, so $v(\omega) = 0$ as desired.  
 \end{proof}
@@ -334,15 +318,15 @@ What lemma $\ref{itIsZero}$ sates, is if any two points in $V_m$ are neighbours,
 We are now ready to prove the pointwise formula
 
 \begin{theorem} \label{pointwiseFormula}
-	Let $u \in \dom \Delta_\mu$. Then the pointwise formula
+	Let $u \in \dom \Delta$. Then the pointwise formula
 	\begin{equation}
-		\Delta_{\mu} u(x) = \lim_{m \to \infty} r^{-m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)
+		\Delta u(x) = \lim_{m \to \infty} r^{-m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)
 	\end{equation}
-	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuos function and the right side of the limit converges uniformly to a continuos function on $V_* \backslash V_0$. Then $u \in \dom \Delta_{\mu}$ and the equation holds.
+	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuos function and the right side of the limit converges uniformly to a continuos function on $V_* \backslash V_0$. Then $u \in \dom \Delta$ and the equation holds.
 \end{theorem}
 
 \begin{proof}
-	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \cref{pointwiseEqualityofpsi} we have that 
+	Suppose $u \in \dom \Delta$ and $\Delta u=f$, then by \cref{pointwiseEqualityofpsi} we have that 
 	\begin{equation}
 		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}
 	\end{equation}
@@ -356,7 +340,7 @@ We are now ready to prove the pointwise formula
 	\end{align}
 	in which case
 	\begin{equation}
-		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \widetilde{\Delta}_{\mu} u(x)
+		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \Delta u(x)
 	\end{equation}
 	
 	
@@ -384,7 +368,7 @@ We are now ready to prove the pointwise formula
 	\begin{equation}\label{theVeryLongOne}
 		\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. = - \int_{K} v(y)f(y) \dd \mu.
 	\end{equation}
-	and we have that $u \in \text{dom}\Delta_\mu$.
+	and we have that $u \in \text{dom}\Delta$.
 	
 	We therefore consider
 	\begin{multline}
@@ -433,58 +417,42 @@ We are now ready to prove the pointwise formula
 \end{proof}
 
 \section{And back again}
-We notice that the definition of $\Delta$ and $\Delta_{\mu}$ are the same. The definition for $\Delta$ does require us to take the $\max$ wrt. $p \in V_m \backslash V_0$, but since \cref{pointwiseFormula} holds uniformly for any $p \in V^{*} \ V_0$ it does not matter which definition we choose.
+We will now extend the Kigami Laplacian to the Dirichlet Laplacian, and we will be following \cite{Fabrice} and \cite{specAnal} very closely in defining the Dirichlet Laplacian
 
-We will now extend the Kigami Laplacian to the Dirichlet Laplacian.
-
-We start by considering the following measure. 
-\textcolor{red}{where how and why does this measure come from? Why is it normalized hausdorff?}
-The normalized Hausdorff measure on $K$ which is given by the borel measure $\mu$ on $K$ such for any $i_1, \ldots i_n \in \cbr{1, \ldots, 5}$
-\begin{equation}\label{normalziedHausdorffMeasure}
-	\mu\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_n}(K)\right) = 5^{-n}.
-\end{equation}
-\textcolor{red}{What does this mean?}
-This measure is also $d_h$-Ahlfors regular, thus there exists $c_1, c_2 > 0$ such there for every $x \in K$ and $r \in [0, \diam(K)]$
-\begin{equation}
-	c_1r^{d_h} \leq \mu(B(x,r)) \leq c_2 r^{d_h}.
-\end{equation}
-
-Next we have that we define the measure
-\begin{equation}\label{discreteMeasures}
-	\mu_m = \frac{1}{a_m} \sum_{p \in V_m} \delta_p
-\end{equation}
-where $a_m = 5^{m}\cd 4 + 1$. 
-
-\textcolor{red}{This holds because $\fracConst_i(K)$ are disjoint(except for single point both generate) for each $i$ and each $\fracConst_i$ "shrinks" the fractal down the that 1/5 of a quadrant. So $\sum_{x \in V_m}\delta_x (\fracConst_{i_1, \ldots i_n}) = (1/5)^{-n}\cd (5^{m}\cd 4 +1 )$ since each $\fracConst_{i}$ shrinks down the total number of points to 1/5}
-There is of course some relations between the measures we have just constructed.
-\begin{lemma}\label{convergenceOfMeasures}
-	The sequence of measure $(\mu_m)_{m \geq 0}$ defined in \eqref{discreteMeasures} converges to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$ in the weak topology. That is
-	\begin{equation}
-		\lim_{m \to \infty} \int_{K}f \dd \mu_m = \int_{K} f \dd \mu
-	\end{equation}
-\end{lemma}
-The proof of this follows from construction of the measures.
-
-
-
-In the following we will follow \cite{Fabrice} and \cite{specAnal} very closely in defining the Dirichlet Laplacian. Here we will encounter the concepts of \emph{local regular Dirichlet form} and the \emph{Friedrichs extension}. These concepts will not be explored in this thesis as they are only needed shortly to generate the Dirichlet Laplacian, thus they will be stated and used accordingly.
+This will be done through Dirichlet forms, thus we begin with them. 
+\begin{defi}
+	\begin{enumerate}[(i)]
+		\item A \emph{quadratic form} $\mathcal{E}$ on $\mathcal{H}$ is a non-negative, definite, symmetric bilinear form from $\dom \mathcal{E} \times \dom \mathcal{E} \to \ree$, where $\dom \mathcal{E}$ is a dense subspace $\mathcal{H}$. 
+		
+		\item A quadratic form is said to be closed if $\dom \mathcal{E}$ equipped with the norm
+		\begin{equation}
+			\norm{f}^{2}_{\dom \mathcal{E}} = \norm{f}^2 + \mathcal{E}(f,f)
+		\end{equation}
+		is a Hilbert space.
+		\item A quadratic form $\mathcal{E}$ on $\mathcal{H}$ is said to be cloasble if it admits a closed extenstion. That is there exists a closed quadratic form $\overline{\mathcal{E}}$ such $\dom \mathcal{E} \subset \dom \overline{\mathcal{E}}$ and $\overline{\mathcal{E}}$ coincides with $\mathcal{E}$ on $\dom \mathcal{E} \times \dom \mathcal{E}$
+		\item  We further call a quadratic form $\mathcal{E}$ a Dirichlet form if it has the following property. If given $u, v \in \dom \mathcal{E}$ so that for almost every $x,y \in K$ we have
+		\begin{equation}\label{contraction}
+		\abs{v(x) - v(y)} \leq \abs{u(x) - u(y)}, \quad \text{and} \quad \abs{v(x)} \leq \abs{u(x)}
+		\end{equation}
+		then 
+		\begin{equation}
+			\mathcal{E}(v,v) \leq \mathcal{E}(u,u).
+		\end{equation}
+	\end{enumerate} 
+\end{defi} 
  
-For any function $f: V_{*} \to \ree$ we consider the quadratic form
-\begin{equation}
-	\mathcal{E}_{m}(f,f) = \frac{\textcolor{red}{const}}{a_m} \sum_{x \underset{m}{\sim} y} (f(x)-f(y))^2
-\end{equation}
-\textcolor{red}{the same as the one i already defined? but with constants}. Define
+ 
+ 
+Now recall from \cref{renormalizedGraphEnergiesLimit} that 
 \begin{equation}
 	\mathcal{E}(f,f) = \lim_{m \to \infty} \mathcal{E}_m(f,f)
 \end{equation}
-and set
+with domain $\dom_{0} \mathcal{E}$ where
 \begin{equation}
-	\mathcal{F}^{0} = \cbr{f \in C(K) : \mathcal{E}(f,f) < \infty, f = 0 \text{ on } \partial K}
+	\mathcal{E}_{m}(f,f) =  \sum_{x \underset{m}{\sim} y} (f(x)-f(y))^2
 \end{equation}
-By theorem 4.1  we have that $(\mathcal{E}, \mathcal{F}_0)$ is a local Dirichlet form on $L^{2}(K, \mu)$ and lemma 4.1 in \cite{specAnal} we have that for any functions $f,g $ on $V_m$ vanishing on $\partial K$
-\begin{equation}
-	\mathcal{E}_m(f,g) = -\int_{V_m^{0}} \Delta_m f(x) g(x) \dd \mu_m(x)
-\end{equation}
+
+By \cite[theorem 4.1]{specAnal}  we have that $(\mathcal{E}, \dom_{0}\mathcal{E})$ is a Dirichlet form on $L^{2}(K, \mu)$.  Then by \cite[Lemma 1.3.3]{fabriceDirichelt} we have that.
 and for $f \in \mathcal{D}_0$ and $g \in \mathcal{F}_0$ we have
 \begin{equation}
 	\mathcal{E}(f,g) = - \int_{K} \Delta f(x) g(x) \dd \mu.
