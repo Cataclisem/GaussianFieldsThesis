@@ -248,15 +248,15 @@ This definition only involves functions defined on $V^{*}$, but we find that fun
 \end{proof}
 
 
-We are now ready to define the Kigami Laplacian. We will denote this with $\Delta$ and we will notice that it depends on a measure $\mu$, which will be the one defined in \eqref{normalziedHausdorffMeasure}.
+We are now ready to define the Kigami Laplacian. We will denote this with $\Delta_{\mu}$ and we will notice that it depends on a measure $\mu$, which will be the one defined in \eqref{normalziedHausdorffMeasure}.
 \begin{defi}
-	Let $u \in \dom \mathcal{E}$ and let $f$ be continuos, then $u \in \dom \Delta$ and $\Delta u =f$ if
+	Let $u \in \dom \mathcal{E}$ and let $f$ be continuos, then $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u =f$ if
 	\begin{equation}
 		\mathcal{E}(u,v) = \int_{K}fv \dd \mu, \quad \forall v \in \dom_{0}\mathcal{E}
 	\end{equation}
 \end{defi}
 
-As mentioned before  we are going to want $\Delta$ to be defined as the limit of a discrete operator. We are therefore going to again define a discrete graph Laplacian, the difference is that the following will be without constants.
+As mentioned before  we are going to want $\Delta_{\mu}$ to be defined as the limit of a discrete operator. We are therefore going to again define a discrete graph Laplacian, the difference is that the following will be without constants.
 
 \begin{defi}\label{discreteLaplaceNoConst}
 	We define the laplacian $\widetilde{\Delta}_{m}$ as
@@ -288,7 +288,7 @@ I might seem that we have only defined $\psi_x^{(m)}$ on $V_m$, but it is actual
 	as desired.
 \end{proof}
 
-Before we begin the proof $\Delta$ is the limit of $\widetilde{\Delta}_{m}$ we need some preliminary lemmas.
+Before we begin the proof $\Delta_{\mu}$ is the limit of $\widetilde{\Delta}_{m}$ we need some preliminary lemmas.
 
 \begin{lemma}\label{itIsZero}
 	Let $v: K \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{k > 0} S^{k}(x) \right) \cup \left(\bigcup_{i} \{y_i\} \right)$
@@ -318,15 +318,15 @@ What lemma $\ref{itIsZero}$ sates, is if any two points in $V_m$ are neighbours,
 We are now ready to prove the pointwise formula
 
 \begin{theorem} \label{pointwiseFormula}
-	Let $u \in \dom \Delta$. Then the pointwise formula
+	Let $u \in \dom \Delta_{\mu}$. Then the pointwise formula
 	\begin{equation}
-		\Delta u(x) = \lim_{m \to \infty} r^{-m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)
+		\Delta_{\mu} u(x) = \lim_{m \to \infty} r^{-m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)
 	\end{equation}
-	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuos function and the right side of the limit converges uniformly to a continuos function on $V_* \backslash V_0$. Then $u \in \dom \Delta$ and the equation holds.
+	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuos function and the right side of the limit converges uniformly to a continuos function on $V_* \backslash V_0$. Then $u \in \dom \Delta_{\mu}$ and the equation holds.
 \end{theorem}
 
 \begin{proof}
-	Suppose $u \in \dom \Delta$ and $\Delta u=f$, then by \cref{pointwiseEqualityofpsi} we have that 
+	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \cref{pointwiseEqualityofpsi} we have that 
 	\begin{equation}
 		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}
 	\end{equation}
@@ -340,7 +340,7 @@ We are now ready to prove the pointwise formula
 	\end{align}
 	in which case
 	\begin{equation}
-		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \Delta u(x)
+		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \Delta_{\mu} u(x)
 	\end{equation}
 	
 	
@@ -368,7 +368,7 @@ We are now ready to prove the pointwise formula
 	\begin{equation}\label{theVeryLongOne}
 		\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. = - \int_{K} v(y)f(y) \dd \mu.
 	\end{equation}
-	and we have that $u \in \text{dom}\Delta$.
+	and we have that $u \in \text{dom}\Delta_{\mu}$.
 	
 	We therefore consider
 	\begin{multline}
@@ -452,20 +452,15 @@ with domain $\dom_{0} \mathcal{E}$ where
 	\mathcal{E}_{m}(f,f) =  \sum_{x \underset{m}{\sim} y} (f(x)-f(y))^2
 \end{equation}
 
-By \cite[theorem 4.1]{specAnal}  we have that $(\mathcal{E}, \dom_{0}\mathcal{E})$ is a Dirichlet form on $L^{2}(K, \mu)$.  Then by \cite[Lemma 1.3.3]{fabriceDirichelt} we have that.
-and for $f \in \mathcal{D}_0$ and $g \in \mathcal{F}_0$ we have
+By \cite[theorem 4.1]{specAnal}  we have that $(\mathcal{E}, \dom_{0}\mathcal{E})$ is a Dirichlet form on $L^{2}(K, \mu)$.  Then by \cite[Lemma 1.3.3]{fabriceDirichelt} we have that 
 \begin{equation}
-	\mathcal{E}(f,g) = - \int_{K} \Delta f(x) g(x) \dd \mu.
+	\mathcal{E}(f,f) = - \int_{K}\Delta f g \dd \mu
 \end{equation}
-\textcolor{red}{I need this explained with context from \url{file:///C:/Users/chris/Downloads/BF00249784-2.pdf}}
-
-From theorem 4.2 in \cite{specAnal} the Friedrichs extension of the Kigami Laplacian $\Delta$ is the self-adjoint operator on $L^{2}(K, \mu)$ which is the generator of $(\mathcal{E}, \mathcal{F}_0)$. We still denote this generator $\Delta$ and this operator $\Delta$ with domain $\mathcal{D}(\Delta)$ is referred to as the Dirichlet Laplacian on $K$.
-
+where $\Delta_{\mu}$ is the unique unique densly defined self-adjoint operator which is an extension of the Kigami Laplacian $\Delta_{mu}$. The operator $\Delta$ with domain $\dom \Delta$ is referred to as the Dirichlet Laplaican.
+\textcolor{red}{Something feels wrong, i shoudl use 1.3.5 but i end up using 1.3.3. But then i need that the kigami laplacian is densly defined and self adjoint and so forth.}
 
 \section{Discrete Fractional Gaussian Fields}
-Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ of $-\Delta_m$. Next let $(\Psi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following
-
-\textcolor{red}{Why are the eigenvalues greater than zero? and what is with the eigenfunctions wrt. measure?}
+Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ of $-\Delta_m$. Next let $(\Psi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following. \textcolor{red}{Still something about eigenfunctions}
 
 \begin{defi}
 	Let $s \geq 0$ we define the \emph{discrete Riesz kernel} on $V_m$ as
@@ -481,7 +476,7 @@ Having constructed a discrete Laplacian we continue with constructing another La
 \begin{defi}\label{discreteFractionalLaplacian}
 	For $f \in \ell(V_m)$ and $s \geq 0$, the discrete fractional Laplacain $(-\Delta_m)^{s}: L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ is defined by
 	\begin{equation}
-		(-\Delta_{m})^{s}f(x) = \frac{1}{a_m} \sum_{y \in V_m} G_{s}^{m}(x,y)f(y) = \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y).
+		(-\Delta_{m})^{-s}f(x) = \frac{1}{a_m} \sum_{y \in V_m} G_{s}^{m}(x,y)f(y) = \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y).
 	\end{equation}
 \end{defi}
 
@@ -495,21 +490,21 @@ Having constructed a discrete Laplacian we continue with constructing another La
 		& \leq \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \frac{1}{a_m}\norm{\phi_{i}^{m}(x)\sum_{y \in V_m} \phi_{i}^{m}(y)f(y)}_{L^{2}(V_m, \mu_m)} \\
 		& \leq (\lambda_1^{m})^{-s} \norm{f}_{L^{2}(V_m, \mu_m)}
 	\end{align}
-	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$ \textcolor{red}{How? \cite[lemma 5.2]{specAnal}}
+	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$. This follows from\cite[lemma 5.2]{specAnal}, since if $\inf_{m} \lambda_{1}^{m} \leq 0$ the series in the lemma would not converge.
 \end{proof}
 
 
 Since we have now described the discrete fractional laplacian we will move on to the continuos fractional Laplacian.
 
 \subsection{Semi-groups}
-When stating the Fractional Laplacian one use that it admits a heat kernel through a semigroup generated by $-\Delta$. We will therefore first define a semigroup along with showing that $-\Delta$ generates a semigroup and lastly give some intuition to what the heat kernel is.
+When stating the Fractional Laplacian one use that it admits a heat kernel through a semigroup generated by $-\Delta$. We will therefore first define a semigroup along with showing that $-\Delta$ generates a semigroup and define what the heat kernel is.
 
 \begin{defi}\label{semigroupDef}
 	Let $\mathcal{H}$ be a Hilbert space. A strongly continuos self-adjoint contraction semigroup is a family of self-adjoint operators $(P_t)_{t \geq 0}: \mathcal{H} \to \mathcal{H}$
-	\begin{enumerate}
-		\item For $s,t \geq 0$, $P_t \circ P_s = P_{s +t}$ (semi-group property).
-		\item For every $f \in \mathcal{H}, \lim_{t \to 0} P_t f= f$ (strong continuity).
-		\item For every $f \in \mathcal{H}$ and $t \geq 0$, $\norm{P_t f} \leq \norm{f}$.
+	\begin{enumerate}[(i)]
+		\item For $s,t \geq 0$, $P_t \circ P_s = P_{s +t}$ (semi-group property). \label{semi-group}
+		\item For every $f \in \mathcal{H}, \lim_{t \to 0} P_t f= f$ (strong continuity).\label{strong cont}
+		\item For every $f \in \mathcal{H}$ and $t \geq 0$, $\norm{P_t f} \leq \norm{f}$ (contraction property). \label{semi-group contraction}
 	\end{enumerate}
 \end{defi}
 
@@ -518,33 +513,64 @@ The next theorem also holds if we are given $(P_t)_{t \geq 0}$ as a strongly con
 	If $A$ is a densely defined self adjoint operator on $\mathcal{H}$ then it is the generator of the strongly continuous self-adjoint contraction semigroup on $\mathcal{H}$ defined as $P_t = e^{tA}$.
 \end{theorem}
 \begin{proof}
-	We will simply show that $e^{tA}$ fulfils \cref{semigroupDef}. First
+	
+	Let $A$ be given as stated. Then from the spectral theorem \cite[theorem 1.1.2]{fabriceDirichelt} and there is a measure space $(\omega, \nu)$ and a unitary map $U: L^2(\Omega, \nu) \to \mathcal{H}$ and a non negative real valued measurable function $\lambda$ on $\omega$ such that
+	\begin{equation}
+		U^{-1}AUf(x) = -\lambda(x)f(x)
+	\end{equation}
+	for $x \in \Omega, U f \in \dom A$. Then from the functional calculus \cite[theorem 1.1.3]{fabriceDirichelt} we define $P_t: \mathcal{H} \to \mathcal{H}$ such that
+	\begin{equation}
+				U^{-1}P_tUf(x) = e^{-t \lambda(x)}f(x)
+	\end{equation}
+	\textcolor{red}{Is enought to show $Q_t$ is all these things since $P_t = Ue^{-\lambda t} U^{-1}$ is still all the things? by def. that unitary maps are surjective.} We will prove that $Q_t = U^{-1}P_tU$ with domain $\dom Q_t$ is a self-adjoint strongly continous contraction semigroup on $L^2(\Omega, \nu)$ with generator $A$.
+	
+	Starting with generator, we see that
 	\begin{align}
-		e^{t A}e^{sA} &= \sum_{n= 0}^{\infty} \frac{(tA)^{n}}{n!}\sum_{n= 0}^{\infty} \frac{(tA)^{n}}{n!} \\
-		& = \sum_{l= 0}^{\infty} \sum_{n +m = l}\frac{t^ns^m A^{l}}{n!m!} \\
-		&= \sum_{l= 0}^{\infty} \frac{(s+t)^{l}A^{l}}{l!} = e^{(s+t)A}.
+		\lim_{t \to 0} \norm{\frac{Q_tf-f}{t} - Af} &= \lim_{t \to 0}\sqrt{\inn{\frac{Q_tf-f}{t} - Af}{\frac{Q_tf-f}{t} - Af}} \\
+		&= \lim_{t \to 0}\sqrt{\inn{\frac{Q_tf-f}{t}}{\frac{Q_tf-f}{t} - Af} - \inn{Af}{\frac{Q_tf-f}{t} - Af}} \\
+		&\leq \lim_{t \to 0}\sqrt{\inn{\frac{Q_tf-f}{t}}{\frac{Q_tf-f}{t} - Af}} \\
+		&= \lim_{t \to 0}\sqrt{\int_{\Omega}\left(\frac{Q_tf-f}{t}\right)\left(\frac{Q_tf-f}{t} - Af\right)  \dd \nu} \\
+		&= \lim_{t \to 0}\sqrt{\int_{\Omega}\left(\frac{(e^{-\lambda t}1)-f}{t}\right)\left(\frac{Q_tf-f}{t} - Af\right)} \\
+			&= 0
 	\end{align}
-	Next
-	\begin{align}
-		\abs{e^{tA}f - f} = \abs{e^{tA} -1}\abs{f} = 0
-	\end{align}
-	as $t \to 0$. And lastly since $A$ is a non-positive operator then $e^{tA} < 1$ we find by the same calculations as above that
-	$$\norm{e^{tA}f - f} = \norm{e^{tA} -1}\norm{f} \leq \norm{f}$$
-	\textcolor{red}{Maybe correct?}
+	where the convergence comes from the fact that $e^{-\lambda t}$ converges to $1$ much faster than $1/t$ diverges to $\infty$.  Thus $A$ is a generator.
+	
+	Next we have that $Q_t$ is self-adjoint, for which we start with symmetry
+	\begin{equation}
+		\inn{Q_t f}{g} = \int_{\Omega} Q_t f g \dd \nu = \int_{\Omega} e^{-\lambda t} f g \dd \nu = \inn{f}{Q_t g}.
+	\end{equation}
+	Next we have that $\dom Q_t$ is dense in $L^(\Omega, \nu)$ since if $f_n \to f$ in $L^2(\omega, \nu)$ and $Q_t f_n \to g$ then
+	\begin{equation}
+		\lim_{n \to \infty} Q_t f_n = \lim_{n \to \infty} e^{-\lambda t}f_n = e^{-\lambda t}f = Q_t f.
+	\end{equation} 
+	
+	Now showing that $\dom (Q_{t})^{*} = \dom Q_t$, then since $Q_t$ is symmetric we have that
+	\begin{equation}
+		\abs{\inn{f}{Q_tg}} = \abs{\inn{Q_t f}{g}} \leq \norm{Q_t f} \norm{g}.
+	\end{equation}
+	\textcolor{red}{I think this arguments holds. see just below definition of self-adjoint.}
+	Thus we have $Q_t$ is self-adjoint. To show the semigroup properties, we have (\ref{semi-group})
+	\begin{equation}
+		Q_{t+s}f = e^{-\lambda (t +s )}f = e^{-\lambda t}e^{-\lambda s}f = Q_t Q_s f
+	\end{equation}
+	further for (\ref{strong cont}) we have
+	\begin{equation}
+		\lim_{t \to \infty} Q_t f = \lim_{t \to \infty} e^{-t\lambda} f = f
+	\end{equation}
+	and lastly (\ref{semi-group contraction})
+	\begin{equation}
+		\norm{Q_t f} = \int_{\Omega} (e^{-\lambda t}f)^2 \dd \nu\leq \int_{\Omega} f^2 \dd \nu = \norm{f} .
+	\end{equation}
+	Thus we have that $Q_t$ is a self-adjoint strongly continous contraction semigroup on $L^2(\Omega, \nu)$ with generator $A$.
 \end{proof}
 
-Now giving some intuition for the heat kernel. If we look at the differential equations
-\begin{equation}
-	\begin{cases}
-		\frac{\dd}{\dd t}u + \Delta u = 0 \\
-		u(x,0) = f(x)
-	\end{cases}
-\end{equation}
-where $u(x, t)$ and $f(x)$ are some continuous functions. \textcolor{red}{Need help defining these...}
-Now we see that $u(x,t) = e^{-t\Delta}f(x)$ is a solution to the differential equation. The heat kernel is then the continuous function $p_t(x,y)$ such that
-\begin{equation}
-	e^{-t\Delta}f(x) = \int_{K} p_t(x,y)f(y) \dd \mu(y).
-\end{equation}
+With semigroups out of the way we can define the heat kernel.
+\begin{defi}\label{heatKernel}
+	The heat kernel $p_t(x,y)$ is the function that satisfies
+	\begin{equation}
+		P_tf(x) = \int_{K}p_t(x,y)f(y) \dd \mu(y)
+	\end{equation}
+\end{defi}
 
 
 
@@ -552,7 +578,7 @@ Now we see that $u(x,t) = e^{-t\Delta}f(x)$ is a solution to the differential eq
 \subsection{Fractional Laplacian}
 Before we can define the continuos fractional Laplacian, we need to define the eigenvalues and eigenfunctions for $-\Delta$. A proof of the existence of the eigenvalues and eigenfunctions will not be given, but we will state the theorem.
 
-The Laplacian $\Delta$ with domain $\mathcal{D}(\Delta)$ is by \cref{genSemigroup} the generator of a strongly continuos Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. This semigroup admits a heat kernel $p_t(x,y), t > 0, x,y \in K$, wrt. the Hausdorff measure $\mu$ by \textcolor{red}{Something above}. It is called the Dirichlet heat kernel on $K$. Further this heat kernel satisfies for some $c_1, c_2 \in (0, \infty)$ \textcolor{red}{find ref}
+The Laplacian $\Delta$ with domain $\mathcal{D}(\Delta)$ is by \cref{genSemigroup} the generator of a strongly continuos Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. This semigroup admits by \cref{heatKernel} a heat kernel $p_t(x,y), t > 0, x,y \in K$, wrt. the Hausdorff measure $\mu$. It is called the Dirichlet heat kernel on $K$. Further this heat kernel satisfies for some $c_1, c_2 \in (0, \infty)$ \textcolor{red}{find ref}
 \begin{equation}\label{heatKernelBound}
 	p_t(x,y) \leq c_1 t^{-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right)
 \end{equation}
@@ -653,7 +679,7 @@ Thus we are ready to define the fractional Laplacian.
 
 While the definition of the fractional Laplacian is not the most complicated, we are still able to rewrite it in another form.
 
-We therefore define the fractional Reisz kernel \textcolor{red}{Why is the definition different from other articles mainly $s > 0$ vs $s \geq 0$ and also $p_t +1$}
+We therefore define the fractional Reisz kernel.
 \begin{defi}
 	For parameter $s \geq 0$ we define the fractional Riesz kernel $G_s$ by
 	\begin{equation}
@@ -695,7 +721,7 @@ Before stating this proof we will quickly state a lemma needed
 	\begin{equation}\label{returnHeatKernel}
 		p_t(x,y) = \sum_{j = 1}^{\infty} e^{-\lambda_j t}\phi_j(x)\phi_j(y).
 	\end{equation}
-	Since $\phi_j$ are eigenvalues, we have from \textcolor{red}{definition of $p_t$?} for any $t > 0$ that
+	Since $\phi_j$ are eigenvalues, we have from definition of $p_t$, that for any $t > 0$ that
 	\begin{equation}
 		\phi_j(x) = e^{\lambda_jt}\int_{K}p_t(x,y)\phi_j(y) \dd \mu (y).
 	\end{equation}
@@ -748,7 +774,7 @@ It now follows that
 		&=d(x,y)^{sd_w - d_h} \int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
 		&\leq d(x,y)^{sd_w-d_h} \int_{0}^{\infty} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u.
 	\end{align}
-	\textcolor{red}{convergence of these integrals?}. Lastly for $s = d_h/d_w$, we again use the change of variable $t = ud(x,y)^{d_w}$ and setting $R = \diam(K)$ and note that $0 < 1/R^{d_w} < 1/d(x,y)^{d_w}$, thus we find
+	convergence of the last integral comes from the fact that $e^{-c_2(1/u)^{1/d_w}}$ converges faster than $1/u$ diverges. Lastly for $s = d_h/d_w$, we again use the change of variable $t = ud(x,y)^{d_w}$ and setting $R = \diam(K)$ and note that $0 < 1/R^{d_w} < 1/d(x,y)^{d_w}$, thus we find
 	\begin{align}
 		&\phantom{=}\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right). \\
 		&=\int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
