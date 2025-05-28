@@ -7,6 +7,7 @@
 \usepackage{mathtools} %Math tools stuff
 \usepackage{amssymb} %math symbols
 \usepackage{amsthm} %Something with proof enviorments
+\usepackage{listings} %Make code blocks
 \usepackage{dsfont}
 \usepackage{marginnote} %Make margin notes
 \usepackage{commath}
@@ -130,11 +131,19 @@
 
 % TK-Sum Setup
 % Change '\ikonCERM' to whatever. Consider putting into $...$ for math-symbols.
-\let\temp\sum
-\DeclareMathOperator*{\TKS}{\scalerel*{\rotatebox{0}{\ikonINKA}}{\temp}}
+\let\tempSum\sum
+\DeclareMathOperator*{\TKSum}{\scalerel*{\rotatebox{0}{\ikonINKA}}{\tempSum}}
+
+\let\tempSigma\Sigma
+\DeclareMathOperator*{\TKSigma}{\scalerel*{\rotatebox{0}{\ikonINKA}}{\tempSigma}}
+
 \newboolean{TK}
 \setboolean{TK}{false}   % Turn on or off by 'true' or 'false'
-\ifthenelse{\boolean{TK}}{\let\sum\TKS}{\let\sum\temp}
+
+\ifthenelse{\boolean{TK}}{\let\sum\TKSum}{\let\sum\tempSum}
+
+\ifthenelse{\boolean{TK}}{\let\Sigma\TKSigma}{\let\Sigma\tempSigma}
+
 
 %----------------------- THEOREMS AND EQUATIONS ---------------------------
 %Theorem styles
@@ -183,6 +192,34 @@
 %\mathtoolsset{showmanualtags=true}
 \numberwithin{equation}{chapter} %Makes equation number (x.1, x.2, y.1, y.2 ...), where x, y are section
 
+%---------- Code block styles -----------
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codeblue}{rgb}{0,0,0.8}
+\definecolor{codegray}{rgb}{0,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.93,0.93,0.93}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegray},
+	keywordstyle=\color{codeblue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codegreen},
+	basicstyle=\ttfamily\small,
+	breakatwhitespace=false,		 
+	breaklines=true,				 
+	captionpos=t,					
+	keepspaces=true,				 
+	numbers=left,					
+	numbersep=10pt,				  
+	showspaces=false,				
+	showstringspaces=false,
+	showtabs=false,				  
+	tabsize=2
+}
+\lstset{style=mystyle}
+
+
 
 \addbibresource{cite.bib}
 \title{Master Thesis}
@@ -217,7 +254,8 @@
 	\input{fractalConstruction}
 
 	\input{LaplaciansAndGRF}
-	
+
+	\input{gaussianFields}	
 	
 	\input{mainTheorem}
 	\backmatter
