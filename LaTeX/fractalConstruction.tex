@@ -2,7 +2,7 @@
 In this thesis we will be studying the Vicsek set, so therefore we will in this section start by constructing the set and proving some basic properties of the Vicsek set. While it is possible to define the Vicsek set as a non-empty compact self-similar set, we will first define and prove some basic properties of self-similar sets.
 
 \section{Iterated Function System}
-The iterated functions systems (IFS) gives us a way to work with self-similarly sets. Another reason for constructing the IFS is that we are able to prove that the Vicsek set actually exists.
+The iterated functions systems (IFS) gives us a way to work with self-similarly sets. Another reason for constructing the IFS is that we are able to prove that the Vicsek set actually exists. Thus we start by defining the iterated function systems.
 
 \begin{defi}
 	A finite family of functions $\cbr{\fracConst_1, \fracConst_2, \ldots, \fracConst_m}$ with $m \geq 2$ is called an \emph{iterated function system} (or IFS) if exists $c_i \in (0, 1)$ such that all $\fracConst_i$ are \emph{contractions}. Which is exactly
@@ -16,7 +16,7 @@ The iterated functions systems (IFS) gives us a way to work with self-similarly 
 \end{defi}
 
 
-The next question will then be if there for every IFS exists an invariant set for the IFS? We shall actually prove that this is indeed true, but before we begin the proof that a unique invariant set exists we will need to define the Hausdorff metric.
+The next question will then be if there for every IFS exists an invariant set for the IFS? We shall prove that this is indeed true, but before we are able to prove that a unique invariant set exists we will need to define the Hausdorff metric.
 \begin{defi}
 	Define $A_{\delta} = \cbr{x \in \mathcal{A} : \exists a \in A, \abs{x-a} < \delta }$ 
 	The \emph{Hausdorff metric} is given by
@@ -59,11 +59,11 @@ The proof that $d_H$ metric can be found in \cite{Henrikson1999CompletenessAT}.
 	The second inequality comes from letting $\delta = d(A,B)$ then for every $a \in A$ we can choose some $b \in B$ such that $\abs{a-b} \leq \delta$ in which case $\abs{\fracConst_i(a) -\fracConst_i(b)} \leq c_i \delta$ and therefore $\fracConst_i(A) \subset \left(\fracConst_i(B)\right)_{c_i \delta}$. 
 \end{proof}
 
-In the end we will mention a few consequences of of \cref{uniqueInvariantSet}. The theorem gives us a way to create a (not necessarily unique) sequence $(i_1, i_2, \ldots)$ such that each $x \in F$ we can write
+In the end we will mention a consequences of \cref{uniqueInvariantSet}. The theorem gives us a way to create a (not necessarily unique) sequence $(i_1, i_2, \ldots)$ such that each $x \in F$ we can write
 \begin{equation}\label{pointAsIntersectSet}
 	\cbr{x} = \cbr{x_{i_1, i_2, \ldots}} = \bigcap_{k \geq 0} K_{i_1, \ldots i_k}.
 \end{equation}
-This is possible since $S^{k}$ is decreasing as $k$ increases. This further lets us describe $K$ as
+where $K_{i_1, \ldots i_k} = \fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}(K)$. Thus in a way giving each $x \in F$ an address. This is possible since $S^{k}$ is decreasing as $k$ increases. This further lets us describe $K$ as
 \begin{equation}\label{InvSetAsPoint}
 	K = \bigcup_{\mathcal{I}} \cbr{x_{i_1, i_2, \ldots}}.
 \end{equation}
@@ -71,7 +71,7 @@ This is possible since $S^{k}$ is decreasing as $k$ increases. This further lets
 
 \section{Construction the Vicsek set}
 
-Let $V_0 = \cbr{p_1, p_2, p_3, p_4, p_5}$ be the set of vertices in a plus with a middle point in $\ree^{2}$. Then define
+Let $V_0 = \cbr{p_1, p_2, p_3, p_4, p_5}$ be the set of vertices  in $\ree^{2}$ given by $p_0 = (0,0), p_1=(\xi, 0), p_2 = (0, -\xi), p_3 = (-\xi, 0)$ and $p_4 = (0, \xi)$ for some $\xi > 0$. Then define
 \begin{equation}
 	\fracConst_i(z) = \frac{1}{3} \left(z - p_i\right) +p_i, \quad \text{for } i = 1,2,\ldots 5.
 \end{equation}
@@ -84,21 +84,25 @@ Thus by \cref{uniqueInvariantSet} we define the Vicsek set $K$ is as the unique 
 \begin{equation}
 	K = \bigcup_{i = 1}^{5} \fracConst_i(K).
 \end{equation}
-We note that $V_0$ is the boundary of $K$.
 
 Since we are going studying the convergence of discretely defined operators to smooth operators we can define a discrete Vicsek set in the follow way. We start by define a sequence of sets $(V_m)_{m \geq 0}$ inductively:
 \begin{equation}
 	V_{m+1} = \bigcup_{i = 1}^{5} \fracConst_i(V_m)
 \end{equation}
-this gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$. Further we will use the notation of $V_{\ast} = \cup_{m \geq 0} V_m$ and for any $p \in V_m$ we denote the collection of neighbours of $p$ in $G_m$ by $V_{m,p}$. Lastly note that $N_m = \# V_m = 5^{m}\cd 4 + 1$.
+this gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$. 
+
+\textbf{Notation:} We denote $V_{\ast} = \cup_{m \geq 0} V_m$ and for any $p \in V_m$ we write the collection of neighbours of $p$ in $G_m$ by $V_{m,p}$. We sometimes write $x \underset{m}{\sim} y$ when $x$ and $y$ are neighbours and $x \sim y$, when there is no confusion as to what $V_m$ is being mentioned. Lastly note that $N_m = \# V_m = 5^{m}\cd 4 + 1$.
 
 
 
 \section{Hausdorff Dimensions}
 
-What is hausdorff dimension? We first have to look at Hausdorff measure. 
+The Hausdorff dimension can be thought of as a form of "fractal dimension" and will be very important to this thesis. Since later in this thesis the notion of Hausdorff dimension will be used to bound and define many of the mathematical object that we will manipulate. Now Hausdorff dimension has the advantage of being defined for any set and it is based on measure, which we know how to work with. The greatest disadvantage is that it is, in most cases, very difficult to calculate from the definition, but we will find that given an invariant set of an IFS it will be quite easy to calculate. We begin this section by defining a cover for sets.
 
-We say the countable collection of set $\cbr{U_i}_{i \geq 1}$ is a \emph{$\delta$-cover} of $K$ if $K \subset \bigcup_{i \geq 1} U_i$ and $\diam U_i \leq \delta$. Here $\diam(A):= \sup_{x, y \in A}d(x,y)$ where $d(\cdot, \cdot)$ is a metric.
+\begin{defi}\label{deltaCover}
+	Let $X$ be a metric space with metric $d(\cdot, \cdot)$. We say the countable collection of set $\cbr{U_i}_{i \geq 1}$ is a \emph{$\delta$-cover} of $K$ if $K \subset \bigcup_{i \geq 1} U_i$ and $\diam U_i \leq \delta$, where $\diam(A)= \sup_{x, y \in A}d(x,y)$.
+\end{defi}
+
 
 \begin{defi}
 	Let $X$ be a metric space. If $K \subset X$ and $d \in [0, \infty)$ we define
@@ -111,27 +115,35 @@ We say the countable collection of set $\cbr{U_i}_{i \geq 1}$ is a \emph{$\delta
 	\end{equation}
 \end{defi}
 
-The Hausdorff measure defined above, is not a measure i the normal measure theory sense but ratherit is an outer measure. Though it is possible to prove that the Hausdorff measure restricted to Borel-set is a measure.
+\begin{remark*}
+	The Hausdorff measure defined above, is not a measure i the normal measure theory sense but rather it is an outer measure. Though it is possible to prove that the Hausdorff measure restricted to Borel-set is a measure.
+\end{remark*}
 
-%we notice that if $\delta < 1 $ then $H^s_{\delta}(K)$ is non-increasing with $d$. So by definition of $\mathcal{H}^s(K)$ is also non-increasing. We actually have an even stronger statement regarding 
-
-Moving swiftly along, we now want to look at the behaviour of $\mathcal{H}^{s}$ as $s$ changes. So let ${U_i}_{i \geq 1}$ is a $\delta$-cover of $K$ then we have for $0 \geq s < t$ that
+Moving swiftly along, we now want to investigate the behaviour of $\mathcal{H}^{s}$ as $s$ changes. So let ${U_i}_{i \geq 1}$ be a $\delta$-cover of $K$ then we have for $0 \geq s < t$ that
 \begin{equation}
 	\sum_{i \geq 1} \diam(U_i)^{t} = \sum_{i \geq 1} \diam(U_i)^{t-s}\diam(U_i)^{s} \leq \delta^{t-s}\sum_{i \geq 1}\diam(U_i)^{s}.
 \end{equation}
 Taking infima on both sides we get that $H^t_{\delta}(K) \leq \delta^{t-s}H^s_{\delta}(K)$. If we let $\delta \to 0$ we see that if $\mathcal{H}^{s}(K) < \infty$ then $\mathcal{H}^{s}(K) = 0$ since $\delta^{t-s} \to 0$. Likewise if $\mathcal{H}^{t} > 0$ then $\mathcal{H}^{s} = \infty$. 
-T
-his tells us that if there is a point, say $\kappa$, such $\mathcal{H}^{\kappa}$ is both positive and finite, then $\mathcal{H}^{s}$ will be 0 for all $s > \kappa$ and $\infty$ for all $s < \kappa$. That such value is called the \emph{Hausdorff Dimension} of $K$. Formally written:
+This tells us that if there is a point, say $\kappa$, such that $\mathcal{H}^{\kappa}$ is both positive and finite, $\mathcal{H}^{s}$ will be 0 for all $s > \kappa$ and $\infty$ for all $s < \kappa$. That such value is called the \emph{Hausdorff Dimension} of $K$. Formally written:
 \begin{defi}\label{hausdorffDimDefi}
 	The \emph{Hausdorff dimension}, denoted $d_h(K)$ is given by
 	\begin{equation}
 		d_h(K) = \inf\cbr{s \geq 0 : \mathcal{H}^{s}(K) = 0} = \sup\cbr{s \geq 0 : \mathcal{H}^{s}(K) = \infty}.
 	\end{equation}
 \end{defi} 
-When there is no confusion with regard to what set we are working with, we denote the Hausdorff dimension by $d_h$.
+\textbf{Notation:} When there is no confusion with regard to what set we are working with, we denote the Hausdorff dimension by $d_h$.
 
-Now it is quite difficult to determine the Hausdorff dimension from the definition. Luckily we can with a few assumption find the Hausdorff dimension quite easily. For that theorem we need an important lemma.
+Now as stated before it is quite difficult to determine the Hausdorff dimension from the definition. Luckily we can with a few assumption find the Hausdorff dimension quite easily. But before we can prove that theorem we first define the open set condition and state a few important lemmas.
 
+\begin{defi}\label{OpenSetCondition}
+	We say that a IFS ${\fracConst_i}_{1 \leq i \leq m}$ satisfy the \emph{open set condition} if there exists a non-empty bounded open set $V$ such that
+	\begin{equation}
+		V \supset \bigcup_{i = 1}^{m} \fracConst_i(V)
+	\end{equation}
+	and each $\fracConst_{i}(V)$ is disjoint.
+\end{defi}
+
+The first lemma is lower bound for the Hausdorff dimension.
 \begin{lemma}\label{massDistribution}
 	Let $\mu$ be a measure such that $\mu(F) \in (0, \infty)$ and suppose there are numbers $c, \epsilon > 0$ such that for some $s \geq 0$
 	\begin{equation}
@@ -154,16 +166,7 @@ Now it is quite difficult to determine the Hausdorff dimension from the definiti
 	By assumption we know that $\diam(V_i) \leq 2a_2 r$ for all $V_i$. So if some $\overline{V}_i$ intersect the ball with radius $r$, then $\overline{V}_i$ must be contained in the ball with radius $(2a_2 + 1)r$ concentric with the ball with radius $r$.  Now let $q$ denote the number of closures $\overline{V}_i$ that are intersecting with the ball with radius $r$. Then there exists $q$ disjoint balls with radius $a_1r$ that are contained in the ball with radius $(2a_2 +1)r$, since by assumption each $\overline{V}_i$ contains a ball of radius $a_1r$ . It then follows that $q(a_1r)^{n} \leq (2a_2 +1)^{n}r^{n}$ which gives us the bound for $q$.
 \end{proof}
 
-We first define the open set condition
-\begin{defi}\label{OpenSetCondition}
-	We say that a IFS ${\fracConst_i}_{1 \leq i \leq m}$ satisfy the \emph{open set condition} if there exists a non-empty bounded open set $V$ such that
-	\begin{equation}
-		V \supset \bigcup_{i = 1}^{m} \fracConst_i(V)
-	\end{equation}
-	and each $\fracConst_{i}(V)$ is disjoint.
-\end{defi}
-
-
+We now have all the tools required, thus we find.
 \begin{theorem}\label{HausdorffDimTheorem}
 	Suppose \cref{OpenSetCondition} holds for the similarities $\fracConst_i$ on $\ree^{n}$ with ratios $0 < c_i < 1$ for $1 \leq i \leq m$. If there for $K$ holds
 	\begin{equation}\label{hausDorffDimCondition}
@@ -231,16 +234,13 @@ We first define the open set condition
 \end{proof}
 
 \subsection{Spectral and Walk dimension}
-Further in this thesis we will bound certain random fields and functions by a constant we call the spectral dimension. It depends on two other factors, namely the Hausdorff dimension, which we have just found, and of the walk dimension. Properly explaining the walk dimension is outside the scope of this thesis, but we will give some intuition as to what it is.
+Further in this thesis we will bound certain random fields and functions by a constant we call the spectral dimension. It depends on two other factors, namely the Hausdorff dimension, which we have just discussed, and of the walk dimension. Properly explaining the walk dimension is outside the scope of this thesis, but we will give some intuition as to what it is.
 
 Let $B_t$ be a Brownian motion on $K$, and $B(x,r)$ be the ball centered at $x \in K$ with radius $r$. then the \emph{walk dimension} is the constant $d_w > 0$ such that
 \begin{equation}
 	c_1 r^{d_w} \leq \e \left[\tau(x,r)\right] \leq c_2 r^{d_w}
 \end{equation}
-where $\tau(x,r) = \inf\cbr{t \geq 0 : B_t \notin B(x,r)}$.  The intuition is that it is the average escape rate, meaning how fast does the Brownian motion escape the ball. This explanation for the walk dimension is a rather simplified and condensed one, for further reference see \cite[Chapter 3]{barlow}.
-
-
-This then leads us to being able to define the spectral dimension as following:
+where $\tau(x,r) = \inf\cbr{t \geq 0 : B_t \notin B(x,r)}$.  The intuition is that it is the average escape rate, meaning how fast does the Brownian motion escape the ball. This explanation for the walk dimension is a rather simplified and condensed one, for further reference see \cite[Chapter 3]{barlow}. But it does leads us to be able to define the spectral dimension as following:
 \begin{defi}\label{spectralDimDefi}
 	Let $d_h$ be the Hausdorff dimension and $d_w$ the walk dimension then the spectral dimension is
 	\begin{equation}
@@ -250,7 +250,7 @@ This then leads us to being able to define the spectral dimension as following:
 
 \section{Hausdorff, walk and spectral dimension of the Vicsek set}
 
-Lastly we need calculate the Hausdorff, walk and spectral dimension for the Vicsek set. Recalling that the Vicsek set is the unique set $K$ such, for the iterative functions system $\cbr{\fracConst_1, \ldots, \fracConst_{5}}$ with $\fracConst_{i}(z) = \frac{1}{3}\left(z -p_i\right) + p_i$ where $p_i \in V_0$, it holds that
+Since the main purpose of the thesis is to study the Vicsek set, we will in the section state the different dimensions needed. Recalling that the Vicsek set is the unique set $K$ such, for the iterative functions system $\cbr{\fracConst_1, \ldots, \fracConst_{5}}$ with $\fracConst_{i}(z) = \frac{1}{3}\left(z -p_i\right) + p_i$ where $p_i \in V_0$, it holds that
 \begin{equation}
 	K = \bigcup_{i =1}^{5} \fracConst_{i}(K).
 \end{equation}
@@ -262,207 +262,557 @@ So if we choose the open set $V$ to be the open box where each corner is a point
 \begin{figure}[!ht]\label{openSetDiagram}
 	\centering
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\def\heightTikz{200}
+\begin{minipage}{0.37\linewidth}
+	\centering
 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	%uncomment if require: \path (0,\heightTikz); %set diagram left start at 0, and has height of 300
 	
-	%Straight Lines [id:da9355532760762474] 
-	\draw    (144,170.67) -- (234,170.67) ;
-	%Straight Lines [id:da5964144690386572] 
-	\draw    (234,260.67) -- (234,170.67) ;
-	%Straight Lines [id:da5166966545229968] 
-	\draw    (234,170.67) -- (234,80.67) ;
-	%Straight Lines [id:da7391858819502877] 
-	\draw    (234,170.67) -- (324,170.67) ;
-	%Straight Lines [id:da41589773867971025] 
-	\draw    (294,140.67) -- (294,200.67) ;
-	%Straight Lines [id:da4050702977235453] 
-	\draw    (174,140.67) -- (174,200.67) ;
-	%Straight Lines [id:da20582092340457592] 
-	\draw    (204,230.67) -- (264,230.67) ;
-	%Straight Lines [id:da7390405916041646] 
-	\draw    (204,110.67) -- (264,110.67) ;
-	%Straight Lines [id:da9899906610101565] 
-	\draw    (164,150.67) -- (184,150.67) ;
-	%Straight Lines [id:da41457128538077226] 
-	\draw    (164,190.67) -- (184,190.67) ;
-	%Straight Lines [id:da9932510119621577] 
-	\draw    (224,210.67) -- (244,210.67) ;
-	%Straight Lines [id:da570039755936011] 
-	\draw    (224,190.67) -- (244,190.67) ;
-	%Straight Lines [id:da9084396530899645] 
-	\draw    (224,250.67) -- (244,250.67) ;
-	%Straight Lines [id:da15309407933463914] 
-	\draw    (284,190.67) -- (304,190.67) ;
-	%Straight Lines [id:da13095833774901533] 
-	\draw    (284,150.67) -- (304,150.67) ;
-	%Straight Lines [id:da020887221653102972] 
-	\draw    (224,150.67) -- (244,150.67) ;
-	%Straight Lines [id:da7345561966712231] 
-	\draw    (224,130.67) -- (244,130.67) ;
-	%Straight Lines [id:da5362120333436483] 
-	\draw    (224,90.67) -- (244,90.67) ;
-	%Straight Lines [id:da7975638462661379] 
-	\draw    (154,160.67) -- (154,180.67) ;
-	%Straight Lines [id:da8143493857329925] 
-	\draw    (194,160.67) -- (194,180.67) ;
-	%Straight Lines [id:da6627411558310876] 
-	\draw    (214,160.67) -- (214,180.67) ;
-	%Straight Lines [id:da12362191876414352] 
-	\draw    (254,160.67) -- (254,180.67) ;
-	%Straight Lines [id:da7069540589636689] 
-	\draw    (274,160.67) -- (274,180.67) ;
-	%Straight Lines [id:da3928153922840286] 
-	\draw    (314,160.67) -- (314,180.67) ;
-	%Straight Lines [id:da2169381780841021] 
-	\draw    (214,100.67) -- (214,120.67) ;
-	%Straight Lines [id:da18731609764130341] 
-	\draw    (254,100.67) -- (254,120.67) ;
-	%Straight Lines [id:da38901588544180077] 
-	\draw    (214,220.67) -- (214,240.67) ;
-	%Straight Lines [id:da6421174062198961] 
-	\draw    (254,220.67) -- (254,240.67) ;
-	%Straight Lines [id:da12226658820871228] 
-	%\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (221,20) -- (191,50) ;
-	%Straight Lines [id:da026721583537768434] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (234,80.67) -- (324,170.67) ;
-	%Straight Lines [id:da44767478808636885] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (234,80.67) -- (144,170.67) ;
-	%Straight Lines [id:da8112435482228784] 
-	%\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (321.4,78.2) -- (351.4,108.2) ;
-	%Straight Lines [id:da23293877478548286] 
-	\draw    (392,167.67) -- (482,167.67) ;
-	%Straight Lines [id:da31990691332235865] 
-	\draw    (482,257.67) -- (482,167.67) ;
-	%Straight Lines [id:da13550842011059172] 
-	\draw    (482,167.67) -- (482,77.67) ;
-	%Straight Lines [id:da3786525368516451] 
-	\draw    (482,167.67) -- (572,167.67) ;
-	%Straight Lines [id:da23559495977997336] 
-	\draw    (542,137.67) -- (542,197.67) ;
-	%Straight Lines [id:da5695314439620682] 
-	\draw    (422,137.67) -- (422,197.67) ;
-	%Straight Lines [id:da19055834634380375] 
-	\draw    (452,227.67) -- (512,227.67) ;
-	%Straight Lines [id:da47149166103464524] 
-	\draw    (452,107.67) -- (512,107.67) ;
-	%Straight Lines [id:da025803623276352994] 
-	\draw    (412,147.67) -- (432,147.67) ;
-	%Straight Lines [id:da9002536538330218] 
-	\draw    (412,187.67) -- (432,187.67) ;
-	%Straight Lines [id:da3616034380123587] 
-	\draw    (472,207.67) -- (492,207.67) ;
-	%Straight Lines [id:da4659684911643208] 
-	\draw    (472,187.67) -- (492,187.67) ;
-	%Straight Lines [id:da6887240700183824] 
-	\draw    (472,247.67) -- (492,247.67) ;
-	%Straight Lines [id:da2075043300929269] 
-	\draw    (532,187.67) -- (552,187.67) ;
-	%Straight Lines [id:da7689395446852341] 
-	\draw    (532,147.67) -- (552,147.67) ;
-	%Straight Lines [id:da04283164908020154] 
-	\draw    (472,147.67) -- (492,147.67) ;
-	%Straight Lines [id:da7025075395144438] 
-	\draw    (472,127.67) -- (492,127.67) ;
-	%Straight Lines [id:da7129905877661015] 
-	\draw    (472,87.67) -- (492,87.67) ;
-	%Straight Lines [id:da13929958260781106] 
-	\draw    (402,157.67) -- (402,177.67) ;
-	%Straight Lines [id:da8805394368238584] 
-	\draw    (442,157.67) -- (442,177.67) ;
-	%Straight Lines [id:da9105517645243818] 
-	\draw    (462,157.67) -- (462,177.67) ;
-	%Straight Lines [id:da7375666971763377] 
-	\draw    (502,157.67) -- (502,177.67) ;
-	%Straight Lines [id:da519970374400013] 
-	\draw    (522,157.67) -- (522,177.67) ;
-	%Straight Lines [id:da9345793756328389] 
-	\draw    (562,157.67) -- (562,177.67) ;
-	%Straight Lines [id:da04789107971266471] 
-	\draw    (462,97.67) -- (462,117.67) ;
-	%Straight Lines [id:da1529122556111825] 
-	\draw    (502,97.67) -- (502,117.67) ;
-	%Straight Lines [id:da6146433793251727] 
-	\draw    (462,217.67) -- (462,237.67) ;
-	%Straight Lines [id:da494420762135248] 
-	\draw    (502,217.67) -- (502,237.67) ;
-	%Straight Lines [id:da495638130506715] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (324,170.67) -- (234,260.67) ;
-	%Straight Lines [id:da9417630463945195] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (144,170.67) -- (234,260.67) ;
-	%Straight Lines [id:da19448076333166897] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (480.6,76.2) -- (510.6,106.2) ;
-	%Straight Lines [id:da6966329371071581] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (542,137.67) -- (572,167.67) ;
-	%Straight Lines [id:da12519608396312176] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,107.67) -- (482,137.67) ;
-	%Straight Lines [id:da3844455078172324] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (392,167.67) -- (422,197.67) ;
-	%Straight Lines [id:da1083008562556157] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (422,137.67) -- (452,167.67) ;
-	%Straight Lines [id:da39018704416668093] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,197.67) -- (512,227.67) ;
-	%Straight Lines [id:da3591047819220503] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,227.67) -- (482,257.67) ;
-	%Straight Lines [id:da15564315798481743] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,137.67) -- (512,167.67) ;
-	%Straight Lines [id:da4754136960692654] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,167.67) -- (542,197.67) ;
-	%Straight Lines [id:da6921279716462709] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,167.67) -- (482,197.67) ;
-	%Straight Lines [id:da981122508969177] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (422,137.67) -- (392,167.67) ;
-	%Straight Lines [id:da3358448702724307] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (452,167.67) -- (422,197.67) ;
-	%Straight Lines [id:da3442244600026939] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,107.67) -- (482,137.67) ;
-	%Straight Lines [id:da6736183170796659] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,77.67) -- (452,107.67) ;
-	%Straight Lines [id:da38092812763972483] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (542,137.67) -- (512,167.67) ;
-	%Straight Lines [id:da43846868808333506] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,197.67) -- (452,227.67) ;
-	%Straight Lines [id:da438615072840856] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,227.67) -- (482,257.67) ;
-	%Straight Lines [id:da6064811902257697] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (480.6,76.2) -- (570.6,166.2) ;
-	%Straight Lines [id:da43605936381046007] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (392,167.67) -- (482,257.67) ;
-	%Straight Lines [id:da3042979851972285] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (572,167.67) -- (482,257.67) ;
-	%Straight Lines [id:da7604788032026776] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (572,167.67) -- (542,197.67) ;
-	%Straight Lines [id:da5827531272516981] 
-	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,77.67) -- (392,167.67) ;
-	%Straight Lines [id:da09759145386501367] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (482,137.67) -- (452,167.67) ;
-	%Straight Lines [id:da730504504375001] 
-	\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (512,167.67) -- (482,197.67) ;
-	%Shape: Rectangle [id:dp3057385361936208] 
-	%\draw  [draw opacity=0][fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=0.21 ] (234,80.67) -- (324,170.67) -- (234,260.67) -- (144,170.67) -- cycle ;
-	%Shape: Rectangle [id:dp9853880598725157] 
-	%\draw  [draw opacity=0][fill={rgb, 255:red, 126; green, 211; blue, 33 }  ,fill opacity=0.21 ] (482,77.67) -- (572,167.67) -- (482,257.67) -- (392,167.67) -- cycle ;
-	%Shape: Rectangle [id:dp036729546666227186] 
-	%\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (360,98.92) -- (390,128.92) -- (360,158.92) -- (330,128.92) -- cycle ;
-	%Shape: Rectangle [id:dp06678489772991758] 
-	%\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (415.25,74.42) -- (445.25,104.42) -- (415.25,134.42) -- (385.25,104.42) -- cycle ;
-	%Shape: Rectangle [id:dp3996131973661289] 
-	%\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (532.25,47.67) -- (562.25,77.67) -- (532.25,107.67) -- (502.25,77.67) -- cycle ;
-	%Shape: Rectangle [id:dp41852476179520226] 
-	%\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (567.25,87.42) -- (597.25,117.42) -- (567.25,147.42) -- (537.25,117.42) -- cycle ;
-	%Shape: Rectangle [id:dp19499344407905783] 
-	%\draw  [draw opacity=0][fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=0.37 ] (380,207.17) -- (410,237.17) -- (380,267.17) -- (350,237.17) -- cycle ;
+	%Straight Lines [id:da3596754612733567] 
+	\draw    (120,150) -- (60,150) ;
+	\draw [shift={(60,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(120,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8221267059785746] 
+	\draw    (90,150) -- (90,137.28) -- (90,120) ;
+	\draw [shift={(90,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,150)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da002498274462158556] 
+	\draw    (90,180) -- (90,160) ;
+	\draw [shift={(90,160)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,180)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da5349912545975276] 
+	\draw    (70,140) -- (70,160) ;
+	\draw [shift={(70,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(70,140)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da4282264299796219] 
+	\draw    (110,140) -- (110,160) ;
+	\draw [shift={(110,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(110,140)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8770523294498227] 
+	\draw    (100,150) -- (80,150) ;
+	\draw [shift={(80,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(100,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da30075874720175677] 
+	\draw    (90,140) -- (90,170) ;
+	\draw [shift={(90,170)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,140)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da7379681771570435] 
+	\draw    (100,170) -- (80,170) ;
+	\draw [shift={(80,170)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(100,170)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da6725429816868828] 
+	\draw    (100,130) -- (80,130) ;
+	\draw [shift={(80,130)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(100,130)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da6939971808433818] 
+	\draw    (120,150) -- (100,150) ;
+	\draw [shift={(100,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(120,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da20678184235548613] 
+	\draw    (120,150) -- (100,150) ;
+	\draw [shift={(100,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(120,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da7057416654919559] 
+	\draw    (100,110) -- (80,110) ;
+	\draw [shift={(80,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(100,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da19332276298601114] 
+	\draw    (70,150) -- (110,150) ;
+	\draw [shift={(110,150)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(70,150)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da3142726663588299] 
+	\draw    (90,90) -- (90,130) ;
+	\draw [shift={(90,130)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,90)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da508316424875416] 
+	\draw    (90,110) -- (90,100) ;
+	\draw [shift={(90,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,110)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	
+	%Straight Lines [id:da5786720646833241] 
+	\draw    (150,60) -- (150,120) ;
+	\draw [shift={(150,120)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(150,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da23042931104048914] 
+	\draw    (150,90) -- (137.28,90) -- (120,90) ;
+	\draw [shift={(120,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(150,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da7608303395702307] 
+	\draw    (180,90) -- (160,90) ;
+	\draw [shift={(160,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(180,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8772615287284456] 
+	\draw    (140,110) -- (160,110) ;
+	\draw [shift={(160,110)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(140,110)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da6427275502527678] 
+	\draw    (140,70) -- (160,70) ;
+	\draw [shift={(160,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(140,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da7082937700947588] 
+	\draw    (150,80) -- (150,100) ;
+	\draw [shift={(150,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(150,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da7903401063396243] 
+	\draw    (140,90) -- (170,90) ;
+	\draw [shift={(170,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(140,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8572089770643241] 
+	\draw    (170,80) -- (170,100) ;
+	\draw [shift={(170,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(170,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da13393632453499138] 
+	\draw    (130,80) -- (130,100) ;
+	\draw [shift={(130,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(130,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da48288221815488197] 
+	\draw    (150,60) -- (150,80) ;
+	\draw [shift={(150,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(150,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da047129900497734356] 
+	\draw    (150,60) -- (150,80) ;
+	\draw [shift={(150,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(150,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da9513482315452689] 
+	\draw    (110,80) -- (110,100) ;
+	\draw [shift={(110,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(110,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da6700426429999549] 
+	\draw    (150,110) -- (150,70) ;
+	\draw [shift={(150,70)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(150,110)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da10505541994606094] 
+	\draw    (90,90) -- (130,90) ;
+	\draw [shift={(130,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da5181014669140678] 
+	\draw    (110,90) -- (100,90) ;
+	\draw [shift={(100,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(110,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	
+	%Straight Lines [id:da39813175252059774] 
+	\draw    (30,120) -- (30,60) ;
+	\draw [shift={(30,60)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(30,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da11185619628777344] 
+	\draw    (30,90) -- (42.72,90) -- (60,90) ;
+	\draw [shift={(60,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(30,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da055568470270455084] 
+	\draw    (0,90) -- (20,90) ;
+	\draw [shift={(20,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(0,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da9804959655687807] 
+	\draw    (40,70) -- (20,70) ;
+	\draw [shift={(20,70)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(40,70)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8224965020365094] 
+	\draw    (40,110) -- (20,110) ;
+	\draw [shift={(20,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(40,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da6780866193094562] 
+	\draw    (30,100) -- (30,80) ;
+	\draw [shift={(30,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(30,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da5900929141728887] 
+	\draw    (40,90) -- (10,90) ;
+	\draw [shift={(10,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(40,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da0031500231300490844] 
+	\draw    (10,100) -- (10,80) ;
+	\draw [shift={(10,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(10,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da3021779545935567] 
+	\draw    (50,100) -- (50,80) ;
+	\draw [shift={(50,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(50,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da12153092013591738] 
+	\draw    (30,120) -- (30,100) ;
+	\draw [shift={(30,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(30,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da14915424333041227] 
+	\draw    (30,120) -- (30,100) ;
+	\draw [shift={(30,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(30,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da2741301389743591] 
+	\draw    (70,100) -- (70,80) ;
+	\draw [shift={(70,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(70,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da7154298357589568] 
+	\draw    (30,70) -- (30,110) ;
+	\draw [shift={(30,110)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(30,70)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da23631509931421413] 
+	\draw    (90,90) -- (50,90) ;
+	\draw [shift={(50,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da4648024009055709] 
+	\draw    (70,90) -- (80,90) ;
+	\draw [shift={(80,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(70,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	
+	%Straight Lines [id:da2721987214991739] 
+	\draw    (60,30) -- (120,30) ;
+	\draw [shift={(120,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(60,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da03240491803193157] 
+	\draw    (90,30) -- (90,42.72) -- (90,60) ;
+	\draw [shift={(90,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,30)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da38298809223787245] 
+	\draw    (90,0) -- (90,20) ;
+	\draw [shift={(90,20)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,0)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da4487075849329707] 
+	\draw    (110,40) -- (110,20) ;
+	\draw [shift={(110,20)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(110,40)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da2095816571622391] 
+	\draw    (70,40) -- (70,20) ;
+	\draw [shift={(70,20)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(70,40)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8171504946163388] 
+	\draw    (80,30) -- (100,30) ;
+	\draw [shift={(100,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(80,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da2344155982261502] 
+	\draw    (90,40) -- (90,10) ;
+	\draw [shift={(90,10)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,40)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da08673786040356657] 
+	\draw    (80,10) -- (100,10) ;
+	\draw [shift={(100,10)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(80,10)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da41901425899766764] 
+	\draw    (80,50) -- (100,50) ;
+	\draw [shift={(100,50)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(80,50)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8191276597178253] 
+	\draw    (60,30) -- (80,30) ;
+	\draw [shift={(80,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(60,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da5152936436768404] 
+	\draw    (60,30) -- (80,30) ;
+	\draw [shift={(80,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(60,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8489419131146425] 
+	\draw    (80,70) -- (100,70) ;
+	\draw [shift={(100,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(80,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da21110485719937266] 
+	\draw    (110,30) -- (70,30) ;
+	\draw [shift={(70,30)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(110,30)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da9362406560708407] 
+	\draw    (90,90) -- (90,50) ;
+	\draw [shift={(90,50)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,90)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	%Straight Lines [id:da8174614566555433] 
+	\draw    (90,70) -- (90,80) ;
+	\draw [shift={(90,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	\draw [shift={(90,70)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+	
+	%Straight Lines [id:da31890055829569763] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,0) -- (180,90) ;
+	%Straight Lines [id:da7441754854716096] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]   (0,90) -- (90,180) ;
+	%Straight Lines [id:da19915728247245634] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]   (180,90) -- (137.13,132.88) -- (90,180) ;
+	%Straight Lines [id:da1491412949650186] 
+	\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,0) -- (0,90) ;
 \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{0.37\linewidth}
+	\centering
+	\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+		%uncomment if require: \path (0,\heightTikz); %set diagram left start at 0, and has height of 300
+		
+		%Straight Lines [id:da9872739924273569] 
+		\draw    (120,150) -- (60,150) ;
+		\draw [shift={(60,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(120,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da4542478115996189] 
+		\draw    (90,150) -- (90,137.28) -- (90,120) ;
+		\draw [shift={(90,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,150)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da969875195493638] 
+		\draw    (90,180) -- (90,160) ;
+		\draw [shift={(90,160)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,180)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da375528871725187] 
+		\draw    (70,140) -- (70,160) ;
+		\draw [shift={(70,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(70,140)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da3193935459974271] 
+		\draw    (110,140) -- (110,160) ;
+		\draw [shift={(110,160)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(110,140)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da4449911826235078] 
+		\draw    (100,150) -- (80,150) ;
+		\draw [shift={(80,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(100,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da8949666054336612] 
+		\draw    (90,140) -- (90,170) ;
+		\draw [shift={(90,170)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,140)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da10560207795185916] 
+		\draw    (100,170) -- (80,170) ;
+		\draw [shift={(80,170)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(100,170)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da011185908678758238] 
+		\draw    (100,130) -- (80,130) ;
+		\draw [shift={(80,130)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(100,130)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da48204486071017416] 
+		\draw    (120,150) -- (100,150) ;
+		\draw [shift={(100,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(120,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da2732091105492197] 
+		\draw    (120,150) -- (100,150) ;
+		\draw [shift={(100,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(120,150)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da92572097992288] 
+		\draw    (100,110) -- (80,110) ;
+		\draw [shift={(80,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(100,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da7338284665363524] 
+		\draw    (70,150) -- (110,150) ;
+		\draw [shift={(110,150)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(70,150)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da3556593862516886] 
+		\draw    (90,90) -- (90,130) ;
+		\draw [shift={(90,130)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,90)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da02730376716333427] 
+		\draw    (90,110) -- (90,100) ;
+		\draw [shift={(90,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,110)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		
+		%Straight Lines [id:da8136073357662318] 
+		\draw    (150,60) -- (150,120) ;
+		\draw [shift={(150,120)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(150,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da03921889422487601] 
+		\draw    (150,90) -- (137.28,90) -- (120,90) ;
+		\draw [shift={(120,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(150,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da13046116051256618] 
+		\draw    (180,90) -- (160,90) ;
+		\draw [shift={(160,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(180,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da898465378268679] 
+		\draw    (140,110) -- (160,110) ;
+		\draw [shift={(160,110)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(140,110)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da30567715726179034] 
+		\draw    (140,70) -- (160,70) ;
+		\draw [shift={(160,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(140,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da27430791432680657] 
+		\draw    (150,80) -- (150,100) ;
+		\draw [shift={(150,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(150,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da07244638501680811] 
+		\draw    (140,90) -- (170,90) ;
+		\draw [shift={(170,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(140,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da1328013258598041] 
+		\draw    (170,80) -- (170,100) ;
+		\draw [shift={(170,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(170,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da5218096111368097] 
+		\draw    (130,80) -- (130,100) ;
+		\draw [shift={(130,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(130,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da1487729091108081] 
+		\draw    (150,60) -- (150,80) ;
+		\draw [shift={(150,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(150,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da9048671229543009] 
+		\draw    (150,60) -- (150,80) ;
+		\draw [shift={(150,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(150,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da9618846540284932] 
+		\draw    (110,80) -- (110,100) ;
+		\draw [shift={(110,100)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(110,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da10685174602273206] 
+		\draw    (150,110) -- (150,70) ;
+		\draw [shift={(150,70)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(150,110)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6313497331884207] 
+		\draw    (90,90) -- (130,90) ;
+		\draw [shift={(130,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da11495777587233691] 
+		\draw    (110,90) -- (100,90) ;
+		\draw [shift={(100,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(110,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		
+		%Straight Lines [id:da6380850250121249] 
+		\draw    (30,120) -- (30,60) ;
+		\draw [shift={(30,60)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(30,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da9743407099666396] 
+		\draw    (30,90) -- (42.72,90) -- (60,90) ;
+		\draw [shift={(60,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(30,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da49413040821430054] 
+		\draw    (0,90) -- (20,90) ;
+		\draw [shift={(20,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(0,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da7935137775324418] 
+		\draw    (40,70) -- (20,70) ;
+		\draw [shift={(20,70)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(40,70)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6054983322317163] 
+		\draw    (40,110) -- (20,110) ;
+		\draw [shift={(20,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(40,110)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da8327617590477562] 
+		\draw    (30,100) -- (30,80) ;
+		\draw [shift={(30,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(30,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da861733124093783] 
+		\draw    (40,90) -- (10,90) ;
+		\draw [shift={(10,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(40,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da8583314694152233] 
+		\draw    (10,100) -- (10,80) ;
+		\draw [shift={(10,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(10,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da3910454255558735] 
+		\draw    (50,100) -- (50,80) ;
+		\draw [shift={(50,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(50,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da3236469212983082] 
+		\draw    (30,120) -- (30,100) ;
+		\draw [shift={(30,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(30,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6465768675631913] 
+		\draw    (30,120) -- (30,100) ;
+		\draw [shift={(30,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(30,120)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da9813513028462725] 
+		\draw    (70,100) -- (70,80) ;
+		\draw [shift={(70,80)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(70,100)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da4672883401368664] 
+		\draw    (30,70) -- (30,110) ;
+		\draw [shift={(30,110)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(30,70)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da09347360550674444] 
+		\draw    (90,90) -- (50,90) ;
+		\draw [shift={(50,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,90)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da7991260220027443] 
+		\draw    (70,90) -- (80,90) ;
+		\draw [shift={(80,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(70,90)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		
+		%Straight Lines [id:da2946970006863948] 
+		\draw    (60,30) -- (120,30) ;
+		\draw [shift={(120,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(60,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da09867777012275081] 
+		\draw    (90,30) -- (90,42.72) -- (90,60) ;
+		\draw [shift={(90,60)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,30)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da41924368898696385] 
+		\draw    (90,0) -- (90,20) ;
+		\draw [shift={(90,20)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,0)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da9686645633488673] 
+		\draw    (110,40) -- (110,20) ;
+		\draw [shift={(110,20)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(110,40)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da5192510327445414] 
+		\draw    (70,40) -- (70,20) ;
+		\draw [shift={(70,20)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(70,40)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da2426510137002782] 
+		\draw    (80,30) -- (100,30) ;
+		\draw [shift={(100,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(80,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da8434943550052603] 
+		\draw    (90,40) -- (90,10) ;
+		\draw [shift={(90,10)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,40)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da6794904323746488] 
+		\draw    (80,10) -- (100,10) ;
+		\draw [shift={(100,10)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(80,10)}, rotate = 360] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da346145057377397] 
+		\draw    (80,50) -- (100,50) ;
+		\draw [shift={(100,50)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(80,50)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da5812330646672995] 
+		\draw    (60,30) -- (80,30) ;
+		\draw [shift={(80,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(60,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da9932200956558649] 
+		\draw    (60,30) -- (80,30) ;
+		\draw [shift={(80,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(60,30)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da09125057991302976] 
+		\draw    (80,70) -- (100,70) ;
+		\draw [shift={(100,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(80,70)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da8815480432181929] 
+		\draw    (110,30) -- (70,30) ;
+		\draw [shift={(70,30)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(110,30)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da18644601167925046] 
+		\draw    (90,90) -- (90,50) ;
+		\draw [shift={(90,50)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,90)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		%Straight Lines [id:da335593883428953] 
+		\draw    (90,70) -- (90,80) ;
+		\draw [shift={(90,80)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		\draw [shift={(90,70)}, rotate = 90] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
+		
+		%Straight Lines [id:da4000449140662702] 
+		\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,0) -- (180,90) ;
+		%Straight Lines [id:da3340209024879742] 
+		\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]   (0,90) -- (90,180) ;
+		%Straight Lines [id:da9598185139102079] 
+		\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]   (180,90) -- (137.13,132.88) -- (90,180) ;
+		%Straight Lines [id:da08660412036731946] 
+		\draw [color={rgb, 255:red, 126; green, 211; blue, 33 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,0) -- (0,90) ;
+		%Straight Lines [id:da9263859057426884] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]   (60,30) -- (90,60) ;
+		%Straight Lines [id:da9363265321520489] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (60,90) -- (30,120) ;
+		%Straight Lines [id:da7649292764996932] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,120) -- (60,150) ;
+		%Straight Lines [id:da06933548232463738] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (150,60) -- (120,90) ;
+		%Straight Lines [id:da1704430132561725] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (120,30) -- (90,60) ;
+		%Straight Lines [id:da2899148242982804] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,60) -- (60,90) ;
+		%Straight Lines [id:da7421807694287041] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (120,90) -- (90,120) ;
+		%Straight Lines [id:da14695878295259301] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,60) -- (120,90) ;
+		%Straight Lines [id:da8854808724624716] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (120,90) -- (150,120) ;
+		%Straight Lines [id:da38219871197299016] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (60,90) -- (90,120) ;
+		%Straight Lines [id:da3357136730639201] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (30,60) -- (60,90) ;
+		%Straight Lines [id:da1266214540630869] 
+		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,120) -- (120,150) ;	
+	\end{tikzpicture}
+\end{minipage}
 \caption{The opens sets $V$(green) and $\fracConst_i(V)$(blue)}
 \end{figure}
-
-Thus we can conclude from \cref{HausdorffDimTheorem} that 
+We can therefore conclude from \cref{HausdorffDimTheorem} that 
 \begin{equation}
 	\sum_{i=1}^{5} \left(\frac{1}{3}\right)^{d_h} = 1 \Rightarrow \left(\frac{1}{3}\right)^{d_h} = \frac{1}{5} \Rightarrow d_h = \frac{\log 5}{\log 3}.
 \end{equation}
 
-Thus the Hausdorff dimension for the Vicsket set is $\log5/\log3$.
-
-As stated earlier we will not be calculating the walk dimension, but instead just state it. The walk dimension for the Vicsek set is $d_w = d_h +1$. Thus we can make the following definition
+As stated earlier we will not be calculating the walk dimension, but instead just state it. The walk dimension for the Vicsek set is $d_w = d_h +1$ and we can make the following definition
 \begin{defi}\label{defiDimensionsOfVicsek}
 		The following constants hold for the Vicsek set $K$
 		\begin{equation}
@@ -470,7 +820,7 @@ As stated earlier we will not be calculating the walk dimension, but instead jus
 		\end{equation}
 \end{defi}
 
-Having just defined the Hausdorff dimension we will immediately use it to construct the following measure.
+Having just calculated the Hausdorff dimension of the Vicsek set we will immediately use it to construct the following measure.
 \begin{defi}\label{normalziedHausdorffMeasure}
 	The normalized Hausdorff measure on $K$ which is given by the borel measure $\mu$ on $K$ such for any $i_1, \ldots i_n \in \cbr{1, \ldots, 5}$
 	\begin{equation}
@@ -478,8 +828,7 @@ Having just defined the Hausdorff dimension we will immediately use it to constr
 	\end{equation}
 \end{defi}
 
-We have the following property of the measure $\mu$
-
+The measure $\mu$ has the following property: 
 \begin{prop}\label{normalziedHausdorffMeasureAhlforsRegular}
 	This measure $\mu$ is $d_h$-Ahlfors regular, i.e there exists $c_1, c_2 > 0$ such there for every $x \in K$ and $r \in [0, \diam(K)]$
 	\begin{equation}
@@ -506,7 +855,7 @@ We have the following property of the measure $\mu$
 	as desired.
 \end{proof}
 
-Next we have that we define a sequence of discrete measures 
+As we will want to work with the graph approximations of the Vicsek set we also now define a sequence of discrete measures.
 \begin{defi}
 	\begin{equation}\label{discreteMeasures}
 		\mu_m = \frac{1}{a_m} \sum_{p \in V_m} \delta_p
@@ -519,7 +868,7 @@ We have that $\mu_m \to \mu$ as $m \to \infty$, this follows from the fact that 
 	\lim_{m \to \infty} \mu_m(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K)) = \lim_{m \to \infty}\frac{1}{a_m} \sum_{p \in V_m} \delta_p(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K)) \\ 
 	= \lim_{m \to \infty} \frac{1}{a_m} \cd 5^{-n} \cd (5^{m}\cd 4 +1) = 5^{-n} = \mu(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K))
 \end{multline}
-Which leads us to the following corollary. \textcolor{red}{Wrote something wrong here maybe? wrt. to converge weakly vs converge in weak topology}
+recalling that $\# V_m = 5^{m}\cdot 4 + 1$. This leads us to the following corollary. \textcolor{red}{Wrote something wrong here maybe? wrt. to converge weakly vs converge in weak topology}
 \begin{coro}\label{convergenceOfMeasures}
 	The sequence of measure $(\mu_m)_{m \geq 0}$ defined in \eqref{discreteMeasures} converges weakly to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$. That is
 	\begin{equation}

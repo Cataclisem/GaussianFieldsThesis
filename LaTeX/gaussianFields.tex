@@ -2,7 +2,7 @@
 
 In this chapter we will be constructing the fractional Gaussian fields, that we will later see converge. The construction of the fractional Gaussian fields very much depends on the Riesz kernel and the Dirichlet Laplacian.
 
-We will also give an example of an discrete fractional Gaussian fields of which we have constructed some simulations.
+We will also give an example of an discrete fractional Gaussian field, which we will later see in some simulations.
 
 \section{Discrete fractional Gaussian fields}
 
@@ -76,7 +76,6 @@ We can then note that the discrete fractional Gaussian field has the following p
 \end{example}
 
 \section{Fractional Gaussian Fields}
-Now that we have the fractional Laplacian let us state the fractional Gaussian field.
 
 \begin{defi}\label{fracGaussianField}
 	Let $s \geq 0$. A \emph{fractional Gaussian field} $X_s$ with parameter $s$ on $K$ is a centered Gaussian field $\cbr{X_s(f): f \in S(K)}$ such that for any $f,g \in S(K)$
@@ -91,7 +90,7 @@ We now quickly move to proving that the fractional Gaussian fields exist. First 
 	Assume $\mathcal{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathcal{X}$ satisfying $\Lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathcal{X}'$
 \end{theorem}
 
-We will quickly state and prove a lemma, making it easier to prove a certain functional is positive definite.
+We will quickly state and prove a lemma, prove a functional, that we will need, is positive definite.
 \begin{lemma}\label{LambdaPosDefinite}
 	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $\Phi(v) = \exp(-\frac{1}{2} \inn{v}{v})$ is positive definite.
 \end{lemma}
@@ -119,7 +118,6 @@ We will quickly state and prove a lemma, making it easier to prove a certain fun
 	\begin{equation}
 		\Lambda : f \to \exp\left(-\frac{1}{2} \norm{f}^2_{k}\right).
 	\end{equation}
-	
 	This is enough since \cref{BochnerMinlos} then gives an unique probability measure $\nu$ such
 	\begin{equation}
 		\exp \left(-\frac{1}{2} \norm{f}^{2}_{k}\right) = \int_{S'(K)} e^{i \inn{x}{f}} \dd \nu (x).
@@ -127,11 +125,9 @@ We will quickly state and prove a lemma, making it easier to prove a certain fun
 	Notice that the right side is an characteristic function for some random variable. If we choose $f= t\cd g$ for some $g \in S(K)$ and $t \in \ree$ (note that $t \cd g \in S(K)$) then the left side of the equation becomes the characteristic function for the normal distribution with mean zero and variance $\norm{f}_{s}^{2}$. Thus we have the $X_s$ we wanted.
 	
 	
-	Now to prove that $\Lambda$ is satisfies the requirements of \cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, further it follows from the fact that $\norm{t\cdot f}_{k}^{2}$ is an inner product that with\cref{LambdaPosDefinite} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at zero. 
+	Now to prove that $\Lambda$ is satisfies the requirements of \cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, and from\cref{LambdaPosDefinite} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at zero. 
 	
-	First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$.
-	
-	Now let $\epsilon > 0$ be given, choose $$\delta = \begin{cases}
+	First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$. Now let $\epsilon > 0$ be given, choose $$\delta = \begin{cases}
 		\left(\frac{-2\cd \ln(1-\epsilon)}{C}\right)^{\frac{1}{2}}, & \text{when } \epsilon \in (0,1) \\
 		1,& \text{when } \epsilon \geq 1.
 	\end{cases}$$
@@ -152,23 +148,42 @@ We will quickly state and prove a lemma, making it easier to prove a certain fun
 \end{proof}
 
 
-In the following we want to prove that a FGF has an $L^2$ density \textcolor{red}{What is it?} if and only if $s > \frac{d_h}{2d_w}$. But for this we need to construct white noise.  
+In the following we want to prove that a fractional Gaussian field has an $L^2$ density \textcolor{red}{What is it?} if and only if $s > \frac{d_h}{2d_w}$, but for this we need white noise.
 
-Let $\mathcal{K}$ be the Borel $\sigma$-algebra on $K$, then we can define
+\begin{defi}\label{whiteNoise}
+	Let $(X, \mathcal{E}, \mu)$ be $\sigma$-finite measure space. A white noise based on $\nu$ is a random set function $W$ on the sets $A \in \mathcal{E}$ with $\nu(A) < \infty$ such
+	\begin{enumerate}[(i)]
+		\item $W(A)$ is a $N(0, \mu(A))$ random variable \label{whiteNoiseIsNormal}
+		\item If $A \cap B = \emptyset$ then $W(A)$ and $W(B)$ are independent and $W(A \cap B) = W(A) + W(B)$ \label{whiteNoiseIsI.I.D}
+	\end{enumerate}
+\end{defi}
 
-Let $W$ the measure which is uniquely defined by the char. function 
+Now we will show that such a process exists on $(K, \mathcal{K}, \mu)$ where  $\mathcal{K}$ be the Borel $\sigma$-algebra on $K$. 
+
+We will think of white noise as a Gaussian process indexed by the set $\mathcal{A} = \cbr{W(A) : A \in \mathcal{K}, \mu(A) < \infty}$. From \cref{whiteNoise}, (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}) it is a mean-zero Gaussian process with covariance matrix
 \begin{equation}
-	\int_{S'(K)} \exp(i \inn{\omega}{\phi}) \dd W(\omega) = \exp\left(-\frac{1}{2}\norm{\phi}_{L^2}^{2}\right)
+	\mathbf{\Sigma} = (\e \left[W(A) W(B)\right])_{W(A), W(B) \in \mathcal{A}} = (\mu(A \cap B))_{W(A), W(B) \in \mathcal{A}}
+\end{equation}. 
+Now let $A_1, \ldots, A_n \in \mathcal{K}$ and $a_1, \ldots, a_n$ be real numbers then
+\begin{equation}
+	\sum_{i,j} a_i a_j \mathbf{\Sigma}_{i,j} = \sum_{i,j}a_ia_j \int_{K}\mathds{1}_{A_i} \cd \mathds{1}_{A_j} \dd \mu = \int_{K} \left(\sum_{i} a_i \mathds{1}_{A_i}\right)^2 \dd \mu \geq 0
 \end{equation}
-for $\phi \in S(K)$. This measure again comes from \cref{BochnerMinlos}. \textcolor{red}{I dunno if this is correct}
+Thus $\mathbb{\Sigma}$ is positive definite, so there exists a probability space $(\Omega, \mathcal{F}, p)$ and a mean-zero Gaussian process $\cbr{W(A)}$ on $(\Omega, \mathcal{F}, p)$ such that $W$ satisfies \cref{whiteNoise} (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}). 
+
+\textcolor{red}{I need help/a reference/a place to look to find out why this is true.}
+This means that for $f \in L^{2}(K, \mathcal{K}, \mu)$ the stochastic integral $W(f) = \int_{K} f \dd W$ \textcolor{red}{Isn't this just a normal integral wrt. measure $W$?} is a well defined Gaussian random variable. Moreover, the Gaussian measure $W$ gives rise to an isonormal Gaussian family $\cbr{W(f), f \in L^{2}(K, \mathcal{K}, \mu)}$ with the covariance function
+\begin{equation}
+	\e \left[W(f) W(g)\right] = \int_{K} fg \dd \mu
+\end{equation}
 
 
-This will be done following \cite{LeGall}.
+In the following we want to define a fractional Brownian field, and we want to do it as the integral of the fractional Riesz kernel defined in \cref{fractionalRieszKernel}, thus we need $G_s(x, \cd ) \in L^{2}(K, \mu)$. 
 
-\textcolor{red}{This whole section}
-then since $\mu$ is a finite measure and therefore $\sigma$- finite. It then follows from \cite[Prop. 1.13]{LeGall} that there exists a probability field $(\Omega, \mathcal{F}, \pee)$ with a real-valued centered Gaussian random measure $W:L^{2}(\Omega, \mathcal{F}, \pee) \to \mathcal{K}$ with \textcolor{red}{density/intesity?} $\mu$.
-
-If we now write $W(A) = W$
+So let \textcolor{red}{I Don't quite get} $s > \frac{d_h}{2d_w}$ \textcolor{red}{Not enough with $s > d_h/d_w$? Maybe not since we need $\sum \lambda_j^{-s}$ to converge?} we observe that from \cref{boundsOfRieszKernel} we have that $G_s(x, \cd ) \in L^{2}(K, \mu)$ \textcolor{red}{Is needed?:  \cref{fractionalLaplacianIsRieszKernel} holds for any $f \in L^{2}(K, \mu)$ and $\mu$ a.e. $x \in K$}. Moreover we have that
+	\begin{equation}
+		G_s(x,y) = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}p_t(x,y)\dd t = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}\sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)\dd t = \sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{-s}} \phi_j(x)\phi_j(y).
+	\end{equation}
+	Recalling that $\frac{1}{\Gamma(s)}\int_{K} t^{s-1} e^{-\lambda_jt} \dd t = \lambda_j^{-s}$ and \cref{convergenceOfEigenvaluesOfLaplcianBounds}.
 
 \begin{defi}
 	Let $s > \frac{d_h}{2d_w}$. The fractional Brownian field with parameter $s$ is defined as 

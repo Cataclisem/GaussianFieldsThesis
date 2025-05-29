@@ -97,7 +97,7 @@ Lastly the range $\mathcal{R}(\lambda_0 - \Delta)$ is dense in $L^2$ \textcolor{
 
 
 \section{Main Theorem}
-With everything in mind we are now ready to prove the convergence of discrete fractional Gaussian fields to fractional Gaussian fields.
+With everything in mind we can prove the convergence in distribution of discrete fractional Gaussian fields to fractional Gaussian fields.
 
 \begin{theorem}
 	Let $s \geq 0$, then $X_{s}^{m}$ converges to $X_s$ in distribution in $S'(K)$ when $m \to \infty$
@@ -127,12 +127,12 @@ With everything in mind we are now ready to prove the convergence of discrete fr
 
 \section{Simulations}
 As a part of this thesis we have created and simulated a discrete fractional Gaussian field on the Vicsek set $V_m$. The precise field we have constructed was the one given in \cref{OneToSimulate}. 
-These simulation have had a varying rate of success, as we have been able to simulate $X_s^{m}(x) = \sum\lambda_j \phi_j$ for a reasonable set of $s$-values, we have hit a bottleneck in the fact that we are not able to simulate $X_s^{m}$ for $m \geq 7$. The reason for this bottleneck lies in \cref{discreteMatrix}. 
+These simulation have had a varying rate of success, as we have been able to simulate $X_s^{m}(x) = \sum\lambda_j \phi_j$ for a reasonable set of $s$-values, but we have hit a bottleneck in the fact that we are not able to simulate $X_s^{m}$ for $m \geq 7$. The reason for this bottleneck lies in \cref{discreteMatrix}. 
 
 As stated in the remark for any function $f: V_m \to \ree$ we can define a matrix $L$ such that
 \begin{equation}
 	L_mF = \begin{pmatrix}
-		\delta_m f(x_1)\\
+		\Delta_m f(x_1)\\
 		\vdots \\
 		\Delta_{m}f(x_{N_m})
 	\end{pmatrix}, \quad \text{where } F = \begin{pmatrix}
@@ -141,8 +141,8 @@ As stated in the remark for any function $f: V_m \to \ree$ we can define a matri
 	f(x_{N_m})
 	\end{pmatrix}.
 \end{equation}
-It is precisely from this matrix $L_m$ we compute the eigenvalues and eigenfunctions of $-\Delta_m$. One shall now note that the amount of points in $V_m$ is $5^{m}\cd 4 +1$ so as $m$ grows this number explodes (see \ref{TableOFValues}), and there is not any smart way to construct the matrix $L_m$\footnote{That we have found while researching \textcolor{red}{Formulation of this?}}. Thus the method of constructing the matrix $L_m$ was simply by constructing the Vicsek set $V_m$ and manually checking each point for neighbours.
-\begin{table}[!ht]\label{TableOFValues}
+It is precisely from this matrix $L_m$ we compute the eigenvalues and eigenfunctions of $-\Delta_m$. One shall now note that the amount of points in $V_m$ is $5^{m}\cd 4 +1$ so as $m$ grows this number explodes (see \ref{TableOfValues}), and there is not any smart way to construct the matrix $L_m$\footnote{That we have found while researching \textcolor{red}{Formulation of this?}}. Thus the method of constructing the matrix $L_m$ was simply by constructing the Vicsek set $V_m$ and manually checking each point for neighbours.
+\begin{table}[!ht]\label{TableOfValues}
 	\centering
 	\begin{tabular}{|c|c|}
 		\hline
@@ -160,8 +160,28 @@ It is precisely from this matrix $L_m$ we compute the eigenvalues and eigenfunct
 	\caption{Points in $V_m$}
 \end{table}
 
+As we see from the table, the values explode in size as $m$ grows. It is therefore really slow having to check each point. Further the matrix $L_m$ that we construct becomes very large, very fast. Since it needs to hold every permutation of points, that means $L_m$ is a $5^{m}\cd 4 + 1 \times 5^{m}\cd 4 + 1$ matrix. It does have the property that it is a sparse matrix, since there is at most five entries in every column. But for $m= 9$ this matrix still fills well over 1 terrabyte in memory.
+
+Having explained the limitations of the simulation, we will quickly delve into the code that generates the simulations.
+
+
 \subsection{Construction of the Vicsek set for simulation}
-While the construction of the Vicsek set is not terrible, it is also not good. The way it was done is by first generating the first "plus" $V_0$. Then going from $V_0$ to $V_1$ we find the endpoints (Tips of the plus) of $V_0$ and then just add $V_0$ to it. 
+While the construction of the Vicsek set is not terrible with regards to speed, it is also not good. The way it was done is by first generating the first "plus" $V_0$. Then going from $V_0$ to $V_1$ we find the endpoints (Tips of the plus) of $V_0$ and then just add $V_0$ to it. So it becomes  
+
+\begin{lstlisting}[language=python]
+def VicsekSet(n, endpoints, points):
+	if n <= 0:
+		return
+	
+	for endPoint in endpoints:
+		for point in points:
+			newPoints.add(endPoint +2*point)
+	
+	for endPoint in endPoints:
+		newEndpoints.add(3*endpoint)
+	
+	return newPoints + VicsekSet(n-1, newEndPoints, newPoints)
+\end{lstlisting}
 
 \begin{lstlisting}[language=python]
 def findPointsForLineCollection(self, endPoints: list = None, points: list = None, n: int = None, init_length: int = None) -> list:
