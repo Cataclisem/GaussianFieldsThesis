@@ -162,11 +162,47 @@ It is precisely from this matrix $L_m$ we compute the eigenvalues and eigenfunct
 
 As we see from the table, the values explode in size as $m$ grows. It is therefore really slow having to check each point. Further the matrix $L_m$ that we construct becomes very large, very fast. Since it needs to hold every permutation of points, that means $L_m$ is a $5^{m}\cd 4 + 1 \times 5^{m}\cd 4 + 1$ matrix. It does have the property that it is a sparse matrix, since there is at most five entries in every column. But for $m= 9$ this matrix still fills well over 1 terrabyte in memory.
 
-Having explained the limitations of the simulation, we will quickly delve into the code that generates the simulations.
+Having explained the limitations of the simulation, we will quickly delve into the code that generates the simulations. The code will be explained mathematically for clarity, but the full code can be found \textcolor{red}{Appendix/Github link?}
 
 
 \subsection{Construction of the Vicsek set for simulation}
-While the construction of the Vicsek set is not terrible with regards to speed, it is also not good. The way it was done is by first generating the first "plus" $V_0$. Then going from $V_0$ to $V_1$ we find the endpoints (Tips of the plus) of $V_0$ and then just add $V_0$ to it. So it becomes  
+The construction is done by first generating the first "plus" $V_0 = \cbr{p_0, p_1, p_2, p_3, p_4}$ $p_0=(0,0)$ where $p_0 = (0,0), p_1=(\xi, 0), p_2 = (0, -\xi), p_3 = (-\xi, 0)$ and $p_4 = (0, \xi)$ for some $\xi > 0$. Then going from $V_0$ to $V_1$ we find the endpoints (Tips of the plus) of $V_0$ and then just add $V_0$ to it. Formally written out we have:
+
+Let $V^{(0)}_{m}$ be the endpoints after iteration $m$ and $V_m$ be the points of the Vicsek set after iteration $m$, the we define a recursive function so
+\begin{equation}
+	V_m = \cbr{y + 2\cdot x : x \in V_{m-1}, y \in V^{(0)}_{m-1}}, \quad \text{and} \quad V^{(0)}_m = \cbr{3y : y \in V^{(0)}_{m-1}}.
+\end{equation}
+One will recall from \cref{fractionalGaussianFieldDiscrete} that a discrete fractional Gaussian field is a Gaussian vector index by $V_m$, since the discrete Laplacian depends on the points being the same places. Thus if we were to compare two different discrete fields we need to make sure the points are in the same order in the list in python. Luckily we can use the \verb*|set| function in python. Since the \verb*|set| function hashes each point, it will put the point in a random place in the set, but it will put the point in the same spot every time, given that $\xi$ is the same each time. 
+
+The next step is finding all the neighbours of each point. As stated before there we have found no good way to find the neighbours thus this step just iterates over every point. We are going to abuse the symmetry and the fact that the way we construct the Vicsek set outwards. This then means that we have all points where $x \underset{m}{\sim} y$ in $V_m$ are exactly $\abs{x - y} = \xi$ from each other.
+Let $V_{m,p}$ denote the neighbours of a point $p$, thus we have
+\begin{equation}
+	V_{m,p} = \cbr{x + \xi v \in V_m : x \in V_m, v \in \cbr{\begin{pmatrix}
+				1 \\
+				0
+	\end{pmatrix}, \begin{pmatrix}
+	-1 \\
+	0
+\end{pmatrix}, \begin{pmatrix}
+0 \\
+1
+\end{pmatrix}, \begin{pmatrix}
+0 \\
+-1
+\end{pmatrix}}}
+\end{equation}
+so we actually just add $\xi$ in every direction and see if the point is contained in $V_m$ and thus we find the neighbours. In python, we collect each point along with it neighbours in a dictionary. This is both because it gives us a nice structure to work with., but also lets us do quick lookups since dictionaries in python are hash maps. Thus while we add each point and its neighbours to the dictionary we give each point a name and that is simply $x_i$ where $i$ denotes it place in the set. So each dictionary entry has the following information: $\cbr{\text{name: }x_i, \text{ Neighbours: } \cbr{(x_\alpha, y_{\alpha}),\ldots }, \text{ coordinate: } (x_i, y_i)}$
+
+To construct the discrete Laplacian matrix we do exactly as in \cref{discreteMatrix}. So we now have the construction of the Vicsek set, the neighbours of each point and the discrete Laplacian, so we move on to generating the eigenfunctions and eigenvalues.
+
+All the construction mentioned above can be found in \verb*|VicsekSet.py|.
+
+\subsection{Eigenvalues and eigenfunctions}
+The way we find eigenvalues is through the \verb*|np.linalg.eigh| function, where \verb*|np| stands for numpy. The function is for finding eigenvalues and eigenvectors of real symmetric matrices. Most of the eigenvalue finding algorithm have a runtime of $O(n^2)$ at best, where $n$ is the amount of rows in the matrix. And $5^{m}\cd 4 +1$ is a number that grows fast as $m$ increase, thus $(5^{m}\cd 4 +1)^2$ grows even faster and thus making the algorithm taking very long as $m$ increases.
+
+The code we are describing can be found in \verb*|simulations.py| line 95-101 and line 114-133. Now the function \verb*|np.linalg.eigh| gives us a vector of eigenvalues $v_{\text{eig}}$ and a matrix where each column is an eigenvector $M_{\text{eig}}$, having sizes $5^m\cd4 +1 \times 1$ and $5^m\cd4 +1 \times 5^m\cd4 +1$ respectively. Now the matrix of eigenvectors are actually also our eigenfunctions, since $-\Delta_m (M_{\text{eig}})_{i, \cdot} = (v_{\text{eig}})_i \cd(M_{\text{eig}})_{i, \cdot}$ so $-\Delta_m (M_{\text{eig}})_{i, j} = (v_{\text{eig}})_i \cd(M_{\text{eig}})_{i, j} = \phi_i(x_j)$  thus we have both our eigenvalues and functions.
+
+And calculating the discrete field in each point is the exact same in \cref{OneToSimulate}, one thing ot note is that the white noise $W_i$ is generated by \verb*|np.random.standard_normal|. To generate the heat maps we plot our points with \verb*|matplotlib| and lay in a colorbar where the colour value corresponds to the values from $X_s^{m}(x)$ for $x \in V_m$.
 
 \begin{lstlisting}[language=python]
 def VicsekSet(n, endpoints, points):
