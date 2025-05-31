@@ -1,5 +1,5 @@
 \chapter{And now for something completely different}
-In future section the Gaussian random fields will be defined using the eigenvalues and eigenfunctions of the Dirichlet Laplacian. We will find that the construction of the Dirichlet Laplacian will require the Kigami Laplacian. But to construct the Kigami Laplacian we will need the discrete Laplacian as we will prove that the Kigami Laplacian is the pointwise limit of the discrete Laplacian. We will therefore start by introducing first the discrete Laplacian, then the Kigami Laplacian and culminating in the Dirichlet Laplacian. Therefore consider the discrete Laplacian on the Vicsek set.
+In future section the Gaussian random fields will be defined using the eigenvalues and eigenfunctions of the Dirichlet Laplacian. We will find that the Dirichlet Laplacian is an extension of the Kigami Laplacian. But to construct the Kigami Laplacian we will need the discrete Laplacian as we will prove that the Kigami Laplacian is the pointwise limit of the discrete Laplacian. We will therefore start by introducing first the discrete Laplacian, then the Kigami Laplacian and culminating in the Dirichlet Laplacian. Therefore consider the discrete Laplacian on the Vicsek set.
 \begin{defi}\label{discreteLaplacian}
 	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
 	\begin{equation}
@@ -24,8 +24,8 @@ In future section the Gaussian random fields will be defined using the eigenvalu
 Further $\#V_{m,p_i}$ is also called the \emph{degree of $p_i$}
 \end{remark}
 
-\section{We're going to define it again}
-In this section we will be following the arguments given by in chapter 1 of \cite{strichartz}. Many of the proof are going to rely on the standard graph Dirichlet form. Thus we are first going to define and prove some properties of this graph Dirichlet form.
+\section{Graph Energies}
+In this section we will be following the arguments given by in chapter 1 of \cite{strichartz}. Many of the proof are going to rely on the graph energy. Thus we are first going to define and prove some properties of the graph eneriges form.
 
 \begin{defi}
 	Given a finite connected graph $G$ and it vertices $V_m$ the for functions $u, v: V_m \to \ree$ we define the \emph{graph energy} to be
@@ -223,12 +223,12 @@ With the renormalization constant found we will return to finding the Kigmai Lap
 This definition only involves functions defined on $V^{*}$, but we find that functions in $\dom \mathcal{E}$ are uniformly continuos and therefore has an unique extension to $K$. We even have that $\dom \mathcal{E}$ is dense in $C(K)$.
 \begin{prop} \phantom{a}
 	\begin{enumerate}[(i)] 
-		\item 	Let $u \in \dom \mathcal{E}$ then $u$ is uniformly continuos on $V^{*}$. \label{uniCont1}
+		\item 	Let $u \in \dom \mathcal{E}$ then $u$ is uniformly continuous on $V^{*}$. \label{uniCont1}
 		\item $\dom \mathcal{E}$ is dense in $C(K)$. \label{uniCont2}
 	\end{enumerate}
 \end{prop}
 \begin{proof}
-	We start with (\cref{uniCont1}). Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
+	We start with (\ref{uniCont1}). Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
 	\begin{equation}\label{uniFormContiousEstimate}
 		r^{-m}(u(x) -u(y))^{2} \leq \mathcal{E}_m(u) \leq \mathcal{E}(u)
 	\end{equation}
@@ -236,6 +236,8 @@ This definition only involves functions defined on $V^{*}$, but we find that fun
 	\begin{equation}
 		\abs{u(x)-u(y)} \leq r^{\frac{m}{2}} \mathcal{E}(u)^{\frac{1}{2}}.
 	\end{equation}
+	
+	\textcolor{red}{I cannot get this to be uniformly convergent.}
 	Now consider a chain of points $x_m, x_{m+1}, \ldots, x_{m+k}$ where $x_{m+j} \in V_{m+j}$ and $x_{m+j} \in V_{m+j+1, x_{m+j+1}}$. Then we have
 	\begin{equation}
 		\abs{u(x_m)-u(x_{m+k})} \leq r^{\frac{m}{2}}\left(1 + r^{\frac{1}{2}} + \ldots + r^{\frac{k}{2}}\right)\mathcal{E}(u)^{\frac{1}{2}} \leq \frac{r^{m}}{1-r^{\frac{1}{2}}} \mathcal{E}^{\frac{1}{2}}
@@ -246,7 +248,7 @@ This definition only involves functions defined on $V^{*}$, but we find that fun
 	\end{equation}
 	and we have a bound for all $x,y \in V^{*}$.
 	
-	For proof of \cref{uniCont2} we refer to \cite{strichartz}.
+	For proof of (\ref{uniCont2}) we refer to \cite{strichartz}.
 \end{proof}
 
 
@@ -453,11 +455,35 @@ Now if $x$ does not have a unique sequence then
 \end{align}
 and the result follow thereafter
 \end{proof}
-\section{And back again}
-We will now extend the Kigami Laplacian to the Dirichlet Laplacian, and we will be following \cite{Fabrice} and \cite{specAnal} very closely in defining the Dirichlet Laplacian This will be done through Dirichlet forms, thus we begin with them. 
+\section{And back again}\label{constructDirichletLaplacian}
+We will now construct the Dirichlet Laplacian, and we will be following \cite{Fabrice} and \cite{specAnal} very closely when defining the Dirichlet Laplacian This will be done through Dirichlet forms, thus we will be defining them. Before defining Dirichlet forms we have that since the Dirichlet Laplacian will be a densely defined operator we will therefore start by recalling some definitions for a densely defined operator on a Hilbert space.
+
+\begin{defi}\label{selfAdjoint}
+	Let $\mathcal{H}$ be a Hilbert space and let $A: \dom A \to \mathcal{H}$ be a densely defined operator. Then we say $A$ is the following:
+	\begin{enumerate}[(i)]
+		\item $A$ is said to be symmetric if for $f,g \in \dom A$
+		\begin{equation}
+			\inn{Af}{g} = \inn{f}{Ag}.
+		\end{equation}
+		\item $A$ is said to be non-negative (resp. non-positive) if for $f \in \dom A$
+		\begin{equation}
+			\inn{Af}{f} \geq 0, \quad (\text{resp.}\inn{Af}{f} \leq 0)
+		\end{equation}
+		\item $A$ is said to be self-adjoint if $\dom A^{*} = \dom A$ where $A^{*}$ is the adjoint of $A$, on the domain
+		\begin{equation}
+			\dom A^{*} = \cbr{f \in \mathcal{H} : \exists c(f) \geq 0, \forall g \in \mathcal{D}(A), \abs{\inn{f}{Ag}} \leq c(f) \norm{g}}
+		\end{equation}
+		where $c(f)$ denotes that the constant may depend on $f$. We can further define $A^*$ by the formula
+		\begin{equation}
+			\inn{A^*f}{g} = \inn{f}{Ag} , \quad \text{for } f \in \dom A^*, g \in \dom A
+		\end{equation}
+	\end{enumerate}
+\end{defi}
+
+ 
 \begin{defi}
 	\begin{enumerate}[(i)]
-		\item A \emph{quadratic form} $\mathcal{E}$ on $\mathcal{H}$ is a non-negative, definite, symmetric bilinear form from $\dom \mathcal{E} \times \dom \mathcal{E} \to \ree$, where $\dom \mathcal{E}$ is a dense subspace $\mathcal{H}$. 
+		\item A \emph{quadratic form} $\mathcal{E}$ on $\mathcal{H}$ is a non-negative, definite, symmetric bilinear form from $\dom \mathcal{E} \times \dom \mathcal{E} \to \ree$, where $\dom \mathcal{E}$ is a dense subspace of $\mathcal{H}$. 
 		
 		\item A quadratic form is said to be closed if $\dom \mathcal{E}$ equipped with the norm
 		\begin{equation}
@@ -491,8 +517,10 @@ By \cite[theorem 4.1]{specAnal}  we have that $(\mathcal{E}, \dom_{0}\mathcal{E}
 \begin{equation}
 	\mathcal{E}(f,f) = - \int_{K}\Delta f g \dd \mu
 \end{equation}
-where $\Delta$ is the unique unique densly defined self-adjoint operator which is an extension of the Kigami Laplacian $\Delta_{\mu}$. The operator $\Delta$ with domain $\dom \Delta$ is referred to as the Dirichlet Laplaican.
-\textcolor{red}{Something feels wrong, i shoudl use 1.3.5 but i end up using 1.3.3. But then i need that the kigami laplacian is densly defined and self adjoint and so forth.}
+where $\Delta$ a unique unique densly defined self-adjoint operator. The operator $\Delta$ is called the generator of $\mathcal{E}$. Moreover we have that $\Delta$ is an extension of the Kigami Laplacian $\Delta_{\mu}$. The operator $\Delta$ with domain $\dom \Delta$ is referred to as the Dirichlet Laplaican. 
+
+One will notice that the Kigami Laplacian $\Delta_{\mu}$ was not used in the construction of the Dirichlet Laplacian $\Delta$, but we only used the limit of the renormalized graph energy from \cref{renormalizedGraphEnergiesLimit}. This stems from the fact that there are two ways to define $\Delta$, one through Dirichlet forms and one trough $\Delta_{\mu}$. We have chosen to define $\Delta$ through Dirichlet forms, but defining $\Delta$ through $\Delta_{\mu}$ would follows a similarly condensed argument. One would prove that $\Delta_{\mu}: \dom \Delta_\mu \to L^{2}(K, \mu)$ is a densely defined non-positive symmetric operator, it then follows from \cite[Lemma 1.3.5]{fabriceDirichelt} that the quadratic form $\mathcal{E}(f,g) = -\inn{f}{\Delta_{\mu} g}$ for $f,g \in \dom \Delta_{\mu}$ is closable and the generator of $\mathcal{E}$ is the self-adjoint extension $\Delta$.
+
 
 \section{Discrete Fractional Gaussian Fields}
 Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ (each being repeated accordingly to multiplicity) of $-\Delta_m$. Next let $(\Phi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following.
@@ -504,10 +532,11 @@ Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^
 	\end{equation}
 \end{defi}
 
-We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m}$ is symmetric. It is also non negative which follows from
+We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m}$ is symmetric. It is also positive semi-definite, which follows from
 \begin{align}
 	\sum_{i,j = 1}^{N_m}a_i a_j G_s^{m}(x_i, x_j) &= \sum_{i,j = 1}^{N_m}a_i a_j \sum_{k = 1}^{N_m} (\lambda_k^{m})^{-s} \phi_{k}^{m}(x)\phi_{k}^{m}(y) \\
-	&=\sum_{k =1}^{N_m} \lambda_k^{-s} \left(\sum_{i = 1}^{N_m} \phi_k (x_i)^2 a_i^2 + \sum_{i, j = 1, i \neq j}^{N_m}\phi_k (x_i)\phi_k(x_j) a_ia_j\right) \textcolor{red}{then what?}
+	&=\sum_{k =1}^{N_m} \lambda_k^{-s} \left(\sum_{i = 1}^{N_m} \phi_k (x_i)^2 a_i^2 + \sum_{i, j = 1, i \neq j}^{N_m}\phi_k (x_i)\phi_k(x_j) a_ia_j\right) \\
+	&= \sum_{k =1}^{N_m} \lambda_k^{-s} \left(\sum_{i = 1}^{N_m} \phi_k (x_i) a_i \right)^2 \geq 0
 \end{align}
 Thus it can be the covariance matrix of a Gaussian vector. The Riesz kernel will allow us to define another Laplacian.
 \begin{defi}\label{discreteFractionalLaplacian}
@@ -564,7 +593,7 @@ When stating the Fractional Laplacian one use that it admits a heat kernel throu
 	\end{enumerate}
 \end{defi}
 
-The next theorem also holds if we are given $(P_t)_{t \geq 0}$ as a strongly continuous self-adjoint contraction semigroup, then there exists a self-adjoint, non-positive and densly defined operator that generates $(P_t)_{t \geq 0}$, but we only need the the operator to genererate the semi-group.
+The next theorem also holds if we are given $(P_t)_{t \geq 0}$ as a strongly continuous self-adjoint contraction semigroup, then there exists a self-adjoint, non-positive and densely defined operator that generates $(P_t)_{t \geq 0}$, but we only need the the operator to generate the semi-group.
 \begin{theorem}\label{genSemigroup}
 	If $A$ is a densely defined self adjoint operator on $\mathcal{H}$ then it is the generator of the strongly continuous self-adjoint contraction semigroup on $\mathcal{H}$ defined as $P_t = e^{-tA}$.
 \end{theorem}
@@ -576,11 +605,18 @@ The next theorem also holds if we are given $(P_t)_{t \geq 0}$ as a strongly con
 	\end{equation}
 	for $x \in \Omega, U f \in \dom A$. Then from the functional calculus \cite[theorem 1.1.3]{fabriceDirichelt} we define $P_t: \mathcal{H} \to \mathcal{H}$ such that
 	\begin{equation}
-				U^{-1}P_tUf(x) = e^{-t \lambda(x)}f(x)
+				U^{-1}P_tUf(x) = e^{-t \lambda(x)}f(x).
 	\end{equation}
-	\textcolor{red}{Is enought to show $Q_t$ is all these things since $P_t = Ue^{-\lambda t} U^{-1}$ is still all the things? by def. that unitary maps are surjective.} We will prove that $Q_t = U^{-1}P_tU$ with domain $\dom Q_t$ is a self-adjoint strongly continous contraction semigroup on $L^2(\Omega, \nu)$ with generator $A$.
+	Note that since $U$ is a unitary map it is a linear bijection that satisfies for all $x,y \in L^2(\Omega, \nu)$ that $\inn{Ux}{Uy}_{\mathcal{H}} = \inn{x}{y}_{L^2(\Omega, \nu)}$.
 	
-	Starting with generator, we see that
+	Now it is enough to show that $Q_t = U^{-1}P_t U$ is self-adjoint, since then $P_t$ will be self adjoint. This can be proven quite easily. So if we have the functions $f, g \in \mathcal{H}$ and $\psi, \phi \in L^{2}(\Omega, \nu)$ then we have $P_t$ is symmetric since
+	\begin{multline}
+	\inn{Af}{g}_{\mathcal{H}} = \inn{AU\psi}{U\phi}_{\mathcal{H}} = \inn{UU^{-1}UAU\psi}{UU^{-1}U\phi}_{\mathcal{H}} = \inn{U^{-1}AU \psi}{\phi}_{L^2(\Omega, \nu)} \\
+	=  \inn{\psi}{U^{-1}AU \phi}_{L^2(\Omega, \nu)} = \inn{U\psi}{UU^{-1}AU\phi}_{\mathcal{H}} = \inn{f}{Ag}_{\mathcal{H}}
+	\end{multline}
+	That $\dom P_t^{*} = \dom P_t$ is the exact same argument as in equation \ref{operatorAndAdjointHaveSameDom}, which will be given later in the proof.
+	
+	So we will prove that $Q_t = U^{-1}P_tU$ with domain $\dom Q_t$ is a self-adjoint strongly continous contraction semigroup on $L^2(\Omega, \nu)$ with generator $A$. Starting with generator, we see that for $f \in \dom A$
 	\begin{align}
 		\lim_{t \to 0} \norm{\frac{Q_tf-f}{t} - Af} &= \lim_{t \to 0}\sqrt{\inn{\frac{Q_tf-f}{t} - Af}{\frac{Q_tf-f}{t} - Af}} \\
 		&= \lim_{t \to 0}\sqrt{\inn{\frac{Q_tf-f}{t}}{\frac{Q_tf-f}{t} - Af} - \inn{Af}{\frac{Q_tf-f}{t} - Af}} \\
@@ -600,11 +636,10 @@ The next theorem also holds if we are given $(P_t)_{t \geq 0}$ as a strongly con
 		\lim_{n \to \infty} Q_t f_n = \lim_{n \to \infty} e^{-\lambda t}f_n = e^{-\lambda t}f = Q_t f.
 	\end{equation} 
 	
-	Now showing that $\dom (Q_{t})^{*} = \dom Q_t$, then since $Q_t$ is symmetric we have that
-	\begin{equation}
+	Now showing that $\dom Q_{t}^{*} = \dom Q_t$. Since $Q_t$ is symmetric we have from Cauchy-Schwartz inequality that
+	\begin{equation}\label{operatorAndAdjointHaveSameDom}
 		\abs{\inn{f}{Q_tg}} = \abs{\inn{Q_t f}{g}} \leq \norm{Q_t f} \norm{g}.
 	\end{equation}
-	\textcolor{red}{I think this arguments holds. see just below definition of self-adjoint.}
 	Thus we have $Q_t$ is self-adjoint. To show the semigroup properties, we have (\ref{semi-group})
 	\begin{equation}
 		Q_{t+s}f = e^{-\lambda (t +s )}f = e^{-\lambda t}e^{-\lambda s}f = Q_t Q_s f
@@ -637,7 +672,7 @@ Before we can define the continuos fractional Laplacian, we need to define the e
 
 Recall that the Laplacian $\Delta$ with domain $\mathcal{D}(\Delta)$ is a densely defined self-adjoint operator. Therefore by \cref{genSemigroup} it is the generator of a strongly continuos Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. 
 
-This semigroup admits \textcolor{red}{Why does it admit?} a heat kernel $p_t(x,y), t > 0, x,y \in K$, wrt. the normalized Hausdorff measure $\mu$. The heat kernel $p_t(x,y)$ is called the Dirichlet heat kernel on $K$. Further from \cite[section 2.3]{Fabrice} this heat kernel satisfies that for some $c_1, c_2 \in (0, \infty)$ 
+Form \cite[Lemma]{barlow}this semigroup admits a heat kernel $p_t(x,y), t > 0, x,y \in K$, wrt. the normalized Hausdorff measure $\mu$. The heat kernel $p_t(x,y)$ is called the Dirichlet heat kernel on $K$. Further from \cite[section 2.3]{Fabrice} this heat kernel satisfies that for some $c_1, c_2 \in (0, \infty)$ 
 \begin{equation}\label{heatKernelBound}
 	p_t(x,y) \leq c_1 t^{-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right)
 \end{equation}
@@ -771,10 +806,10 @@ The Riesz kernel will allows us to use the estimates of the heat kernel $p_t(x,y
 		
 		2. If $s = d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
 			\begin{equation}
-				G_s(x,y) \leq C \abs{ln d(x,y)}
+				G_s(x,y) \leq C \abs{\ln d(x,y)}
 			\end{equation}
 			
-		3. If $s > d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
+		3. If $s > d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K$
 		\begin{equation}
 			G_s(x,y) \leq C 
 		\end{equation}
@@ -841,7 +876,7 @@ Before stating this proof we will quickly state and prove a lemma needed.
 		&=d(x,y)^{sd_w - d_h} \int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
 		&\leq d(x,y)^{sd_w-d_h} \int_{0}^{\infty} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u.
 	\end{align}
-	\textcolor{red}{convergence of the last integral comes from the fact that $e^{-c_2(1/u)^{1/d_w}}$ converges faster than $1/u$ diverges.} Lastly for $s = d_h/d_w$, we again use the change of variable $t = ud(x,y)^{d_w}$ and setting $R = \diam(K)$ and note that $0 < 1/R^{d_w} < 1/d(x,y)^{d_w}$, thus we find
+	convergence of the last integral comes from the fact that $e^{-c_2(1/u)^{1/d_w}}$ converges faster than $1/u$ diverges. Lastly for $s = d_h/d_w$, we again use the change of variable $t = ud(x,y)^{d_w}$ and setting $R = \diam(K)$ and note that $0 < 1/R^{d_w} < 1/d(x,y)^{d_w}$, thus we find
 	\begin{align}
 		&\phantom{=}\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right). \\
 		&=\int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
@@ -875,7 +910,7 @@ By \cite[Theorem 2]{germanOne} and \cref{convergenceOfEigenvaluesOfLaplacian} we
 \begin{remark*}
 	We have just defined a nuclear map on a Banach spaces, but do note that the definition can be generalized to locally convex Hausdorff spaces.
 \end{remark*}
-As we can see the concepts of a nuclear spaces is quite complicated, but its properties will be very useful. It will allow us to prove convergence of Gaussian fields through the characteristics function and existence of Fractional Gaussian fields through a functional. \textcolor{red}{Is this okay to write?} But first we will prove some lemmas regarding the fractional Laplacian and the fractional Riesz kernel.
+As we can see the concepts of a nuclear spaces is quite complicated, but its properties will be very useful. It will allow us to prove convergence of Gaussian fields through the characteristics function and existence of Fractional Gaussian fields through Bochner-Minlos theorem for nuclear spaces, which we will state later in \cref{BochnerMinlos}. But first we will prove some lemmas regarding the fractional Laplacian and the fractional Riesz kernel.
 \begin{lemma}\label{fractionalLaplacianIsRieszKernel}
 	Let $s > 0$. For $f \in S(K)$ and $x \in K$
 	\begin{equation}
@@ -883,7 +918,22 @@ As we can see the concepts of a nuclear spaces is quite complicated, but its pro
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	We will first make sure the integral on the left side actually converges. But this holds because $S(K) \subset C(K)$ so $f$ will be bounded on $K$. Thus we just need that for every $x \in K$ $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent. for $s \in [d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Lastly for $s \in (0, d_h/d_w)$ then $d_h-sd_w < d_h$. If we recall \cref{normalziedHausdorffMeasureAhlforsRegular} we can
+	We will first make sure the integral on the right side actually converges. But this holds because $S(K) \subset C(K)$ so $f$ will be bounded on $K$. Thus we just need that for every $x \in K$ $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent.\footnote{In \cref{boundsOfRieszKernel}, (i) and (ii) the bounds are for $x \neq y$, but they are null-set wrt. $\mu$}  For $s \in (d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Looking at $s \in (0, d_h/d_w]$ then first we note that $\ln(x) \leq x^{-1}$ and $x^{d_h-sd_w} \leq x^{-d_h}$ for all $0 < x \leq 1$ . We will now use a dyadic annuli decomposition, so we see that 
+	$$K \subseteq \cup_{j \geq 0} B(x, R2^{-j})\backslash B(x,RS^{-j-1})$$ 
+	where $R = \diam(K)$. Then we have for all $y \in B(x, R2^{-j})\backslash B(x,RS^{-j-1})$:
+	$$R2^{-j-1} \leq d(x,y) \leq R2^{-j-1} \Rightarrow 2^{-j-1} \leq R^{-1} \cd d(x,y) \leq 2^{-j-1} .$$ 
+	so therefore
+	\begin{equation}
+		\ln(R^{-1} d(x,y)) \leq \frac{R}{d(x,y)} 
+	\end{equation}
+	This leads to the fact that for $s = d_h/d_w$ we have
+	\begin{align}
+		\cd \int_{K} G_s^{m}(x,y) \dd \mu(y) &\leq \int_{K} R \cd C_1 \abs{R^{-1} \ln d(x,y)} \dd \mu(y) + \int_{K} C_1 \cd \ln R \dd \mu\\
+		& \leq \ln R + \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} R \cd C_1 \abs{\ln d(x,y)} \dd \mu(y) \\
+		&\leq \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{R \cd C_1}{den}
+	\end{align}
+	
+	In which case we denote $R = \diam(K)$ If we recall \cref{normalziedHausdorffMeasureAhlforsRegular} we can
 	\begin{equation}
 		\int_{K}G_s(x,y)\dd \mu (y) \leq \int_{K}\frac{1}{d(x,y)^{d_h-sd_w}}  \dd \mu (y) < \infty
 	\end{equation}

@@ -1,13 +1,25 @@
 {\Huge{\textbf{Questions from \today}}}
 
 \subsection*{Question 1}
-Lemma 4.3: In Extensions of Trotter's operator semigroup approximation theorems page 354, is $P_n$ in our case $\int_{K}\psi_{x}^{(m)} \dd \mu$
+In proposition 2.9 in my thesis i simply cannot understand how that \emph{Chain of points} construction works. I have tried to prove it myself without it. What i found was: Let $x, y \in V^{*}$ and $\epsilon$ given.  Then $x \in V_p$ and $y \in V_q$ then WLOG assume $p \leq q$, thus $x \in V_q$. We can therefore construct a path of neighbours from $x$ to $y$ so 
+\begin{equation}
+	x \underset{q}{\sim} \ldots \underset{q}{\sim} y
+\end{equation}
+
+Now we are interested in the length of this. Now we know if $x \underset{m}{\sim} y$ then $\abs{x -y} \leq 1/2 r^{m} \cd \diam (K)$, so the total number of jumps need are $$jumps = \frac{\delta}{1/2 r^{q} \cd \diam (K)} \leq \delta \cd 2 \cd r^{-q}$$
+(here $\delta$ is part of the $\epsilon$-$\delta$ proof), and $jumps$ is only correct if it is a straight line, but as the amount of jumps are finite we can multiply by a constant $C_1$ and find thus by triangle inequality and many $\pm$ we get
+\begin{equation}
+	\abs{u(x) - u(y)} \leq jumps \cd r^{q/2} \mathcal{E}^{1/2} \leq C_1 \delta \cd 2 \cd r^{-q} r^{q/2}
+\end{equation}
+and from here i simply don't know how to uniformly bound it.
 
 \subsection*{Question 2}
-Why is eigenfunctions wrt. measure $\mu_m$?
+In lemma 2.35 in my thesis, i am stuck at showing that
+$$\int_{K} G_s(x,y) \dd \mu(y) < \infty$$
+when $s = d_h/d_w$. I understand the proof when $s > d_h/d_w$ as this is a contant and $s < d_h/d_w$ since by constructing the open balls $B(x,R2^{-j})$ we can bound $s^{-j-1} \leq R^{-1}d(x,y) \leq 2^{-j}$ with $R = \diam K$ and follows from there. But i simply cannot find a way to bound $\abs{\ln(d(x,y))}$.
 
 \subsection*{Question 3}
-Eigenfunction exists and are orthonormal and there are $N_m$ of them?
+In lemma 3.6 of my thesis. I still don't understand how they get that last equality. I keep trying to do some decomposition into the basis but i come up short $v_k$ and $v_j$ a subtracted and not multiplied together.
 
 \subsection*{Question 4}
-Why is $G_s^{m}(x,y)$ non negative?
+Why does the discrete laplacian $\Delta_m$ generate a semi-group. I tried to use theorem 2.23 from my thesis, but wondered if that is overkill and there is a simpler explenation.

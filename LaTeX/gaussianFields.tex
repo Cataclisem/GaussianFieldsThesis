@@ -97,13 +97,13 @@ We will quickly state and prove a lemma, prove a functional, that we will need, 
 \begin{proof}
 	Let $v_1, \ldots v_n$ be elements of $\mathcal{X}$ and choose an orthonormal basis $e_1, \ldots e_m$ of $\text{span}\cbr{v_1, \ldots, v_n}$. Further let $Z = (Z_1, \ldots, Z_m)$ be a vector of independent standard normal real random variables, and note that for all $u \in \ree^{m}$ we have that
 	\begin{equation}
-		\Phi \left(\sum_{j = 1}^{\infty} u_j e_j\right) = \exp \left(-\frac{1}{2} \sum_{i = 1}^{m} u_i^2\right) = \e \left[e^{ \img u \cd Z}\right].
+		\Phi \left(\sum_{j = 1}^{m} u_j e_j\right) = \exp \left(-\frac{1}{2} \sum_{i = 1}^{m} u_i^2\right) = \e \left[e^{ \img u \cd Z}\right].
 	\end{equation}
-	\textcolor{red}{How can $u \in \ree^{n}$ be decomposed with another basis}. This leads us to for $z \in ?^{n}?$ \textcolor{red}{where is $z$ from? + definition of semi definite}
+	This leads us to for $z \in \cee^{n}?$ 
 	\begin{equation}
-		z^{T}A^{\Phi}z =\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] = \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0
+		\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] = \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0
 	\end{equation}
-	\textcolor{red}{where does the last equality come from?}
+	where the last equality 
 \end{proof}
 
 \begin{theorem}
@@ -168,10 +168,9 @@ Now let $A_1, \ldots, A_n \in \mathcal{K}$ and $a_1, \ldots, a_n$ be real number
 \begin{equation}
 	\sum_{i,j} a_i a_j \mathbf{\Sigma}_{i,j} = \sum_{i,j}a_ia_j \int_{K}\mathds{1}_{A_i} \cd \mathds{1}_{A_j} \dd \mu = \int_{K} \left(\sum_{i} a_i \mathds{1}_{A_i}\right)^2 \dd \mu \geq 0
 \end{equation}
-Thus $\mathbb{\Sigma}$ is positive definite, so there exists a probability space $(\Omega, \mathcal{F}, p)$ and a mean-zero Gaussian process $\cbr{W(A)}$ on $(\Omega, \mathcal{F}, p)$ such that $W$ satisfies \cref{whiteNoise} (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}). 
+Thus $\mathbf{\Sigma}$ is positive definite, so there exists a probability space $(\Omega, \mathcal{F}, p)$ and a mean-zero Gaussian process $\cbr{W(A)}$ on $(\Omega, \mathcal{F}, p)$ such that $W$ satisfies \cref{whiteNoise} (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}). 
 
-\textcolor{red}{I need help/a reference/a place to look to find out why this is true.}
-This means that for $f \in L^{2}(K, \mathcal{K}, \mu)$ the stochastic integral $W(f) = \int_{K} f \dd W$ \textcolor{red}{Isn't this just a normal integral wrt. measure $W$?} is a well defined Gaussian random variable. Moreover, the Gaussian measure $W$ gives rise to an isonormal Gaussian family $\cbr{W(f), f \in L^{2}(K, \mathcal{K}, \mu)}$ with the covariance function
+This means that for $f \in L^{2}(K, \mathcal{K}, \mu)$ the integral with respect to $W$, $W(f) = \int_{K} f \dd W$ is a well defined Gaussian random variable. Moreover, the Gaussian measure $W$ gives rise to an isonormal Gaussian family $\cbr{W(f), f \in L^{2}(K, \mathcal{K}, \mu)}$ with the covariance function
 \begin{equation}
 	\e \left[W(f) W(g)\right] = \int_{K} fg \dd \mu
 \end{equation}
@@ -179,7 +178,7 @@ This means that for $f \in L^{2}(K, \mathcal{K}, \mu)$ the stochastic integral $
 
 In the following we want to define a fractional Brownian field, and we want to do it as the integral of the fractional Riesz kernel defined in \cref{fractionalRieszKernel}, thus we need $G_s(x, \cd ) \in L^{2}(K, \mu)$. 
 
-So let \textcolor{red}{I Don't quite get} $s > \frac{d_h}{2d_w}$ \textcolor{red}{Not enough with $s > d_h/d_w$? Maybe not since we need $\sum \lambda_j^{-s}$ to converge?} we observe that from \cref{boundsOfRieszKernel} we have that $G_s(x, \cd ) \in L^{2}(K, \mu)$ \textcolor{red}{Is needed?:  \cref{fractionalLaplacianIsRieszKernel} holds for any $f \in L^{2}(K, \mu)$ and $\mu$ a.e. $x \in K$}. Moreover we have that
+So let $s > \frac{d_h}{2d_w}$ we choose $s$ as we do since later we need $\sum \lambda_j^{-s}$. We observe that from \cref{boundsOfRieszKernel} we have that $G_s(x, \cd ) \in L^{2}(K, \mu)$. Moreover we have that
 	\begin{equation}
 		G_s(x,y) = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}p_t(x,y)\dd t = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}\sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)\dd t = \sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{-s}} \phi_j(x)\phi_j(y).
 	\end{equation}
@@ -188,7 +187,7 @@ So let \textcolor{red}{I Don't quite get} $s > \frac{d_h}{2d_w}$ \textcolor{red}
 \begin{defi}
 	Let $s > \frac{d_h}{2d_w}$. The fractional Brownian field with parameter $s$ is defined as 
 	\begin{equation}
-		\widetilde{X}_s(x) = \int_{K} G_s(x,y)W(\dd y)
+		\widetilde{X}_s(x) = \int_{K} G_s(x,y)\dd W (y)
 	\end{equation}
 \end{defi}
 
@@ -230,15 +229,19 @@ We will now show that one can construct a fractional Gaussian Field from the fra
 		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty
 	\end{equation}
 	such that the Gaussian field defined by
-	\begin{equation}
+	\begin{equation}\label{theOneAbove}
 		Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
 	\end{equation}
-	has the law of fractional Gaussian field with parameter $s$. Then by spectral decomposition \textcolor{red}{reference?} we have
+	has the law of fractional Gaussian field with parameter $s$. Then by spectral decomposition by equation \ref{theOneAbove} we have
 	\begin{equation}
-		\widetilde{Y}_s(x) = \sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x).
+		\widetilde{Y}_s(x) = \sum_{i= 1}^{\infty} \inn{\widetilde{Y}_{s}}{\phi_i} \phi_i(x) = \sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x).
 	\end{equation}
 	
-	Note that $(Y(\phi_i))_{i \geq 1}$ is a sequence of independent Gaussian random variables with mean zero \textcolor{red}{why mean zero? and why independent Gaussian?} and variance $()\lambda_{i}^{s})_{i \geq 1}$. By \cref{fracGaussianField} and \cref{fracLaplacianProperties} we have that
+	Note that $(Y(\phi_i))_{i \geq 1}$ is a sequence of independent Gaussian random variables with mean zero and variance $(\lambda_{i}^{-2s})_{i \geq 1}$ since by \cref{fracGaussianField} and \cref{fracLaplacianProperties} we have that
+	\begin{equation}
+		\e \left[Y_s(\phi_i)\right] =\e \left[\int_{K} \phi_i \widetilde{Y}_s \dd \mu \right] = \e \left[\int_{K} \phi_i(x) \sum_{j = 1}^{\infty} \lambda_j^{-s}\phi_j(x)W_i \dd \mu(x) \right]= \e \left[W_i\right] =0
+	\end{equation}
+	and
 	\begin{equation}
 		\e \left[Y_s(\phi_i)Y_s(\phi_j)\right] = \int_{K}  (-\Delta)^{-s}\phi_i (-\Delta)^{-s}\phi_j \dd \mu = \frac{1}{(\lambda_{j}\lambda_i)^{s}} \int_{K} \phi_i \phi_j \dd \mu = \frac{1}{(\lambda_{j}\lambda_i)^{s}} \delta_{ij}.
 	\end{equation}
