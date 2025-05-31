@@ -1,4 +1,4 @@
-\chapter{And now for something completely different}
+\chapter{Laplacians}
 In future section the Gaussian random fields will be defined using the eigenvalues and eigenfunctions of the Dirichlet Laplacian. We will find that the Dirichlet Laplacian is an extension of the Kigami Laplacian. But to construct the Kigami Laplacian we will need the discrete Laplacian as we will prove that the Kigami Laplacian is the pointwise limit of the discrete Laplacian. We will therefore start by introducing first the discrete Laplacian, then the Kigami Laplacian and culminating in the Dirichlet Laplacian. Therefore consider the discrete Laplacian on the Vicsek set.
 \begin{defi}\label{discreteLaplacian}
 	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
@@ -455,7 +455,7 @@ Now if $x$ does not have a unique sequence then
 \end{align}
 and the result follow thereafter
 \end{proof}
-\section{And back again}\label{constructDirichletLaplacian}
+\section{Dirichlet Laplacian}\label{constructDirichletLaplacian}
 We will now construct the Dirichlet Laplacian, and we will be following \cite{Fabrice} and \cite{specAnal} very closely when defining the Dirichlet Laplacian This will be done through Dirichlet forms, thus we will be defining them. Before defining Dirichlet forms we have that since the Dirichlet Laplacian will be a densely defined operator we will therefore start by recalling some definitions for a densely defined operator on a Hilbert space.
 
 \begin{defi}\label{selfAdjoint}
@@ -522,7 +522,7 @@ where $\Delta$ a unique unique densly defined self-adjoint operator. The operato
 One will notice that the Kigami Laplacian $\Delta_{\mu}$ was not used in the construction of the Dirichlet Laplacian $\Delta$, but we only used the limit of the renormalized graph energy from \cref{renormalizedGraphEnergiesLimit}. This stems from the fact that there are two ways to define $\Delta$, one through Dirichlet forms and one trough $\Delta_{\mu}$. We have chosen to define $\Delta$ through Dirichlet forms, but defining $\Delta$ through $\Delta_{\mu}$ would follows a similarly condensed argument. One would prove that $\Delta_{\mu}: \dom \Delta_\mu \to L^{2}(K, \mu)$ is a densely defined non-positive symmetric operator, it then follows from \cite[Lemma 1.3.5]{fabriceDirichelt} that the quadratic form $\mathcal{E}(f,g) = -\inn{f}{\Delta_{\mu} g}$ for $f,g \in \dom \Delta_{\mu}$ is closable and the generator of $\mathcal{E}$ is the self-adjoint extension $\Delta$.
 
 
-\section{Discrete Fractional Gaussian Fields}
+\section{Discrete Fractional Laplacian}
 Recalling \cref{discreteMatrix} then we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ (each being repeated accordingly to multiplicity) of $-\Delta_m$. Next let $(\Phi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following.
 
 \begin{defi}
@@ -888,7 +888,7 @@ Before stating this proof we will quickly state and prove a lemma needed.
 	Thus we have our desired bounds.
 \end{proof}
 
-\section{Bounds of the fractional Laplacian}
+\section{Bounds of the Fractional Laplacian}
 In the following we will prove some bounds for the fractional Laplacian. Since the goal of this thesis is to prove convergence of fractional Gaussian fields within a specific space of test functions, we will only be proving the lemmas for that space. The space of functions is given by
 
 \begin{defi}
