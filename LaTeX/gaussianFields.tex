@@ -99,11 +99,10 @@ We will quickly state and prove a lemma, prove a functional, that we will need, 
 	\begin{equation}
 		\Phi \left(\sum_{j = 1}^{m} u_j e_j\right) = \exp \left(-\frac{1}{2} \sum_{i = 1}^{m} u_i^2\right) = \e \left[e^{ \img u \cd Z}\right].
 	\end{equation}
-	This leads us to for $z \in \cee^{n}?$ 
+	This leads us to for $z \in \cee^{n}$ 
 	\begin{equation}
-		\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] = \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0
+		\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] = \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0.
 	\end{equation}
-	where the last equality 
 \end{proof}
 
 \begin{theorem}
@@ -148,7 +147,7 @@ We will quickly state and prove a lemma, prove a functional, that we will need, 
 \end{proof}
 
 
-In the following we want to prove that a fractional Gaussian field has an $L^2$ density \textcolor{red}{What is it?} if and only if $s > \frac{d_h}{2d_w}$, but for this we need white noise.
+In the following we want to prove that a fractional Gaussian field has an $L^2$ density if and only if $s > \frac{d_h}{2d_w}$, but for this we need white noise.
 
 \begin{defi}\label{whiteNoise}
 	Let $(X, \mathcal{E}, \mu)$ be $\sigma$-finite measure space. A white noise based on $\nu$ is a random set function $W$ on the sets $A \in \mathcal{E}$ with $\nu(A) < \infty$ such

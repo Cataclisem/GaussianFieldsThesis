@@ -220,5 +220,8 @@ These have each been simulated with their own white noise and as one can see fro
 
 If one looks at the figure with $s = 50$ it is very much just green and blue. So they have their extreme values, but looking at the colorbar we see that the reason that they are some different is because the difference in their values is about $10^{161}$ so the field has almost converges to a single value. This again makes sense looking at $X_s^{m}$ as the value $(\lambda_j^{m})^{-s}$ dominates each term.
 
+\subsection*{Simulations on the Sierpinski gasket}
+The theory described in this thesis, is a mentioned before, an extension of the paper \cite{Fabrice} by Fabrice Baudoin and Li Chen. Therefore the theory that made the simulations of the Vicsek set possible also hold for the Sierpinski gasket. Again we are not able to simulate $m$ very large, but since the amount of points on the Sierpinski gasket is "only" $\frac{3(3^{m} +1 )}{2}$, we are able to simulate $m \leq 8$\textcolor{red}{check!!!!}. The code for  simulations of the Sierpinski gasket are almost identical to the code for the Vicsek set, the main difference being the way the fractal is constructed and the way neighbours are found.  
 
-\textcolor{red}{Insert Sierpinski Triangles see the same holds}
+{\huge INSERT PICTURES}
+Again we see that the fields variance converges as $s$ increases, which as explained in the simulations of the Vicsek set was to be expected. 

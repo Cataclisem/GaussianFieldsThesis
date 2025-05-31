@@ -38,7 +38,7 @@ def makeVicsek(n: int = vicsek.n, markers: bool = False):
             point_x = [x[0] for lists in line_collection for x in lists] + [x[0] for x in midpoints]
             point_y = [y[1] for lists in line_collection for y in lists] + [y[1] for y in midpoints]
             
-            ax.scatter(point_x, point_y, marker="o", s=1, c="k")
+            ax.scatter(point_x, point_y, marker="o", s=15, c="k")
 
         # Computes limites of graph (how far x and y axis should stretch out) based on n
         buffer = (pow(3, n) * init_length)/10 # A buffer to make the final graph not look as cramped
@@ -51,8 +51,8 @@ def makeVicsek(n: int = vicsek.n, markers: bool = False):
 
         plt.axis('off')
         plt.gca().set_position([0, 0, 1, 1])
-        plt.savefig("c:/Users/chris/gitProjects/GaussianFieldsThesis/code/vicsek8.svg", format="svg")
+        plt.savefig(f"c:/Users/chris/gitProjects/GaussianFieldsThesis/code/vicsek{n}Markers{str(markers)}.svg", format="svg")
         plt.close(fig)
         #plt.show()
 
-makeVicsek(n = 7, markers=False)
+makeVicsek(n = 3, markers=True)
