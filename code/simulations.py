@@ -202,6 +202,7 @@ class simulation:
         
         ax.set_xlim(x_min, x_max)
         ax.set_ylim(y_min, y_max)
+        ax.set_axis_off()
         fig.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min(colorValues), vmax=max(colorValues)), cmap=cm.brg),ax = ax, location="right", orientation="vertical")
 
 
@@ -259,82 +260,12 @@ if __name__ == '__main__':
         print(f"It took {end - start} seconds")
     
     if whatToRun == 3:
-        for h in range(1,6):
-            print(f"Vm: {h}")
-            vicsek = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
-            vicsek.drawThePretty(sValues=[0.000001])
-            
-    plt.show()
-
-
-
-#plt.show()
-#print(f"n=0: {vicsekSet.vicsek(n=0).pointsAndNeighbours()}")
-#print(f"n=1: {vicsekSet.vicsek(n=1).pointsAndNeighbours()}")
-
-#sim = vicsek.DFDGsim(eigenfunction=vicsek.eigenVectorsAndValues)
-#im = vicsek.DFDGsim(eigenfunction=vicsek.npEigenVectorsAndValues)
-
-
-#for x in sim:
-#    pprint(f"{x}: {sim[x]["X"]}")
-    
-    #pprint(f"npsim: {npsim}")
-
-#print(f"max: {sim[(27, 54)]["X"]}")
-
-
-"""
-pointx, pointy, colorValues = zip(*[(sim[x]["pos"][0], sim[x]["pos"][1], sim[x]["X"]) for x in sim])
-#LineCollection(c=mpl.cm.hot())
-
-fig, ax = mpl.pyplot.subplots()
-
-mpl.pyplot.scatter(pointx, pointy, c=cm.viridis(colorValues/max(colorValues)), s = 8)
-
-x = list(colorValues)
-x.sort()
-pprint(f"sorted: {[math.floor(y) for y in x]}")
-
-init_length=3
-n = h
-# Computes limites of graph (how far x and y axis should stretch out) based on n
-buffer = (pow(3, n) * init_length)/10 # A buffer to make the final graph not look as cramped
-x_min, x_max = -pow(3, n) * init_length - buffer, pow(3, n) * init_length + buffer
-y_min, y_max = -pow(3, n) * init_length - buffer, pow(3, n) * init_length + buffer
-
-ax.set_xlim(x_min, x_max)
-ax.set_ylim(y_min, y_max)
-mpl.pyplot.show()
-
-
-vicsek.printLaplacianOperatorMatrix()
-
-m, e = vicsek.eigenVectorsAndValues()
-lapOp = vicsek.laplacianOperatorMatrix()
-
-npm, npe = vicsek.npEigenVectorsAndValues()
-
-print(f"Eigenvectors: \n {e}" )
-print(f"Eigenvalues: \n {m}")
-
-#for i in range(len(e)):
-#    print(f"eigen times vec: {m[i] * e[:, i]}")
-#    print(f"mat times vec: {mpmath.mp.matrix(lapOp) * e[:, i]}")
-
-
-print(f"NP Eigenvectors: \n {npe}")
-print(f"NP Eigenvalues: \n {npm}")
-for i in range(len(npe)):
-    print(f"NP eigen times vec: {npm[i] * npe[:, i]}")
-    print(f"NP mat times vec: {lapOp @ npe[:, i]}")
-
-for i in npe:
-    print(i)
-
-#print(mpmath.mp.inverse(e))
-#print(e)
-
-
-#print(0.8660254 * k)"
-"""
+        for h in [5]: #range(5,6):
+            for sVals in [0.001, 1, 20, 50]:
+                print(f"Vm: {h}")
+                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
+                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
+                theOne.drawThePretty(sValues=[sVals])
+                #plt.gca().set_position([0, 0, 1, 1])
+                plt.savefig(f"c:/Users/chris/GaussianFieldsThesis/code/sim/{theOne.fractalType}Sim_V{h}-s{str(sVals).replace(".","_")}.svg", format="svg")
+    #plt.show()

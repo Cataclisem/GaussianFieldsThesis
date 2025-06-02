@@ -1,5 +1,36 @@
-\documentclass{memoir}
-\usepackage[a4paper, margin=2.5cm, marginparwidth=2cm, includefoot=true]{geometry}
+\documentclass[%
+11pt,
+openright,
+twoside,
+british,
+a4paper
+]{memoir}
+% Global definition: Name of the project (e.g. for the headers)
+% NOTE: The text of the front page is defined manually!
+\newcommand{\projecttitle}{Fractional Gaussian Fields on the Vicsek set}
+\newcommand{\projecttitledanish}{}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Page 'n' stuff
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Page set-up
+\setlrmarginsandblock{2.5cm}{*}{1}
+\setulmarginsandblock{*}{2.5cm}{1.5}
+
+% Some memoir tricks
+\setlength{\topskip}{1.6\topskip}
+\checkandfixthelayout
+\sloppybottom
+\strictpagechecktrue
+
+% To remove the blank page after the titlepage to save space
+% --> Only for this progress report! Normally the blank page should be there!!
+%\usepackage{atbegshi}
+
+
+
+
+%\usepackage[a4paper, margin=2.5cm, marginparwidth=2cm, includefoot=true]{geometry}
 \usepackage[english]{babel} %Adds Danish grammer
 \usepackage{lmodern}
 \usepackage{csquotes}
@@ -18,12 +49,31 @@
 \usepackage{ifthen}
 \usepackage{graphicx}
 \usepackage[inkscapeformat=pdf]{svg}
+%\setsvg{inkscape={"C:/Program Files/Inkscape/bin/incscape.com"}}
 \usepackage{tikz} %Making graphs
 \usetikzlibrary{babel} %Makes quiver work ehn babel is not set to english
 \usepackage{etoolbox}
-\usepackage[backend=biber, style=alphabetic]{biblatex} %For bibliography
+\usepackage[backend=biber,
+style=ieee,  % Citation style
+sorting=ynt,            % Sort citations as YEAR-NAME-TITLE
+sortcites=true,
+dashed=false,
+uniquelist=false,
+uniquename=false,
+doi=false,
+url=false,
+isbn=false,
+eprint=false,
+hyperref=true]{biblatex} %For bibliography
 %\usepackage{mdframed}
-\usepackage[hypertexnames=false]{hyperref}
+\usepackage[
+unicode=true,
+pdftitle={\projecttitle},
+pdfauthor={J. Christopher Lentfer Kristiansen},  % Change this name!
+pdfkeywords={},
+bookmarksopen=true,
+pdfdisplaydoctitle=true,
+hypertexnames=false]{hyperref}
 \usepackage{cleveref} %Makes reference with "lemma" or "theorem" and not just number
 \usepackage{autonum}
 \usepackage[figurename=Diagram]{caption}
@@ -53,6 +103,73 @@
 \fancyfoot[C]{\thepage \ of \ \pageref{LastPage}}
 \fancyhead[OL]{\leftmark}
 
+% Make new pagestyle
+\makepagestyle{jrmbsc}
+\makeevenhead{jrmbsc}{\thepage}{}{\fontsize{12pt}{10pt}\scshape\leftmark}
+\makeoddhead {jrmbsc}{\fontsize{12pt}{10pt}\scshape\projecttitle}{}{\thepage}
+\makeevenfoot{jrmbsc}{}{}{}
+\makeoddfoot {jrmbsc}{}{}{}
+\makeheadrule{jrmbsc}{\textwidth}{\normalrulethickness}
+
+\makepagestyle{abstract}
+\makeevenhead{abstract}{\thepage}{}{}
+\makeoddhead{abstract}{}{}{\thepage}
+\makeevenfoot{abstract}{}{}{}
+\makeoddfoot {abstract}{}{}{}
+
+
+% Black magic happens below! (define pagestyle)
+\makeatletter
+\makepsmarks {jrmbsc}{
+	% Syntax: \createmark{<division type}{left|right|both marks}{shownumber|nonumber}{prefix}{postfix}
+	\createmark{chapter}    {both}  {shownumber} {\@chapapp\ }{\ $\cdot$\ }%{\@chapapp\ } {\ $\cdot$\ }
+	\createmark{section}    {right} {shownumber} {}            { \ }
+	%  \createmark{subsection} {right} {nonumber}   {}            {}
+	%\createplainmark{toc}   {both}  {\contentsname}
+	\createplainmark{lof}   {both}  {\listfigurename}
+	\createplainmark{lot}   {both}  {\listtablename}
+	\createplainmark{bib}   {both}  {\bibname}
+	\createplainmark{index} {both}  {\indexname}
+}
+\makeatother
+\nouppercaseheads
+
+% Sections with sans-serif
+%\setsecheadstyle{\Large\bfseries\sffamily\raggedright}
+%\setsubsecheadstyle{\large\bfseries\sffamily\raggedright}
+
+% Fix of the pagestyle of the chapter-pages
+\copypagestyle{chapter}{empty}
+\makeoddfoot{chapter}{}{\thepage}{}
+\makeevenfoot{chapter}{}{\thepage}{}
+
+% Chapterstyle (modified from Rasmus Villemoes thesis)
+\usepackage{graphicx}
+\makechapterstyle{jrmbsc}{% requires graphicx package
+	\chapterstyle{default}
+	\renewcommand*{\chapnamefont}{%
+		\normalfont\LARGE\color{black}\bfseries\raggedleft}
+	\renewcommand*{\chaptitlefont}{%
+		\normalfont\Huge\color{black}\bfseries\raggedleft}
+	\renewcommand*{\chapternamenum}{}
+	\renewcommand*{\printchapternum}{%
+		\makebox[0pt][l]{\hspace{0.4em}
+			\resizebox{!}{5ex}{%
+				\normalfont\Large\color{black}\thechapter}
+		}%
+	}%
+	\renewcommand*{\afterchapternum}{%
+		\par\hspace{1.5cm}\color{black}\hrule\vskip\midchapskip}}
+
+% Use the new pagestyle and chapterstyle
+\pagestyle{jrmbsc}
+\chapterstyle{jrmbsc}
+
+% Turn on numbering of subsections
+\setsecnumdepth{subsection}
+
+
+
 %New Chapter style
 \newcommand*{\appendixchapter}{%
 	\titleformat{\chapter}%
@@ -67,6 +184,7 @@
 
 \setsecheadstyle{\huge\bfseries}
 \setsubsecheadstyle{\Large\bfseries}
+
 
 %-------------------- COMMANDS ---------------------------------
 \newcommand{\cbra}[1]{\left\lbrace #1 \right\rbrace} %Making curly brackets easier
@@ -119,12 +237,11 @@
 
 
 %Redefine Epsilon
-\let\varepsilon\epsilon
+\let\oldepsilon\epsilon
 \renewcommand{\epsilon}{\varepsilon}
 
 
 % TÅGEKAMMERET
-
 \TKsetup{
 	cermC=\ensuremath{\mathbb{C}},
 	vcC=\ensuremath{\mathbb{C}},
@@ -194,34 +311,6 @@
 %\mathtoolsset{showmanualtags=true}
 \numberwithin{equation}{chapter} %Makes equation number (x.1, x.2, y.1, y.2 ...), where x, y are section
 
-%---------- Code block styles -----------
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codeblue}{rgb}{0,0,0.8}
-\definecolor{codegray}{rgb}{0,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.93,0.93,0.93}
-
-\lstdefinestyle{mystyle}{
-	backgroundcolor=\color{backcolour},   
-	commentstyle=\color{codegray},
-	keywordstyle=\color{codeblue},
-	numberstyle=\tiny\color{codegray},
-	stringstyle=\color{codegreen},
-	basicstyle=\ttfamily\small,
-	breakatwhitespace=false,		 
-	breaklines=true,				 
-	captionpos=t,					
-	keepspaces=true,				 
-	numbers=left,					
-	numbersep=10pt,				  
-	showspaces=false,				
-	showstringspaces=false,
-	showtabs=false,				  
-	tabsize=2
-}
-\lstset{style=mystyle}
-
-
 
 \addbibresource{cite.bib}
 \title{Master Thesis}
@@ -240,27 +329,37 @@
 	\pagestyle{plain}
 	
 	\hypersetup{pageanchor=false}
-	\input{frontPage}
+	\input{frontMatter/frontPage}
 	
 	\frontmatter
 	
-	\input{abstact}
+	\pagestyle{abstract}
+	\input{frontMatter/abstract}
 	
 	\hypersetup{pageanchor=true}
-	\newpage
+	\clearpage
+	\setcounter{tocdepth}{2}
 	\tableofcontents
 	
 	\mainmatter
-	\pagestyle{fancy}
+	\pagestyle{jrmbsc}
 	
-	\input{fractalConstruction}
+	\input{mainMatter/fractalConstruction}
 
-	\input{LaplaciansAndGRF}
+	\input{mainMatter/Laplacians}
 
-	\input{gaussianFields}	
+	\input{mainMatter/gaussianFields}	
 	
-	\input{mainTheorem}
+	\input{mainMatter/mainTheorem}
+	
 	\backmatter
+\begin{refcontext}[sorting=nyt]
+	% Standard bibliography
 	\nocite{*}
-	\printbibliography}
+	\raggedyright[4em] \printbibliography
+	
+	% With custom title (activate in preamble)
+	% \raggedyright[4em] \printbibliography[heading=memoirbib]
+\end{refcontext}
+	}
 \end{document}

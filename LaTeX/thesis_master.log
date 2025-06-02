@@ -1,0 +1,513 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.4)  2 JUN 2025 01:20
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**./thesis_master.tex
+(thesis_master.tex
+LaTeX2e <2024-11-01>
+L3 programming layer <2024-11-02>
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/memoir\memoir.cls
+Document Class: memoir 2024/01/26 v3.8.2 configurable book, report, article doc
+ument class
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2024-11-02 L3 programming layer (loader) 
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count196
+\l__pdf_internal_box=\box52
+))
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+e.sty
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count197
+))
+\onelineskip=\skip49
+\lxvchars=\skip50
+\xlvchars=\skip51
+\@memcnta=\count198
+\c@@memmarkcntra=\count199
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+\trimtop=\skip52
+\trimedge=\skip53
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/memoir\mem11.clo
+File: mem11.clo 2022/07/29 v0.5 memoir class 11pt size option
+)
+\binding=\skip54
+\spinemargin=\skip55
+\foremargin=\skip56
+\uppermargin=\skip57
+\lowermargin=\skip58
+\headdrop=\skip59
+\normalrulethickness=\skip60
+\mem@maxheadheight=\skip61
+\mem@maxfootheight=\skip62
+\headwidth=\skip63
+\c@storedpagenumber=\count266
+\memPD=\dimen141
+\m@mabparskip=\skip64
+\thanksmarkwidth=\skip65
+\thanksmarksep=\skip66
+\droptitle=\skip67
+\c@book=\count267
+\c@part=\count268
+\c@chapter=\count269
+\c@section=\count270
+\c@subsection=\count271
+\c@subsubsection=\count272
+\c@paragraph=\count273
+\c@subparagraph=\count274
+\beforechapskip=\skip68
+\midchapskip=\skip69
+\afterchapskip=\skip70
+\chapindent=\skip71
+\bottomsectionskip=\skip72
+\secindent=\skip73
+\beforesecskip=\skip74
+\aftersecskip=\skip75
+\subsecindent=\skip76
+\beforesubsecskip=\skip77
+\aftersubsecskip=\skip78
+\subsubsecindent=\skip79
+\beforesubsubsecskip=\skip80
+\aftersubsubsecskip=\skip81
+\paraindent=\skip82
+\beforeparaskip=\skip83
+\afterparaskip=\skip84
+\subparaindent=\skip85
+\beforesubparaskip=\skip86
+\aftersubparaskip=\skip87
+\pfbreakskip=\skip88
+\c@@ppsavesec=\count275
+\c@@ppsaveapp=\count276
+\ragrparindent=\dimen142
+\everylistparindent=\dimen143
+\parsepi=\skip89
+\topsepi=\skip90
+\itemsepi=\skip91
+\parsepii=\skip92
+\topsepii=\skip93
+\topsepiii=\skip94
+\itemsepii=\skip95
+\itemsepiii=\skip96
+\partopsepii=\skip97
+\partopsepiii=\skip98
+\m@msavetopsep=\skip99
+\m@msavepartopsep=\skip100
+\@enLab=\toks17
+\abstitleskip=\skip101
+\absleftindent=\skip102
+\abs@leftindent=\dimen144
+\absrightindent=\skip103
+\absparindent=\skip104
+\absparsep=\skip105
+\c@vslineno=\count277
+\c@poemline=\count278
+\c@modulo@vs=\count279
+\c@memfvsline=\count280
+\vleftskip=\skip106
+\vrightskip=\skip107
+\stanzaskip=\skip108
+\versewidth=\skip109
+\vgap=\skip110
+\vindent=\skip111
+\vleftmargin=\dimen145
+\c@verse=\count281
+\c@chrsinstr=\count282
+\beforepoemtitleskip=\skip112
+\afterpoemtitleskip=\skip113
+\c@poem=\count283
+\beforePoemTitleskip=\skip114
+\midPoemTitleskip=\skip115
+\afterPoemTitleskip=\skip116
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen146
+\ar@mcellbox=\box53
+\extrarowheight=\dimen147
+\NC@list=\toks18
+\extratabsurround=\skip117
+\backup@length=\skip118
+\ar@cellbox=\box54
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/tools\dcolumn.sty
+Package: dcolumn 2023/07/08 v1.06 decimal alignment package (DPC)
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/tools\delarray.sty
+Package: delarray 2014/10/28 v1.01 array delimiter package (DPC)
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen148
+\TX@old@table=\dimen149
+\TX@old@col=\dimen150
+\TX@target=\dimen151
+\TX@delta=\dimen152
+\TX@cols=\count284
+\TX@ftn=\toks19
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen153
+\lightrulewidth=\dimen154
+\cmidrulewidth=\dimen155
+\belowrulesep=\dimen156
+\belowbottomsep=\dimen157
+\aboverulesep=\dimen158
+\abovetopsep=\dimen159
+\cmidrulesep=\dimen160
+\cmidrulekern=\dimen161
+\defaultaddspace=\dimen162
+\@cmidla=\count285
+\@cmidlb=\count286
+\@aboverulesep=\dimen163
+\@belowrulesep=\dimen164
+\@thisruleclass=\count287
+\@lastruleclass=\count288
+\@thisrulewidth=\dimen165
+)
+\ctableftskip=\skip119
+\ctabrightskip=\skip120
+\abovecolumnspenalty=\count289
+\@linestogo=\count290
+\@cellstogo=\count291
+\@cellsincolumn=\count292
+\crtok=\toks20
+\@mincolumnwidth=\dimen166
+\c@newflo@tctr=\count293
+\mem@margin@floatbox=\box55
+\@contcwidth=\skip121
+\@contindw=\skip122
+\abovecaptionskip=\skip123
+\belowcaptionskip=\skip124
+\subfloattopskip=\skip125
+\subfloatcapskip=\skip126
+\subfloatcaptopadj=\skip127
+\subfloatbottomskip=\skip128
+\subfloatlabelskip=\skip129
+\subfloatcapmargin=\dimen167
+\c@@contsubnum=\count294
+\m@mscap@capbox=\box56
+\m@mscap@fbox=\box57
+\sidecapsep=\dimen168
+\sidecapwidth=\dimen169
+\m@m@tempdima=\dimen170
+\m@mscapraise=\dimen171
+\sidecapraise=\dimen172
+\m@mscapmainwidth=\dimen173
+\m@mscaplkern=\dimen174
+\beforeepigraphskip=\skip130
+\afterepigraphskip=\skip131
+\epigraphwidth=\skip132
+\epigraphrule=\skip133
+LaTeX Info: Redefining \em on input line 6932.
+LaTeX Info: Redefining \emph on input line 6940.
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+))
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
+\c@section@level=\count295
+)
+\tocentryskip=\skip134
+\tocbaseline=\skip135
+\cftparskip=\skip136
+\cftbeforebookskip=\skip137
+\cftbookindent=\dimen175
+\cftbooknumwidth=\dimen176
+\cftbeforepartskip=\skip138
+\cftpartindent=\skip139
+\cftpartnumwidth=\skip140
+\cftbeforechapterskip=\skip141
+\cftchapterindent=\skip142
+\cftchapternumwidth=\skip143
+\cftbeforesectionskip=\skip144
+\cftsectionindent=\skip145
+\cftsectionnumwidth=\skip146
+\cftbeforesubsectionskip=\skip147
+\cftsubsectionindent=\skip148
+\cftsubsectionnumwidth=\skip149
+\cftbeforesubsubsectionskip=\skip150
+\cftsubsubsectionindent=\skip151
+\cftsubsubsectionnumwidth=\skip152
+\cftbeforeparagraphskip=\skip153
+\cftparagraphindent=\skip154
+\cftparagraphnumwidth=\skip155
+\cftbeforesubparagraphskip=\skip156
+\cftsubparagraphindent=\skip157
+\cftsubparagraphnumwidth=\skip158
+\prechapterprecisshift=\dimen177
+\c@maxsecnumdepth=\count296
+\bibindent=\dimen178
+\bibitemsep=\skip159
+\indexcolsep=\skip160
+\indexrule=\skip161
+\indexmarkstyle=\toks22
+\@indexbox=\insert252
+LaTeX Info: Redefining \raggedbottom on input line 7935.
+LaTeX Info: Redefining \flushbottom on input line 7939.
+\glossarycolsep=\dimen179
+\glossaryrule=\dimen180
+\sideparvshift=\skip162
+\sideins=\insert251
+\sidebartopsep=\skip163
+\sidebarhsep=\skip164
+\sidebarvsep=\skip165
+\sidebarwidth=\skip166
+\footmarkwidth=\skip167
+\footmarksep=\skip168
+\footparindent=\skip169
+\footinsdim=\skip170
+\footinsv@r=\insert250
+\@mpfootinsv@r=\insert249
+\m@m@k=\count297
+\m@m@h=\dimen181
+\m@mipn@skip=\skip171
+\sidefootins=\insert248
+\sidefootadjust=\skip172
+\sidefootheight=\skip173
+\sidefoothsep=\skip174
+\sidefootvsep=\skip175
+\sidefootwidth=\skip176
+\m@mdownsf=\skip177
+\c@sidefootnote=\count298
+\sidefootmarkwidth=\skip178
+\sidefootmarksep=\skip179
+\sidefootparindent=\skip180
+\c@pagenote=\count299
+\c@pagenoteshadow=\count300
+\mem@pn@lastkern=\skip181
+ (C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks23
+\verbatim@line=\toks24
+\verbatim@in@stream=\read2
+)
+\verbatimindent=\skip182
+\verbatim@out=\write3
+ (C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/base\shortvrb.sty
+Package: shortvrb 2024/10/23 v3.0q Standard LaTeX documentation package V3 (FMi
+)
+)
+\bvboxsep=\skip183
+\c@memfbvline=\count301
+\c@bvlinectr=\count302
+\bvnumlength=\skip184
+\fb@frw=\dimen182
+\fb@frh=\dimen183
+\FrameRule=\dimen184
+\FrameSep=\dimen185
+\c@cp@cntr=\count303
+\c@ism@mctr=\count304
+\c@xsm@mctr=\count305
+\c@csm@mctr=\count306
+\c@ksm@mctr=\count307
+\c@xksm@mctr=\count308
+\c@cksm@mctr=\count309
+\c@msm@mctr=\count310
+\c@xmsm@mctr=\count311
+\c@cmsm@mctr=\count312
+\c@bsm@mctr=\count313
+\c@workm@mctr=\count314
+\c@sheetsequence=\count315
+\c@lastsheet=\count316
+\c@lastpage=\count317
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textcase.sty
+Package: textcase 2023/07/27 v1.04 Text only upper/lower case changing (DPC)
+Package textcase Info: Defining Legacy names on input line 20.
+)
+\c@figure=\count318
+\c@lofdepth=\count319
+\cftbeforefigureskip=\skip185
+\cftfigureindent=\skip186
+\cftfigurenumwidth=\skip187
+\c@table=\count320
+\c@lotdepth=\count321
+\cftbeforetableskip=\skip188
+\cfttableindent=\skip189
+\cfttablenumwidth=\skip190
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package shortvrb [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verbatim [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+) (preamble.tex
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks25
+\inpenc@posthook=\toks26
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
+Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
+\MT@toks=\toks27
+\MT@tempbox=\box58
+\MT@count=\count322
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
+LaTeX Info: Redefining \leftprotrusion on input line 1088.
+\MT@prot@toks=\toks28
+LaTeX Info: Redefining \rightprotrusion on input line 1107.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen186
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count323
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdf
+tex.def
+File: microtype-pdftex.def 2025/02/11 v3.2a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip191
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
+File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+) (C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2024/11/08 v24.13 The multilingual framework for pdfLaTeX, LuaLa
+TeX and XeLaTeX
+\babel@savecnt=\count324
+\U@D=\dimen187
+\l@unhyphenated=\language79
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read3
+\bbl@dirlevel=\count325
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\british.l
+df
+Language: british 2017/06/06 v3.3r English support from the babel system
+
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.l
+df
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+))
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/babel-danish\danish.ldf
+Language: danish 2021/02/06 v1.3s Danish support from the babel system
+Package babel Info: Making " an active character on input line 82.
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.l
+df
+Language: english 2017/06/06 v3.3r English support from the babel system
+))
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel
+-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/da\babel
+-danish.tex
+Package babel Info: Importing font and identification data for danish
+(babel)             from babel-da.ini. Reported on input line 11.
+)
+(C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel
+-british.tex
+Package babel Info: Importing font and identification data for british
+(babel)             from babel-en-GB.ini. Reported on input line 11.
+)
+
+Package Babel Warning: The package option `english' should not be used
+(Babel)                with a more specific one (like `british') on input line 
+38.
+
+
+! LaTeX Error: File `libertine.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.43 \usepackage
+                {libertinust1math}     % Math support for Linux Libertine^^M
+*** (cannot \read from terminal in nonstop modes)
+
+ 
+Here is how much of TeX's memory you used:
+ 8178 strings out of 473682
+ 133592 string characters out of 5719216
+ 592324 words of memory out of 5000000
+ 31215 multiletter control sequences out of 15000+600000
+ 559437 words of font info for 39 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 85i,1n,93p,261b,104s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!

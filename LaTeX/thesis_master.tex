@@ -1,0 +1,129 @@
+%% ============================================================================
+%%
+%%  Speciale / Master's thesis
+%%
+%%  Author: FORNAVN EFTERNAVN
+%%
+%%  IMPORTANT: Compile with pdfLaTeX+biber !
+%%
+%%  Remarks:
+%%  - Needs to be executed with '--shell-escape' if the minted-package is used!
+%%
+%%  Original template/preamble: Jakob Lysgaard Rørsted (Mosumgaard)
+%% ============================================================================
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Preamble and input control
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+% Use memoir!!!
+\documentclass[%
+% final,           % Un-comment when finished (to e.g. remove watermark)
+11pt,
+openright,
+twoside,
+% danish,
+british,
+a4paper
+]{memoir}
+
+% Global definition: Name of the project (e.g. for the headers)
+% NOTE: The text of the front page is defined manually!
+\newcommand{\projecttitle}{Fractional Gaussian Fields on the Vicsek set}
+\newcommand{\projecttitledanish}{}
+
+% Read the actual preamble
+\input{preamble}
+
+% Uncomment to include all  -->  Ugly hack, I know !
+%\renewcommand\includeonly[1]{}
+
+
+% Make the fixme-package silent to avoid cluttering of the terminal output
+% --> Comment-out to see the FiXme Summary as well as individual logs of
+%     error/warning/fatal notes
+% \fxsetup{silent}
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Contents
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{document}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Frontmatter (before the actual content)  [feel free to remove stuff]
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\frontmatter
+
+% Frontpage and abstract (this will set the page number to count all pages)
+% If you want to let the page counter reset, go to line 71 in the file.
+
+\pagestyle{abstract}
+%\include{frontMatter/frontpage}
+
+\include{frontMatter/abstract}
+
+
+\pagestyle{jrmbsc}
+
+% List of fixme-notes -- REMEMBER TO REMOVE!
+%  --> When removed, things will end on the correct pages
+%\listoffixmes
+
+% Preface (Danish: Forord)
+% [comment-out if not required]
+%\include{front/preface}
+
+% Table of contents
+\clearpage
+\setcounter{tocdepth}{2}
+\tableofcontents*
+
+% Introduction (as an actual chapter, but *without* a number)
+% [comment-out if not required]
+%\include{front/intro}
+
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Mainmatter (the actual content)
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\mainmatter
+
+% Here the chapters are organised in individual files, but in the same folder.
+% Another option is to make one folder per chapter. This can e.g. be useful if
+% each chapter contains many figures.
+
+% Chapter 1
+\include{mainMatter/fractalConstruction}
+
+% Chapter 2
+\include{mainMatter/Laplacians}
+
+%Chapter 3
+\include{mainMatter/gaussianFields}
+
+%Chapter 4
+\include{mainMatter/mainTheorem}
+
+
+% ~~~~~~~~~~~~
+% Bibliography
+% ~~~~~~~~~~~~
+\clearpage
+\backmatter
+\begin{refcontext}[sorting=nyt]
+	% Standard bibliography
+	\nocite{*}
+	\raggedyright[4em] \printbibliography
+	
+	% With custom title (activate in preamble)
+	% \raggedyright[4em] \printbibliography[heading=memoirbib]
+\end{refcontext}
+
+% ~~~~~~~~~~
+% Appendices
+% ~~~~~~~~~~
+%\appendix
+%\include{app/app}
+
+\end{document}
