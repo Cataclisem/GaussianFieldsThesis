@@ -39,7 +39,7 @@ In this section we will prove a collection of lemmas that will be needed later.
 	
 	Thus by \cite[theorem 2.1]{KURTZ1969354}  we have that for all $t \geq 0$
 	\begin{equation}\label{convergensofPt}
-		\lim_{m \to \infty} \sup_{p \in V_m} \abs{P_t^{m}f_m(p) - P_t f(p)} = 0.
+		\lim_{m \to \infty} \sup_{p \in V_m} \abs{P_t^{m}f_m(p) - \left(P_t f(p)\right)_m} = 0.
 	\end{equation}
 	So if we now write 
 	\begin{equation}
@@ -61,7 +61,7 @@ In this section we will prove a collection of lemmas that will be needed later.
 \begin{proof}
 	For $s = 0$  we find that 
 	\begin{align}
-		(-\Delta_m)^{-0} f&= \sum_{i = 1}^{N_m} \frac{1}{(\lambda_i^{m})^{0}} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \psi_{i}^{m}(y) f(y) \\
+		(-\Delta_m)^{-0} f&= \sum_{i = 1}^{N_m} \frac{1}{(\lambda_i^{m})^{0}} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y) f(y) \\
 		&= \sum_{i = 1}^{N_m} \phi_{i}^{m}(x) \int_{V_m} \phi_i^{m}(y)f(y) \dd \mu_{m} \\
 		& = f_m.
 	\end{align}
@@ -72,9 +72,15 @@ In this section we will prove a collection of lemmas that will be needed later.
 	and the lemma follows from \cref{convergenceOfMeasures}. 
 	
 	\medskip
+	We First now note that
+	\begin{align}
+		(-\Delta_m)^{s}f_m &= \frac{1}{a_m} \sum_{j = 1}^{N_m} (\lambda_j^{m})^{-s} \phi_j^{m}(x) \sum_{y \in V_m} \phi_j(y) f_m(y) \\
+		&= \frac{1}{a_m} \sum_{j = 1}^{N_m} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t \phi_j^{m}(x) \sum_{y \in V_m} \phi_j(y) f_m(y) \\
+		&= \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1} \frac{1}{a_m}\sum_{y \in V_m} \sum_{j = 1}^{N_m} (\lambda_j^{m})^{-s} \phi_j^{m}(x)  \phi_j(y) f_m(y) 
+	\end{align}
 	Now assume $s > 0$ then by Fubini's theorem and the fact that the semi-group is linear we have that
 	\begin{align}
-		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_t^{m} f_m(p) (-\Delta_{m})^{-2s}f_m(p)  = \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p).
+		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) (-\Delta_{m})^{-2s}f_m(p)  = \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p).
 	\end{align}
 	By \cref{suckItKigami} we find that
 	\begin{align}

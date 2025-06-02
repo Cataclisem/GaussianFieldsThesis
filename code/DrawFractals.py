@@ -55,4 +55,4 @@ def makeVicsek(n: int = vicsek.n, markers: bool = False):
         plt.close(fig)
         #plt.show()
 
-makeVicsek(n = 5, markers=True)
+makeVicsek(n = 3, markers=True)
