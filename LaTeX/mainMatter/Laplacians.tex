@@ -261,12 +261,11 @@ This definition only involves functions defined on $V^{*}$, but we find that fun
 		\abs{u(x)-u(y)} \leq r^{\frac{m}{2}} \mathcal{E}(u)^{\frac{1}{2}}.
 	\end{equation}
 	
-	\textcolor{red}{I cannot get this to be uniformly convergent.}
 	Now consider a chain of points $x_m, x_{m+1}, \ldots, x_{m+k}$ where $x_{m+j} \in V_{m+j}$ and $x_{m+j} \in V_{m+j+1, x_{m+j+1}}$. Then we have
 	\begin{equation}
 		\abs{u(x_m)-u(x_{m+k})} \leq r^{\frac{m}{2}}\left(1 + r^{\frac{1}{2}} + \ldots + r^{\frac{k}{2}}\right)\mathcal{E}(u)^{\frac{1}{2}} \leq \frac{r^{m}}{1-r^{\frac{1}{2}}} \mathcal{E}^{\frac{1}{2}}
 	\end{equation}
-	by using \eqref{uniFormContiousEstimate} and the triangle inequality multiple times. From the geometry of $K$ we see that $x, y \in V^{*}$ belong to the same or adjacent $m$-cells then we can connect $x$ to $y$ by at most $2$ such chains \textcolor{red}{What does he mean?}, so
+	by using \eqref{uniFormContiousEstimate} and the triangle inequality multiple times. From the geometry of $K$ we see that $x, y \in V^{*}$ belong to the same or adjacent $\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_m}$ then we can connect $x$ to $y$ by one of such chains, so
 	\begin{equation}
 		\abs{u(x) - u(y)} \leq \frac{2r^{m/2}}{1-r^{\frac{1}{2}}} \mathcal{E}(u)^{\frac{1}{2}}
 	\end{equation}
@@ -697,8 +696,9 @@ With semigroups out of the way we can define the heat kernel.
 	with $x,y \in X, f \in L^{\infty}(X, \mu)$.
 \end{defi}
 
-
-
+\begin{remark}
+	The discrete Laplacian $\Delta_m$ also generates a semigroup on $V_m$. We denote this by $\cbr{P^{m}_t}_{t \geq 0}$ and it is given by $P^{m}_t = e^{t\Delta_m}$
+\end{remark}
 
 \section{Fractional Laplacian}\label{sec:FractionalLaplacian}
 Before we can define the continuous fractional Laplacian, we need to define the eigenvalues and eigenfunctions for $-\Delta$. 
@@ -967,29 +967,41 @@ As we can see the concepts of a nuclear spaces is quite complicated, but its pro
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	First, we will make sure the integral on the right side actually converges. This holds because $S(K) \subset C(K)$ so $f$ will be bounded on $K$. Thus we just need that for every $x \in K$,  $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent.\footnote{In \cref{boundsOfRieszKernel}, (i) and (ii) the bounds are for $x \neq y$, but they are null-set wrt. $\mu$}  For $s \in (d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Looking at $s \in (0, d_h/d_w]$ then first we note that $\ln(x) \leq x^{-1}$ and $x^{d_h-sd_w} \leq x^{-d_h}$ for all $0 < x \leq 1$ . We will now use a dyadic annuli decomposition, so we see that 
-	$$K \subseteq \cup_{j \geq 0} B(x, R2^{-j})\backslash B(x,RS^{-j-1})$$ 
+	First, we will make sure the integral on the right side actually converges. This holds because $S(K) \subset C(K)$ so $f$ will be bounded on $K$. Thus we just need that for every $x \in K$,  $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent.\footnote{In \cref{boundsOfRieszKernel}, (i) and (ii) the bounds are for $x \neq y$, but they are null-set wrt. $\mu$}  For $s \in (d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Looking at $s \in (0, d_h/d_w]$, we will now use a dyadic annuli decomposition. Meaning we will split $K$ up into infinitely annuli on the form $ B(x, R2^{-j})\backslash B(x,RS^{-j-1})$, noting that
+	\begin{equation}
+		K \subseteq \bigcup_{j \geq 0} B(x, R2^{-j})\backslash B(x,RS^{-j-1})
+	\end{equation}
 	where $R = \diam(K)$. Then we have for all $y \in B(x, R2^{-j})\backslash B(x,RS^{-j-1})$:
-	$$R2^{-j-1} \leq d(x,y) \leq R2^{-j-1} \Rightarrow 2^{-j-1} \leq R^{-1} \cd d(x,y) \leq 2^{-j-1} .$$ 
-	so therefore
 	\begin{equation}
-		\ln(R^{-1} d(x,y)) \leq \frac{R}{d(x,y)} 
+		R2^{-j-1} \leq d(x,y) \leq R2^{-j-1} \Rightarrow 2^{-j-1} \leq R^{-1} \cd d(x,y) \leq 2^{-j-1} .
 	\end{equation}
-	This leads to the fact that for $s = d_h/d_w$ we have
+	  We will show that the integral is finite for both $s = d_h/d_w$ and $s<d_h/d_w$, but this requires we bound $\abs{ln d(x,y)}$. So we see that for all $\alpha > 0$
+	\begin{equation}
+		x^{\alpha} \abs{ln(x)} \to 0, \quad \text{as } x \to 0
+	\end{equation}
+	which means there exists a constant $k > 0$ such we can choose some interval $(0, u_k]$ so 
+	$\ln(x) \leq \frac{k}{x^{\alpha}}$ for all $x \in (0, u_K]$. Now choose $k$ such $u_{k'} \leq R$, in which case for $s = d_h/d_w$ we have
 	\begin{align}
-		\cd \int_{K} G_s^{m}(x,y) \dd \mu(y) &\leq \int_{K} R \cd C_1 \abs{R^{-1} \ln d(x,y)} \dd \mu(y) + \int_{K} C_1 \cd \ln R \dd \mu\\
-		& \leq \ln R + \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} R \cd C_1 \abs{\ln d(x,y)} \dd \mu(y) \\
-		&\leq \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{R \cd C_1}{den}
+		\int_{K} G_s(x,y) \dd \mu(y) &\leq \int_{K} C_1 \cd \abs{\ln d(x,y)} \dd \mu(y)\\
+		& \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} C_1\cd \abs{\ln d(x,y)} \dd \mu(y) \\
+		&\leq \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{C_1 \cd k'}{d(x,y)^{\gamma}} \dd \mu
 	\end{align}
-	
-	In which case we denote $R = \diam(K)$ If we recall \cref{normalziedHausdorffMeasureAhlforsRegular} we can
-	\begin{equation}
-		\int_{K}G_s(x,y)\dd \mu (y) \leq \int_{K}\frac{1}{d(x,y)^{d_h-sd_w}}  \dd \mu (y) < \infty
-	\end{equation}
-	which follows from the Alfons regular Hausdorff measure \textcolor{red}{why????? Choosing $r$ so the ball $B(x,r) \supset d(x,y)^{d_h-sd_w}$? But then how does this relate to $\mu(B(x,r))$}.
+	where $\gamma < d_h$. We can likewise bound $G_{s}(x,y)$ by
+	\begin{align}
+		\int_{K} G_s(x,y) \dd \mu(y) &\leq \int_{K} \frac{C_2}{d(x,y)^{\gamma}}\dd \mu(y)\\
+		& \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{C}{d(x,y)^{\gamma}}\dd \mu(y) \\
+	\end{align}
+	where $C = \max\cbr{C_1 \cd k', C_2}$. Thus for $s \in (0, d_h/d_w]$ we have
+	\begin{align}
+		\int_{K} G_s(x,y) \dd \mu(y) & \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{C}{d(x,y)^{\gamma}}\dd \mu(y) \\
+		& \leq R\cd C \sum_{j = 0}^{\infty} 2^{j \gamma} \mu \left(B(x, R2^{-j})\backslash B(x,RS^{-j-1})\right)  \\
+		&\leq R\cd C \sum_{j = 0}^{\infty} 2^{j \gamma} \mu \left(B(x, R2^{-j})\right) \\
+		& \leq R^{d_h +1} \cd C \cd c_2 \sum_{j = 0}^{\infty} 2^{j(\gamma - d_h)} < \infty
+	\end{align}
+	Where we use \cref{normalziedHausdorffMeasureAhlforsRegular} and $\int_{K}G_s(x,y)\dd \mu(y)$ is convergent for every $x$.
 	
 	\medskip
-	First note that if we use the substitution $t = \lambda_j u$ we get 
+	Moving along in proving the lemma, we note that if we use the substitution $t = \lambda_j u$ we get 
 	\begin{align}
 		\frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t = \frac{1}{\Gamma(s) \cd \lambda_j^s} \int_{0}^{\infty} u^{s-1}e^{-u} \dd u = \frac{1}{\Gamma(s)\lambda_{j}^{s}} \Gamma(s) = \lambda_j^{-s}.
 	\end{align}
@@ -1006,18 +1018,35 @@ As we can see the concepts of a nuclear spaces is quite complicated, but its pro
 \end{proof}
 
 An immediate corollary follows:
-\begin{coro}\label{coroForRieszKernelAndFractionalLaplacian}
-	Let $s > 0$, for $f,g \in S(K)$
-	\begin{equation}
-		\int_{K} (-\Delta)^{-s} f (-\Delta)^{-s} g \dd \mu = \int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
- 	\end{equation}
+\begin{coro}\label{coroForRieszKernelAndFractionalLaplacian} \phantom{a}
+	\begin{enumerate}[(i)]
+		\item 	Let $s > 0$, for $f,g \in S(K)$ \label{coroRiesz1}
+		\begin{equation}
+			\int_{K} (-\Delta)^{-s} f (-\Delta)^{-s} g \dd \mu = \int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
+		\end{equation}
+		
+		\item Let $s > 0$ the for $f \in S(K)$\label{coroRiesz2}
+		\begin{equation}
+			(-\Delta)^{-s}f = \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}P_tf(x) \dd t
+		\end{equation}
+	\end{enumerate}
+
 \end{coro}
 \begin{proof}
-	Now from the definition of $(-\Delta)^{-s}$, \cref{fracLaplacianProperties} and \cref{fractionalLaplacianIsRieszKernel}, we find that
+	Beginning with (\ref{coroRiesz1}). It follows from the definition of $(-\Delta)^{-s}$, \cref{fracLaplacianProperties} and \cref{fractionalLaplacianIsRieszKernel}, we find that
 	\begin{align}
 		\int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu &= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}g} \\
 		& = \inn{f}{(-\Delta)^{-2s}g}\\
 		 & = \int_{K}f (-\Delta)^{-2s}g \dd \mu \\
 		 & =\int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
+	\end{align}
+	
+	Moving on to (\ref{coroRiesz2}). Again from \cref{fractionalLaplacianIsRieszKernel} and \cref{heatKernelWritten} we have
+	\begin{align}
+		(-\Delta)^{-s}f &= \sum_{j =1 }^{\infty} (\lambda_j)^{-s} \phi_j \int_{K}\phi_j(y) f(y) \dd \mu(y) \\
+		&= \sum_{j =1 }^{\infty} \left(\frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t\right) \phi_j \int_{K}\phi_j(y) f(y) \dd \mu(y) \\
+		&= \frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1} \int_{K} \sum_{j = 1}^{\infty}  e^{-\lambda_j t}  \phi_j \phi_j(y) f(y) \dd \mu(y) \dd t \\
+		&= \frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1} \int_{K} p_t(x,y) f(y) \dd \mu(y) \dd t \\
+		&=\frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1} P_tf(x) \dd t 
 	\end{align}
 \end{proof}

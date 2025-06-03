@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="720pt" height="720pt" viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2025-06-02T12:48:56.800659</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 720 
+L 720 720 
+L 720 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="PathCollection_1">
+    <defs>
+     <path id="me52592ebf8" d="M 0 0.223607 
+C 0.059301 0.223607 0.116182 0.200046 0.158114 0.158114 
+C 0.200046 0.116182 0.223607 0.059301 0.223607 0 
+C 0.223607 -0.059301 0.200046 -0.116182 0.158114 -0.158114 
+C 0.116182 -0.200046 0.059301 -0.223607 0 -0.223607 
+C -0.059301 -0.223607 -0.116182 -0.200046 -0.158114 -0.158114 
+C -0.200046 -0.116182 -0.223607 -0.059301 -0.223607 0 
+C -0.223607 0.059301 -0.200046 0.116182 -0.158114 0.158114 
+C -0.116182 0.200046 -0.059301 0.223607 0 0.223607 
+z
+" style="stroke: #000000"/>
+    </defs>
+    <g clip-path="url(#p536883eb74)">
+     <use xlink:href="#me52592ebf8" x="32.727273" y="360" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="687.272727" y="360" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="360" y="32.727273" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="360" y="687.272727" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="32.727273" y="360" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="687.272727" y="360" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="360" y="32.727273" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="360" y="687.272727" style="stroke: #000000"/>
+     <use xlink:href="#me52592ebf8" x="360" y="360" style="stroke: #000000"/>
+    </g>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 32.727273 360 
+L 687.272727 360 
+" clip-path="url(#p536883eb74)" style="fill: none; stroke: #000000"/>
+    <path d="M 360 32.727273 
+L 360 687.272727 
+" clip-path="url(#p536883eb74)" style="fill: none; stroke: #000000"/>
+    <path d="M 32.727273 360 
+L 687.272727 360 
+" clip-path="url(#p536883eb74)" style="fill: none; stroke: #000000"/>
+    <path d="M 360 32.727273 
+L 360 687.272727 
+" clip-path="url(#p536883eb74)" style="fill: none; stroke: #000000"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p536883eb74">
+   <rect x="0" y="0" width="720" height="720"/>
+  </clipPath>
+ </defs>
+</svg>

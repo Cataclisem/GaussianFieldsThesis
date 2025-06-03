@@ -16,16 +16,16 @@
 \contentsline {section}{\numberline {2.3}Dirichlet Laplacian}{20}{section.133}%
 \contentsline {section}{\numberline {2.4}Discrete Fractional Laplacian}{21}{section.153}%
 \contentsline {section}{\numberline {2.5}Semi-groups and Heat kernels}{22}{section.161}%
-\contentsline {section}{\numberline {2.6}Fractional Laplacian}{24}{section.177}%
-\contentsline {section}{\numberline {2.7}Bounds of the Fractional Laplacian}{30}{section.214}%
-\contentsline {chapter}{\chapternumberline {3}Fractional Gaussian Fields}{33}{chapter.226}%
-\contentsline {section}{\numberline {3.1}Discrete Fractional Gaussian Fields}{33}{section.227}%
-\contentsline {section}{\numberline {3.2}Fractional Gaussian Fields}{34}{section.236}%
-\contentsline {chapter}{\chapternumberline {4}Convergence in distribution of fractional Gaussian Fields}{39}{chapter.270}%
-\contentsline {section}{\numberline {4.1}Preliminary Lemmas}{39}{section.271}%
-\contentsline {section}{\numberline {4.2}Main Theorem}{41}{section.281}%
-\contentsline {section}{\numberline {4.3}Simulations}{42}{section.286}%
-\contentsline {subsection}{\numberline {4.3.1}Construction of the Vicsek set for simulation}{42}{subsection.289}%
-\contentsline {subsection}{\numberline {4.3.2}Eigenvalues and eigenfunctions}{43}{subsection.292}%
-\contentsline {subsection}{\numberline {4.3.3}The initial goal of the simulations}{43}{subsection.293}%
-\contentsline {chapter}{Bibliography}{47}{section*.297}%
+\contentsline {section}{\numberline {2.6}Fractional Laplacian}{24}{section.178}%
+\contentsline {section}{\numberline {2.7}Bounds of the Fractional Laplacian}{30}{section.215}%
+\contentsline {chapter}{\chapternumberline {3}Fractional Gaussian Fields}{33}{chapter.231}%
+\contentsline {section}{\numberline {3.1}Discrete Fractional Gaussian Fields}{33}{section.232}%
+\contentsline {section}{\numberline {3.2}Fractional Gaussian Fields}{34}{section.241}%
+\contentsline {chapter}{\chapternumberline {4}Convergence in distribution of fractional Gaussian Fields}{39}{chapter.274}%
+\contentsline {section}{\numberline {4.1}Preliminary Lemmas}{39}{section.275}%
+\contentsline {section}{\numberline {4.2}Main Theorem}{41}{section.285}%
+\contentsline {section}{\numberline {4.3}Simulations}{42}{section.290}%
+\contentsline {subsection}{\numberline {4.3.1}Construction of the Vicsek set for simulation}{43}{subsection.293}%
+\contentsline {subsection}{\numberline {4.3.2}Eigenvalues and eigenfunctions}{43}{subsection.296}%
+\contentsline {subsection}{\numberline {4.3.3}The initial goal of the simulations}{44}{subsection.297}%
+\contentsline {chapter}{Bibliography}{47}{section*.301}%

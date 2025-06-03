@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.4)  2 JUN 2025 04:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.4)  2 JUN 2025 23:22
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1803,65 +1803,77 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 364.
 [4
 
 ] (mainMatter/fractalConstruction.tex
+Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
+is 1 on input line 22.
 
-! Package svg Error: File `vicsek0MarkersTrue.svg' is missing.
+(svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
+<./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, id=18953, page=1, 722.7pt x 722
+.7pt>
+File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf , page1 
+used on input line 56.
+(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
+)
+Package svg Info: Last page of `./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf' 
+is 1 on input line 24.
 
-See the svg package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.22 ...vecScale]{Pictures/vicsek0MarkersTrue.svg}
-                                                  
-There's no file `vicsek0MarkersTrue.svg'
-in folder `Pictures/'.
+(svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf_tex
+<./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf, id=18955, page=1, 722.7pt x 722
+.7pt>
+File: ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf , page1 
+used on input line 56.
+(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
+)
+Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
+is 1 on input line 26.
 
+(svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
+<./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, id=18957, page=1, 722.7pt x 722
+.7pt>
+File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf , page1 
+used on input line 56.
+(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
+)
+Package svg Info: Last page of `./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf' 
+is 1 on input line 28.
 
-! Package svg Error: File `vicsek1MarkersTrue.svg' is missing.
-
-See the svg package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.24 ...vecScale]{Pictures/vicsek1MarkersTrue.svg}
-                                                  
-There's no file `vicsek1MarkersTrue.svg'
-in folder `Pictures/'.
-
-
-! Package svg Error: File `vicsek2MarkersTrue.svg' is missing.
-
-See the svg package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.26 ...vecScale]{Pictures/vicsek2MarkersTrue.svg}
-                                                  
-There's no file `vicsek2MarkersTrue.svg'
-in folder `Pictures/'.
-
-
-! Package svg Error: File `vicsek3MarkersTrue.svg' is missing.
-
-See the svg package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.28 ...vecScale]{Pictures/vicsek3MarkersTrue.svg}
-                                                  
-There's no file `vicsek3MarkersTrue.svg'
-in folder `Pictures/'.
-
-
+(svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf_tex
+<./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf, id=18959, page=1, 722.7pt x 722
+.7pt>
+File: ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf , page1 
+used on input line 56.
+(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
+)
 
 [1
 
 {C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}
 {C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}
 {C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}
-]
+ <./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf> <./svg-inkscape/vicsek1Markers
+True_svg-tex.pdf
+
+pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pd
+f): PDF inclusion: multiple pdfs with page group included in a single page
+> <./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf
+
+pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pd
+f): PDF inclusion: multiple pdfs with page group included in a single page
+> <./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf
+
+pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pd
+f): PDF inclusion: multiple pdfs with page group included in a single page
+>]
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 95.
+(Font)              <12> on input line 91.
 [2]
 
 [3]
@@ -1890,12 +1902,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 [13]
-Overfull \hbox (11.27437pt too wide) in paragraph at lines 264--266
-[][]\OT1/lmr/m/n/10.95 I can-not get this to be uni-formly con-ver-gent.[] Now 
-con-sider a chain of points $\OML/lmm/m/it/10.95 x[]; x[]; [] ; x[]$
- []
-
-
 
 [14]
 
@@ -1910,7 +1916,7 @@ con-sider a chain of points $\OML/lmm/m/it/10.95 x[]; x[]; [] ; x[]$
 [19]
 
 [20]
-Overfull \hbox (6.43623pt too wide) in paragraph at lines 577--578
+Overfull \hbox (6.43623pt too wide) in paragraph at lines 576--577
 []\OT1/lmr/bx/n/10.95 Remark: []\OT1/lmr/m/n/10.95 Note that $[] [][] \OML/lmm/
 m/it/10.95 ^^^[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 y\OT1/lmr/m/n/10.95 )\O
 ML/lmm/m/it/10.95 f\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 y\OT1/lmr/m/n/10.95 
@@ -1979,13 +1985,13 @@ nor-mal ba-sis $\OML/lmm/m/it/10.95 e[]; [] e[]$ \OT1/lmr/m/n/10.95 of $[] []$.
 
 
 [35]
-Overfull \hbox (42.12556pt too wide) in paragraph at lines 161--162
+Overfull \hbox (42.12556pt too wide) in paragraph at lines 162--163
 []\OT1/lmr/m/n/10.95 We will think of white noise as a Gaus-sian pro-cess in-de
 xed by the set $\OMS/lmsy/m/n/10.95 A \OT1/lmr/m/n/10.95 = []$.
  []
 
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-67.
+68.
 (C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
@@ -2004,11 +2010,11 @@ File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 
 [41]
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-166.
+172.
  (C:\Users\chris\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (36.31905pt too wide) in paragraph at lines 166--167
+Overfull \hbox (36.31905pt too wide) in paragraph at lines 172--173
 \OT1/lmr/m/n/10.95 code can be found at: []$\OT1/lmtt/m/n/10.95 https : / / git
 front . io / r / Cataclisem / CxGoTRPqvjoM / GaussianFieldsThesis/$[]\OT1/lmr/m
 /n/10.95 . 
@@ -2018,108 +2024,108 @@ front . io / r / Cataclisem / CxGoTRPqvjoM / GaussianFieldsThesis/$[]\OT1/lmr/m
 
 [42{C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rmtt.enc
 }]
-<Pictures/vicsekSim/vicsekSim_V3-s0_001.png, id=19568, 462.22687pt x 347.04657p
+
+[43]
+<Pictures/vicsekSim/vicsekSim_V3-s0_001.png, id=20567, 462.22687pt x 347.04657p
 t>
 File: Pictures/vicsekSim/vicsekSim_V3-s0_001.png Graphic file (type png)
 <use Pictures/vicsekSim/vicsekSim_V3-s0_001.png>
 Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s0_001.png  used on in
-put line 218.
+put line 224.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/vicsekSim/vicsekSim_V3-s20.png, id=19569, 462.22687pt x 347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3-s20.png, id=20568, 462.22687pt x 347.04657pt>
 File: Pictures/vicsekSim/vicsekSim_V3-s20.png Graphic file (type png)
 <use Pictures/vicsekSim/vicsekSim_V3-s20.png>
 Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s20.png  used on input
- line 219.
+ line 225.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 218--220
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 224--226
  [][] 
  []
 
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 218--220
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 224--226
  [] 
  []
 
-<Pictures/vicsekSim/vicsekSim_V3-s1.png, id=19570, 462.22687pt x 347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3-s1.png, id=20569, 462.22687pt x 347.04657pt>
 File: Pictures/vicsekSim/vicsekSim_V3-s1.png Graphic file (type png)
 <use Pictures/vicsekSim/vicsekSim_V3-s1.png>
 Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s1.png  used on input 
-line 223.
+line 229.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/vicsekSim/vicsekSim_V3-s50.png, id=19571, 462.22687pt x 347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3-s50.png, id=20570, 462.22687pt x 347.04657pt>
 File: Pictures/vicsekSim/vicsekSim_V3-s50.png Graphic file (type png)
 <use Pictures/vicsekSim/vicsekSim_V3-s50.png>
 Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s50.png  used on input
- line 224.
+ line 230.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 223--225
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 229--231
  [][] 
  []
 
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 223--225
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 229--231
  [] 
  []
 
 
 
-[43]
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png, id=19579, 462.22687pt x 34
+[44 <./Pictures/vicsekSim/vicsekSim_V3-s0_001.png> <./Pictures/vicsekSim/vicsek
+Sim_V3-s20.png> <./Pictures/vicsekSim/vicsekSim_V3-s1.png> <./Pictures/vicsekSi
+m/vicsekSim_V3-s50.png>]
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png, id=20581, 462.22687pt x 34
 7.04657pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png Graphic file (type png
 )
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png  us
-ed on input line 253.
+ed on input line 259.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png, id=19580, 462.22687pt x 347.0
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png, id=20582, 462.22687pt x 347.0
 4657pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png Graphic file (type png)
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png  used 
-on input line 254.
+on input line 260.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 253--255
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 259--261
  [][] 
  []
 
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 253--255
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 259--261
  [] 
  []
 
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png, id=19581, 462.22687pt x 347.04
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png, id=20583, 462.22687pt x 347.04
 657pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png Graphic file (type png)
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png  used o
-n input line 258.
+n input line 264.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png, id=19582, 462.22687pt x 347.0
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png, id=20584, 462.22687pt x 347.0
 4657pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png Graphic file (type png)
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png  used 
-on input line 259.
+on input line 265.
 (pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 258--260
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 264--266
  [][] 
  []
 
 
-Overfull \hbox (31.27306pt too wide) in paragraph at lines 258--260
+Overfull \hbox (31.27306pt too wide) in paragraph at lines 264--266
  [] 
  []
 
 )
-
-[44 <./Pictures/vicsekSim/vicsekSim_V3-s0_001.png> <./Pictures/vicsekSim/vicsek
-Sim_V3-s20.png> <./Pictures/vicsekSim/vicsekSim_V3-s1.png> <./Pictures/vicsekSi
-m/vicsekSim_V3-s50.png>]
 
 [45 <./Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png> <./Pictures/sierpins
 kiSim/sierpinskiSim_V5-s20.png> <./Pictures/sierpinskiSim/sierpinskiSim_V5-s1.p
@@ -2145,16 +2151,16 @@ LaTeX2e <2024-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9E07F9B9055F7BC2589DE33DDC732B94;5364.
+(rerunfilecheck)             Checksum: C6466A1A71F1BB39FF01EBDF698C1480;5364.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42336 strings out of 473682
- 799444 string characters out of 5719216
- 1703478 words of memory out of 5000000
- 64342 multiletter control sequences out of 15000+600000
+ 42402 strings out of 473682
+ 802693 string characters out of 5719216
+ 1704603 words of memory out of 5000000
+ 64392 multiletter control sequences out of 15000+600000
  632269 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,16n,93p,1199b,2477s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2180,9 +2186,9 @@ b><C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb
 <C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
 <C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb>
-Output written on main.pdf (54 pages, 5168995 bytes).
+Output written on main.pdf (54 pages, 5389192 bytes).
 PDF statistics:
- 19805 PDF objects out of 22161 (max. 8388607)
- 381 named destinations out of 1000 (max. 500000)
- 305 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 20799 PDF objects out of 22161 (max. 8388607)
+ 385 named destinations out of 1000 (max. 500000)
+ 345 words of extra memory for PDF output out of 10000 (max. 10000000)
 

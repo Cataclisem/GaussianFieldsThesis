@@ -99,9 +99,10 @@ We will first state a lemma, to prove that a functional, that we will need, is p
 		\Phi \left(\sum_{j = 1}^{m} u_j e_j\right) = \exp \left(-\frac{1}{2} \sum_{i = 1}^{m} u_i^2\right) = \e \left[e^{ \img u \cd Z}\right].
 	\end{equation}
 	This leads us to for $z \in \cee^{n}$ 
-	\begin{equation}
-		\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] = \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0.
-	\end{equation}
+	\begin{multline}
+		\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1}^{n} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] \\
+		= \e \left[\left(\sum_{j = 1}^{n} z_j e^{iv_j \cd Z}\right)\left(\sum_{k = 1}^{n}\overline{z_k e^{iv_k \cd Z}}\right)\right]= \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0.
+	\end{multline}
 \end{proof}
 
 \begin{theorem}
