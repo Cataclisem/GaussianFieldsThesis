@@ -260,12 +260,15 @@ if __name__ == '__main__':
         print(f"It took {end - start} seconds")
     
     if whatToRun == 3:
-        for h in [5]: #range(5,6):
-            for sVals in [0.001, 1, 20, 50]:
+        for h in range(1,5):
+            i=0
+            for sVals in ["Multi"]:
                 print(f"Vm: {h}")
-                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
-                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
-                theOne.drawThePretty(sValues=[sVals])
+                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
+                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
+                #theOne.drawThePretty(sValues=[sVals])
+                theOne.drawThePretty(sValues=[0.001, 1, 20, 50], sameWhiteNoise=True)
                 #plt.gca().set_position([0, 0, 1, 1])
-                plt.savefig(f"c:/Users/chris/GaussianFieldsThesis/code/sim/{theOne.fractalType}Sim_V{h}-s{str(sVals).replace(".","_")}.svg", format="svg")
+                plt.savefig(f"c:/Users/chris/GaussianFieldsThesis/code/sim/vicsek/multi/{theOne.fractalType}Sim_V{h}_multiple{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
+                i+=1
     #plt.show()
