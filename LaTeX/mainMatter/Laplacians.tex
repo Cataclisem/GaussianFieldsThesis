@@ -1,16 +1,16 @@
 \chapter{Laplacians}
-In  \cref{chap:gaussianFields} the Gaussian random fields will be defined using the eigenvalues and eigenfunctions of the Dirichlet Laplacian. We will find that the Dirichlet Laplacian is an extension of the Kigami Laplacian. But to construct the Kigami Laplacian we need the discrete Laplacian as we will prove that the Kigami Laplacian is the pointwise limit of the discrete Laplacian. We will therefore start by introducing the discrete Laplacian, then the Kigami Laplacian, culminating with the Dirichlet Laplacian. Therefore consider the discrete Laplacian on the Vicsek set
+In  \Cref{chap:gaussianFields} the Gaussian random fields will be defined using the eigenvalues and eigenfunctions of the Dirichlet Laplacian. We will find that the Dirichlet Laplacian is an extension of the Kigami Laplacian. But to construct the Kigami Laplacian we need the discrete Laplacian as we will prove that the Kigami Laplacian is the pointwise limit of the discrete Laplacian. We will therefore start by introducing the discrete Laplacian, then the Kigami Laplacian, culminating with the Dirichlet Laplacian. Therefore consider the discrete Laplacian on the Vicsek set.
 
 \medskip
 \begin{defi}\label{discreteLaplacian}
-	Let $\ell(V_m)$ be the set of functions of $f: V_m \to \ree$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
+	Let $\ell(V_m)$ be the set of functions of $\func{f}{V_m}{\ree}$. Then for any $f \in \ell(V_m)$  the \emph{discrete Laplacian} on $V_m$ is defined as
 	\begin{equation}
-		\Delta_m f(p) = 3^{m} \frac{1}{N_p}\sum_{q \in V_{m,p}} (f(q) - f(p)), \quad p \in V_m \backslash V_0
+		\Delta_m f(p) = 3^{m} \frac{1}{N_p}\sum_{q \in V_{m,p}} (f(q) - f(p)), \quad p \in V_m \setminus V_0
 	\end{equation}
 	where $$N_p = \begin{cases}
-		5^{-m} & \text{if } \# V_{m,p} = 4 \\
-		2\cd 5^{-(m+1)} & \text{if } \# V_{m,p} = 2\\
-		5^{-(m+1)}  & \text{if } \# V_{m,p} = 1.
+		5^{-m} & \text{if } \ \# V_{m,p} = 4 \\
+		2\cd 5^{-(m+1)} & \text{if } \ \# V_{m,p} = 2\\
+		5^{-(m+1)}  & \text{if } \ \# V_{m,p} = 1.
 	\end{cases}$$
 \end{defi}
 
@@ -18,7 +18,7 @@ In  \cref{chap:gaussianFields} the Gaussian random fields will be defined using 
 \begin{remark}\label{discreteMatrix}
 	One is able to describe the discrete Laplacian of a function $f$ as a matrix. 
 	
-	Let $p_1, \ldots p_{N_m}$ be the vertices in $V_m$ then the \emph{Laplacian matrix} $L_m$ given by 
+	\noindent Let $p_1, \ldots p_{N_m}$ be the vertices in $V_m$ then the \emph{Laplacian matrix} $L_m$ given by 
 	\begin{equation}
 		(L_m)_{i,j} = \begin{cases}
 			\#V_{m,p_i}, & \text{if } i= j \\
@@ -26,7 +26,7 @@ In  \cref{chap:gaussianFields} the Gaussian random fields will be defined using 
 			0, & \text{otherwise}
 		\end{cases}
 	\end{equation}
-	satisfies:
+	which satisfies:
 	\begin{equation}
 		L_mF = \begin{pmatrix}
 			\Delta_m f(x_1)\\
@@ -38,34 +38,35 @@ In  \cref{chap:gaussianFields} the Gaussian random fields will be defined using 
 			f(x_{N_m})
 		\end{pmatrix}.
 	\end{equation}
-Further $\#V_{m,p_i}$ is also called the \emph{degree of $p_i$}
+In addition $\#V_{m,p_i}$ is also called the \emph{degree of $p_i$}
 \end{remark}
 
 \section{Graph Energies}
-In this section we will be following the arguments given by Strichartz in chapter 1 of \cite{strichartz}. Many of the proofs are going to rely on the graph energy. Thus first we will define and prove some properties of the graph energies form.
+In this section we will be following the arguments given by Strichartz in \cite[Chapter 1]{strichartz}. Many of the proofs are going to rely on the graph energy. Thus, we will first define and prove some properties of the graph energies form.
 
+\medskip
 \begin{defi}
-	Given a finite connected graph $G$ and it vertices $V_m$ then for functions $u, v: V_m \to \ree$ we define the \emph{graph energy} to be
+	Given a finite connected graph $G_m$ and it vertices $V_m$ then for functions $u, v\colon V_m \to \ree$ we define the \emph{graph energy} to be
 	\begin{equation}\label{graphEnergy}
 		E_m(u,v) = \sum_{x \sim y} \left(u(x) - u(y) \right)(v(x)-v(y)).
 	\end{equation}
 \end{defi}
 \noindent \textbf{Notation:} We will write $E_m(u) = E_m(u,u)$.
 
- Since, in the end, we want to work on the whole of the Vicsek set $K$, we will want to create an extension of a function $u: V_m \to \ree$, such that it is defined on $V_{m+n}$. This is done in the following way
+ Since we want to work on the whole Vicsek set $K$, we will want to create an extension of a function $u\colon V_m \to \ree$, such that it is defined on $V_{m+n}$. This is done in the following way:
 
 \medskip
 \begin{defi}
-	Let $K$ be a graph and $u: V_m \to \ree$, then an \emph{extension of} $u$ is a function \nl $u': V_{m+n} \to \ree$ where $u' \mid_{V_m} = u$.
+	Let $u\colon V_m \to \ree$. Then an \emph{extension of} $u$ is a function \nl $u'\colon V_{m+n} \to \ree$ where $u' \mid_{V_m} = u$.
 \end{defi}
- Further one quickly notices that there must be a function that minimizes the graph Dirichlet form of a given graph. We denote such a function with $\tilde{u}$ and call it a \emph{harmonic extension}.
+  One quickly notices that there must be a function that minimizes the graph energy of a given graph. We denote such a function with $\tilde{u}$ and call it a \emph{harmonic extension}.
 
 \medskip
 \begin{defi}
-	Let $\tilde{u}: V_{m+n} \to \ree$ with $\title{u} \mid_{V_m} = u$ is called a \emph{harmonic extension} if $E_{m+n}(\tilde{u}) \leq E_{m+n}(u')$ for all $u': V_{m+n} \to \ree$ with $u' \mid _{V_m} = u$.
+	Let $\tilde{u}\colon V_{m+n} \to \ree$ with $\tilde{u} \mid_{V_m} = u$ being a \emph{harmonic extension} if $E_{m+n}(\tilde{u}) \leq E_{m+n}(u')$ for all $u'\colon V_{m+n} \to \ree$ with $u' \mid _{V_m} = u$.
 \end{defi}
 
- In some cases we have that $E_{m+n}(\tilde{u}) = r^{n} E_{m}(u)$ for some $r \in (0,1)$. But instead of normalizing the values on $E_m$ we will normalize $E_{m+n}$. Thus  getting
+ In some cases we have that $E_{m+n}(\tilde{u}) = r^{n} E_{m}(u)$ for some $r \in (0,1)$. But instead of normalizing the values on $E_m$ we will normalize $E_{m+n}$, thus  getting
 \begin{equation}
 	r^{-n} E_{m+n}(\tilde{u}) = E_m(u), \quad \text{and} \quad r^{-n} E_{m+n}(u') \geq E_m(u)
 \end{equation}
@@ -73,9 +74,9 @@ for every extension $u'$ of $u$. The constant $r$ is called the \emph{renormaliz
 
 \medskip
 \begin{defi}\label{renormalizedGraphEnergies}
-	The \emph{renormalized graph energy} are defined as
+	The \emph{renormalized graph energies} are defined as
 	\begin{equation}
-		\eee_{m}(u) = r^{-m}E_m(u)
+		\eee_{m}(u) = r^{-m}E_m(u).
 	\end{equation}
 	Note that the sequence $\cbr{\eee_{m}(u)}$ is a non-decreasing sequence. 
 \end{defi}
@@ -90,13 +91,13 @@ Extending this to the bilinear form we have, for harmonic extension $\tilde{u}, 
 	\mathcal{E}_{m+1}(\tilde{u}, \tilde{v}) = \mathcal{E}_{m}(u,v).
 \end{equation}
 
-Actually one even has that for the bilinear form, if $\tilde{u}$ is the harmonic extension of $u$ and $v'$ is any extension of $v$ then
+This is also true for the bilinear form, if $\tilde{u}$ is the harmonic extension of $u$ and $v'$ is any extension of $v$ then
 \begin{equation}\label{bilinearFormRenormalized}
 	\mathcal{E}_{m+1}(\tilde{u}, v') = \mathcal{E}_{m}(u,v).
 \end{equation}
 See \cite{strichartz} for further details.
 
-Now that we have \cref{renormalizedGraphEnergies}, it is now possible to define a harmonic function
+Now that we have \cref{renormalizedGraphEnergies}, it is possible to define a harmonic function.
 
 \medskip
 \begin{defi}
@@ -105,19 +106,19 @@ Now that we have \cref{renormalizedGraphEnergies}, it is now possible to define 
 
 The harmonic functions will be used extensively throughout this section. We start by finding the renormalization constant for the Vicsek set.
 
-\subsection{Renormalization Constant on the Vicsek set}
+\subsection{The Renormalization Constant on the Vicsek set}
 
-In the previous section we have talked about a harmonic function, but without ever constructing one. We will therefore in this next section show how to create a harmonic function for the Vicsek set for any initial boundary values $u(V_0)$.
+In the previous section we talked about a harmonic function, but without ever constructing one. We will therefore in this section show how to construct a harmonic function for the Vicsek set for any initial boundary values $u(V_0)$.
 
 \medskip
-Given $V_0 = \cbr{q_0, q_1, q_2, q_3, q_4}$ and $u: V_0 \to \ree$ we have that
+Given $V_0 = \cbr{q_1, q_2, q_3, q_4, q_5}$ and $u\colon V_0 \to \ree$ we have that
 \begin{equation}
-	E_0(u) = \left(u(q_0) - u(q_1)\right)^2 + \left(u(q_0) - u(q_2)\right)^2 + \left(u(q_0) - u(q_3)\right)^2 + \left(u(q_0) - u(q_4)\right)^2.
+	E_0(u) = \left(u(q_1) - u(q_2)\right)^2 + \left(u(q_1) - u(q_3)\right)^2 + \left(u(q_1) - u(q_4)\right)^2 + \left(u(q_1) - u(q_5)\right)^2.
 \end{equation} 
-We are going to exploit the symmetry of the Vicsek set. Since all four "limbs" of the Vicsek set are identical we will only look at one of the limbs, since the other limbs will be the same computations. So if we want to minimize $E_1(u')$, we see for the limb between $q_0$ and $q_1$ that
-\begin{multline}
-	E_1(u') = \left(u'(q_1) - u'(p_0)\right)^2 + \left(u'(p_0) - u'(p_2)\right)^2 \\
-	 + \left(u'(p_0) - u'(p_3)\right)^2 + \left(u'(p_0) - u'(p_4)\right)^2 + \left(u'(p_3) - u'(q_0)\right)^2.
+We are going to exploit the symmetry of the Vicsek set. Since all four "extremities" of the Vicsek set are identical we will only look at one of the limbs, since the other limbs will be the same computations. So if we want to minimize $E_1(u')$, for $u': V_1 to \ree$, we see for the extremity between $q_1$ and $q_2$ that
+\begin{multline}\label{E1Energy}
+	\hspace{2em} E_1(u') = \left(u'(q_2) - u'(p_1)\right)^2 + \left(u'(p_1) - u'(p_3)\right)^2 + \left(u'(p_1) - u'(p_4)\right)^2 
+	\\ + \left(u'(p_1) - u'(p_5)\right)^2 + \left(u'(p_4) - u'(q_1)\right)^2. \hspace{2em}
 \end{multline}
 
 
@@ -175,84 +176,85 @@ We are going to exploit the symmetry of the Vicsek set. Since all four "limbs" o
 		\draw [shift={(200,180)}, rotate = 270] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 1.34, y radius= 1.34]   ;
 		
 		% Text Node
-		\draw (200,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{0}$};
+		\draw (200,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{1}$};
 		% Text Node
-		\draw (262,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{1}$};
+		\draw (262,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{2}$};
 		% Text Node
-		\draw (194,108) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{4}$};
+		\draw (194,108) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{5}$};
 		% Text Node
-		\draw (194,243.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{2}$};
+		\draw (194,243.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{3}$};
 		% Text Node
-		\draw (126,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{3}$};
+		\draw (126,171.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$q_{4}$};
 		% Text Node
-		\draw (241,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{0}$};
+		\draw (241,170.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{1}$};
 		% Text Node
-		\draw (220,168.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{3}$};
+		\draw (220,168.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{4}$};
 		% Text Node
-		\draw (234,204) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{2}$};
+		\draw (234,204) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{3}$};
 		% Text Node
-		\draw (235,148) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{4}$};
+		\draw (235,148) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$p_{5}$};
 				
 	\end{tikzpicture}
 	\caption{Points on the Vicsek set}
 \end{figure}
-We are then going to optimize with regards to $u'(p_i)$ for $i = 0, 1, 2, 4$. Taking the derivative of the right side and solving for $0$ we get the following
+Next we are going to optimize with regards to $u'(p_i)$ for $i = 0, 1, 2, 4$. Taking the derivative of the right side of \ref{E1Energy} and solving for $0$ we get the following
 \begin{align}
-	4 u'(p_0) &= u'(q_1) + u'(p_2) + u'(p_3) + u'(p_4) \\
-	2 u'(p_3) &= u'(q_0) + u'(p_0) \\
-	u'(p_2) &= u'(p_0)\\
-	u'(p_4) &= u'(p_0).
+	4 u'(p_1) &= u'(q_2) + u'(p_3) + u'(p_4) + u'(p_5) \\
+	2 u'(p_4) &= u'(q_1) + u'(p_1) \\
+	u'(p_3) &= u'(p_1)\\
+	u'(p_5) &= u'(p_1).
 \end{align}
 Solving these equations we get
 \begin{align}
-	u'(p_0) &=  \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0)\\
-	u'(p_2) &= \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0) \\
-	u'(p_4) &= \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_0) \\
-	u'(p_3) &= \frac{2}{3} u'(q_0) + \frac{1}{3} u'(q_1).
+	u'(p_1) &=  \frac{2}{3} u'(q_2) + \frac{1}{3} u'(q_1)\\
+	u'(p_3) &= \frac{2}{3} u'(q_2) + \frac{1}{3} u'(q_1) \\
+	u'(p_5) &= \frac{2}{3} u'(q_2) + \frac{1}{3} u'(q_1) \\
+	u'(p_4) &= \frac{2}{3} u'(q_1) + \frac{1}{3} u'(q_2).
 \end{align}
 
 Ergo what we have found is, that to minimize the value in the points of the Vicsek set, the value in the next point is going to be $2/3$ the value from the closest point and $1/3$ the value from the second closest point. 
 
 If we calculate the graph energy we find that
 \begin{equation}
-	E_1(u') =\frac{1}{3}\sum_{i = 1}^{4}(u'(q_i) - u'(q_0))^2 = \frac{1}{3}E_0(u').
+	E_1(u') =\frac{1}{3}\sum_{i = 1}^{4}(u'(q_i) - u'(q_1))^2 = \frac{1}{3}E_0(u').
 \end{equation}
 
 Since the Vicsek set is a self-similar set, we have that going from $V_1$ to $V_2$ is the same as going from $V_m$ to $V_{m+1}$. Thus we can simply extend the above calculations to doing it $m$ times, in which case
 \begin{equation}
-	E_{m+1}(u') = \frac{1}{3}E_m(u')
+	E_{m+1}(u') = \frac{1}{3}E_m(u').
 \end{equation}
 
-Thus we get our renormalization constant for the vicsek set to be $r = \frac{1}{3}$. And altogether we find that from \cref{renormalizedGraphEnergies} we have
+We then get our renormalization constant for the Vicsek set to be $r = \frac{1}{3}$. Altogether we find that from \cref{renormalizedGraphEnergies} we have that
 \begin{equation}
 	\mathcal{E}_{m}(u) = 3^{m} E_{m}(u).
 \end{equation}
 
 
 \section{Kigami Laplacian}
-With the renormalization constant found, we will return to finding the Kigmai Laplacian. Recall from \cref{renormalizedGraphEnergies} that we have defined a sequence $\mathcal{E}_m$ for functions on $V^{*}$. It will therefore make sense to define the following limit
-\begin{defi}\label{renormalizedGraphEnergiesLimit} Let $u: V^{*} \to \ree$ then define the limit
+With the renormalization constant found, we will return to finding the Kigami Laplacian. Recall from \cref{renormalizedGraphEnergies} that we have defined a sequence $\mathcal{E}_m$ for functions on $V^{*}$. It will therefore make sense to define the following limit.
+
+\medskip
+\begin{defi}\label{renormalizedGraphEnergiesLimit} Let $u\colon V^{*} \to \ree$ then define the limit
 	\begin{equation}
 		\mathcal{E}(u, u) = \lim_{m \to \infty} \mathcal{E}_{m}(u, u)
 	\end{equation}
 	where we set
 	\begin{equation}
-		\dom \mathcal{E} = \cbr{u \in \ell(V_{*}) : \mathcal{E}(u) < \infty}.
+		\dom \mathcal{E} = \cbr{u \in \ell(V_{*}) : \mathcal{E}(u) < \infty},\quad \text{and} \quad \dom_0 \mathcal{E} = \cbr{u \in \dom \mathcal{E} : u = 0,\text{ on } V_0 }.
 	\end{equation}
-	and denote $\dom_0 \mathcal{E}$ with the functions in $\dom \mathcal{E}$ that vanish $V_0$.
 \end{defi}
 
 This definition only involves functions defined on $V^{*}$, but we find that functions in $\dom \mathcal{E}$ are uniformly continuous and therefore have a unique extension to $K$. We even have that $\dom \mathcal{E}$ is dense in $C(K)$.
 
 \medskip
-\begin{prop} \phantom{a}
+\begin{prop} Let $\dom \mathcal{E}$ be defined as in \Cref{renormalizedGraphEnergiesLimit}. Then the following holds
 	\begin{enumerate}[(i)] 
 		\item 	Let $u \in \dom \mathcal{E}$ then $u$ is uniformly continuous on $V^{*}$. \label{uniCont1}
 		\item $\dom \mathcal{E}$ is dense in $C(K)$. \label{uniCont2}
 	\end{enumerate}
 \end{prop}
 \begin{proof}
-	We start with \ref{uniCont1}. Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
+	We start with (\ref{uniCont1}). Let $u \in \dom \mathcal{E}$ then $\mathcal{E}_m(u) \leq \mathcal{E}(u)$ since $\mathcal{E}_m$ is non-decreasing in $m$. So for $x,y \in V_m$ if $y \in V_{m,x}$we have that
 	\begin{equation}\label{uniFormContiousEstimate}
 		r^{-m}(u(x) -u(y))^{2} \leq \mathcal{E}_m(u) \leq \mathcal{E}(u)
 	\end{equation}
@@ -261,43 +263,45 @@ This definition only involves functions defined on $V^{*}$, but we find that fun
 		\abs{u(x)-u(y)} \leq r^{\frac{m}{2}} \mathcal{E}(u)^{\frac{1}{2}}.
 	\end{equation}
 	
-	Now consider a chain of points $x_m, x_{m+1}, \ldots, x_{m+k}$ where $x_{m+j} \in V_{m+j}$ and $x_{m+j} \in V_{m+j+1, x_{m+j+1}}$. Then we have
+	Now consider a chain of points $x_m, x_{m+1}, \ldots, x_{m+k}$ where $x_{m+j} \in V_{m+j}$ and \\ $x_{m+j} \in V_{m+j+1, x_{m+j+1}}$. Then we have
 	\begin{equation}
 		\abs{u(x_m)-u(x_{m+k})} \leq r^{\frac{m}{2}}\left(1 + r^{\frac{1}{2}} + \ldots + r^{\frac{k}{2}}\right)\mathcal{E}(u)^{\frac{1}{2}} \leq \frac{r^{m}}{1-r^{\frac{1}{2}}} \mathcal{E}^{\frac{1}{2}}
 	\end{equation}
-	by using \eqref{uniFormContiousEstimate} and the triangle inequality multiple times. From the geometry of $K$ we see that $x, y \in V^{*}$ belong to the same or adjacent $\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_m}$ then we can connect $x$ to $y$ by one of such chains, so
+	by using \eqref{uniFormContiousEstimate} and the triangle inequality multiple times. From the geometry of $K$ we see that $x, y \in V^{*}$ belong to the same or adjacent $\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_m}\right)(K)$. We can then connect $x$ to $y$ by one of such chains, so
 	\begin{equation}
 		\abs{u(x) - u(y)} \leq \frac{2r^{m/2}}{1-r^{\frac{1}{2}}} \mathcal{E}(u)^{\frac{1}{2}}
 	\end{equation}
 	giving a bound for all $x,y \in V^{*}$.
 	
-	For proof of \ref{uniCont2} we refer to \cite{strichartz}.
+	For proof of (\ref{uniCont2}) we refer to \cite{strichartz}.
 \end{proof}
 
 
-We are now ready to define the Kigami Laplacian. We will denote this with $\Delta_{\mu}$ and we will notice that it depends on a measure $\mu$, which will be the one defined in \eqref{normalziedHausdorffMeasure}.
+We are now ready to define the Kigami Laplacian. We will denote this with $\Delta_{\mu}$ as it depends on the choice of measure $\mu$. In our case we choose $\mu$ to be as in \Cref{normalziedHausdorffMeasure}.
 
 \medskip
 \begin{defi}
-	Let $u \in \dom \mathcal{E}$ and let $f$ be continuous, then $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u =f$ if
+	Let $u \in \dom \mathcal{E}$ and let $f \in C(K)$, then $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u =f$ if
 	\begin{equation}
-		\mathcal{E}(u,v) = \int_{K}fv \dd \mu, \quad \forall v \in \dom_{0}\mathcal{E}
+		\mathcal{E}(u,v) = \int_{K}fv \dd \mu, \quad \forall v \in \dom_{0}\mathcal{E}.
 	\end{equation}
+	We call $\Delta_{\mu}$ the \emph{Kigami Laplacian}.
 \end{defi}
 
-As mentioned before, we are going to want $\Delta_{\mu}$ to be defined as the limit of $\Delta_m$. The constants $3^m$ and $5^m$ are not random, but chosen such that the Kigami Laplacian makes sense. But to prove the pointwise limit and actually calculate the constants, we will need a few lemmas and definitions. Since we will be finding the constants, we introduce a new notation for the discrete graph Laplacian without its constants. We start by defining this graph Laplacian followed by a harmonic function which will be used extensively in the following proofs.
+As mentioned before, we want $\Delta_{\mu}$ to be defined as the limit of $\Delta_m$. The constants $3^m$ and $5^m$ are not random, but chosen such that the Kigami Laplacian makes sense. But to prove the pointwise limit and actually calculate the constants, we will need a few lemmas and definitions. We will introduce a new notation for the discrete graph Laplacian without its constants. The reason for this will become apparent, since we in future proofs will have that the constants cancels each other out. We start by defining this graph Laplacian followed by a harmonic function which will be used extensively in the following proofs.
 
+\medskip
 \begin{defi}
-	Let $\Delta_{m}$ be defined as in \cref{discreteLaplacian}, we then define
+	Let $\Delta_{m}$ be defined as in \Cref{discreteLaplacian}. We then define $\widetilde{\Delta}_m$ as
 	\begin{equation}
 		\widetilde{\Delta}_{m}f(p) = 3^{-m} N_p \Delta_mf(p) = \sum_{q \in V_{m, p}} f(q)-f(p).
 	\end{equation}
 \end{defi}
 
 \begin{defi}
-	Given $m$ and a point $x \in V_m \backslash V_0$ then define the harmonic function $\psi_{x}^{m}: V^{*} \to [0,1]$ that for a $y \in V_m$ is $\psi_x^{(m)}(y) = \delta_{xy}$.
+	Given $m$ and a point $x \in V_m \backslash V_0$ then define the harmonic function \\ $\psi_{x}^{m}\colon V^{*} \to [0,1]$ that for a $y \in V_m$ is $\psi_x^{(m)}(y) = \delta_{xy}$.
 \end{defi}
-Note that $\phi_x^{m} \in \dom \mathcal{E}$. Furthermore,it might seem odd that we have only defined $\psi_x^{(m)}$ to have values on $V_m$. But the function is defined on the whole of $V^{*}$, where the values in $K \backslash V_m$ come from the fact that it is a harmonic extension. We even have that function $\psi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
+Note that $\phi_x^{m} \in \dom \mathcal{E}$. Furthermore, it might seem odd that we have only defined $\psi_x^{(m)}$ to have values on $V_m$. But the function is defined on the whole of $V^{*}$, where the values in $K \setminus V_m$ come from the fact that it is a harmonic extension. We even have that function $\psi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
 \medskip
 \begin{prop}\label{pointwiseEqualityofpsi}
 	Let $u \in \dom \mathcal{E}$ and $\Delta_{\mu}u = f$ then
@@ -310,7 +314,7 @@ Note that $\phi_x^{m} \in \dom \mathcal{E}$. Furthermore,it might seem odd that 
 	\begin{equation}
 		\mathcal{E}_{m}(u, \psi_{x}^{(m)}) = r^{-m} \sum_{p \underset{m}{\sim} q}(u(q)-u(p))(\psi_{x}^{(m)}(p) -\psi_{x}^{(m)}(q)) = r^{-m}\sum_{q \in V_{m,x}}(u(x)-u(q)) = r^{-m}\widetilde{\Delta}_{m}u(x)
 	\end{equation}
-	where the second equality stems from the fact that only edges containing $x$ are going to see change in $\psi_{x}^{(m)}$. Now by \eqref{bilinearFormRenormalized} we have that
+	where the second equality stems from the fact that only edges containing $x$ are going to see change in $\psi_{x}^{(m)}$. By \eqref{bilinearFormRenormalized} we have that
 	\begin{equation}
 		r^{-m}\widetilde{\Delta}_{m}u(x) = \mathcal{E}_{m}(u, \psi_{x}^{(m)}) = \mathcal{E}(u, \psi_{x}^{(m)}) = \int_{K}f \psi_{x}^{(m)} \dd \mu
 	\end{equation}
@@ -318,15 +322,15 @@ Note that $\phi_x^{m} \in \dom \mathcal{E}$. Furthermore,it might seem odd that 
 \end{proof}
 
 \begin{lemma}\label{itIsZero}
-	Let $v: V^{*} \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{k > 0} S^{k}(x) \right) \cup \left(\bigcup_{i} \{y_i\} \right)$.
+	Let $v\colon V^{*} \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{B_x}$ where $B_x = \left( \bigcup_{k > 0} S^{k}(x) \right) \cup \left(\bigcup_{i} \{y_i\} \right)$.
 \end{lemma}
 \begin{proof}
 	It is clear that $v(\omega) = 0$ for any $\omega \in B_x$, since the value of the points $S^{k}(x)$ with $k > 0$ depends on the value of $x$ and its neighbours. 
 	
-	So we need to check the points in $\overline{B_x} \backslash B_x$. Now since $B_x$ is dense in $\overline{B_x}$, then for any $\omega \in \overline{B_x}$ we have that there exists a sequence $x_n \in B_x$ such that $x_n \to \omega$. By the fact that $v$ is continuous on $K$ it is continuous on $\overline{B_x}$, in which case $\abs{v(x_n) - v(\omega)} \to 0$ as $n \to \infty$, but $v(x_n) = 0$ for all $x_n$, so $v(\omega) = 0$ as desired.  
+	So we need to check the points in $\overline{B_x} \setminus B_x$. Now since $B_x$ is dense in $\overline{B_x}$, then for any $\omega \in \overline{B_x}$ we have that there exists a sequence $x_n \in B_x$ such that $x_n \to \omega$. By the fact that $v$ is continuous on $K$ it is continuous on $\overline{B_x}$, in which case $\abs{v(x_n) - v(\omega)} \to 0$ as $n \to \infty$, but $v(x_n) = 0$ for all $x_n$, so $v(\omega) = 0$ as desired.  
 \end{proof}
 
-What lemma $\ref{itIsZero}$ states, is if any two points in $V_m$ are neighbours, say $x$ and $y$, and $v(x)=v(y)=0$, then function value at any point between $x$ and $y$ is also zero.
+What\Cref{itIsZero} states is, if any two points in $V_m$ are neighbours, say $x$ and $y$, and $v(x)=v(y)=0$, then the function value at any point between $x$ and $y$ is also zero.
 
 \begin{lemma}\label{FmSmaller}
 	Set $F_m = \supp \psi_{x}^{(m)}$, then
@@ -337,27 +341,28 @@ What lemma $\ref{itIsZero}$ states, is if any two points in $V_m$ are neighbours
 \end{lemma}
 
 \begin{proof}
-	If we set $\Omega_m = \left\{z \in K : \psi_{x}^{(m)}(z) = \psi_{x}^{(m)}(y) = 0, \forall y \in V_{m,z}  \right\}$ then $F_m = K \backslash \left(\bigcup_{\alpha \in \Omega_m} \overline{B_\alpha} \right)$. It is clear that $\Omega_m \subset \Omega_{m+1}$ and that there are new points in $\Omega_{m+1}$ that are not just a point between some already existing points $x_1, x_2 \in \Omega_m$. We therefore have, given the constructed if $F_m$, that $F_m \supset F_{m+1}$.
+	If we set $\Omega_m = \left\{z \in K : \psi_{x}^{(m)}(z) = \psi_{x}^{(m)}(y) = 0, \forall y \in V_{m,z}  \right\}$ then $F_m = K \setminus \left(\bigcup_{\alpha \in \Omega_m} \overline{B_\alpha} \right)$. It is clear that $\Omega_m \subset \Omega_{m+1}$ and that there are new points in $\Omega_{m+1}$ that are not just a point between some already existing points $x_1, x_2 \in \Omega_m$. We therefore have, given the constructed of $F_m$, that $F_m \supset F_{m+1}$.
 	
-	The containment of $F_m$ in $B(x, \epsilon_m)$ follows from \cref{itIsZero} and that $F_m \supset F_{m+1}$.
+	The containment of $F_m$ in $B(x, \epsilon_m)$ follows from \Cref{itIsZero} and that $F_m \supset F_{m+1}$.
 \end{proof}
 
-We are now ready to prove the pointwise formula
+We are now ready to prove the pointwise formula.
 
+\medskip
 \begin{theorem} \label{pointwiseFormula}
 	Let $u \in \dom \Delta_{\mu}$. Then the pointwise formula
-	\begin{equation}
+	\begin{equation}\label{pointwiseEquation}
 		\Delta_{\mu} u(x) = \lim_{m \to \infty} r^{-m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)
 	\end{equation}
-	holds with the limit uniform across $V_* \backslash V_0$. Conversely, suppose $u$ is a continuous function and the right side of the limit converges uniformly to a continuous function on $V_* \backslash V_0$. Then $u \in \dom \Delta_{\mu}$ and the equation holds.
+	holds with the limit uniform across $V_* \setminus V_0$. Conversely, suppose $u$ is a continuous function and the right side of \eqref{pointwiseEquation} converges uniformly to a continuous function on $V_* \setminus V_0$. Then $u \in \dom \Delta_{\mu}$ and the equation holds.
 \end{theorem}
 
 \begin{proof}
-	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \cref{pointwiseEqualityofpsi} we have that 
+	Suppose $u \in \dom \Delta_{\mu}$ and $\Delta_{\mu} u=f$, then by \Cref{pointwiseEqualityofpsi} we have that 
 	\begin{equation}
 		r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}
 	\end{equation}
-	for any $x \in V_m \backslash V_0$. The right side needs to converge uniformly, so let $\epsilon > 0$. Since $f(x)$ is continuous then by \cref{FmSmaller} we can choose $m$ large enough so for all $x, y \in F_m$ that $\abs{f(x) - f(y)} < \epsilon$, then
+	for any $x \in V_m \setminus V_0$. The right side needs to converge uniformly, so let $\epsilon > 0$. Since $f(x)$ is continuous then by \Cref{FmSmaller} we can choose $m$ large enough such that for all $x, y \in F_m$ we have that $\abs{f(x) - f(y)} < \epsilon$, in which case
 	\begin{align}
 		\abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - f(x)} &= \abs{\frac{\int_{K} f \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu} - \frac{\int_{K} f(x) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
 		&= \abs{\frac{\int_{K} \left(f(y) -f(x) \right) \psi_x^{(m)} \dd\mu}{\int_{K} \psi_x^{(m)} \dd\mu}} \\
@@ -369,17 +374,17 @@ We are now ready to prove the pointwise formula
 	\begin{equation}
 		\lim_{m \to \infty} r^{-m} \left(\int_{K} \psi^{(m)}_{x} \dd\mu \right)^{-1} \widetilde{\Delta}_m u(x) = \lim_{m \to \infty} \frac{\int_{K} f \psi_x^{(m)} \dd \mu}{\int_{K} \psi_x^{(m)} \dd \mu} = f(x) = \Delta_{\mu} u(x)
 	\end{equation}
+	which proves the first statement.
 	
-	
-	Moving on to the second half of the proof. Suppose that $r^{m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)$ converges uniformly to a continuous function $f$. Now for any $v \in \dom_0 \mathcal{E}$ we have 
+	Next suppose that the expression $r^{m} \left(\int_{K} \psi_x^{(m)} \dd \mu \right)^{-1} \widetilde{\Delta}_m u(x)$ converges uniformly to a continuous function $f$. Then for any $v \in \dom_0 \mathcal{E}$ we have 
 	\begin{equation}
 		\mathcal{E}_m(u,v) = r^{-m} \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right)\left(v(y) - v(x) \right).
 	\end{equation}
 	
-	If we collect all the terms that contain the factor $v(x)$ for a fixed $x \in V_m \backslash V_0$ then each $v(x)$ will be of the form $-v(x) \left(u(y) - u(x) \right)$ for each $y \underset{m}{\sim} x$. In which case we get
+	If we collect all the terms that contain the factor $v(x)$ for a fixed $x \in V_m \setminus V_0$ then each $v(x)$ will be of the form $-v(x) \left(u(y) - u(x) \right)$ for each $y \underset{m}{\sim} x$. We therefore get
 	\begin{align}
-		\mathcal{E}_m(u,v) &= - r^{-m}  \sum_{x \in V_m \backslash v_0} v(x) \left( \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right) \right) \\
-		&= -\sum_{x \in V_m \backslash V_0} v(x) r^{-m} \widetilde{\Delta}_{m}u(x)
+		\mathcal{E}_m(u,v) &= - r^{-m}  \sum_{x \in V_m \setminus v_0} v(x) \left( \sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right) \right) \\
+		&= -\sum_{x \in V_m \setminus V_0} v(x) r^{-m} \widetilde{\Delta}_{m}u(x)
 	\end{align}
 	While it seems we lose many terms by removing $v(y)$, they are instead contained in 
 	$$\sum_{x \underset{m}{\sim} y} \left( u(y) - u(x) \right).$$ 
@@ -387,24 +392,24 @@ We are now ready to prove the pointwise formula
 	
 	Now if we define $f_m(x) = r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \widetilde{\Delta}_{m}u(x)$ then $f_m \to f$ uniformly by assumption and we can rewrite the above as   
 	\begin{align}
-		\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \backslash V_0} v(x) \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \widetilde{\Delta}_{m}u(x) \\
-		&= - \int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. \\
+		\mathcal{E}_m(u,v) &= -\sum_{x \in V_m \setminus V_0} v(x) \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right) r^{-m} \left(\int_{K} \psi_{x}^{(m)} \dd\mu \right)^{-1} \widetilde{\Delta}_{m}u(x) \\
+		&= - \int_{K} \left( \sum_{x \in V_m \setminus V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu. \\
 	\end{align}
 	Since the convergence in the next calculation follows from a quite lengthy argument, we will show the calculation and then return to the convergence. We have that 
 	\begin{equation}\label{theVeryLongOne}
-		\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu = - \int_{K} v(y)f(y) \dd \mu.
+		\mathcal{E}(u, v) = \lim_{m \to \infty} \mathcal{E}_m(u,v) = \lim_{m \to \infty}-\int_{K} \left( \sum_{x \in V_m \setminus V_0} v(x) f_m(x) \psi_x^{(m)}\right) \dd \mu = - \int_{K} v(y)f(y) \dd \mu
 	\end{equation}
 	therefore $u \in \text{dom}\Delta_{\mu}$. Now looking at the convergence in \eqref{theVeryLongOne} we find
 	\begin{multline}
-		\abs{\sum_{x \in V_m \backslash V_0} v(x) f_m(x) \psi_x^{(m)}(y) -v(y)f(y)} \\
-		\leq \abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} + \abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}
+		\abs{\sum_{x \in V_m \setminus V_0} v(x) f_m(x) \psi_x^{(m)}(y) -v(y)f(y)} \\
+		\leq \abs{\sum_{x \in V_m \setminus V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} + \abs{\sum_{x \in V_m \setminus V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)}.
 	\end{multline}
 	Looking at each term individually we first see that
 	\begin{multline}
-		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)(y)}} \\ 
-		\leq \sum_{x \in V_m \backslash V_0} \left(\abs{v(x) f_m(x) - v(y)f_m(y)} + \abs{v(y)f_m(y) - v(y)f(y)}\right) \psi_x^{(m)}(y)
+		\abs{\sum_{x \in V_m \setminus V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)(y)}} \\ 
+		\leq \sum_{x \in V_m \setminus V_0} \left(\abs{v(x) f_m(x) - v(y)f_m(y)} + \abs{v(y)f_m(y) - v(y)f(y)}\right) \psi_x^{(m)}(y)
 	\end{multline}
-	now again we will look at each term starting with $\abs{v(y) f_m(y) - v(y)f(y)}$. Here
+	We will again look at each term starting with $\abs{v(y) f_m(y) - v(y)f(y)}$. Here
 	$$\abs{v(y) f_m(y) - v(y)f(y)} = \abs{v(y)}\abs{f_m(y) - f(y)}$$
 	and since $v$ is continuous on $K$, which is compact, there is a constant $C_1$ so $\abs{v(y)} \leq C_1$ for all $x \in K$. Since $f_m$ converges uniformly to $f$ we can choose $m_1$ such that $\abs{f_{m_1}(y)- f(y)} \leq \frac{\epsilon}{C_1}$ and the convergence of that term follows.
 	
@@ -412,33 +417,32 @@ We are now ready to prove the pointwise formula
 	\begin{equation}
 		\abs{v(x) f_m(x) - v(y)f_m(y)} \leq \abs{v(x)}\abs{f_m(x)-f(y)} + \abs{f_m(y)}\abs{v(x)-v(y)}
 	\end{equation}
-	First $\abs{f_m(y)}\abs{v(x)-v(y)}$, here $\abs{f_m(y)} \leq C_2$ and by \cref{FmSmaller} and continuity of $v$ we can choose $m_2$ so $\abs{v(x)-v(y)} \leq \frac{\epsilon}{C_2}$ for all $x \in F_{m_2}$. The reason we can choose $m_2$ is because $\psi_{x}^{(m)}$ is multiplied onto all the terms so we just restrict $v$ to $F_{m_2}$.
+	First $\abs{f_m(y)}\abs{v(x)-v(y)}$. Here $\abs{f_m(y)} \leq C_2$ and by \Cref{FmSmaller} and continuity of $v$ we can choose $m_2$ so $\abs{v(x)-v(y)} \leq \frac{\epsilon}{C_2}$ for all $x \in F_{m_2}$. The reason we can choose $m_2$ is because $\psi_{x}^{(m)}$ is multiplied onto all the terms so we just restrict $v$ to $F_{m_2}$.
 	
 	\medskip
-	Second $\abs{v(x)}\abs{f_m(x)-f(y)}$, again $\abs{v(x)} \leq C_1$, but
+	Second we examine $\abs{v(x)}\abs{f_m(x)-f(y)}$. Again $\abs{v(x)} \leq C_1$, but
 	\begin{equation}
 		\abs{f_m(x)-f(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) - f_m(y)} \leq \abs{f_m(x)-f(x)} + \abs{f(x) -f(y)} + \abs{f(y) - f_m(y)}
 	\end{equation}
-	First choose $m_3$ so $\abs{f_{m_3}(x)-f(x)} \leq \frac{\epsilon}{3 C_1}$. Next by continuity of $f$ choose $m_4$ so $\abs{f(x) -f(y)} \leq \frac{\epsilon}{3 C_1}$ for all $x \in F_{m_4}$. Lastly choose $m_5$ so $\abs{f(y)-f_{m_5}(y)} \leq \frac{\epsilon}{3 C_1}$.
+	First choose $m_3$ so $\abs{f_{m_3}(x)-f(x)} \leq \frac{\epsilon}{3 C_1}$. Next by continuity of $f$ choose $m_4$ so $\abs{f(x) -f(y)} \leq \frac{\epsilon}{3 C_1}$ for all $x \in F_{m_4}$. Lastly choose $m_5$ so \nl $\abs{f(y)-f_{m_5}(y)} \leq \frac{\epsilon}{3 C_1}$.
 	
 	So we now have for $m \geq \max \{m_1, m_2, \ldots, m_5\}$ that
 	\begin{equation}
-		\abs{\sum_{x \in V_m \backslash V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} \leq \epsilon \sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) \leq \epsilon 
+		\abs{\sum_{x \in V_m \setminus V_0} \left(v(x) f_m(x) - v(y)f(y) \right) \psi_x^{(m)}(y)} \leq \epsilon \sum_{x \in V_m \setminus V_0} \psi_x^{(m)}(y) \leq \epsilon 
 	\end{equation}
-	We are now going to look at 
+	We are going to look at 
 	\begin{equation}
-		\abs{\sum_{x \in V_m \backslash V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)} = \abs{v(y)f(y)}\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1}
+		\abs{\sum_{x \in V_m \setminus V_0} v(y) f(y) \psi_x^{(m)}(y) -v(y)f(y)} = \abs{v(y)f(y)}\abs{\sum_{x \in V_m \setminus V_0} \psi_x^{(m)}(y) - 1}
 	\end{equation}
-	
-	We will now show that 
+	and show that 
 	\begin{equation}\label{psiConvergesToOne}
-	\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1} = 0, \quad \text{as } m \to \infty.
+	\abs{\sum_{x \in V_m \setminus V_0} \psi_x^{(m)}(y) - 1} = 0, \quad \text{as } m \to \infty.
 	\end{equation}
-	If  $y \in V^*$, then choose $m_6$ so $y \in V_{m_6}$ and \ref{psiConvergesToOne} holds.
+	If  $y \in V^*$, then choose $m_6$ so $y \in V_{m_6}$ and \eqref{psiConvergesToOne} holds.
 	
-	Next assume $y \in K \backslash V^{*}$, then since $V^{*}$ is dense in $K$ we can choose a sequence $(x_n)_{n = 1}$ where $x_n \to y$ as $n \to \infty$, and since $\psi_{x}^{(m)}$ is continuous on $K$ then $\psi_{x}^{(m)}(x_n) \to \psi_{x}^{(m)}(y)$ as $n \to \infty$. This gives us the following
+	Next assume $y \in K \setminus V^{*}$, then since $V^{*}$ is dense in $K$ we can choose a sequence $(x_n)_{n = 1}$ where $x_n \to y$ as $n \to \infty$, and since $\psi_{x}^{(m)}$ is continuous on $K$ then $\psi_{x}^{(m)}(x_n) \to \psi_{x}^{(m)}(y)$ as $n \to \infty$. This gives us the following
 	\begin{align}
-		\abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - 1} \leq \abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(y) - \sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(x_n)} + \abs{\sum_{x \in V_m \backslash V_0} \psi_x^{(m)}(x_n) - 1}
+		\abs{\sum_{x \in V_m \setminus V_0} \psi_x^{(m)}(y) - 1} \leq \abs{\sum_{x \in V_m \setminus V_0} \psi_x^{(m)}(y) - \sum_{x \in V_m \setminus V_0} \psi_x^{(m)}(x_n)} + \abs{\sum_{x \in V_m \setminus V_0} \psi_x^{(m)}(x_n) - 1}.
 	\end{align}
 	
 	Now choose an $n_1$ so $\abs{\psi_{x}^{(m)}(x_{n_1}) - \psi_{x}^{(m)}(y)} \leq \epsilon$ and an $m_7$ so $x_{n_1} \in V_{m_7}$. Both can then be bounded by $m \geq \max \{n_1, m_7\}$. Thus we have the convergence of \eqref{theVeryLongOne}.
@@ -455,14 +459,13 @@ Lastly we calculate the constant $\left(\int_{K} \psi_{x}^{(m)}(y) \dd \mu(y)\ri
 \end{lemma}
 
 \begin{proof}
-Recall from \cref{pointAsIntersectSet} that we can write a point $x$'s "address" with the infinite sequence $K_{i_1, i_2, \ldots} = (\fracConst_{i_1} \circ \fracConst_{i_2} \circ \ldots)(K)$. These sequences are not necessarily unique and we will have three cases. The first two cases are where $x$ has a unique sequence and $\# V_{m,p} \in \cbr{1,4}$ and the last case where $x$ has two sequences and $\# V_{m, p} = 2$. If we start with two sequences, then we have that $x \in K_{i_1, \ldots, i_m} \cap K_{i_1, \ldots, i_{m'}}$ in which case from \cref{itIsZero} it follows that $\supp \psi_{x}^{m} = K_{i_1, \ldots, i_{m+1}} \cup K_{i_1, \ldots, i_{m'+1}}$, for appropriate choice of $i_{m+1}$ and $i_{m'+1}$. Now if $x\in K_{i_1, \ldots, i_m}$ and $\# V_{m,p} = 4$ we have that $\supp\psi_{x}^{m} = K_{i_1, \ldots, i_m}$, but if $\# V_{m,p}$ then $\supp\psi_{x}^{m} = K_{i_1, \ldots, i_{m+1}}$ again for appropriate $i_{m+1}$.
+Recall from \cref{pointAsIntersectSet} that we can write a point $x$'s "address" with the infinite sequence $K_{i_1, i_2, \ldots} = (\fracConst_{i_1} \circ \fracConst_{i_2} \circ \ldots)(K)$. These sequences are not necessarily unique and we will have three cases. The first two cases are where $x$ has a unique sequence and $\# V_{m,p} \in \cbr{1,4}$. The last case is where $x$ has two sequences and $\# V_{m, p} = 2$. If we start with two sequences, then we have that $x \in K_{i_1, \ldots, i_m} \cap K_{i_1, \ldots, i_{m'}}$ in which case from \Cref{itIsZero} it follows that $\supp \psi_{x}^{m} = K_{i_1, \ldots, i_{m+1}} \cup K_{i_1, \ldots, i_{m'+1}}$, for an appropriate choice of $i_{m+1}$ and $i_{m'+1}$. Now if $x\in K_{i_1, \ldots, i_m}$ and $\# V_{m,p} = 4$ we have that $\supp\psi_{x}^{m} = K_{i_1, \ldots, i_m}$, but if $\# V_{m,p} = 1$ then $\supp\psi_{x}^{m} = K_{i_1, \ldots, i_{m+1}}$ again for an appropriate $i_{m+1}$.
 
-If we now look at an $\alpha \in \supp \psi_x^{m}$ it is going to have a sequence of the form $K_{i_1, \ldots i_m, \alpha_{j_1}, \alpha_{j_2} \ldots}$ or $K_{i_1, \ldots i_k, \alpha_{j_1}, \alpha_{j_2} \ldots}$ where $k \in \cbr{m+1, m'+1}$. We therefore have that
+If we now look at an $\alpha \in \supp \psi_x^{m}$ it is going to have a sequence of the form $K_{i_1, \ldots i_m, \alpha_{j_1}, \alpha_{j_2} \ldots}$ or $K_{i_1, \ldots i_k, \alpha_{j_1}, \alpha_{j_2} \ldots}$ where $k \in \cbr{m+1, m'+1}$. We therefore have
 \begin{equation}
 	\int_{K} \psi_{x}^{(m)}(y) \dd \mu(y) = \int_{\supp \psi_{x}^{m}} \psi_{x}^{(m)}(y) \dd \mu(y) = \sum_{\alpha \in \supp \psi_{x}^{m}} \int_{\cbr{\alpha}} \psi_{x}^{m}(y) \dd \mu(y)
 \end{equation}
- 
- If $x$ has a unique sequence and $\# V_{m,p} = 4$ then we have that
+ If $x$ has a unique sequence and $\# V_{m,p} = 4$ then
 \begin{multline}
 	\sum_{\alpha \in \supp \psi_{x}^{m}} \int_{\cbr{\alpha}} \psi_{x}^{m}(y) \dd \mu(y) = \sum_{\alpha \in \supp \psi_{x}^{m}} \mu\left((\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_m} \circ \fracConst_{\alpha_{j_1}} \circ \fracConst_{\alpha_{j_2}} \ldots)(K) \right) \\
 	= \mu\left(\bigcup_{n \geq 0} (\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_m} \circ \fracConst_{\alpha_{j_n}} \circ \ldots)(K)\right) = \mu \left((\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_m})(K)\right) = 5^{-m}.
@@ -483,10 +486,10 @@ Now if $x$ does not have a unique sequence then
 and the result follows.
 \end{proof}
 \section{Dirichlet Laplacian}\label{constructDirichletLaplacian}
-We will now construct the Dirichlet Laplacian. Since the Dirichlet Laplacian will be a densely defined operator we will therefore start by recalling some definitions for a densely defined operator on a Hilbert space. We will also need Dirichlet forms, thus we will also be defining them.
+We will now construct the Dirichlet Laplacian. Since the Dirichlet Laplacian is a densely defined operator we will therefore start by recalling some definitions for a densely defined operator on a Hilbert space. We will also need Dirichlet forms, thus we will also be defining them.
 
 \begin{defi}\label{selfAdjoint}
-	Let $\mathcal{H}$ be a Hilbert space and let $A: \dom A \to \mathcal{H}$ be a densely defined operator. Then we say $A$ is the following:
+	Let $\mathcal{H}$ be a Hilbert space and let $A\colon \dom A \to \mathcal{H}$ be a densely defined operator. Then we say the following about $A$:
 	\begin{enumerate}[(i)]
 		\item $A$ is said to be symmetric if for $f,g \in \dom A$
 		\begin{equation}
@@ -496,31 +499,30 @@ We will now construct the Dirichlet Laplacian. Since the Dirichlet Laplacian wil
 		\begin{equation}
 			\inn{Af}{f} \geq 0, \quad (\text{resp.}\inn{Af}{f} \leq 0)
 		\end{equation}
-		\item $A$ is said to be self-adjoint if $\dom A^{*} = \dom A$ where $A^{*}$ is the adjoint of $A$, on the domain
+		\item $A$ is said to be self-adjoint if $\dom A^{*} = \dom A$ where $A^{*}$ is the adjoint of $A$ on the domain
 		\begin{equation}
-			\dom A^{*} = \cbr{f \in \mathcal{H} : \exists c(f) \geq 0, \forall g \in \mathcal{D}(A), \abs{\inn{f}{Ag}} \leq c(f) \norm{g}}
+			\dom A^{*} = \cbr{f \in \mathcal{H} : \exists c(f) \geq 0, \forall g \in \mathcal{D}(A), \abs{\inn{f}{Ag}} \leq c(f) \norm{g}}.
 		\end{equation}
-		where $c(f)$ denotes that the constant may depend on $f$. We can further define $A^*$ by the formula
+		and $c(f)$ denotes that the constant may depend on $f$. We can further define $A^*$ by the formula
 		\begin{equation}
-			\inn{A^*f}{g} = \inn{f}{Ag} , \quad \text{for } f \in \dom A^*, g \in \dom A
+			\inn{A^*f}{g} = \inn{f}{Ag} , \quad \text{for } f \in \dom A^*, g \in \dom A.
 		\end{equation}
 	\end{enumerate}
 \end{defi}
 
- 
-\begin{defi}
-	\begin{enumerate}[(i)]
-		\item A \emph{quadratic form} $\mathcal{E}$ on $\mathcal{H}$ is a non-negative, definite, symmetric bilinear form from $\dom \mathcal{E} \times \dom \mathcal{E} \to \ree$, where $\dom \mathcal{E}$ is a dense subspace of $\mathcal{H}$. 
-		
+ \medskip
+\begin{defi} A \emph{quadratic form} $\mathcal{E}$ on $\mathcal{H}$ is a non-negative, definite, symmetric bilinear form from $\dom \mathcal{E} \times \dom \mathcal{E} \to \ree$, where $\dom \mathcal{E}$ is a dense subspace of $\mathcal{H}$. 
+	
+	\begin{enumerate}[(i)]		
 		\item A quadratic form is said to be closed if $\dom \mathcal{E}$ equipped with the norm
 		\begin{equation}
 			\norm{f}^{2}_{\dom \mathcal{E}} = \norm{f}^2 + \mathcal{E}(f,f)
 		\end{equation}
 		is a Hilbert space.
-		\item A quadratic form $\mathcal{E}$ on $\mathcal{H}$ is said to be closable if it admits a closed extension. That is, there exists a closed quadratic form $\overline{\mathcal{E}}$ such $\dom \mathcal{E} \subset \dom \overline{\mathcal{E}}$ and $\overline{\mathcal{E}}$ coincides with $\mathcal{E}$ on $\dom \mathcal{E} \times \dom \mathcal{E}$
-		\item  We further call a quadratic form $\mathcal{E}$ a Dirichlet form if it has the following property. If given $u, v \in \dom \mathcal{E}$ so that for almost every $x,y \in K$ we have
+		\item A quadratic form $\mathcal{E}$ on $\mathcal{H}$ is said to be closable if it admits a closed extension. That is, there exists a closed quadratic form $\overline{\mathcal{E}}$ such $\dom \mathcal{E} \subset \dom \overline{\mathcal{E}}$ and $\overline{\mathcal{E}}$ coincides with $\mathcal{E}$ on $\dom \mathcal{E} \times \dom \mathcal{E}$.
+		\item  We further call a quadratic form $\mathcal{E}$ a Dirichlet form if it has the following property. If given $u, v \in \dom \mathcal{E}$ so that for almost every $x,y \in K$, we have
 		\begin{equation}\label{contraction}
-		\abs{v(x) - v(y)} \leq \abs{u(x) - u(y)}, \quad \text{and} \quad \abs{v(x)} \leq \abs{u(x)}
+		\abs{v(x) - v(y)} \leq \abs{u(x) - u(y)}, \quad \text{and} \quad \abs{v(x)}, \leq \abs{u(x)}
 		\end{equation}
 		then 
 		\begin{equation}
@@ -531,26 +533,26 @@ We will now construct the Dirichlet Laplacian. Since the Dirichlet Laplacian wil
  
  
  
-Now recall from \cref{renormalizedGraphEnergiesLimit} that 
+\noi Now recall from \cref{renormalizedGraphEnergiesLimit} that 
 \begin{equation}
 	\mathcal{E}(f,f) = \lim_{m \to \infty} \mathcal{E}_m(f,f)
 \end{equation}
 with domain $\dom_{0} \mathcal{E}$ where
 \begin{equation}
-	\mathcal{E}_{m}(f,f) =  \sum_{x \underset{m}{\sim} y} (f(x)-f(y))^2
+	\mathcal{E}_{m}(f,f) =  \sum_{x \underset{m}{\sim} y} (f(x)-f(y))^2.
 \end{equation}
 
-By \cite[theorem 4.1]{specAnal}  we have that $(\mathcal{E}, \dom_{0}\mathcal{E})$ is a Dirichlet form on $L^{2}(K, \mu)$.  Then by \cite[Lemma 1.3.3]{fabriceDirichelt} we have that 
+By \cite[Theorem 4.1]{specAnal}  we have that $(\mathcal{E}, \dom_{0}\mathcal{E})$ is a Dirichlet form on $L^{2}(K, \mu)$.  By \cite[Lemma 1.3.3]{fabriceDirichelt} we have that 
 \begin{equation}
 	\mathcal{E}(f,f) = - \int_{K}\Delta f g \dd \mu
 \end{equation}
 where $\Delta$ a unique densely defined self-adjoint operator. The operator $\Delta$ is called the generator of $\mathcal{E}$. Moreover we have that $\Delta$ is an extension of the Kigami Laplacian $\Delta_{\mu}$. The operator $\Delta$ with domain $\dom \Delta$ is referred to as the Dirichlet Laplaican. 
 
-One will notice that the Kigami Laplacian $\Delta_{\mu}$ was not used in the construction of the Dirichlet Laplacian $\Delta$, but we only used the limit of the renormalized graph energy from \cref{renormalizedGraphEnergiesLimit}. This stems from the fact that there are two ways to define $\Delta$, one through Dirichlet forms and one trough $\Delta_{\mu}$. We have chosen to define $\Delta$ through Dirichlet forms, but defining $\Delta$ through $\Delta_{\mu}$ follows a similarly condensed argument. One would prove that $\Delta_{\mu}: \dom \Delta_\mu \to L^{2}(K, \mu)$ is a densely defined non-positive symmetric operator, it then follows from \cite[Lemma 1.3.5]{fabriceDirichelt} that the quadratic form $\mathcal{E}(f,g) = -\inn{f}{\Delta_{\mu} g}$ for $f,g \in \dom \Delta_{\mu}$ is closable and the generator of $\mathcal{E}$ is the self-adjoint extension $\Delta$.
+Notice that the Kigami Laplacian $\Delta_{\mu}$ was not used in the construction of the Dirichlet Laplacian $\Delta$, but that we used the limit of the renormalized graph energy from \Cref{renormalizedGraphEnergiesLimit}. This stems from the fact that there are two ways to define $\Delta$, one through Dirichlet forms and one trough $\Delta_{\mu}$. We have chosen to define $\Delta$ through Dirichlet forms, but defining $\Delta$ through $\Delta_{\mu}$ follows a similarly condensed argument. One would prove that $\Delta_{\mu}\colon \dom \Delta_\mu \to L^{2}(K, \mu)$ is a densely defined non-positive symmetric operator. It then follows from \cite[Lemma 1.3.5]{fabriceDirichelt} that the quadratic form $\mathcal{E}(f,g) = -\inn{f}{\Delta_{\mu} g}$ for $f,g \in \dom \Delta_{\mu}$ is closable and the generator of $\mathcal{E}$ is the self-adjoint extension $\Delta$.
 
-
+\medskip
 \section{Discrete Fractional Laplacian}
-Recalling \cref{discreteMatrix} we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$ (each being repeated accordingly to multiplicity) of $-\Delta_m$. Next let $(\Phi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following.
+Recalling \Cref{discreteMatrix} we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$, each being repeated accordingly to multiplicity, of $-\Delta_m$. Next let $(\Phi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following.
 
 \begin{defi}
 	Let $s \geq 0$, we then define the \emph{discrete Riesz kernel} on $V_m$ as
@@ -559,7 +561,7 @@ Recalling \cref{discreteMatrix} we consider the eigenvalues $0 < \lambda_1^{m} \
 	\end{equation}
 \end{defi}
 
-We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m}$ is symmetric. It is also positive semi-definite, which follows from
+By construction we can see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m}$ is symmetric. It is also positive semidefinite, which follows from
 \begin{align}
 	\sum_{i,j = 1}^{N_m}a_i a_j G_s^{m}(x_i, x_j) &= \sum_{i,j = 1}^{N_m}a_i a_j \sum_{k = 1}^{N_m} (\lambda_k^{m})^{-s} \phi_{k}^{m}(x)\phi_{k}^{m}(y) \\
 	&=\sum_{k =1}^{N_m} \lambda_k^{-s} \left(\sum_{i = 1}^{N_m} \phi_k (x_i)^2 a_i^2 + \sum_{i, j = 1, i \neq j}^{N_m}\phi_k (x_i)\phi_k(x_j) a_ia_j\right) \\
@@ -567,19 +569,19 @@ We can further by construction see that the matrix $(G_s^{m}(x,y))_{x, y \in V_m
 \end{align}
 Thus it can be the covariance matrix of a Gaussian vector. The Riesz kernel will allow us to define the discrete fractional Laplacian.
 \begin{defi}\label{discreteFractionalLaplacian}
-	For $f \in \ell(V_m)$ and $s \geq 0$, the discrete fractional Laplacian $(-\Delta_m)^{s}: L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ is defined by
+	For $f \in \ell(V_m)$ and $s \geq 0$, the \emph{discrete fractional Laplacian} \nl $(-\Delta_m)^{s}\colon L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ is defined by
 	\begin{equation}
 		(-\Delta_{m})^{-s}f(x) = \frac{1}{a_m} \sum_{y \in V_m} G_{s}^{m}(x,y)f(y) = \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y).
 	\end{equation}
 \end{defi}
 \begin{remark*}
-	Note that $\frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y) = \inn{\phi^{m}_j}{f}_{L^{2}(V_m, \mu_m)}$ and therefore that $(-\Delta_{m})^{-s}f(x) = \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \inn{\phi_j^{m}}{f}_{L^2(V_m, \mu_m)}$
+	Note that $\frac{1}{a_m} \sum_{y \in V_m} \phi_{i}^{m}(y)f(y) = \inn{\phi^{m}_j}{f}_{L^{2}(V_m, \mu_m)}$ and therefore that \nl $(-\Delta_{m})^{-s}f(x) = \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \phi_{i}^{m}(x) \inn{\phi_j^{m}}{f}_{L^2(V_m, \mu_m)}$.
 \end{remark*}
 
 Having stated the discrete fractional Laplacian we move on to proving some of its useful properties.
 
 \medskip
-\begin{prop}\label{discreteFractionalLaplacianProperties}\phantom{a}
+\begin{prop}\label{discreteFractionalLaplacianProperties}Let $(-\Delta_{m})^{-s}$ be defined as in \Cref{discreteFractionalLaplacian} then the follow holds
 	\begin{enumerate}[(i)]
 			\item $(-\Delta_{m})^{-s}$ is a uniformly bounded operator \label{DFLuniformConvergent}
 			\item $(-\Delta_{m})^{-s}$ is a symmetric operator. \label{DFLsymmetric}
@@ -593,7 +595,7 @@ Having stated the discrete fractional Laplacian we move on to proving some of it
 		& \leq \sum_{i = 1}^{N_m} (\lambda_{i}^{m})^{-s} \frac{1}{a_m}\norm{\phi_{i}^{m}(x)\sum_{y \in V_m} \phi_{i}^{m}(y)f(y)} \\
 		& \leq (\lambda_1^{m})^{-s} \norm{f}
 	\end{align}
-	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$. This follows from\cite[lemma 5.2]{specAnal}, since if $\inf_{m} \lambda_{1}^{m} \leq 0$ then the series in the lemma would not converge.
+	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_{2} < \ldots$. The uniform bound comes from the fact that $\inf_{m} \lambda_{1}^{m} > 0$. This follows from \cite[Lemma 5.2]{specAnal}, since if $\inf_{m} \lambda_{1}^{m} \leq 0$ then the series in the Lemma would not converge.
 	
 	Moving on to (\ref{DFLsymmetric}), we have that
 	\begin{align}
@@ -610,42 +612,42 @@ Having stated the discrete fractional Laplacian we move on to proving some of it
 \end{proof}
 
 
-\section{Semi-groups and Heat kernels}
-When constructing the Fractional Laplacian in \cref{sec:FractionalLaplacian}, we will use that $-\Delta$ generates a semigroup which admits a heat kernel. We will therefore first define a semigroup as well as showing that $-\Delta$ generates a semigroup. We will also define the heat kernel.
+\section{Semigroups and Heat kernels}
+When constructing the fractional Laplacian in \Cref{sec:FractionalLaplacian}, we will use that $-\Delta$ generates a semigroup which admits a heat kernel. We will therefore first define a semigroup as well as showing that $-\Delta$ generates a semigroup. We will also define the heat kernel.
 
 \begin{defi}\label{semigroupDef}
-	Let $\mathcal{H}$ be a Hilbert space. A strongly continuous self-adjoint contraction semigroup is a family of self-adjoint operators $(P_t)_{t \geq 0}: \mathcal{H} \to \mathcal{H}$
+	Let $\mathcal{H}$ be a Hilbert space. A \emph{strongly continuous self-adjoint contraction semigroup} is a family of self-adjoint operators $(P_t)_{t \geq 0}\colon \mathcal{H} \to \mathcal{H}$
 	\begin{enumerate}[(i)]
-		\item For $s,t \geq 0$, $P_t \circ P_s = P_{s +t}$ (semi-group property). \label{semi-group}
+		\item For $s,t \geq 0$, $P_t \circ P_s = P_{s +t}$ (semigroup property). \label{semigroup}
 		\item For every $f \in \mathcal{H}, \lim_{t \to 0} P_t f= f$ (strong continuity).\label{strong cont}
-		\item For every $f \in \mathcal{H}$ and $t \geq 0$, $\norm{P_t f} \leq \norm{f}$ (contraction property). \label{semi-group contraction}
+		\item For every $f \in \mathcal{H}$ and $t \geq 0$, $\norm{P_t f} \leq \norm{f}$ (contraction property). \label{semigroup contraction}
 	\end{enumerate}
 \end{defi}
 
-theorem \ref{genSemigroup} is vital as it will show that an operator can generate a semigroup. 
+\noi \Cref{genSemigroup} is vital as it will show that an operator can generate a semigroup. 
 \begin{theorem}\label{genSemigroup}
 	If $A$ is a densely defined self adjoint operator on $\mathcal{H}$ then it is the generator of the strongly continuous self-adjoint contraction semigroup on $\mathcal{H}$ defined as $P_t = e^{-tA}$.
 \end{theorem}
 \begin{proof}
 	
-	Let $A$ be given as stated. Then from the spectral theorem \cite[theorem 1.1.2]{fabriceDirichelt} and there is a measure space $(\Omega, \nu)$, a unitary map $U: L^2(\Omega, \nu) \to \mathcal{H}$ and a non negative real valued measurable function $\lambda$ on $\Omega$ such that
+	Let $A$ be given as stated. From the spectral theorem \cite[Theorem 1.1.2]{fabriceDirichelt} there is a measure space $(\Omega, \nu)$, a unitary map $U\colon L^2(\Omega, \nu) \to \mathcal{H}$ and a non negative real valued measurable function $\lambda$ on $\Omega$ such that
 	\begin{equation}
 		U^{-1}AUf(x) = -\lambda(x)f(x)
 	\end{equation}
-	for $x \in \Omega, U f \in \dom A$. Then from the functional calculus \cite[theorem 1.1.3]{fabriceDirichelt} we define $P_t: \mathcal{H} \to \mathcal{H}$ such that
+	for $x \in \Omega, U f \in \dom A$. Then from the functional calculus \cite[Theorem 1.1.3]{fabriceDirichelt} we define \nl $P_t\colon \mathcal{H} \to \mathcal{H}$ such that
 	\begin{equation}
 				U^{-1}P_tUf(x) = e^{-t \lambda(x)}f(x).
 	\end{equation}
-	Note that since $U$ is a unitary map it is a linear bijection that satisfies for all $x,y \in L^2(\Omega, \nu)$ that $\inn{Ux}{Uy}_{\mathcal{H}} = \inn{x}{y}_{L^2(\Omega, \nu)}$.
+	Note that since $U$ is a unitary map, it is a linear bijection that satisfies for all $x,y \in L^2(\Omega, \nu)$ that $\inn{Ux}{Uy}_{\mathcal{H}} = \inn{x}{y}_{L^2(\Omega, \nu)}$.
 	
-	It is enough to show that $Q_t = U^{-1}P_t U$ is self-adjoint, since then $P_t$ will be self adjoint. This can be proven quite easily. So if we have the functions $f, g \in \mathcal{H}$ and $\psi, \phi \in L^{2}(\Omega, \nu)$ then we have $P_t$ is symmetric since
+	It is enough to show that $Q_t = U^{-1}P_t U$ is self-adjoint, since then $P_t$ will be self-adjoint. This can be proven quite easily. If we have the functions $f, g \in \mathcal{H}$ and $\psi, \phi \in L^{2}(\Omega, \nu)$ then $P_t$ is symmetric since
 	\begin{multline}
 	\inn{Af}{g}_{\mathcal{H}} = \inn{AU\psi}{U\phi}_{\mathcal{H}} = \inn{UU^{-1}UAU\psi}{UU^{-1}U\phi}_{\mathcal{H}} = \inn{U^{-1}AU \psi}{\phi}_{L^2(\Omega, \nu)} \\
-	=  \inn{\psi}{U^{-1}AU \phi}_{L^2(\Omega, \nu)} = \inn{U\psi}{UU^{-1}AU\phi}_{\mathcal{H}} = \inn{f}{Ag}_{\mathcal{H}}
+	=  \inn{\psi}{U^{-1}AU \phi}_{L^2(\Omega, \nu)} = \inn{U\psi}{UU^{-1}AU\phi}_{\mathcal{H}} = \inn{f}{Ag}_{\mathcal{H}}.
 	\end{multline}
-	That $\dom P_t^{*} = \dom P_t$ is the exact same argument as in equation \ref{operatorAndAdjointHaveSameDom}, which will be given later in the proof.
+	That $\dom P_t^{*} = \dom P_t$ reasons from the same argument as in \eqref{operatorAndAdjointHaveSameDom}, which will be given later in the proof.
 	
-	So we will prove that $Q_t = U^{-1}P_tU$ with domain $\dom Q_t$ is a self-adjoint strongly continuous contraction semigroup on $L^2(\Omega, \nu)$ with generator $A$. Starting with $A$ being a generator. We see that for $f \in \dom A$
+	We will prove that $Q_t = U^{-1}P_tU$ with domain $\dom Q_t$ is a self-adjoint strongly continuous contraction semigroup on $L^2(\Omega, \nu)$ with generator $A$. Starting with $A$ being a generator. We see that for $f \in \dom A$
 	\begin{align}
 		\lim_{t \to 0} \norm{\frac{Q_tf-f}{t} - Af} &= \lim_{t \to 0}\sqrt{\inn{\frac{Q_tf-f}{t} - Af}{\frac{Q_tf-f}{t} - Af}} \\
 		&= \lim_{t \to 0}\sqrt{\inn{\frac{Q_tf-f}{t}}{\frac{Q_tf-f}{t} - Af} - \inn{Af}{\frac{Q_tf-f}{t} - Af}} \\
@@ -655,8 +657,6 @@ theorem \ref{genSemigroup} is vital as it will show that an operator can generat
 			&= 0
 	\end{align}
 	where the convergence comes from the fact that $e^{-\lambda t}$ converges to $1$ much faster than $1/t$ diverges to $\infty$.  Thus $A$ is a generator.
-	
-	\medskip
 	Next we have that $Q_t$ is self-adjoint, for which we start with symmetry
 	\begin{equation}
 		\inn{Q_t f}{g} = \int_{\Omega} Q_t f g \dd \nu = \int_{\Omega} e^{-\lambda t} f g \dd \nu = \inn{f}{Q_t g}.
@@ -666,46 +666,61 @@ theorem \ref{genSemigroup} is vital as it will show that an operator can generat
 		\lim_{n \to \infty} Q_t f_n = \lim_{n \to \infty} e^{-\lambda t}f_n = e^{-\lambda t}f = Q_t f.
 	\end{equation} 
 	
-	Now showing that $\dom Q_{t}^{*} = \dom Q_t$. Since $Q_t$ is symmetric we have from Cauchy-Schwartz inequality that
+	Now showing that $\dom Q_{t}^{*} = \dom Q_t$. Since $Q_t$ is symmetric we have from the Cauchy-Schwartz inequality that
 	\begin{equation}\label{operatorAndAdjointHaveSameDom}
 		\abs{\inn{f}{Q_tg}} = \abs{\inn{Q_t f}{g}} \leq \norm{Q_t f} \norm{g}.
 	\end{equation}
-	Thus we have $Q_t$ is self-adjoint. To show the semigroup properties, we have (\ref{semi-group})
+	Thus we have $Q_t$ is self-adjoint. 
+	
+	To show the semigroup properties from \Cref{semigroupDef}, we have (\ref{semigroup})
 	\begin{equation}
-		Q_{t+s}f = e^{-\lambda (t +s )}f = e^{-\lambda t}e^{-\lambda s}f = Q_t Q_s f
+		Q_{t+s}f = e^{-\lambda (t +s )}f = e^{-\lambda t}e^{-\lambda s}f = Q_t Q_s f.
 	\end{equation}
 	Further for (\ref{strong cont}) we have
 	\begin{equation}
 		\lim_{t \to \infty} Q_t f = \lim_{t \to \infty} e^{-t\lambda} f = f
 	\end{equation}
-	and lastly (\ref{semi-group contraction})
+	and lastly (\ref{semigroup contraction})
 	\begin{equation}
 		\norm{Q_t f} = \int_{\Omega} (e^{-\lambda t}f)^2 \dd \nu\leq \int_{\Omega} f^2 \dd \nu = \norm{f} .
 	\end{equation}
 	Thus we have that $Q_t$ is a strongly continuous self-adjoint contraction semigroup on $L^2(\Omega, \nu)$ with generator $A$.
 \end{proof}
 
+The next corollary follows quite easily from \Cref{genSemigroup}.
+\begin{coro}\label{coro:PtIsLinear}
+	$P_t$ is a linear semigroup.
+\end{coro}
+\begin{proof}
+	Let $f,g \in \mathcal{H}$ and $\alpha$ be some constant. Then 
+	\begin{multline}
+		U^{-1}P_tU\left(\alpha f(x) + g(x)\right) = e^{-t \lambda(x)}\left(\alpha f(x) + g(x)\right) \\
+		= \alpha e^{-t \lambda(x)}f(x) + e^{-t \lambda(x)}g(x) = \alpha U^{-1}P_tU f(x) + U^{-1}P_tU g(x)
+	\end{multline}
+\end{proof}
+
 With semigroups out of the way we can define the heat kernel.
 
 \medskip
 \begin{defi}\label{heatKernel}
-	Let $(P_t)_{t \geq 0}$ be a strongly continuous self-adjoint contraction semigroup on $L^2(X, \mu)$. We say that the semigroup $(P_t)_{t \geq 0}$ \emph{admits a heat kernel} if the heat kernel measure have a density with respect to $\mu$, i.e. there exists a measurable function $p: \ree_{> 0} \times X \times X \to \ree_{\geq 0}$ such that for every $t > 0$, almost everywhere we have
+	Let $(P_t)_{t \geq 0}$ be a strongly continuous self-adjoint contraction semigroup on $L^2(X, \mu)$. We say that the semigroup $(P_t)_{t \geq 0}$ \emph{admits a heat kernel} if the heat kernel measure has a density with respect to $\mu$, i.e. there exists a measurable function $p\colon \ree_{> 0} \times X \times X \to \ree_{\geq 0}$ such that for every $t > 0$, almost everywhere we have
 	\begin{equation}
 		P_tf(x) = \int_{K}p_t(x,y)f(y) \dd \mu(y)
 	\end{equation}
 	with $x,y \in X, f \in L^{\infty}(X, \mu)$.
 \end{defi}
 
+\medskip
 \begin{remark}
-	The discrete Laplacian $\Delta_m$ also generates a semigroup on $V_m$. We denote this by $\cbr{P^{m}_t}_{t \geq 0}$ and it is given by $P^{m}_t = e^{t\Delta_m}$
+	The discrete Laplacian $\Delta_m$ also generates a semigroup on $V_m$. We denote this by $\cbr{P^{m}_t}_{t \geq 0}$ and it is given by $P^{m}_t = e^{t\Delta_m}$.
 \end{remark}
 
 \section{Fractional Laplacian}\label{sec:FractionalLaplacian}
 Before we can define the continuous fractional Laplacian, we need to define the eigenvalues and eigenfunctions for $-\Delta$. 
 
-Recall that the Laplacian $\Delta$ with domain $\mathcal{D}(\Delta)$ is a densely defined self-adjoint operator. Therefore by \cref{genSemigroup} it is the generator of a strongly continuous Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. 
+Recall that the Laplacian $\Delta$ with domain $\mathcal{D}(\Delta)$ is a densely defined self-adjoint operator. Therefore by \Cref{genSemigroup} it is the generator of a strongly continuous Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. 
 
-Form \cite[Lemma]{barlow}this semigroup admits a heat kernel $p_t(x,y), t > 0, x,y \in K$, wrt. the normalized Hausdorff measure $\mu$. The heat kernel $p_t(x,y)$ is called the Dirichlet heat kernel on $K$. Further from \cite[section 2.3]{Fabrice} this heat kernel satisfies that for some $c_1, c_2 \in (0, \infty)$ 
+From \cite[Theorem 8.4]{barlow} this semigroup admits a heat kernel $p_t(x,y), t > 0, x,y \in K$, with respect to the normalized Hausdorff measure $\mu$. The heat kernel $p_t(x,y)$ is called the Dirichlet heat kernel on $K$. Further from \cite[section 2.3]{Fabrice} this heat kernel satisfies that for some $c_1, c_2 \in (0, \infty)$ 
 \begin{equation}\label{heatKernelBound}
 	p_t(x,y) \leq c_1 t^{-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right)
 \end{equation}
@@ -716,57 +731,54 @@ The Dirichlet heat kernel is quite central in the definition of the continuous f
 
 \medskip
 \begin{theorem}\label{heatKernelWritten}
-	There exists a an orthonormal basis $\cbr{\phi_{i}}^{\infty}_{i = 1}$ of $L^2(K, \mu)$ with $\phi_j$ being eigenfunctions of $-\Delta$. If $\lambda_i$ is the eigenvalue belonging to $\phi_i$, then $\lambda_i >0$ and $\lim_{i \to \infty} \lambda_i = \infty$. Moreover
+	There exists an orthonormal basis $\cbr{\phi_{i}}^{\infty}_{i = 1}$ of $L^2(K, \mu)$ with $\phi_j$ being eigenfunctions of $-\Delta$. If $\lambda_i$ is the eigenvalue belonging to $\phi_i$, then $\lambda_i >0$ and $\lim_{i \to \infty} \lambda_i = \infty$. Moreover
 	\begin{equation}
 		p_t(x,y) = \sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)
 	\end{equation}
 	where the convergence is uniform for all $t \in (0, \infty)$ and $x,y \in K \times K$
 \end{theorem}
 
-The eigenvalues are not only used to represent the heat kernel but will also be used to represent the fractional Laplacian, and the following lemme gives us an idea of what parameter value gives convergence.
+The eigenvalues are not only used to represent the heat kernel but will also be used to represent the fractional Laplacian, and the following lemma gives us an idea of what parameter value gives convergence.
 \begin{lemma}\label{convergenceOfEigenvaluesOfLaplacian}
 	Let $0< \lambda_1 \leq \lambda_2 < \ldots$ be the eigenvalues of $-\Delta$
 	\begin{equation}
-		\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty. \iff s > \frac{d_h}{2d_w}
+		\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty \iff s > \frac{d_h}{2d_w}.
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	This follows from \cite[lemma 5.1.3]{Kigami_2001} which states that there exists constants $c_1, c_2 >0$ such that 
+	This follows from \cite[Lemma 5.1.3]{Kigami_2001} which states that there exists constants $c_1, c_2 >0$ such that 
 	\begin{equation} \label{convergenceOfEigenvaluesOfLaplcianBounds}
-			c_1\cd n^{2/d_s} \leq \lambda_{n} \leq c_2\cd n^{2/d_s}
+			c_1\cd n^{2/d_s} \leq \lambda_{n} \leq c_2\cd n^{2/d_s}.
 	\end{equation}
 
-	
-	Assume $s > \frac{d_h}{2d_w}$ then by \eqref{convergenceOfEigenvaluesOfLaplcianBounds}
+	\noi Assume $s > \frac{d_h}{2d_w}$, then by \eqref{convergenceOfEigenvaluesOfLaplcianBounds}
 	\begin{equation}
 		\sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{2s}} \leq \sum_{j = 1}^{\infty} \frac{1}{(c_1 n^{2/ds})^{2s}} < \infty
 	\end{equation}
 	since 
 	\begin{equation}
-		\frac{4s}{d_s} > \frac{\frac{2d_h}{d_w}}{\frac{2d_h}{d_w}} = 1
+		\frac{4s}{d_s} > \frac{\frac{2d_h}{d_w}}{\frac{2d_h}{d_w}} = 1.
 	\end{equation}
-	the series is convergent.
+	Hence the series is convergent.
 	
 	Assume now that 
 	\begin{equation}
 		\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty.
 	\end{equation}
-	then again by \eqref{convergenceOfEigenvaluesOfLaplcianBounds} we have that
+	Then again by \eqref{convergenceOfEigenvaluesOfLaplcianBounds} we have that
 	\begin{equation}
 						\sum_{j = 1}^{\infty} \frac{1}{(c_2 n^{2/d_s})^{2s}} \leq \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{2s}} < \infty
 	\end{equation}
 	and the left sum only converges if $4s/d_s > 1$ in which case $s > d_s/4 = d_h/2d_w$ as desired.
 \end{proof}
 
-
-
 Thus we are ready to define the fractional Laplacian. 
 
 \medskip
 \begin{defi}\label{fracLaplacian}
-	Let $s \geq 0$, for $f \in L^2(K, \mu)$ the fractional Laplacian $(-\Delta)^{-s}$ is defined as
+	Let $s \geq 0$, for $f \in L^2(K, \mu)$ the\emph{fractional Laplacian} $(-\Delta)^{-s}$ is defined as
 	\begin{equation}
-		(-\Delta)^{-s}f = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y) \dd \mu(y)
+		(-\Delta)^{-s}f = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y) \dd \mu(y).
 	\end{equation}
 \end{defi}
 \begin{remark*}
@@ -776,8 +788,8 @@ Thus we are ready to define the fractional Laplacian.
 Now that we have the fractional Laplacian defined, we will show some of its very useful properties.
 
 \medskip
-\begin{prop}\label{fracLaplacianProperties}\phantom{a}
-	Let $(-\Delta)^{-s}$ be defined as in \cref{fracLaplacian} then:
+\begin{prop}\label{fracLaplacianProperties}
+	Let $(-\Delta)^{-s}$ be defined as in \Cref{fracLaplacian} then:
 	\begin{enumerate}[(i)]
 		\item 	$(-\Delta)^{-s}$ is a linear operator.\label{fracGausItem1}
 		\item If $\phi_n$ be an orthonormal eigenfunction, then $(-\Delta)^{-s}\phi_n = \frac{1}{\lambda_{n}^{-s}}\phi_{n}$. \label{fracGausItem2}
@@ -789,22 +801,20 @@ Now that we have the fractional Laplacian defined, we will show some of its very
 	
 	We begin with the proof of (\ref{fracGausItem1}).
 	
-	Let $f,g \in L^{2}(K, \mu)$ and let $\alpha$ be some constant, then by definition of $(-\Delta)^{-s}$ we have
+	\noi Let $f,g \in L^{2}(K, \mu)$ and let $\alpha$ be some constant. Then by definition of $(-\Delta)^{-s}$ we have
 	\begin{align}
 		(-\Delta)^{-s}(\alpha f + g) &= \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)(\alpha f(y) + g(y)) \dd \mu(y)\\
 		& = \alpha \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)f(y)  \dd \mu(y) + \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \int_{K} \phi_j(y)g(y) \dd \mu(y) \\
 		&=\alpha (-\Delta)^{-s}f + (-\Delta)^{-s}g
 	\end{align}
-	
-	Moving on to (\ref{fracGausItem2}). We note that since
+	 Moving on to (\ref{fracGausItem2}). We note that
 	\begin{equation}
 		\int_{K}\phi_j \phi_i \dd \mu = \delta_{ij}
 	\end{equation}
-	where $\delta_{ij}$ is the Kronecker delta. We have  any eigenfunction $\phi_n$ that
+	where $\delta_{ij}$ is the Kronecker delta. We then have for any eigenfunction $\phi_n$ that
 	\begin{equation}
 		(-\Delta)^{-s}\phi_n = \sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j(x) \int_{K}\phi_j(y)\phi_n/y) \dd \mu(y) = \frac{1}{\lambda_{n}^{-s}}\phi_{n}.
 	\end{equation}
-	
 	Next we have (\ref{fracGausBounded}). This follows from
 	\begin{align}
 		\norm{(-\Delta)^{-s}f}^2 &= \norm{\sum_{j = 1}^{\infty} \frac{1}{\lambda_{j}^{s}} \phi_j \inn{\phi_j}{f}}^2 \\
@@ -826,38 +836,41 @@ Now that we have the fractional Laplacian defined, we will show some of its very
 	\end{align}
 	as desired.
 \end{proof}
-While the definition of the fractional Laplacian is not the most complicated, we are able to represent $(-\Delta)^-s$ in another way, namely with the Riesz kernel.
+While the definition of the fractional Laplacian is not the most complicated, we are able to represent $(-\Delta)^{-}$ in another way, namely with the Riesz kernel.
+
+\medskip
 \begin{defi}\label{fractionalRieszKernel}
-	For parameter $s \geq 0$ we define the fractional Riesz kernel $G_s$ by
+	For parameter $s \geq 0$ we define the \emph{fractional Riesz kernel} $G_s$ by
 	\begin{equation}
-		G_{s}(x,y) = \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t, \quad x, y \in K, x \neq y
+		G_{s}(x,y) = \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t, \quad x, y \in K, x \neq y.
 	\end{equation}
-	where $\Gamma$ denotes the gamma function.
 \end{defi}
 \begin{remark*}
 	Note that it follows from \eqref{heatKernelBound} that $G_s(x,y)$ actually converges for every $s \geq 0$ where $x \neq y$.
 \end{remark*}
 The Riesz kernel allows us to use the estimates of the heat kernel $p_t(x,y)$ in conjunction with $(-\Delta)^{-s}$ as we shall shortly see. We will start by showing some of the bounds of the fractional Riesz kernel. 
-\begin{prop}\label{boundsOfRieszKernel} \phantom{a}
+\begin{prop}\label{boundsOfRieszKernel}
+	Let $G_s(x,y)$ be defined as in \Cref{fractionalRieszKernel} then the following bounds hold
 	\begin{enumerate}[(i)]
 		\item If $s \in [0, d_h/d_w)$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
 		\begin{equation}
-			G_s(x,y) \leq \frac{C}{d(x,y)^{d_h-sd_w}}
+			G_s(x,y) \leq \frac{C}{d(x,y)^{d_h-sd_w}}.
 		\end{equation}
 		
 		\item If $s = d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K, x \neq y$
 			\begin{equation}
-				G_s(x,y) \leq C \abs{\ln d(x,y)}
+				G_s(x,y) \leq C \abs{\ln \left(d(x,y) \right)}.
 			\end{equation}
 			
 		\item If $s > d_h/d_w$, there exists a constant $C > 0$ such that for every $x,y \in K$
 		\begin{equation}
-			G_s(x,y) \leq C 
+			G_s(x,y) \leq C.
 		\end{equation}
 	\end{enumerate}
 \end{prop}
-Before stating this proof we will quickly state and prove a lemma that is needed.
+Before proving \Cref{boundsOfRieszKernel} we will quickly state and prove a lemma that is needed.
 
+\medskip
 \begin{lemma}\label{heatKernelBound2}
 	There exists a constant $C> 0$ such that for every $x,y \in K$ and $t \geq 1$,
 	\begin{equation}
@@ -866,7 +879,7 @@ Before stating this proof we will quickly state and prove a lemma that is needed
 	where $\lambda_1 > 0$ is the first non-zero eigenvalue of $-\Delta$.
 \end{lemma}
 \begin{proof}
-	We have from \cref{heatKernelWritten} that $p_t(x,y)$ has the expansion
+	We have from \Cref{heatKernelWritten} that $p_t(x,y)$ has the expansion
 	\begin{equation}\label{returnHeatKernel}
 		p_t(x,y) = \sum_{j = 1}^{\infty} e^{-\lambda_j t}\phi_j(x)\phi_j(y).
 	\end{equation}
@@ -874,17 +887,16 @@ Before stating this proof we will quickly state and prove a lemma that is needed
 	\begin{equation}
 		\phi_j(x) = e^{\lambda_jt}\int_{K}p_t(x,y)\phi_j(y) \dd \mu (y).
 	\end{equation}
-	Then, from Cauchy-Schwartz inequality, we have for every $t > 0$ 
+	Then, from the Cauchy-Schwartz inequality, we have for every $t > 0$ 
 	\begin{equation}
-		\abs{\phi_j(x)} \leq e^{\lambda_j t} \left(\int_{K} p_t(x,y)^{2} \dd \mu (y)\right)^{\frac{1}{2}}\left(\int_{K} \phi_j(y)^{2} \dd \mu (y)\right)^{\frac{1}{2}}  = e^{\lambda_j t}p_{2t}(x,x)^{1/2}
+		\abs{\phi_j(x)} \leq e^{\lambda_j t} \left(\int_{K} p_t(x,y)^{2} \dd \mu (y)\right)^{\sfrac{1}{2}}\left(\int_{K} \phi_j(y)^{2} \dd \mu (y)\right)^{\sfrac{1}{2}}  = e^{\lambda_j t}p_{2t}(x,x)^{\sfrac{1}{2}}.
 	\end{equation}
-	where the last equality comes from the fact that $\int_{K}\phi_i(y)\phi_j(y) \dd \mu = \delta_{ij}$ so $\int_{K} \phi_j(y)^{2} \dd \mu (y) = 1$. That combined with \eqref{returnHeatKernel} gives us $\int_{K} p_t(x,y)^{2} \dd \mu (y) = \int_{K} p_{2t}(x,y) \dd \mu (y)$ resulting in the equality.
+	The last equality comes from the fact that $\int_{K}\phi_i(y)\phi_j(y) \dd \mu = \delta_{ij}$ so $\int_{K} \phi_j(y)^{2} \dd \mu (y) = 1$. That combined with \eqref{returnHeatKernel} gives us $\int_{K} p_t(x,y)^{2} \dd \mu (y) = \int_{K} p_{2t}(x,y) \dd \mu (y)$ resulting in the equality.
 	
-	Now choosing $t = 1/4$ we get along with \eqref{heatKernelBound} that there is a constant $C > 0$ so for every $x \in K$ we have
+	Now choosing $t = 1/4$ together with \eqref{heatKernelBound} that there is a constant $C > 0$ so that for every $x \in K$ we have
 	\begin{equation}
 		\abs{\phi_j} \leq C e^{\lambda_j/4}.
 	\end{equation}
-	
 	Returning to \eqref{returnHeatKernel} we have for every $x, y \in K$ and $t \geq 1$ that
 	\begin{align}
 		\abs{p_t(x,y)} &\leq \sum_{j = 1}^{\infty} e^{-\lambda_jt} \abs{\phi_j(x)} \abs{\phi_j(x)} \\
@@ -892,40 +904,42 @@ Before stating this proof we will quickly state and prove a lemma that is needed
 		& = C^2 \sum_{j = 1}^{\infty} e^{-\lambda_jt} e^{\lambda_j/2} e^{\lambda_j}e^{-\lambda_j} \\
 		&\leq C^2 e^{-\lambda_1 t}e^{\lambda_1}\sum_{j = 1}^{\infty} e^{-\lambda_j/2}
 	\end{align}
-	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_2 < \ldots$ and $t \geq 1$ so $e^{\lambda_j(1-t)} \leq e^{\lambda_1(1-t)}$.Thus we have the desired bound.
+	where the last inequality comes from the fact that $0 < \lambda_1 < \lambda_2 < \ldots$ and  \nl $t \geq 1$ so $e^{\lambda_j(1-t)} \leq e^{\lambda_1(1-t)}$. Thus we have the desired bound.
 \end{proof}
 
-\begin{proof}[Proof of \cref{boundsOfRieszKernel}]
+\begin{proof}[Proof of \Cref{boundsOfRieszKernel}]
 	We have that
 	\begin{align}
 		G_s(x,y) &= \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t \\
-		&=\frac{1}{\Gamma(s)}\int_{0}^{1} t^{s-1}p_t(x,y) \dd t + \frac{1}{\Gamma(s)}\int_{1}^{\infty} t^{s-1}p_t(x,y). \dd t 
+		&=\frac{1}{\Gamma(s)}\int_{0}^{1} t^{s-1}p_t(x,y) \dd t + \frac{1}{\Gamma(s)}\int_{1}^{\infty} t^{s-1}p_t(x,y) \dd t.
 	\end{align}
 	The integral $\frac{1}{\Gamma(s)}\int_{1}^{\infty} t^{s-1}p_t(x,y) \dd t$ can be uniformly bounded by a constant, using \cref{heatKernelBound2}. Thus we only need to bound the integral $\int_{0}^{1} t^{s-1}p_t(x,y) \dd t$. By \eqref{heatKernelBound} we have that
 	\begin{equation}
 		\int_{0}^{1} t^{s-1}p_t(x,y) \dd t \leq c_1 \int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right).
 	\end{equation}
-	Since the bound of the integral relies on the value of $s$ we will split it up into the cases of the proposition.
+	Since the bound of the integral relies on the value of $s$ we will split it up into the cases of \Cref{boundsOfRieszKernel}.
 	
 	\medskip
-	If $s > d_h/d_w$ then we simply have 
+	\noi If $s > d_h/d_w$ then we simply have 
 	\begin{equation}
 		\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right) \leq \int_{0}^{1}t^{s-1-\frac{d_h}{d_w}} \dd t.
 	\end{equation}
 	Next, if $s < d_h/d_w$, then using a change of variable $t = u d(x,y)^{d_w}$, we find that
 	\begin{align}
-		&\phantom{=}\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right). \\
+		&\phantom{=}\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right) \\
 		&=d(x,y)^{sd_w - d_h} \int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
 		&\leq d(x,y)^{sd_w-d_h} \int_{0}^{\infty} u^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u.
 	\end{align}
-	convergence of the last integral comes from the fact that $e^{-c_2(1/u)^{1/d_w}}$ converges faster than $1/u$ diverges. Lastly for $s = d_h/d_w$, we again use the change of variable $t = ud(x,y)^{d_w}$ and setting $R = \diam(K)$ and noting that $0 < 1/R^{d_w} < 1/d(x,y)^{d_w}$, thus we find
+	Convergence of the last integral comes from the fact that $e^{-c_2(1/u)^{\sfrac{1}{d_w}}}$ converges faster than $1/u$ diverges.
+	
+	\noi Lastly for $s = d_h/d_w$, we again use the change of variable $t = ud(x,y)^{d_w}$ and setting $R = \diam(K)$ and noting that $0 < 1/R^{d_w} < 1/d(x,y)^{d_w}$, thus we find
 	\begin{align}
 		&\phantom{=}\int_{0}^{1} t^{s-1-\frac{d_h}{d_w}} \exp\left(-c_2 \left(\frac{d(x,y)^{d_w}}{t}\right)^{\frac{1}{d_w -1}}\right). \\
 		&=\int_{0}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
 		&\leq \int_{\frac{1}{R^{d_w}}}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u + \int_{0}^{\frac{1}{R^{d_w}}} u^{-1} \exp\left(-c_2 \left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u  \\
 		&\leq \int_{\frac{1}{R^{d_w}}}^{\frac{1}{d(x,y)^{d_w}}} u^{-1} \dd u + \int_{0}^{\frac{1}{R^{d_w}}} u^{-1} \exp\left(-c_2\left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u  \\
-		& \leq d_w \abs{\ln d(x,y)} +\int_{0}^{\frac{1}{R^{d_w}}} u^{-1} \exp\left(-c_2\left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
-		& \leq C \abs{\ln d(x,y)}.
+		& \leq d_w \abs{\ln \left(d(x,y)\right)} +\int_{0}^{\frac{1}{R^{d_w}}} u^{-1} \exp\left(-c_2\left(\frac{1}{u}\right)^{\frac{1}{d_w+1}}\right) \dd u \\
+		& \leq C \abs{\ln \left(d(x,y) \right)}.
 	\end{align}
 	Thus we have our desired bounds.
 \end{proof}
@@ -935,70 +949,72 @@ In the following we will prove some bounds for the fractional Laplacian. Since t
 
 \medskip
 \begin{defi}
-	We consider the following space of test functions
+	We define the following space of test functions $S(K)$ as
 	\begin{equation}
-		S(K) = \cbr{f \in C_0(K) : \forall k \geq 0 \lim_{n \to \infty} n ^{k} \abs{\int_{K} \phi_n(y)f(y) \dd \mu (y)} = 0}
+		S(K) = \cbr{f \in C_0(K) \colon \forall k \geq 0 \lim_{n \to \infty} n ^{k} \abs{\int_{K} \phi_n(y)f(y) \dd \mu (y)} = 0}
 	\end{equation}
 	with the topology defined by the family of norms
 	\begin{equation}
 		\norm{f}_k = \norm{(-\Delta)^{-k}f}_{L^2(K, \mu)}.
 	\end{equation}
 \end{defi}
-By \cite[Theorem 2]{germanOne} and \cref{convergenceOfEigenvaluesOfLaplacian} we have that $S(K)$ is a Frèchet Nuclear space. That a space is \emph{Fréchet} means that it is nuclear and the topology is given by a countable family of semi-norms. We will quickly define a nuclear space, but will not delve into the subject matter. The following definition is from \cite[Chapter 50]{Treves}.
+By \cite[Theorem 2]{germanOne} and \Cref{convergenceOfEigenvaluesOfLaplacian} we have that $S(K)$ is a Frèchet nuclear space. That a space is \emph{Fréchet} means that it is nuclear and the topology is given by a countable family of seminorms. We will quickly define a nuclear space, but will not delve into the subject matter. The following definition is from \cite[Chapter 50]{Treves}.
 
 \medskip
 \begin{defi} \label{NuclearSpace}
-	Let $E$ be a locally convex Hausdorff space and $\norm{\cdot}_p$ a continuous semi-norm on $E$. Further let $\hat{E}_{p}$ be a Banach space, defined to be the completion of the normed space $E \backslash \ker \norm{\cdot}_p$. Then $E$ is a \emph{nuclear space} if to every continuous semi-norm $\norm{\cdot}_p$ on $E$ there exists  another continuous semi-norm on $E$ with $\norm{\cdot}_q \geq \norm{\cdot}_p$ such that the canonical mapping $\hat{E}_{p} \to \hat{E}_q$ is \emph{nuclear}. 
+	Let $E$ be a locally convex Hausdorff space and $\norm{\cdot}_p$ a continuous seminorm on $E$. Further let $\widehat{E}_{p}$ be a Banach space, defined to be the completion of the normed space $E \setminus \ker \norm{\cdot}_p$. Then $E$ is a \emph{nuclear space} if to every continuous seminorm $\norm{\cdot}_p$ on $E$ there exists  another continuous seminorm on $E$ with $\norm{\cdot}_q \geq \norm{\cdot}_p$ such that the canonical mapping $\widehat{E}_{p} \to \hat{E}_q$ is \emph{nuclear}. 
 	
-	A mapping $u: E \to F$, where $E,F$ are Banach spaces, is \emph{nuclear} if there is a sequence in the closed unit ball of $E', \cbr{x'_k}$, a sequence in the closed unit ball of $F, \cbr{y_k}$ and a complex sequence $\cbr{\lambda_k}$ with $\sum_{k}\abs{\lambda_k} < \infty$ such that $u(x) = \sum_{i = 1}^{\infty} \lambda_i x'_i(x)y_i$ for all $x \in X$. 
+	A mapping $u\colon E \to F$, where $E,F$ are Banach spaces, is \emph{nuclear} if there is a sequence $\cbr{x'_k}$ in the closed unit ball of $E'$, a sequence $\cbr{y_k}$ in the closed unit ball of $F$, and a complex sequence $\cbr{\lambda_k}$ with $\sum_{k}\abs{\lambda_k} < \infty$ such that $u(x) = \sum_{i = 1}^{\infty} \lambda_i x'_i(x)y_i$ for all $x \in X$. 
 	
 	Furthermore, the trace-norm $\norm{u}_{\text{Tr}}$ is equal to the infimum of the numbers $\sum_{k} \abs{\lambda_k}$ over the set of all representations of $u$ as such a series.
 \end{defi}
 \begin{remark*}
-	We have just defined a nuclear map on a Banach spaces, but do note that the definition can be generalized to locally convex Hausdorff spaces.
+	We have just defined a nuclear map on a Banach spaces, but note that the definition can be generalized to locally convex Hausdorff spaces.
 \end{remark*}
 
 \medskip
-As we can see the concepts of a nuclear spaces is quite complicated, but its properties are very useful. It will allow us to prove the convergence of fractional Gaussian fields through the characteristics function and existence of fractional Gaussian fields through Bochner-Minlos theorem for nuclear spaces, which we will state later in \cref{BochnerMinlos}. But first we will prove some lemmas regarding the fractional Laplacian and the fractional Riesz kernel.
+The concept of a nuclear space is quite complicated, but its properties are very useful. It will allow us to prove the convergence of fractional Gaussian fields through the characteristics function and existence of fractional Gaussian fields through Bochner-Minlos theorem for nuclear spaces, which will be state later in \Cref{BochnerMinlos}. But first we will prove some lemmas regarding the fractional Laplacian and the fractional Riesz kernel.
+
+\medskip
 \begin{lemma}\label{fractionalLaplacianIsRieszKernel}
 	Let $s > 0$. For $f \in S(K)$ and $x \in K$
 	\begin{equation}
-		(-\Delta)^{-s}f = \int_{K}G_s(x,y)f(y) \dd \mu(y)
+		(-\Delta)^{-s}f = \int_{K}G_s(x,y)f(y) \dd \mu(y).
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	First, we will make sure the integral on the right side actually converges. This holds because $S(K) \subset C(K)$ so $f$ will be bounded on $K$. Thus we just need that for every $x \in K$,  $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent.\footnote{In \cref{boundsOfRieszKernel}, (i) and (ii) the bounds are for $x \neq y$, but they are null-set wrt. $\mu$}  For $s \in (d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Looking at $s \in (0, d_h/d_w]$, we will now use a dyadic annuli decomposition. Meaning we will split $K$ up into infinitely annuli on the form $ B(x, R2^{-j})\backslash B(x,RS^{-j-1})$, noting that
+	First, we will make sure the integral on the right side actually converges. This holds because $S(K) \subset C(K)$ whereby $f$ will be bounded on $K$. Thus we just need for every $x \in K$, that $\int_{K}G_s(x,y) \dd \mu(y)$ is convergent.\footnote{In \Cref{boundsOfRieszKernel}, (i) and (ii) the bounds are for $x \neq y$, but they are null-sets with respect to $\mu$}  For $s \in (d_h/d_w, \infty)$ the convergence follows from \cref{boundsOfRieszKernel}. Looking at $s \in (0, d_h/d_w]$, we will use a dyadic annuli decomposition. Meaning we will split $K$ up into infinitely many annuli on the form $ B(x, R2^{-j})\setminus B(x,RS^{-j-1})$, noting that
 	\begin{equation}
-		K \subseteq \bigcup_{j \geq 0} B(x, R2^{-j})\backslash B(x,RS^{-j-1})
+		K \subseteq \bigcup_{j \geq 0} B(x, R2^{-j})\setminus B(x,RS^{-j-1})
 	\end{equation}
-	where $R = \diam(K)$. Then we have for all $y \in B(x, R2^{-j})\backslash B(x,RS^{-j-1})$:
+	where $R = \diam(K)$. Then we have for all $y \in B(x, R2^{-j})\setminus B(x,RS^{-j-1})$ that
 	\begin{equation}
 		R2^{-j-1} \leq d(x,y) \leq R2^{-j-1} \Rightarrow 2^{-j-1} \leq R^{-1} \cd d(x,y) \leq 2^{-j-1} .
 	\end{equation}
-	  We will show that the integral is finite for both $s = d_h/d_w$ and $s<d_h/d_w$, but this requires we bound $\abs{ln d(x,y)}$. So we see that for all $\alpha > 0$
+	  We will show that the integral is finite for both $s = d_h/d_w$ and $s<d_h/d_w$, but this requires we bound $\abs{\ln \left(d(x,y) \right)}$. So we see that for all $\alpha > 0$
 	\begin{equation}
-		x^{\alpha} \abs{ln(x)} \to 0, \quad \text{as } x \to 0
+		x^{\alpha} \abs{\ln \left(x\right)} \to 0, \quad \text{as } x \to 0
 	\end{equation}
 	which means there exists a constant $k > 0$ such we can choose some interval $(0, u_k]$ so 
 	$\ln(x) \leq \frac{k}{x^{\alpha}}$ for all $x \in (0, u_K]$. Now choose $k$ such $u_{k'} \leq R$, in which case for $s = d_h/d_w$ we have
 	\begin{align}
-		\int_{K} G_s(x,y) \dd \mu(y) &\leq \int_{K} C_1 \cd \abs{\ln d(x,y)} \dd \mu(y)\\
-		& \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} C_1\cd \abs{\ln d(x,y)} \dd \mu(y) \\
-		&\leq \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{C_1 \cd k'}{d(x,y)^{\gamma}} \dd \mu
+		\int_{K} G_s(x,y) \dd \mu(y) &\leq \int_{K} C_1 \cd \abs{\ln\left( d(x,y)\right)} \dd \mu(y)\\
+		& \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\setminus B(x,RS^{-j-1})} C_1\cd \abs{\ln \left(d(x,y)\right)} \dd \mu(y) \\
+		&\leq \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\setminus B(x,RS^{-j-1})} \frac{C_1 \cd k'}{d(x,y)^{\gamma}} \dd \mu
 	\end{align}
 	where $\gamma < d_h$. We can likewise bound $G_{s}(x,y)$ by
 	\begin{align}
 		\int_{K} G_s(x,y) \dd \mu(y) &\leq \int_{K} \frac{C_2}{d(x,y)^{\gamma}}\dd \mu(y)\\
-		& \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{C}{d(x,y)^{\gamma}}\dd \mu(y) \\
+		& \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\setminus B(x,RS^{-j-1})} \frac{C}{d(x,y)^{\gamma}}\dd \mu(y) \\
 	\end{align}
 	where $C = \max\cbr{C_1 \cd k', C_2}$. Thus for $s \in (0, d_h/d_w]$ we have
 	\begin{align}
-		\int_{K} G_s(x,y) \dd \mu(y) & \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\backslash B(x,RS^{-j-1})} \frac{C}{d(x,y)^{\gamma}}\dd \mu(y) \\
-		& \leq R\cd C \sum_{j = 0}^{\infty} 2^{j \gamma} \mu \left(B(x, R2^{-j})\backslash B(x,RS^{-j-1})\right)  \\
+		\int_{K} G_s(x,y) \dd \mu(y) & \leq  \sum_{j = 0}^{\infty} \int_{B(x, R2^{-j})\setminus B(x,RS^{-j-1})} \frac{C}{d(x,y)^{\gamma}}\dd \mu(y) \\
+		& \leq R\cd C \sum_{j = 0}^{\infty} 2^{j \gamma} \mu \left(B(x, R2^{-j})\setminus B(x,RS^{-j-1})\right)  \\
 		&\leq R\cd C \sum_{j = 0}^{\infty} 2^{j \gamma} \mu \left(B(x, R2^{-j})\right) \\
 		& \leq R^{d_h +1} \cd C \cd c_2 \sum_{j = 0}^{\infty} 2^{j(\gamma - d_h)} < \infty
 	\end{align}
-	Where we use \cref{normalziedHausdorffMeasureAhlforsRegular} and $\int_{K}G_s(x,y)\dd \mu(y)$ is convergent for every $x$.
+	Where we use \cref{normalziedHausdorffMeasureAhlforsRegular} and that $\int_{K}G_s(x,y)\dd \mu(y)$ is convergent for every $x \in K$.
 	
 	\medskip
 	Moving along in proving the lemma, we note that if we use the substitution $t = \lambda_j u$ we get 
@@ -1006,7 +1022,7 @@ As we can see the concepts of a nuclear spaces is quite complicated, but its pro
 		\frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t = \frac{1}{\Gamma(s) \cd \lambda_j^s} \int_{0}^{\infty} u^{s-1}e^{-u} \dd u = \frac{1}{\Gamma(s)\lambda_{j}^{s}} \Gamma(s) = \lambda_j^{-s}.
 	\end{align}
 	
-	Now using Fubini's theorem, \cref{heatKernelWritten} and the definition of $G_s$ we get
+	\noi Now using Fubini's theorem, \Cref{fractionalRieszKernel} and \cref{heatKernelWritten}  we get
 	\begin{align}
 		\int_{K} G_s(x,y) f(y) \dd \mu (y) & = \int_{K} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}p_t(x,y) \dd t f(y)\dd \mu (y) \\
 		&= \int_{K} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1} \sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)  \dd t f(y)\dd \mu (y) \\
@@ -1018,7 +1034,7 @@ As we can see the concepts of a nuclear spaces is quite complicated, but its pro
 \end{proof}
 
 An immediate corollary follows:
-\begin{coro}\label{coroForRieszKernelAndFractionalLaplacian} \phantom{a}
+\begin{coro}\label{coroForRieszKernelAndFractionalLaplacian} Let $(-\Delta)^{-s}$ be defined as in \Cref{fracLaplacian}, then the following holds
 	\begin{enumerate}[(i)]
 		\item 	Let $s > 0$, for $f,g \in S(K)$ \label{coroRiesz1}
 		\begin{equation}
@@ -1033,7 +1049,7 @@ An immediate corollary follows:
 
 \end{coro}
 \begin{proof}
-	Beginning with (\ref{coroRiesz1}). It follows from the definition of $(-\Delta)^{-s}$, \cref{fracLaplacianProperties} and \cref{fractionalLaplacianIsRieszKernel}, we find that
+	Beginning with (\ref{coroRiesz1}). It follows from the definition of $(-\Delta)^{-s}$, \Cref{fracLaplacianProperties} and \Cref{fractionalLaplacianIsRieszKernel}, we find that
 	\begin{align}
 		\int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu &= \inn{(-\Delta)^{-s}f}{(-\Delta)^{-s}g} \\
 		& = \inn{f}{(-\Delta)^{-2s}g}\\
@@ -1041,7 +1057,7 @@ An immediate corollary follows:
 		 & =\int_{K}\int_{K} f(x)g(y)G_{2s}(x,y) \dd \mu(x) \dd \mu (y)
 	\end{align}
 	
-	Moving on to (\ref{coroRiesz2}). Again from \cref{fractionalLaplacianIsRieszKernel} and \cref{heatKernelWritten} we have
+	Moving on to (\ref{coroRiesz2}). Again from \Cref{fractionalLaplacianIsRieszKernel} and \cref{heatKernelWritten} we have
 	\begin{align}
 		(-\Delta)^{-s}f &= \sum_{j =1 }^{\infty} (\lambda_j)^{-s} \phi_j \int_{K}\phi_j(y) f(y) \dd \mu(y) \\
 		&= \sum_{j =1 }^{\infty} \left(\frac{1}{\Gamma(s)} \int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t\right) \phi_j \int_{K}\phi_j(y) f(y) \dd \mu(y) \\

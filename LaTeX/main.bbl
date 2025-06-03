@@ -376,35 +376,6 @@
       \verb https://mathweb.ucsd.edu/~fan/research/cb/ch1old.pdf
       \endverb
     \endentry
-    \entry{Geijn}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=49ec77afc9ad13b7bdeac19c41e663ed}{%
-           family={Computer\bibnamedelima Science},
-           familyi={C\bibinitperiod\bibinitdelim S\bibinitperiod},
-           given={Department},
-           giveni={D\bibinitperiod},
-           prefix={of},
-           prefixi={o\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {The University of Texas}%
-      }
-      \strng{namehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{fullhash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{fullhashraw}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{bibnamehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authorbibnamehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authornamehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authorfullhash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authorfullhashraw}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Notes on the Symmetric QR Algorithm}
-      \field{year}{2014}
-      \true{nocite}
-    \endentry
     \entry{Jozef}{article}{}{}
       \name{author}{1}{}{%
         {{hash=da065a8e54ecdfb4909926dc71a25c21}{%
@@ -543,6 +514,35 @@
       \verb{doi}
       \verb https://doi.org/10.1007/BF00249784
       \endverb
+    \endentry
+    \entry{Geijn}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c24e25fce28db56bd64a824fe2a60cc9}{%
+           family={Geijn},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={van\bibnamedelima de},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The University of Texas, Department of Computer Science}%
+      }
+      \strng{namehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{fullhash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{fullhashraw}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{bibnamehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authorbibnamehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authornamehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authorfullhash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authorfullhashraw}{c24e25fce28db56bd64a824fe2a60cc9}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Notes on the Symmetric QR Algorithm}
+      \field{year}{2014}
+      \true{nocite}
     \endentry
     \entry{bachThesis}{thesis}{}{}
       \name{author}{1}{}{%
@@ -815,7 +815,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-0-387-90845-8}
-      \field{title}{	Semigroups of Linear Operators and Applications to Partial Differential Equations}
+      \field{title}{Semigroups of Linear Operators and Applications to Partial Differential Equations}
       \field{year}{1992}
       \true{nocite}
     \endentry
@@ -1353,7 +1353,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-0-387-90845-8}
-      \field{title}{	Semigroups of Linear Operators and Applications to Partial Differential Equations}
+      \field{title}{Semigroups of Linear Operators and Applications to Partial Differential Equations}
       \field{year}{1992}
       \true{nocite}
     \endentry
@@ -1600,25 +1600,25 @@
     \endentry
     \entry{Geijn}{misc}{}{}
       \name{author}{1}{}{%
-        {{hash=49ec77afc9ad13b7bdeac19c41e663ed}{%
-           family={Computer\bibnamedelima Science},
-           familyi={C\bibinitperiod\bibinitdelim S\bibinitperiod},
-           given={Department},
-           giveni={D\bibinitperiod},
-           prefix={of},
-           prefixi={o\bibinitperiod}}}%
+        {{hash=c24e25fce28db56bd64a824fe2a60cc9}{%
+           family={Geijn},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={van\bibnamedelima de},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {The University of Texas}%
+        {The University of Texas, Department of Computer Science}%
       }
-      \strng{namehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{fullhash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{fullhashraw}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{bibnamehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authorbibnamehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authornamehash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authorfullhash}{49ec77afc9ad13b7bdeac19c41e663ed}
-      \strng{authorfullhashraw}{49ec77afc9ad13b7bdeac19c41e663ed}
+      \strng{namehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{fullhash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{fullhashraw}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{bibnamehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authorbibnamehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authornamehash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authorfullhash}{c24e25fce28db56bd64a824fe2a60cc9}
+      \strng{authorfullhashraw}{c24e25fce28db56bd64a824fe2a60cc9}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}

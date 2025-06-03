@@ -1,18 +1,17 @@
 \chapter{Introduction}
 
-The notion of fractals was introduced in the 1970's by Benoît B. Mandelbrot, where he defined it as an object that has Hausdorff dimension strictly larger than topological dimension. Many have since built upon this definition of fractals and expanded the area of fractal analysis greatly \cite{Falconer_1985, barlow, Kigami_2001, specAnal}. It is the intention of this, thesis to expand upon this as we wish to introduce and study a family of Gaussian fields, their discrete analogues and the convergence in distribution of the discrete field on the Vicsek set fractal.  
+The notion of fractals was introduced in the 1970's by Benoît B. Mandelbrot, where he defined it as an object that has Hausdorff dimension strictly larger than topological dimension. Many have since built upon this definition of fractals and  greatly expanded the area of fractal analysis \cite{Falconer_1985, barlow, Kigami_2001, specAnal}. The thesis will expand upon this by introducing and studying a family of Gaussian fields, their discrete analogues and the convergence in distribution of the discrete field on the Vicsek set fractal.  
 
-This thesis is an extension of the paper \cite{Fabrice} by Fabrice Baudoin and Li Chen. Much of the thesis will follow the aforementioned paper, but will diverge slightly, as we will study the Vicsek set rather than the Sierpinski gasket. 
-
+The thesis is an extension of the paper \cite{Fabrice} by Fabrice Baudoin and Li Chen. It will follow the aforementioned paper, but will diverge slightly, by studying the Vicsek set rather than the Sierpinski gasket. \\ \newline
 The Vicsek set is defined as the non-empty compact set $K$ such that
 \begin{equation}
-	K = \bigcup_{i = 1}^{5} \fracConst_i(K), \quad \text{where } \quad \fracConst_i(x) = \frac{1}{3}(x-p_i) + p_i, \quad i = 0, 1,\ldots 4.
+	K = \bigcup_{i = 1}^{5} \fracConst_i(K), \quad \text{where } \quad \fracConst_i(x) = \frac{1}{3}(x-p_i) + p_i, \quad i = 1,2,\ldots 5.
 \end{equation}
-Here $p_i \in V_0$ are the edge points of a "plus" with a point in the middle. The discrete Vicsek is then defined recursively as
+Here $p_i \in V_0$ are the edge points of a "plus" with a point in the middle (see \Cref{fig:vicsekGraphDiagram}). The discrete Vicsek is then defined recursively as
 \begin{equation}
 	V_m = \bigcup_{i = 1}^{5} \fracConst_i(V_{m-1}).
 \end{equation}
-We can then create a discrete graph of the Vicsek set as seen below.
+We can then create a discrete graph of the Vicsek set as shown below.
 
 
 \def\vecScale{0.14}
@@ -27,18 +26,19 @@ We can then create a discrete graph of the Vicsek set as seen below.
 		\hspace{\vecDist}
 		\includesvg[scale=\vecScale]{Pictures/vicsek3MarkersTrue.svg}
 	\end{center}
-	\caption{Vicsek graph, $G_0, G_1, G_2$ and $G_3$}
+	\caption{Vicsek graph, $G_0, G_1, G_2$ and $G_3$.}
+	\label{fig:vicsekGraphDiagram}
 \end{figure}
 
-As stated the goal of this thesis is to study the fractional Gaussian Fields. So if we let $K \subset \ree^{2}$ be the Vicsek set fractal, then the family of Gaussian fields we wish to study are $X_s$ defined in $K$ indexed by a parameter $s \geq 0$ and satisfying
+As stated, the goal of this thesis is to study the fractional Gaussian fields. So if we let $K \subset \ree^{2}$ be the Vicsek set fractal, then the family of Gaussian fields we wish to study are defined in $K$ indexed by a parameter $s \geq 0$ satisfying
 \begin{equation}
 	\e \left[X_{s}(f)X_{s}(g)\right] = \int_{K} (-\Delta)^{-s}f(-\Delta)^{-s}g \dd \mu
 \end{equation}
-where $f,g$ are in a space of suitable test functions on $K$, $\mu$ a normalized Hausdorff measure and $\Delta$ the Dirichlet Laplacian on $K$. Such fields are heuristically defined as the distribution $X_s = (-\Delta)^{-s}W$ where $W$ is a white noise on $L^{2}(K, \mu)$.
+where $f,g$ are in a space of suitable test functions on $K$, $\mu$ is a normalized Hausdorff measure and $\Delta$ is the Dirichlet Laplacian on $K$. Such fields are heuristically defined as the distribution $X_s = (-\Delta)^{-s}W$ where $W$ is a white noise on $L^{2}(K, \mu)$.
 
-Likewise the discrete fractional Gaussian fields are heuristically given by $X_{s}^{m} = (-\Delta_m)^{-s}W_i$ where $\Delta_m$ is the discrete Laplacian and $W_i$ is a sequence of I.I.D Gaussian random variables with mean zero and variance one. These are precisely the fields of which we will prove convergence in distribution.
+Likewise the discrete fractional Gaussian fields are heuristically given by $X_{s}^{m} = (-\Delta_m)^{-s}W_i$ where $\Delta_m$ is the discrete Laplacian and $W_i$ is a sequence of i.i.d Gaussian random variables with mean zero and variance one. These are precisely the fields of which we will prove convergence in distribution.
 
-As we will be studying the Vicsek set, it is natural that we start by constructing the set and proving some basic properties of the Vicsek set. While we have described the Vicsek set as a non-empty compact self-similar set, we will first define and prove some basic properties of self-similar sets.
+As we will be studying the Vicsek set, it is natural that we start by constructing the set and proving some of its basic properties. While we have described the Vicsek set as a non-empty compact self-similar set, we will first define and prove some basic properties of such self-similar sets.
 
 \section{Iterated Function System}
 The iterated functions systems (IFS) gives us a way to work with self-similar sets. Constructing the IFS also allows us to prove that the Vicsek set actually exists. Thus we start by defining the iterated function systems.
@@ -56,7 +56,7 @@ The iterated functions systems (IFS) gives us a way to work with self-similar se
 \end{defi}
 
 
-This then begs the question if there for every IFS exists an invariant set: We shall see that this is indeed true, but to be able to prove that a unique invariant set exists, we will need to define the Hausdorff metric.
+This then begs the question, if there for every IFS exists an invariant set? We shall see that this is indeed true, but to be able to prove that a unique invariant set exists, we will need to define the Hausdorff metric.
 
 \medskip
 \begin{defi}
@@ -68,7 +68,7 @@ This then begs the question if there for every IFS exists an invariant set: We s
 \end{defi}
 The proof that $d_H$ is a metric can be found in \cite{Henrikson1999CompletenessAT}.
 
-
+\medskip
 \begin{theorem}\label{uniqueInvariantSet}
 	Consider the IFS given by $\cbr{\fracConst_1, \fracConst_2, \ldots, \fracConst_m}$, then there is a unique invariant set $K$ for the IFS. Moreover, if we define a transformation $S$, on the class $\mathcal{A}$ of non-empty compact sets, by
 	\begin{equation}
@@ -82,8 +82,8 @@ The proof that $d_H$ is a metric can be found in \cite{Henrikson1999Completeness
 \end{theorem}
 
 \begin{proof}
-	Let $E$ be any set in $\mathcal{A}$ such that $S_i(E) \subset E$ for all $i$. By induction we find that $S^{k}(E) \subset S^{k-1}(E)$. Since
-	$S^{0} = E \supset S(E) = S^{1}(E)$, then $S^{k+1}(E) = S(S^{k}(E)) \subset S(S^{k-1}(E)) = S^{k}(E)$ by the induction assumption that $S^{k} \subset S^{k-1}$. This implies $S^{k}(E)$ is a decreasing sequence of non-empty compact sets, in which case it must have a non.empty compact intersection $K = \bigcap_{k \geq 0} S^{k}(E)$. Since $S^{k}(E)$ is decreasing, then $S(K) = K$ fulfilling \eqref{invariantSet}.
+	Let $E$ be any set in $\mathcal{A}$ such that $S_i(E) \subset E$ for all $i$. By induction we find that since
+	$S^{0} = E \supset S(E) = S^{1}(E)$, then $S^{k+1}(E) = S(S^{k}(E)) \subset S(S^{k-1}(E)) = S^{k}(E)$, by the induction assumption $S^{k} \subset S^{k-1}$, in which case we get $S^{k}(E) \subset S^{k-1}(E)$. This in turn implies that $S^{k}(E)$ is a decreasing sequence of non-empty compact sets, in which case it must have a non-empty compact intersection $K = \bigcap_{k \geq 0} S^{k}(E)$. Since $S^{k}(E)$ is a decreasing sequence, then $S(K) = K$ satisfying \eqref{invariantSet}.
 	
 	Now moving on to uniqueness, we will need the following inequality
 	\begin{equation}\label{eq:hausdorffMetricInequality}
@@ -93,37 +93,38 @@ The proof that $d_H$ is a metric can be found in \cite{Henrikson1999Completeness
 	\begin{equation}
 		d_H(A,B) = d_H(\fracConst_i(A), \fracConst_i(B)) \leq \max_{1 \leq i \leq m} c_i \cd d_H(A,B).
 	\end{equation}
-	Since $0 < \max_{1 \leq i \leq m}  c_i < 1$, then $d_H(A,B) = 0$ so $A = B$ so the invariant set is unique.
+	Since $0 < \max_{1 \leq i \leq m}  c_i < 1$, then $d_H(A,B) = 0$ whereby $A = B$ making the invariant set unique.
 	
 	Finally we will prove \eqref{eq:hausdorffMetricInequality}. The first inequality comes by choosing $$\delta = \max_{1 \leq i \leq m} d_H(\fracConst_i(A), \fracConst_i(B))$$ 
-	since it means that $\fracConst_i(B) \subset (\fracConst_i(A))_{\delta}$ for all $0 \leq i \leq m$. Thus it will definitely hold for $\bigcup_{i = 1}^{m} \fracConst_i(B) \subset \left(\bigcup_{i = 1}^{m} \fracConst_i(B)\right) _{\delta}$ and vice versa. 
-	The second inequality comes from letting $\delta = d(A,B)$. Then for every $a \in A$ we can choose some $b \in B$ such that $\abs{a-b} \leq \delta$ in which case $\abs{\fracConst_i(a) -\fracConst_i(b)} \leq c_i \delta$ and whereby $\fracConst_i(A) \subset \left(\fracConst_i(B)\right)_{c_i \delta}$. 
+	since it follows that $\fracConst_i(B) \subset (\fracConst_i(A))_{\delta}$ for all $0 \leq i \leq m$. Thus it will definitely hold for $\bigcup_{i = 1}^{m} \fracConst_i(B) \subset \left(\bigcup_{i = 1}^{m} \fracConst_i(A)\right) _{\delta}$ and vice versa. 
+	
+	The second inequality comes from letting $\delta = d(A,B)$. Then for every $a \in A$ we can choose some $b \in B$ such that $\abs{a-b} \leq \delta$ so that $\abs{\fracConst_i(a) -\fracConst_i(b)} \leq c_i \delta$ and whereby $\fracConst_i(A) \subset \left(\fracConst_i(B)\right)_{c_i \delta}$. 
 \end{proof}
 
-In the end we will mention a consequence of \cref{uniqueInvariantSet}. The theorem gives us a way to create a (not necessarily unique) sequence $(i_1, i_2, \ldots)$ such that fir each $x \in F$ we can write
+A consequence of \Cref{uniqueInvariantSet}. The theorem gives us a way to create a (not necessarily unique) sequence $(i_1, i_2, \ldots)$, where $1 \leq i_j \leq m$, such that for each $x \in F$ we can write
 \begin{equation}\label{pointAsIntersectSet}
-	\cbr{x} = \cbr{x_{i_1, i_2, \ldots}} = \bigcap_{k \geq 0} K_{i_1, \ldots i_k}.
+	\cbr{x} = \cbr{x_{i_1, i_2, \ldots}} = \bigcap_{k \geq 0} K_{i_1, \ldots i_k}
 \end{equation}
-where $K_{i_1, \ldots i_k} = \fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}(K)$. Thus in a way we give each $x \in F$ an address. This is possible since $S^{k}$ is decreasing as $k$ increases. 
+where $K_{i_1, \ldots i_k} = \left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}\right(K)$. Thus in a way we give each $x \in F$ an address. This is possible since $S^{k}$ is decreasing as $k$ increases. 
 
-This further lets us describe $K$ as
+If we further let $\mathcal{I}$ denote all sequences of the type $(i_1, i_2, \ldots)$, then we can describe $K$ as
 \begin{equation}\label{InvSetAsPoint}
-	K = \bigcup_{\mathcal{I}} \cbr{x_{i_1, i_2, \ldots}}.
+	K = \bigcup_{\mathcal{I}} \cbr{x_{i_1, \ldots, i_k}}.
 \end{equation}
 
 \newpage
 \section{Construction of the Vicsek set}
 
-Let $V_0 = \cbr{p_0, p_1, p_2, p_3, p_4}$ be the set of vertices  in $\ree^{2}$ given by $p_0 = (0,0), p_1=(\xi, 0), p_2 = (0, -\xi), p_3 = (-\xi, 0)$ and $p_4 = (0, \xi)$ for some $\xi > 0$. Then define
+Let $V_0 = \cbr{ p_1, p_2, p_3, p_4, p_5}$ be the set of vertices  in $\ree^{2}$ given by $p_1 = (0,0), p_2=(\xi, 0),$ \\ $p_3 = (0, -\xi), p_4 = (-\xi, 0)$ and $p_5 = (0, \xi)$ for some $\xi > 0$. Then define
 \begin{equation}
-	\fracConst_i(z) = \frac{1}{3} \left(z - p_i\right) +p_i, \quad \text{for } i = 0,1,\ldots 4.
+	\fracConst_i(z) = \frac{1}{3} \left(z - p_i\right) +p_i, \quad \text{for } i = 1,2,\ldots 5.
 \end{equation}
-$\cbr{\fracConst_{1}, \ldots, \fracConst_{5}}$ is indeed a IFS, since for every $x, y \in \ree^2$
+Where $\cbr{\fracConst_{1}, \ldots, \fracConst_{5}}$ indeed is an IFS, since for every $x, y \in \ree^2$ we have
 \begin{equation}
 	\abs{\fracConst_{i}(x)-\fracConst_{i}(x)} = \abs{\frac{1}{3} \left(x - p_i\right) +p_i - \left(\frac{1}{3} \left(y - p_i\right) +p_i\right)} =\frac{1}{3}\abs{x-y}.
 \end{equation}
 
-Thus by \cref{uniqueInvariantSet} we define the Vicsek set $K$ as the unique non-empty compact subset in $\ree^{2}$ such that
+Thus by \Cref{uniqueInvariantSet} we define the Vicsek set $K$ as the unique non-empty compact subset in $\ree^{2}$ such that
 \begin{equation}
 	K = \bigcup_{i = 1}^{5} \fracConst_i(K).
 \end{equation}
@@ -136,15 +137,15 @@ Since we are going to study the convergence of discretely defined operators we c
 This gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$. 
 
 \medskip
-\textbf{Notation:} We denote $V_{\ast} = \cup_{m \geq 0} V_m$ and for any $p \in V_m$ we write the collection of neighbours of $p$ in $G_m$ by $V_{m,p}$. We may write $x \underset{m}{\sim} y$ when $x$ and $y$ are neighbours and $x \sim y$, when there is no confusion as to what $V_m$ $x$ and $y$ belongs to. Lastly, note that $N_m = \# V_m = 5^{m}\cd 4 + 1$.
+\textbf{Notation:} We denote $V_{\ast} = \cup_{m \geq 0} V_m$ and for any $p \in V_m$ we write the collection of neighbours of $p$ in $G_m$ by $V_{m,p}$. We may write $x \underset{m}{\sim} y$ when $x$ and $y$ are neighbours and $x \sim y$, when there is no confusion as to what $V_m$, $x$ and $y$ belongs to. Lastly, note that $N_m = \# V_m = 5^{m}\cd 4 + 1$.
 
 
 
-\section{Hausdorff Dimensions}
+\section{Hausdorff Dimension}
 
-The Hausdorff dimension can be thought of as a form of "fractal dimension" and will be important as the notion of the Hausdorff dimension will be used to bound and define many of the mathematical objects that we will manipulate. 
+The Hausdorff dimension can be thought of as a form of "fractal dimension" and will be important as it will be used to bound and define many of the mathematical objects that we will manipulate. 
 
-Now Hausdorff dimension has the advantage of being defined for any set and it is based on measures, which we know how to work with. The greatest disadvantage is that it is, in most cases, very difficult to calculate from the definition. Given an invariant set of an IFS it will be quite easy to calculate. We begin this section by defining a cover for sets.
+The Hausdorff dimension has the advantage of being defined for any set and it is based on measures, which we know how to work with. The greatest disadvantage is that it is very difficult to calculate from the definition, in most cases. It will be quite easy to calculate, if we are given an invariant set of an IFS. We begin this section by defining a cover for sets.
 
 \medskip
 \begin{defi}\label{deltaCover}
@@ -164,16 +165,16 @@ Now Hausdorff dimension has the advantage of being defined for any set and it is
 \end{defi}
 
 \begin{remark*}
-	The Hausdorff measure defined above, is not a measure in the normal measure theory sense. Rather it is an outer measure, though it is possible to prove that the Hausdorff measure restricted to Borel-sets, is a measure.
+	The Hausdorff measure defined above, is not a measure in the normal measure theory sense. Rather it is an outer measure, although it is possible to prove that the Hausdorff measure restricted to Borel-sets, is a measure.
 \end{remark*}
 
 \medskip
-Moving swiftly along, we now want to investigate the behaviour of $\mathcal{H}^{s}$ as $s$ changes. Let ${U_i}_{i \geq 1}$ be a $\delta$-cover of $K$, then we have for $0 \geq s < t$ that
+Moving swiftly along, we now want to investigate the behaviour of $\mathcal{H}^{s}$ as $s$ changes. Let $\cbr{U_i}_{i \geq 1}$ be a $\delta$-cover of $K$, then we have for $0 \leq s < t$ that
 \begin{equation}
 	\sum_{i \geq 1} \diam(U_i)^{t} = \sum_{i \geq 1} \diam(U_i)^{t-s}\diam(U_i)^{s} \leq \delta^{t-s}\sum_{i \geq 1}\diam(U_i)^{s}.
 \end{equation}
-Taking infima on both sides we get that $H^t_{\delta}(K) \leq \delta^{t-s}H^s_{\delta}(K)$. If we let $\delta \to 0$ we see that if $\mathcal{H}^{s}(K) < \infty$ then $\mathcal{H}^{s}(K) = 0$ since $\delta^{t-s} \to 0$. Likewise if $\mathcal{H}^{t} > 0$ then $\mathcal{H}^{s} = \infty$. 
-This tells us that if there is a point, say $\kappa$, such that $\mathcal{H}^{\kappa}$ is both positive and finite, $\mathcal{H}^{s}$ will be 0 for all $s > \kappa$ and $\infty$ for all $s < \kappa$. Such a value is called the \emph{Hausdorff Dimension} of $K$. (Formally written:)
+Taking infimum on both sides we get that $H^t_{\delta}(K) \leq \delta^{t-s}H^s_{\delta}(K)$. If we let $\delta \to 0$ we see that if $\mathcal{H}^{s}(K) < \infty$ then $\mathcal{H}^{s}(K) = 0$ since $\delta^{t-s} \to 0$. Likewise if $\mathcal{H}^{t} > 0$ then $\mathcal{H}^{s} = \infty$. 
+This tells us that if there is a point, say $\kappa$, such that $\mathcal{H}^{\kappa}$ is both positive and finite, then $\mathcal{H}^{s}$ will be 0 for all $s > \kappa$ and $\infty$ for all $s < \kappa$. Such a value is called the \emph{Hausdorff Dimension} of $K$.
 
 \medskip
 \begin{defi}\label{hausdorffDimDefi}
@@ -184,11 +185,12 @@ This tells us that if there is a point, say $\kappa$, such that $\mathcal{H}^{\k
 \end{defi} 
 \textbf{Notation:} When there is no confusion with regards to what set we are working with, we denote the Hausdorff dimension by $d_h$.
 
+\medskip
 As stated before, it is quite difficult to determine the Hausdorff dimension from the definition. Fortunately, we can with a few assumptions find the Hausdorff dimension quite easily. But before we can prove this theorem, we first define the open set condition and state a few important lemmas.
 
 \medskip
 \begin{defi}\label{OpenSetCondition}
-	We say that an IFS $\cbr{\fracConst_i}_{1 \leq i \leq m}$ satisfies the \emph{open set condition} if there exists a non-empty bounded open set $V$ such that
+	We say that an IFS $\cbr{\fracConst_i}_{1 \leq i \leq m}$, satisfies the \emph{open set condition} if there exists a non-empty bounded open set $V$ such that
 	\begin{equation}
 		V \supset \bigcup_{i = 1}^{m} \fracConst_i(V)
 	\end{equation}
@@ -196,7 +198,7 @@ As stated before, it is quite difficult to determine the Hausdorff dimension fro
 \end{defi}
 
 \medskip
-Lemma \ref{massDistribution} is lower bound for the Hausdorff dimension.
+The following \Cref{massDistribution} describes a lower bound for the Hausdorff dimension.
 \begin{lemma}\label{massDistribution}
 	Let $\mu$ be a measure such that $\mu(F) \in (0, \infty)$ and suppose there are numbers $c, \epsilon > 0$ such that for some $s \geq 0$
 	\begin{equation}
@@ -209,12 +211,12 @@ Lemma \ref{massDistribution} is lower bound for the Hausdorff dimension.
 	\begin{equation}
 		0 < \mu(F) \leq \mu \left(\bigcup_{i \in I} U_i\right) \leq \sum_{i \in I} \mu(U_i) \leq c \sum_{i \in I} \diam(U_i)^{s}
 	\end{equation}
-	by definition of measures and properties of $\mu$. Taking infimum we get $\mathcal{H}^{s}_{\delta} \geq \frac{\mu(F)}{c}$ and therefore $\mathcal{H}^{s} \geq \frac{\mu(F)}{c} > 0$ so by \cref{hausdorffDimDefi} $s \leq d_h$.
+	by definition of measures and properties of $\mu$. Taking infimum we get $\mathcal{H}^{s}_{\delta} \geq \frac{\mu(F)}{c}$ and therefore $\mathcal{H}^{s} \geq \frac{\mu(F)}{c} > 0$ so by \Cref{hausdorffDimDefi} $s \leq d_h$.
 \end{proof}
 
 \newpage
 \begin{lemma}\label{theConstq}
-	Let $\cbr{V_i}$ be a collection of disjoint open subset of $\ree^{n}$ such that each $V_i$ contains a ball of radius $a_1r$ and is contained in a ball of radius $a_2r$. Then any ball $B$ of radius $R$ intersects at most $(1+2a_2)^{n}a_{1}^{n}$ of the closures $\overline{V}_i$
+	Let $\cbr{V_i}$ be a collection of disjoint open subsets of $\ree^{n}$ such that each $V_i$ contains a ball of radius $a_1r$ and is contained in a ball of radius $a_2r$. Then any ball $B$ of radius $R$ intersects at most $(1+2a_2)^{n}a_{1}^{n}$ of the closures $\overline{V}_i$
 \end{lemma}
 \begin{proof}
 	By assumption we know that $\diam(V_i) \leq 2a_2 r$ for all $V_i$. So if some $\overline{V}_i$ intersects the ball with radius $r$, then $\overline{V}_i$ must be contained in the ball with radius $(2a_2 + 1)r$ concentric with the ball with radius $r$.  Now let $q$ denote the number of closures $\overline{V}_i$ such that $\overline{V}_i \cap B(x,r) \neq \emptyset$. Then there exists $q$ disjoint balls with radius $a_1r$ that are contained in the ball with radius $(2a_2 +1)r$, since by assumption, each $\overline{V}_i$ contains a ball of radius $a_1r$ . It follows that $q(a_1r)^{n} \leq (2a_2 +1)^{n}r^{n}$ which gives us the bound for $q$.
@@ -224,7 +226,7 @@ Combing the above results, we are able to state the following theorem:
 
 \medskip
 \begin{theorem}\label{HausdorffDimTheorem}
-	Suppose \cref{OpenSetCondition} holds for the similarities $\fracConst_i$ on $\ree^{n}$ with ratios $0 < c_i < 1$ for $1 \leq i \leq m$. If there for $K$ holds
+	Suppose \Cref{OpenSetCondition} holds for the similarities $\fracConst_i$ on $\ree^{n}$ with ratios $0 < c_i < 1$ for $1 \leq i \leq m$. If, for $K$ the following holds
 	\begin{equation}\label{hausDorffDimCondition}
 		K = \bigcup_{i = 1}^{m} \fracConst_i(K)
 	\end{equation}
@@ -232,61 +234,67 @@ Combing the above results, we are able to state the following theorem:
 	\begin{equation}\label{hausDorffDimRatioSum}
 		\sum_{i = 1}^{m} c_i^{s} = 1.
 	\end{equation}
-	Moreover, for this value of $s$, $0 < \mathcal{H}^s(K) < \infty$
+	Moreover, for this value of $s$, $0 < \mathcal{H}^s(K) < \infty$.
 \end{theorem}
 
 \begin{proof}
-	Let $\mathcal{I}_k$ denote the set of all $k$-term sequences $(i_1, \ldots i_k)$ with $1 \leq i_j \leq m$. For any set $A$ and any sequence $(i_1, \ldots i_k)\in \mathcal{I}_k$ we denote $A_{i_1, \ldots i_k} = \fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}(A)$.
+	Let $\mathcal{I}_k$ denote the set of all $k$-term sequences $(i_1, \ldots, i_k)$ with $1 \leq i_j \leq m$. For any set $A$ and any sequence $(i_1, \ldots, i_k)\in \mathcal{I}_k$ we denote $A_{i_1, \ldots, i_k} = \left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}\right)(A)$.
 	
 	We will start by finding an upper bound for the Hausdorff measure. We do this by finding an appropriate $\delta$-cover for $K$. It follows that by repeated use of \eqref{hausDorffDimCondition} that
 	\begin{align}
-		K = \bigcup_{i = 1}^{m} \fracConst_i(K) =\bigcup_{i = 1}^{m} \fracConst_i \left(\bigcup_{j = 1}^{m} \fracConst_j(K) \right) = \bigcup_{i, j =1}^{m} \fracConst_i \circ \fracConst_j (K) = \ldots =  \bigcup_{\mathcal{I}_k} \fracConst_{i_1, \ldots i_k}(K) =    \bigcup_{\mathcal{I}_k} K_{i_1, \ldots i_k}.
+		K = \bigcup_{i = 1}^{m} \fracConst_i(K) =\bigcup_{i = 1}^{m} \fracConst_i \left(\bigcup_{j = 1}^{m} \fracConst_j(K) \right) = \bigcup_{i, j =1}^{m} \left(\fracConst_i \circ \fracConst_j \right)(K) = \ldots =  \bigcup_{\mathcal{I}_k} \fracConst_{i_1, \ldots, i_k}(K) =    \bigcup_{\mathcal{I}_k} K_{i_1, \ldots, i_k}.
 	\end{align}
-	Now noting that $\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}$ has the ratios $c_{i_1} \dots c_{i_k}$, we see
+	Now noting that $\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_k}$ has the ratios $c_{i_1} \cdots c_{i_k}$, we see
 	\begin{equation}
 		\sum_{\mathcal{I}_k} \diam(K_{i_1, \ldots i_k})^{s} = \sum_{\mathcal{I}_k} (c_{i_1} \dots c_{i_k})^{s} \diam(K)^{s} = \left(\sum_{i_1} c_{i_1}^{s}\right) \dots \left(\sum_{i_k}c_{i_k}^{s}\right) \diam(K)^{s} = \diam(K)^{s}
 	\end{equation}
-	where the last equality comes from \eqref{hausDorffDimRatioSum}. Now for any $\delta > 0$ we can choose $k$ so \newline $\diam(K_{i_1, \ldots i_k}) \left(\max_{1 \leq i \leq m} c_i\right)^{k}\diam(K) \leq \delta$ since $\max_{1 \leq i \leq m} c_i \in (0,1)$. Thus $\cbr{K_{i_1, \ldots i_k}}_{\mathcal{I}_k}$ is a $\delta$-cover for $K$ whereby $\mathcal{H}_{\delta}^{s}(K) \leq \diam(K)^{s}$ in which case $\mathcal{H}^{s}(K) \leq \diam(K)^{s}$ and we have an upper bound.
+	where the last equality comes from \eqref{hausDorffDimRatioSum}. Now for any $\delta > 0$ we can choose $k$ so 
+	\begin{equation}
+		\diam(K_{i_1, \ldots i_k}) \leq \left(\max_{1 \leq i \leq m} c_i\right)^{k}\diam(K) \leq \delta
+	\end{equation} 
+	since $\max_{1 \leq i \leq m} c_i \in (0,1)$. Thus $\cbr{K_{i_1, \ldots i_k}}_{\mathcal{I}_k}$ is a $\delta$-cover for $K$ whereby $\mathcal{H}_{\delta}^{s}(K) \leq \diam(K)^{s}$ in which case $\mathcal{H}^{s}(K) \leq \diam(K)^{s}$ giving an upper bound.
 	
-	\medskip
-	Next we need a lower bound for the Hausdorff dimension, which is substantially more difficult. Let $\mathcal{I} = \cbr{(i_1, i_2, \ldots) : 1 \leq i_j \leq m}$ be the set of all infinite sequences and let $\mathcal{I}_{i_1, \ldots i_k} = \cbr{(i_1, \ldots , i_k, q_{k+1}, \ldots ) : 1 \leq q_j \leq m}$, so the first initial $k$ "terms" are chosen and then the rest are the remaining permutations.
+	Next we need a lower bound for the Hausdorff dimension, which is substantially more difficult. Let $\mathcal{I} = \cbr{(i_1, i_2, \ldots) : 1 \leq i_j \leq m}$ be the set of all infinite sequences and let
+	\begin{equation}
+		\mathcal{I}_{i_1, \ldots i_k} = \cbr{(i_1, \ldots , i_k, q_{k+1}, \ldots ) : 1 \leq q_j \leq m},
+	\end{equation}
+	so the first initial $k$ "terms" are chosen and then the rest are the remaining permutations.
 	
 	Now we create an outer measure $\mu$ on subset of $\mathcal{I}$ defined by $\mu(\mathcal{I}_{i_1, \ldots i_k}) = (c_{i_1} \dots c_{i_k})^{s}$. From this outer measure $\mu$ we construct an outer measure on $K$ named $\tilde{\mu}$ defined in the following way. For some subset $A \subseteq K$
--	\begin{equation}
+	\begin{equation}
 		\tilde{\mu}(A) = \mu \left(\cbr{(i_1, i_2, \ldots)\in \mathcal{I} : x_{i_1, i_2, \ldots} \in A \cap K}\right)
 	\end{equation}  The proof that $\mu$ and $\tilde{\mu}$ are indeed outer measures can be found in \cite[Section 7]{mona}.
-	
+
 	\medskip
-	Now we want to show that $\tilde{\mu}$ fulfils the properties of \cref{massDistribution}. 
-	
-	Let $V$ be the open set that satisfies \cref{OpenSetCondition}.  Since $\overline{V} \supset \fracConst(\overline{V}) = \cup_{i = 1}^{m} \fracConst_{i}(\overline{V})$, then by \cref{uniqueInvariantSet} the decreasing sequence $S^{k}(\overline{V})$ converges to $K$. In particular we have $\overline{V} \supset S(\overline{V}) \supseteq \cup_{i = 1}^{m} \fracConst_i(\overline{V}) = F$ and $\overline{V}_{i_1, \ldots i_k} =\fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{V}) \supseteq \fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}(\overline{F}) = F_{i_1, \ldots i_k}$ for each finite sequence $(i_1, \ldots, i_k)$. 
+	Now we want to show that $\tilde{\mu}$ fulfils the properties of \Cref{massDistribution}. \\
+	Let $V$ be the open set that satisfies \Cref{OpenSetCondition}.  Since $\overline{V} \supset \fracConst(\overline{V}) = \cup_{i = 1}^{m} \fracConst_{i}(\overline{V})$, then by \Cref{uniqueInvariantSet} the decreasing sequence $S^{k}(\overline{V})$ converges to $K$. In particular we have \nl $\overline{V} \supset S(\overline{V}) \supseteq \cup_{i = 1}^{m} \fracConst_i(\overline{V}) = F$ and $\overline{V}_{i_1, \ldots i_k} =\left(\fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}\right)(\overline{V}) \supseteq \left(\fracConst_{i_1} \circ \dots \circ \fracConst_{i_k}\right)(\overline{F}) = F_{i_1, \ldots i_k}$ for each finite sequence $(i_1, \ldots, i_k)$. 
 	
 	Now let $B$ be any ball $r < 1$. We estimate $\tilde{\mu}(B)$ by considering sets $V_{i_1, \ldots i_k}$ with diameters comparable with that of $B$ with closures intersecting $F \cap B$. Further we define $\mathcal{Q}$ as the set of sequences $(i_1, \ldots, i_k) \in \mathcal{I}$ such that $i_k$ is the smallest $k$ for which the following holds
 	\begin{equation}
 		\left(\min_{1 \leq i \leq m} c_i\right) r \leq c_{i_1} \dots c_{i_k} \leq r.
 	\end{equation}
-	Note that no sequence in $\mathcal{Q}$ extends to another sequence. Since, if two sequences are the same, but one is longer than the other, the shorter sequence would be the one in $\mathcal{Q}$.  Now by \cref{OpenSetCondition} $V_1, \ldots, V_m$ are disjoint and so are $V_{i_1, \ldots i_k, 1}, \ldots, V_{i_1, \ldots i_k, m}$ for each $(i_1, \ldots, i_k)$. In particular we have that $\cbr{V_{i_1, \ldots i_k} : (i_1, \ldots, i_k) \in \mathcal{Q}}$ is a collection of disjoint sets. We further note that by \eqref{InvSetAsPoint} we have
+	Note that no sequence in $\mathcal{Q}$ extends to another sequence. Since, if two sequences are the same, but one is longer than the other, the shorter sequence would be the one in $\mathcal{Q}$.  Now by \Cref{OpenSetCondition} $V_1, \ldots, V_m$ are disjoint and so are $V_{i_1, \ldots i_k, 1}, \ldots, V_{i_1, \ldots i_k, m}$ for each $(i_1, \ldots, i_k)$. In particular we have that $\cbr{V_{i_1, \ldots i_k} : (i_1, \ldots, i_k) \in \mathcal{Q}}$ is a collection of disjoint sets. We further note that by \eqref{InvSetAsPoint} we have
 	\begin{equation}\label{KasCompactV}
 		K = \bigcup_{\mathcal{I}} \cbr{x_{i_1, i_2, \ldots}} \subseteq \bigcup_{\mathcal{Q}} K_{i_1, \ldots, i_k} \subseteq \bigcup_{\mathcal{Q}} \overline{V}_{i_1, \ldots, i_k}.
 	\end{equation}
 	
 	Next we choose $a_1$ and $a_2$ so that $V$ contains a ball of radius $a_1$ and is contained in a ball of radius $a_2$. Then for all $(i_1, \ldots i_k) \in \mathcal{Q}$ the set $V_{i_1, \ldots i_k}$ contains a ball of radius $c_{i_1} \dots c_{i_k} a_1$ and therefore one of radius $\left(\min_{1 \leq i \leq m} c_i\right) a_1 r$. Furthermore it is contained in a ball of radius $c_{i_1} \dots c_{i_k} a_2$ and therefore one of radius $a_2 r$.
 	
-	Now let $\mathcal{Q}_{B}$ be the set of all sequences $(i_1, \ldots, i_k) \in \mathcal{Q}$ such that $\overline{V}_{i_1, \ldots i_k}$ intersects $B$. By \cref{theConstq} there are at most
+	Now let $\mathcal{Q}_{B}$ be the set of all sequences $(i_1, \ldots, i_k) \in \mathcal{Q}$ such that $\overline{V}_{i_1, \ldots i_k}$ intersects $B$. By \Cref{theConstq} there are at most
 	$$q = (1+2b)^{n} \left(\min_{1\leq i \leq m} c_i\right)^{-n} a^{-n}$$
 	sequences in $\mathcal{Q}_{B}$. Thus we find that if
 	\begin{equation}
 		x_{i_1, \ldots i_k} \in F \cap B \subseteq \bigcup_{\mathcal{Q}_{B}} \overline{V}_{i_1, \ldots i_k}, \quad \text{ by \eqref{KasCompactV}, }
 	\end{equation}
-	then there must be some $k$ such that $(i_1, \ldots, i_k) \in \mathcal{Q}_{B}$ and therefore $(i_1, i_2, \ldots) \in \cup_{\mathcal{Q}_{B}} I_{i_1, \ldots i_k}$. We can thus conclude that
+	then there must be some $k$ such that $(i_1, \ldots, i_k) \in \mathcal{Q}_{B}$ and therefore $(i_1, i_2, \ldots) \in \cup_{\mathcal{Q}_{B}} I_{i_1, \ldots i_k}$. We can therefore conclude
 	\begin{equation}
-		\tilde{\mu}(B) = \mu \left(\cbr{(i_1, i_2, \ldots) \in \mathcal{I} : x_{i_1, i_2, \ldots} \in F \cap B}\right) \leq \mu \left(\bigcup_{\mathcal{Q}_{B}} I_{i_1, \ldots, i_k}\right).
+		\tilde{\mu}(B) = \mu \left(\cbr{(i_1, i_2, \ldots) \in \mathcal{I} : x_{i_1, i_2, \ldots} \in F \cap B}\right) \leq \mu \left(\bigcup_{\mathcal{Q}_{B}} I_{i_1, \ldots, i_k}\right),
 	\end{equation}
-	It then follows that
+	whereby it follows that
 	\begin{equation}
 		\tilde{\mu}(B) \leq \sum_{\mathcal{Q}_{B}} \mu\left(I_{i_1, \ldots, i_k}\right) = \sum_{\mathcal{Q}_{B}} \left(c_{i_1} \dots c_{i_k}\right)^{s} \leq \sum_{\mathcal{Q}_{B}} r^{s} \leq qr^{s}.
 	\end{equation}
-	Since any set $U$ is contained in a ball of radius $\diam(U)$, we have that $\tilde{\mu} \leq q \diam(U)^{s}$. By \cref{massDistribution} we have that $\mathcal{H}^{s}(F) \geq \frac{\tilde{\mu}(F)}{q} = q^{-1} > 0$, thus $0 < q^{-1} \leq \mathcal{H}^{s}(F) \leq \diam(F)^{s} < \infty$ such that by \cref{hausdorffDimDefi} we have that $s = d_h$
+	Since any set $U$ is contained in a ball of radius $\diam(U)$, we have that $\tilde{\mu} \leq q \diam(U)^{s}$. By \Cref{massDistribution} we have that $\mathcal{H}^{s}(F) \geq \frac{\tilde{\mu}(F)}{q} = q^{-1} > 0$, thus $0 < q^{-1} \leq \mathcal{H}^{s}(F) \leq \diam(F)^{s} < \infty$ such that by \Cref{hausdorffDimDefi} we have that $s = d_h$
 \end{proof}
 
 \bigskip
@@ -294,33 +302,33 @@ Combing the above results, we are able to state the following theorem:
 Further in this thesis we will bound certain random fields and functions by a constant we call the spectral dimension. It depends on two other factors, namely the Hausdorff dimension, which we have just discussed, and of the walk dimension. Properly explaining the walk dimension is outside the scope of this thesis, but we will give some intuition as to what it is.
 
 \medskip
-Let $B_t$ be a Brownian motion on $K$, and $B(x,r)$ be the ball centered at $x \in K$ with radius $r$. then the \emph{walk dimension} is the constant $d_w > 0$ such that
+Let $B_t$ be a Brownian motion on $K$, and $B(x,r)$ be the ball centered at $x \in K$ with radius $r$. Then the \emph{walk dimension} is the constant $d_w > 0$ such that
 \begin{equation}
 	c_1 r^{d_w} \leq \e \left[\tau(x,r)\right] \leq c_2 r^{d_w}
 \end{equation}
-where $\tau(x,r) = \inf\cbr{t \geq 0 : B_t \notin B(x,r)}$.  The intuition is that it is the average escape rate, meaning how fast the Brownian motion escapes the ball. This explanation for the walk dimension is a rather simplified and condensed one. For further reference see \cite[Chapter 3]{barlow}. But it does allow us to define the spectral dimension as follows:
+where $\tau(x,r) = \inf\cbr{t \geq 0 : B_t \notin B(x,r)}$.  The intuition is that it is the average escape rate, meaning how fast the Brownian motion escapes the ball. This explanation for the walk dimension is a rather simplified and condensed one. For further reference see \cite[Chapter 3]{barlow}. It does however, allow us to define the spectral dimension as follows:
 \medskip
 \begin{defi}\label{spectralDimDefi}
-	Let $d_h$ be the Hausdorff dimension and $d_w$ the walk dimension then the spectral dimension is
+	Let $d_h$ be the Hausdorff dimension and $d_w$ the walk dimension then the \emph{spectral dimension} is
 	\begin{equation}
-		d_s = \frac{2 d_h}{d_w}
+		d_s = \frac{2 d_h}{d_w}.
 	\end{equation}
 \end{defi}
 
 \section{Hausdorff, Walk and Spectral Dimension of the Vicsek set}
 
-Since the main purpose of the thesis is to study the Vicsek set, we will, in this section, state the different dimensions needed. 
+Since the main purpose of the thesis is to study the Vicsek set, we will in this section, state the different dimensions needed. 
 
-Recalling that the Vicsek set is the unique set $K$ such, for the iterative functions system $\cbr{\fracConst_1, \ldots, \fracConst_{5}}$ with $\fracConst_{i}(z) = \frac{1}{3}\left(z -p_i\right) + p_i$ where $p_i \in V_0$, it holds that
+Recalling that the Vicsek set is the unique set $K$ for the IFS $\cbr{\fracConst_1, \ldots, \fracConst_{5}}$ with $\fracConst_{i}(z) = \frac{1}{3}\left(z -p_i\right) + p_i$ where $p_i \in V_0$, it holds that
 \begin{equation}
 	K = \bigcup_{i =1}^{5} \fracConst_{i}(K).
 \end{equation}
 
-We want to use \cref{HausdorffDimTheorem} to find the Hausdorff dimension so we need to check that ${\fracConst_i}_{1 \leq i \leq 5}$ satisfies \cref{OpenSetCondition}. 
+We want to use \Cref{HausdorffDimTheorem} to find the Hausdorff dimension, so we need to check that ${\fracConst_i}_{1 \leq i \leq 5}$ satisfies \Cref{OpenSetCondition}. 
 
-If we choose the open set $V$ to be the open box where each corner is a point in $V_0$ (see \cref{openSetDiagram}), then by continuity of $\fracConst_{i}$ we have that $\fracConst_{i}(V)$ is open and disjoint. The disjointness of $\fracConst_{i}$ is that each $\fracConst_{i}$ "retracts" the whole set towards the point $p_i$ and we get that the sets are disjoint. One might worry about the point where the open sets meet, but since the points in $V_0$ (excluding the middle point) are not included in the initial open box, we have that they do not intersect.
+If we choose the open set $V$ to be the open box where each corner is a point in $V_0$ (see \Cref{fig:openSetDiagram}), then by continuity of $\fracConst_{i}$ we have that $\fracConst_{i}(V)$ is open and disjoint. The disjointness of $\fracConst_{i}$ is that each $\fracConst_{i}$ "retracts" the whole set towards the point $p_i$ and we get that the sets are disjoint. One might worry about the points where the open sets meet, but since the points in $V_0$, excluding the middle point, are not included in the initial open box, we have that they do not intersect.
 
-\begin{figure}[!ht]\label{openSetDiagram}
+\begin{figure}[!ht]
 	\centering
 \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 \def\heightTikz{200}
@@ -867,26 +875,27 @@ If we choose the open set $V$ to be the open box where each corner is a point in
 		\draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][dash pattern={on 3pt off 3pt}]    (90,120) -- (120,150) ;	
 	\end{tikzpicture}
 \end{minipage}
-\caption{The opens sets $V$(green) and $\fracConst_i(V)$(blue)}
+\caption{The opens sets $V$ (green) and $\fracConst_i(V)$ (blue).}
+\label{fig:openSetDiagram}
 \end{figure}
-We can therefore conclude from \cref{HausdorffDimTheorem} that 
+We can therefore conclude from \Cref{HausdorffDimTheorem} that 
 \begin{equation}
 	\sum_{i=1}^{5} \left(\frac{1}{3}\right)^{d_h} = 1 \Rightarrow \left(\frac{1}{3}\right)^{d_h} = \frac{1}{5} \Rightarrow d_h = \frac{\log 5}{\log 3}.
 \end{equation}
 
-As stated earlier we will not be calculating the walk dimension, but instead we will  just state it. The walk dimension for the Vicsek set is $d_w = d_h +1$ and we can make the following definition.
+As stated earlier we will not be calculating the walk dimension, but we will state it. The walk dimension for the Vicsek set is $d_w = d_h +1$ and we can make the following lemma.
 
 \medskip
-\begin{defi}\label{defiDimensionsOfVicsek}
+\begin{lemma}\label{defiDimensionsOfVicsek}
 		The following constants hold for the Vicsek set $K$
 		\begin{equation}
-			d_h= \frac{\log 5}{\log 3}, \quad d_w = d_h +1, \quad \text{and} \quad d_s = \frac{d_h}{2d_w} = \frac{\log 5}{2 \log 15}
+			d_h= \frac{\log 5}{\log 3}, \quad d_w = d_h +1, \quad \text{and} \quad d_s = \frac{d_h}{2d_w} = \frac{\log 5}{2 \log 15}.
 		\end{equation}
-\end{defi}
+\end{lemma}
 
 Having calculated the Hausdorff dimension of the Vicsek set we will immediately use it to construct the following measure.
 \begin{defi}\label{normalziedHausdorffMeasure}
-	The normalized Hausdorff measure on $K$ which is given by the borel measure $\mu$ on $K$ such for any $i_1, \ldots i_n \in \cbr{1, \ldots, 5}$
+	The \emph{normalized Hausdorff measure} on $K$ which is given by the Borel measure $\mu$ on $K$ such for any $i_1, \ldots i_n$, where $1 \leq i_j \leq 5$, we have
 	\begin{equation}
 		\mu\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_n}(K)\right) = 5^{-n}.
 	\end{equation}
@@ -894,25 +903,26 @@ Having calculated the Hausdorff dimension of the Vicsek set we will immediately 
 
 The measure $\mu$ has the following property: 
 \begin{prop}\label{normalziedHausdorffMeasureAhlforsRegular}
-	This measure $\mu$ is $d_h$-Ahlfors regular, i.e there exists $c_1, c_2 > 0$ such there for every $x \in K$ and $r \in [0, \diam(K)]$
+	The measure $\mu$ is $d_h$-Ahlfors regular, i.e. there exists $c_1, c_2 > 0$ such that for every $x \in K$ and $r \in [0, \diam(K)]$
 	\begin{equation}
 		c_1r^{d_h} \leq \mu(B(x,r)) \leq c_2 r^{d_h}.
 	\end{equation}
 \end{prop}
 \begin{proof}
-	If $r = 0$ the proof is obvious. So let $r \in (0, 1)$, and choose $n$ so $R \cd \left(\frac{2}{3}\right)^{n+1} \leq r \leq R \cd \left(\frac{2}{3}\right)^{n}$ where $R = \diam(K)$. Note that for a sequence we have 
+	If $r = 0$ the proof is trivial. So let $r \in (0, 1)$, and choose $n$ so $R \left(\frac{2}{3}\right)^{n+1} \leq r \leq R \left(\frac{2}{3}\right)^{n}$ where $R = \diam(K)$. Note that for a sequence we have 
 	$$\diam(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{m}}(K))=  \left(\frac{2}{3}\right)^{m}\cd R.$$ 
-	We can therefore construct a sequence $i_1, \ldots, i_n$ and $i_1, \ldots, i_{n+1}$ such that $B(x,r)\supset \fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{n+1}}$ and $\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{n}} \cap B(x,r) \neq \emptyset$. Since $B(x,r)$ intersects with at most $5$ of these sequences, we find an upper bound to be
+	We can therefore construct a sequence $i_1, \ldots, i_n$ and $i_1, \ldots, i_{n+1}$ such that $B(x,r)\supset \left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{n+1}}\right)(K)$ and $\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{n}}\right)(K) \cap B(x,r) \neq \emptyset$. Since $B(x,r)$ intersects with at most $5$ of these sequences, we find an upper bound to be
+	\begin{multline}
+		\mu(B(x,r)) \leq 5\cd \mu\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_n}(K)\right) = 5\cd 5^{-n}\\ 
+		= 5^2\cd5 ^{-(n+1)} \leq 5 \cd \left(R\cd 3^{-(n+1)}\right)^{d_h} \leq 5\cd 2^{-n} \cd r^{d_h}
+	\end{multline} 
+	noting that $2^{-n}r \leq r$. This upper bound also works for $R < 1$ since we just omit the constant from the calculations and have $3^{-(n+1)} \leq R^{-1}2^{-(n+1)}r$ whereby the upper bound becomes $5\cd \left(R^{-1} 2^{-(n+1)} r\right)^{d_h}$. Likewise, for the lower bound we have that there exists a sequence $i_1, \ldots i_{n+1}$ such that $B(x,r)\supset S_{i_1} \circ \ldots \circ S_{i_n}$ in which case
 	\begin{equation}
-		\mu(B(x,r)) \leq 5\cd \mu\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_n}(K)\right) = 5\cd 5^{-n} = 5^2\cd5 ^{-(n+1)} \leq 5 \cd \left(R\cd 3^{-(n+1)}\right)^{d_h} \leq 5\cd 2^{m} \cd r^{d_h}
-	\end{equation} 
-	noting that $2^{-m}r \leq r$. This bound also works for $R < 1$ since we just omit the constant from the calculations and have $3^{-(n+1)} \leq R^{-1}r$ whereby the bound becomes $5\cd \left(R^{-1} r\right)^{d_h}$. Likewise, for the lower bound we have that there exists a sequence $i_1, \ldots i_{n+1}$ such that $B(x,r)\supset S_{i_1} \circ \ldots \circ S_{i_n}$ in which case
-	\begin{equation}
-		\mu(B(x,r)) \geq \left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{n+1}}(K)\right) = 5^{-(n+1)} \geq R\cd 5^{-(n+1)} \geq  5\cd \left(R^{-1}r\right)^{d_h}.
+		\mu(B(x,r)) \geq \left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{n+1}}(K)\right) = 5^{-(n+1)} \geq R\cd 5^{-(n+1)} \geq  5\cd \left(R^{-1}2^{-n}r\right)^{d_h}.
 	\end{equation}
-	Again this bound also holds for $R >1$ since we again omit $R$ in the calculations and have $R^{-1}r \leq 3^{-n}$ thus the bound becomes $5 \cd \left(R^{-r}r\right)^{d_h}$.
+	Again this lower bound also holds for $R >1$ since we again omit $R$ in the calculations and have $R^{-1} 2^{-n} r \leq 3^{-n}$ whereby the lower bound becomes $5 \cd \left(R^{-r}2^{-n}r\right)^{d_h}$.
 	
-	Now assume $\diam(K) \geq r \geq 1$. The upper bound is simply $\mu(B(x,r)) \leq \mu(K) = 1 \leq r$. For the lower bound consider that there exists $m \in \nat$ so $3^{m-1}\leq  r \leq 3^{m}$, then
+	Now assume $\diam(K) \geq r \geq 1$. The upper bound is simply $\mu(B(x,r)) \leq \mu(K) = 1 \leq r$. For the lower bound, there exists $m \in \nat$ so $3^{m-1}\leq  r \leq 3^{m}$, then
 	\begin{equation}
 		\mu(B(x,r)) \geq \mu(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{m-1}}) = 5^{-(m-1)} = 5 \cd (3^{-m})^{d_h} \geq  (r3^{-2m})^{d_h}
 	\end{equation}
@@ -921,7 +931,7 @@ The measure $\mu$ has the following property:
 
 As we will want to work with the graph approximations of the Vicsek set, we will define a sequence of discrete measures.
 \medskip
-\begin{defi}
+\begin{defi} Let $(\mu_{m})_{m \geq 0}$ be a sequence of discrete measures on $V_m$ given by
 	\begin{equation}\label{discreteMeasures}
 		\mu_m = \frac{1}{a_m} \sum_{p \in V_m} \delta_p
 	\end{equation}
@@ -929,16 +939,16 @@ As we will want to work with the graph approximations of the Vicsek set, we will
 \end{defi}
 
 \medskip
-We have that $\mu_m \to \mu$ as $m \to \infty$, this follows from the fact that $\fracConst_i(K)$ "shrinks" the fractal down to $1/5$ the size around the point $p_i$. In which case for any sequence $i_1, \ldots i_n$ we have that
+We have that $\mu_m \to \mu$ as $m \to \infty$. This follows from the fact that $\fracConst_i(K)$ "shrinks" the fractal down to $1/5$ the size around the point $p_i$, in which case for any sequence $i_1, \ldots i_n$ we have that
 \begin{multline}
-	\lim_{m \to \infty} \mu_m(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K)) = \lim_{m \to \infty}\frac{1}{a_m} \sum_{p \in V_m} \delta_p(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K)) \\ 
-	= \lim_{m \to \infty} \frac{1}{a_m} \cd 5^{-n} \cd (5^{m}\cd 4 +1) = 5^{-n} = \mu(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K))
+	\lim_{m \to \infty} \mu_m(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K)) = \lim_{m \to \infty}\frac{1}{a_m} \sum_{p \in V_m} \delta_p \left(\left(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}\right)(K)\right) \\
+	= \lim_{m \to \infty} \frac{1}{a_m} \cd 5^{-n} \cd (5^{m}\cd 4 +1) = 5^{-n} = \mu(\fracConst_{i_1},\circ \ldots \circ \fracConst_{i_n}(K)) 
 \end{multline}
 recalling that $\# V_m = 5^{m}\cdot 4 + 1$. This leads us to the following corollary:
 \begin{coro}\label{convergenceOfMeasures}
-	The sequence of measure $(\mu_m)_{m \geq 0}$ defined in \eqref{discreteMeasures} converges weakly to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$. That is
+	The sequence of measures $(\mu_m)_{m \geq 0}$ defined in \eqref{discreteMeasures} converges weakly to the normalized Hausdorff measure $\mu$ on the Vicsek set $K$ i.e.
 	\begin{equation}
-		\lim_{m \to \infty} \int_{K}f \dd \mu_m = \int_{K} f \dd \mu
+		\lim_{m \to \infty} \int_{K}f \dd \mu_m = \int_{K} f \dd \mu.
 	\end{equation}
 \end{coro}
  

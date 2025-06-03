@@ -15,7 +15,7 @@ a4paper
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Page set-up
 \setlrmarginsandblock{2.5cm}{*}{1}
-\setulmarginsandblock{*}{2.5cm}{1.5}
+\setulmarginsandblock{2.5cm}{3.5cm}{*}
 
 % Some memoir tricks
 \setlength{\topskip}{1.6\topskip}
@@ -39,6 +39,7 @@ a4paper
 \usepackage{amssymb} %math symbols
 \usepackage{amsthm} %Something with proof enviorments
 \usepackage{listings} %Make code blocks
+\usepackage{xfrac}
 \usepackage{dsfont}
 \usepackage{marginnote} %Make margin notes
 \usepackage{commath}
@@ -76,7 +77,7 @@ pdfdisplaydoctitle=true,
 hypertexnames=false]{hyperref}
 \usepackage{cleveref} %Makes reference with "lemma" or "theorem" and not just number
 \usepackage{autonum}
-\usepackage[figurename=Diagram]{caption}
+\usepackage{caption}
 \usepackage{parskip}
 
 % ----- TK -----
@@ -191,7 +192,7 @@ hypertexnames=false]{hyperref}
 \newcommand{\func}[3]{#1\colon #2 \to #3} %Making a function easier
 
 
-\newcommand{\inn}[2]{\langle #1, #2 \rangle} %inner product
+\newcommand{\inn}[2]{\left\langle #1, #2 \right\rangle} %inner product
 \newcommand{\prt}[2]{\frac{\partial #1}{\partial #2}} %partial differential
 
 \newcommand{\eul}{\mathrm{e}} %Common constants & symbols
@@ -296,6 +297,7 @@ hypertexnames=false]{hyperref}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{defi}[theorem]{Definition}
 \newtheorem{prop}[theorem]{Proposition}
+\newtheorem{mainTheorem}{Main Theorem}[chapter]
 
 
 %Remark theorem style
@@ -304,6 +306,10 @@ hypertexnames=false]{hyperref}
 \newtheorem{remark}[theorem]{Remark}
 
 \newtheorem{example}[theorem]{Example}
+\AtBeginEnvironment{example}{%
+	\pushQED{\qed}\renewcommand{\qedsymbol}{$\diamondsuit$}%
+}
+\AtEndEnvironment{example}{\popQED\endexample}
 \newtheorem*{example*}{Example}
 
 \newtheorem{exercise}[theorem]{Exercise}
@@ -329,7 +335,7 @@ hypertexnames=false]{hyperref}
 	\pagestyle{plain}
 	
 	\hypersetup{pageanchor=false}
-	\input{frontMatter/frontPage}
+	%\input{frontMatter/frontPage}
 	
 	\frontmatter
 	
@@ -351,6 +357,8 @@ hypertexnames=false]{hyperref}
 	\input{mainMatter/gaussianFields}	
 	
 	\input{mainMatter/mainTheorem}
+	
+	\input{mainMatter/simulations}
 	
 	\backmatter
 \begin{refcontext}[sorting=nyt]

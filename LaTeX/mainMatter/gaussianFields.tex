@@ -1,21 +1,21 @@
 \chapter{Fractional Gaussian Fields}\label{chap:gaussianFields}
-In this chapter we will be constructing the fractional Gaussian fields, that we will later see converge in distribution. The construction of the fractional Gaussian fields very much depends on the Riesz kernel and the Dirichlet Laplacian.
+In this chapter we will be constructing both the fractional Gaussian fields and the discrete fractional Gaussain fields, that we will later see converge in distribution. The construction of the fractional Gaussian fields very much depend on the Riesz kernel and the Dirichlet Laplacian, with the discrete fractional Gaussian field depending on the discrete fractional Laplacian and discrete Riesz kernel.
 
-We will also give an example of an discrete fractional Gaussian field, which we will later see in some simulations.
+We will also give an example of an discrete fractional Gaussian field, which we will use  in some simulations.
 
 \section{Discrete Fractional Gaussian Fields}
 
 \begin{defi}\label{fractionalGaussianFieldDiscrete}
-	Let $s \geq 0$, then a \emph{discrete fractional Gaussian field}$ X_s^{m}$ with parameter $s$ on $V_m$ is a Gaussian vector indexed by $V_m$ with mean zero and covariance matrix $\mathbf{\Sigma} = \left(G_{2s}^{m}(x,y)\right)_{x,y \in V_m}$
+	Let $s \geq 0$, then a \emph{discrete fractional Gaussian field} $X_s^{m}$ with parameter $s$ on $V_m$ is a Gaussian vector indexed by $V_m$ with mean zero and covariance matrix $\mathbf{\Sigma} = \left(G_{2s}^{m}(x,y)\right)_{x,y \in V_m}$.
 \end{defi}
 
-For any $f \in \ell(V_m)$ we will use the notation
+\textbf{Notation: } For any $f \in \ell(V_m)$ we will use the notation
 \begin{equation}
-	X_s^{m}(f) = \frac{1}{a_m}\sum_{p \in V_m}f(p)X^{m}_{s}(p)
+	X_s^{m}(f) = \frac{1}{a_m}\sum_{p \in V_m}f(p)X^{m}_{s}(p).
 \end{equation}
 
 
-We then note that the discrete fractional Gaussian field has the following property
+We then note that the discrete fractional Gaussian field has the following property:
 \begin{prop}\label{theOneWeNeedInTheEndSomehow}
 	For $f,g \in \ell(V_m)$ we have that
 	\begin{equation}
@@ -23,7 +23,7 @@ We then note that the discrete fractional Gaussian field has the following prope
 	\end{equation}
 \end{prop}
 \begin{proof}
-	Using \cref{discreteFractionalLaplacianProperties} we find
+	Using \Cref{discreteFractionalLaplacianProperties} we find
 	\begin{align}
 		\e \left[X_s^{m}(f)X_s^{m}(g)\right] &= \frac{1}{2a_m} \sum_{p,q \in V_m}f(p)g(q)\e\left[X_s^{m}(p)X_s^{m}(q)\right] \\
 		&=  \frac{1}{2a_m} \sum_{p,q \in V_m}f(p)g(q)G_{2s}^{m}(p,q) \\
@@ -63,35 +63,36 @@ We then note that the discrete fractional Gaussian field has the following prope
 			X_s^{m}(x_{N_m})X_s^{m}(x_1)  & \cdots & X_s^{m}(x_{N_m})X_s^{m}(x_{N_m}) 
 		\end{pmatrix}\right].
 	\end{multline}
-	Looking at a single element $\mathbf{\Sigma}_{p,q}$ we find 
+	Looking at a single element $\mathbf{\Sigma}_{p,q}$, and using that $W_i$ are independent, we compute
 	\begin{align}
-		\e \left[X_{s}^{m}(x_p)X_s^{m}(x_q)\right] &= \e \left[\left(\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x_p)W_i\right) \left(\sum_{j=1}^{N_m}\left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x_q)W_i\right)\right]\\ 
+		\e \left[X_{s}^{m}(x_p)X_s^{m}(x_q)\right] &= \e \left[\left(\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x_p)W_i\right) \left(\sum_{j=1}^{N_m}\left(\lambda_j^{m}\right)^{-s}\phi^{m}_{j}(x_q)W_j\right)\right]\\ 
 		&= \e \left[\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q)W_i^2\right] +\e \left[\sum_{i,j=1, i \neq j }^{N_m}\left(\lambda_i^{m}\lambda_j^{m}\right)^{-s}\phi^{m}_{i}(x_p) \phi^{m}_{j}(x_q)W_iW_j\right] \\
 		&= \sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q)\e \left[W_i^2\right] +\sum_{i,j=1, i \neq j }^{N_m}\left(\lambda_i^{m}\lambda_j^{m}\right)^{-s}\phi^{m}_{i}(x_p) \phi^{m}_{j}(x_q)\e \left[W_i\right] \e \left[W_j\right] \\
 		&= \sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q) \\
-		&= G_{2s}^{m}(x_p,x_q)
+		&= G_{2s}^{m}(x_p,x_q).
 	\end{align}
-	using that $W_i$ are independent. Thus $X_s^{m}$ is a discrete fractional Gaussian field.
+	Thus $X_s^{m}$ is a discrete fractional Gaussian field.
 \end{example}
 
 \section{Fractional Gaussian Fields}
 
 \begin{defi}\label{fracGaussianField}
-	Let $s \geq 0$. A \emph{fractional Gaussian field} $X_s$ with parameter $s$ on $K$ is a centered Gaussian field $\cbr{X_s(f): f \in S(K)}$ such that for any $f,g \in S(K)$
+	Let $s \geq 0$. A \emph{fractional Gaussian field} $X_s$ with parameter $s$ on $K$ is a centered Gaussian field, $\cbr{X_s(f): f \in S(K)}$, such that for any $f,g \in S(K)$
 	\begin{equation}
-		\e \left[X_s(f) X_s(g)\right] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu
+		\e \left[X_s(f) X_s(g)\right] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu.
 	\end{equation}
 \end{defi}
 
-We now move on to proving that the fractional Gaussian fields exist. First we will state the Bochner-Minlos theorem for nuclear spaces, since it is needed for the proof of existence. It will be given without proof but one can be found in \cite{minlos}.
+We now move on to proving that the fractional Gaussian fields exist. First we will state the Bochner-Minlos theorem for nuclear spaces, since it is needed for the proof of existence. It will be given without proof but one can be found in \cite[Theorem 2.3.1]{minlos}.
 
+\medskip
 \begin{theorem}[Bochner-Minlos]\label{BochnerMinlos}
-	Assume $\mathcal{X}$ is a nuclear space. Any continuos positive-definite linear functional $\Lambda$ on $\mathcal{X}$ satisfying $\Lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathcal{X}'$
+	Assume $\mathcal{X}$ is a nuclear space. Any continuous positive-definite linear functional $\Lambda$ on $\mathcal{X}$ satisfying $\Lambda(0) = 1$ is the Fourier transform of a countably additive positive normalized measure on $\mathcal{X}'$.
 \end{theorem}
 
-We will first state a lemma, to prove that a functional, that we will need, is positive definite.
+In the next lemma we will prove that a functional, which we will need, is positive semidefinite.
 \begin{lemma}\label{LambdaPosDefinite}
-	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $\Phi(v) = \exp(-\frac{1}{2} \inn{v}{v})$ is positive definite.
+	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $\Phi(v) = \exp\left(-\frac{1}{2} \inn{v}{v} \right)$ is positive definite.
 \end{lemma}
 \begin{proof}
 	Let $v_1, \ldots v_n$ be elements of $\mathcal{X}$ and choose an orthonormal basis $e_1, \ldots e_m$ of $\text{span}\cbr{v_1, \ldots, v_n}$. Further let $Z = (Z_1, \ldots, Z_m)$ be a vector of independent standard normal random variables, and note that for all $u \in \ree^{m}$ we have that
@@ -101,36 +102,36 @@ We will first state a lemma, to prove that a functional, that we will need, is p
 	This leads us to for $z \in \cee^{n}$ 
 	\begin{multline}
 		\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1}^{n} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] \\
-		= \e \left[\left(\sum_{j = 1}^{n} z_j e^{iv_j \cd Z}\right)\left(\sum_{k = 1}^{n}\overline{z_k e^{iv_k \cd Z}}\right)\right]= \e \left[\abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0.
+		= \e \left[\left(\sum_{j = 1}^{n} z_j e^{iv_j \cd Z}\right)\left(\sum_{k = 1}^{n}\overline{z_k e^{iv_k \cd Z}}\right)\right]= \e \left[ \: \abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0.
 	\end{multline}
 \end{proof}
 
 \begin{theorem}
 	Let $s \geq 0$. There exists a centered Gaussian distribution $X_s$ on $S'(K)$ such that for $f,g \in S(K)$
 	\begin{equation}
-		\e[X_s(f)X_s(g)] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu
+		\e \left[X_s(f)X_s(g) \right] = \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}g \dd \mu.
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	The space $S(K)$ is a nuclear space, why it is enough to use \cref{BochnerMinlos} (Bochner-Minlos) on the functional
+	The space $S(K)$ is a nuclear space, why it is enough to use \Cref{BochnerMinlos} (Bochner-Minlos) on the functional
 	\begin{equation}
 		\Lambda : f \to \exp\left(-\frac{1}{2} \norm{f}^2_{k}\right).
 	\end{equation}
-	Since if \cref{BochnerMinlos} hold, then it gives us an unique probability measure $\nu$ such
+	Since if \Cref{BochnerMinlos} holds, then it gives us a unique probability measure $\nu$ such that
 	\begin{equation}
 		\exp \left(-\frac{1}{2} \norm{f}^{2}_{k}\right) = \int_{S'(K)} e^{i \inn{x}{f}} \dd \nu (x).
 	\end{equation}
-	Notice that the right side is a characteristic function for some random variable. If we choose $f= t\cd g$ for some $g \in S(K)$ and $t \in \ree$ (note that $t \cd g \in S(K)$) then the left side of the equation becomes the characteristic function for the normal distribution with mean zero and variance $\norm{f}_{s}^{2}$. Thus we have the $X_s$ we wanted.
+	Notice that the right side is a characteristic function for some random variable. If we choose $f= t\cd g$ for some $g \in S(K)$ and $t \in \ree$, note that $t \cd g \in S(K)$, then the left side of the equation becomes the characteristic function for the normal distribution with mean zero and variance $\norm{f}_{s}^{2}$. Thus we have the $X_s$ we wanted.
 	
 	
-	Now we prove that $\Lambda$ satisfies the requirements of \cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, and from \cref{LambdaPosDefinite} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at 0. 
+	Now we prove that $\Lambda$ satisfies the requirements of \Cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, and from \cref{LambdaPosDefinite} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at 0. 
 	
-	First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$. Now let $\epsilon > 0$ be given, choose $$\delta = \begin{cases}
+	First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$. Now let $\epsilon > 0$ be given and choose $$\delta = \begin{cases}
 		\left(\frac{-2\cd \ln(1-\epsilon)}{C}\right)^{\frac{1}{2}}, & \text{when } \epsilon \in (0,1) \\
 		1,& \text{when } \epsilon \geq 1.
 	\end{cases}$$
-	First if $\epsilon \geq 1$ notice that 
+	If $\epsilon \geq 1$ notice that 
 	\begin{equation}
 		\abs{\exp\left(-\frac{1}{2} \norm{f}_{s}^{2}\right) - \exp\left(-\frac{1}{2} \norm{0}_{s}^{2}\right)} \leq 1 \leq \epsilon, \quad \forall f \in S(K)
 	\end{equation} 
@@ -143,45 +144,50 @@ We will first state a lemma, to prove that a functional, that we will need, is p
 		&= \abs{\exp\left(\ln(1-\epsilon)\right) -1}\\
 		& = \epsilon
 	\end{align}
-	using that $\mu$ is a probability measure in the third to last equality . In which case we have continuity in $0$ as desired.
+	using that $\mu$ is a probability measure in the third to last equality. In which case we have continuity in $0$ as desired.
 \end{proof}
 
 
 In the following we want to prove that a fractional Gaussian field has a $L^2$ density if and only if $s > \frac{d_h}{2d_w}$, but for this we need white noise.
 
+\medskip
 \begin{defi}\label{whiteNoise}
-	Let $(X, \mathcal{E}, \mu)$ be $\sigma$-finite measure space. A white noise based on $\nu$ is a random set function $W$ on the sets $A \in \mathcal{E}$ with $\nu(A) < \infty$ such
+	Let $(X, \mathcal{E}, \mu)$ be $\sigma$-finite measure space. A \emph{white noise based on $\nu$} is a random set function $W$ on the sets $A \in \mathcal{E}$ with $\nu(A) < \infty$ such that
 	\begin{enumerate}[(i)]
-		\item $W(A)$ is a $N(0, \mu(A))$ random variable \label{whiteNoiseIsNormal}
-		\item If $A \cap B = \emptyset$ then $W(A)$ and $W(B)$ are independent and $W(A \cap B) = W(A) + W(B)$ \label{whiteNoiseIsI.I.D}
+		\item $W(A)$ is a $N(0, \mu(A))$ random variable. \label{whiteNoiseIsNormal}
+		\item If $A \cap B = \emptyset$ then $W(A)$ and $W(B)$ are independent and $W(A \cap B) = W(A) + W(B)$. \label{whiteNoiseIsI.I.D}
 	\end{enumerate}
 \end{defi}
 
-Now we will show that such a process exists on $(K, \mathcal{K}, \mu)$ where  $\mathcal{K}$ is the Borel $\sigma$-algebra on $K$. 
+\noi We will now show that such a process exists on $(K, \mathcal{K}, \mu)$ where  $\mathcal{K}$ is the Borel $\sigma$-algebra on $K$. 
 
-We will think of white noise as a Gaussian process indexed by the set $\mathcal{A} = \cbr{W(A) : A \in \mathcal{K}, \mu(A) < \infty}$. From \cref{whiteNoise}, (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}) it is a mean-zero Gaussian process with covariance matrix
+We can think of white noise as a Gaussian process indexed by the set 
 \begin{equation}
-	\mathbf{\Sigma} = (\e \left[W(A) W(B)\right])_{W(A), W(B) \in \mathcal{A}} = (\mu(A \cap B))_{W(A), W(B) \in \mathcal{A}}.
+	\mathcal{A} = \cbr{W(A) : A \in \mathcal{K}, \mu(A) < \infty^{\phantom{a}}}.
+\end{equation} 
+From \Cref{whiteNoise}, (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}) it is a mean-zero Gaussian process with covariance matrix
+\begin{equation}
+	\mathbf{\Sigma} = \left(\e \left[W(A) W(B)\right]\right)_{W(A), W(B) \in \mathcal{A}} = \left(\mu(A \cap B)\right)_{W(A), W(B) \in \mathcal{A}}.
 \end{equation}
-Now let $A_1, \ldots, A_n \in \mathcal{K}$ and $a_1, \ldots, a_n$ be real numbers then
+Now let $A_1, \ldots, A_n \in \mathcal{K}$ and $a_1, \ldots, a_n$ be real numbers. Then
 \begin{equation}
 	\sum_{i,j} a_i a_j \mathbf{\Sigma}_{i,j} = \sum_{i,j}a_ia_j \int_{K}\mathds{1}_{A_i} \cd \mathds{1}_{A_j} \dd \mu = \int_{K} \left(\sum_{i} a_i \mathds{1}_{A_i}\right)^2 \dd \mu \geq 0
 \end{equation}
-Thus $\mathbf{\Sigma}$ is positive definite, so there exists a probability space $(\Omega, \mathcal{F}, p)$ and a mean-zero Gaussian process $\cbr{W(A)}$ on $(\Omega, \mathcal{F}, p)$ such that $W$ satisfies \cref{whiteNoise} (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}). 
+Thus $\mathbf{\Sigma}$ is positive definite, so there exists a probability space $(\Omega, \mathcal{F}, p)$ and a mean-zero Gaussian process $\cbr{W(A)}$ on $(\Omega, \mathcal{F}, p)$ such that $W$ satisfies \Cref{whiteNoise} (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}). 
 
 This means that for $f \in L^{2}(K, \mathcal{K}, \mu)$ the integral with respect to $W$, $W(f) = \int_{K} f \dd W$ is a well defined Gaussian random variable. Moreover, the Gaussian measure $W$ gives rise to an isonormal Gaussian family $\cbr{W(f), f \in L^{2}(K, \mathcal{K}, \mu)}$ with the covariance function
 \begin{equation}
-	\e \left[W(f) W(g)\right] = \int_{K} fg \dd \mu
+	\e \left[W(f) W(g)\right] = \int_{K} fg \dd \mu.
 \end{equation}
 
 
 In the following we want to define a fractional Brownian field, and we want to do it as the integral of the fractional Riesz kernel defined in \cref{fractionalRieszKernel}, thus we need $G_s(x, \cd ) \in L^{2}(K, \mu)$. 
 
-So let $s > \frac{d_h}{2d_w}$ we choose $s$ as we do since later we need $\sum \lambda_j^{-s}$. We observe that from \cref{boundsOfRieszKernel} we have that $G_s(x, \cd ) \in L^{2}(K, \mu)$. Moreover we have that
-	\begin{equation}
+Let $s > \frac{d_h}{2d_w}$. We observe from \cref{boundsOfRieszKernel} that $G_s(x, \cd ) \in L^{2}(K, \mu)$. Moreover we have that
+	\begin{equation}\label{rieszKernelAsSum}
 		G_s(x,y) = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}p_t(x,y)\dd t = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}\sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)\dd t = \sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{-s}} \phi_j(x)\phi_j(y).
 	\end{equation}
-	recalling that $\frac{1}{\Gamma(s)}\int_{K} t^{s-1} e^{-\lambda_jt} \dd t = \lambda_j^{-s}$ and \cref{convergenceOfEigenvaluesOfLaplcianBounds}.
+	recalling that \ref{convergenceOfEigenvaluesOfLaplcianBounds} and $\frac{1}{\Gamma(s)}\int_{K} t^{s-1} e^{-\lambda_jt} \dd t = \lambda_j^{-s}$. Furthermore note that by \Cref{convergenceOfEigenvaluesOfLaplacian} we have \eqref{rieszKernelAsSum} converges, since $s > \frac{d_h}{2d_w}$.
 
 \begin{defi}
 	Let $s > \frac{d_h}{2d_w}$. The fractional Brownian field with parameter $s$ is defined as 
@@ -190,13 +196,16 @@ So let $s > \frac{d_h}{2d_w}$ we choose $s$ as we do since later we need $\sum \
 	\end{equation}
 \end{defi}
 
-Note that since $s > \frac{d_h}{2d_w}$ we can write
-\begin{equation}
-	\widetilde{X}_s(x) = \sum_{i = 1}^{\infty} \lambda_i^{-s}\phi_i(x)W_i
-\end{equation}
-where $W_i = W(\phi_i)$ is an i.i.d sequence of Gaussian random variables with mean 0 and variance 1.
 
-We will now show that one can construct a fractional Gaussian Field from the fractional Brownian field
+\begin{remark}
+	Since $s > \frac{d_h}{2d_w}$ then by \eqref{rieszKernelAsSum} we can write
+	\begin{equation}
+		\widetilde{X}_s(x) = \sum_{i = 1}^{\infty} \lambda_i^{-s}\phi_i(x)W_i
+	\end{equation}
+	where $W_i = W(\phi_i)$ is an i.i.d sequence of Gaussian random variables with mean 0 and variance 1.
+\end{remark}
+
+We will now show that one can construct a fractional Gaussian field from the fractional Brownian field.
 \begin{prop}
 	Let $s > \frac{d_h}{2d_w}$. Then the Gaussian random field defined by
 	\begin{equation}
@@ -210,16 +219,16 @@ We will now show that one can construct a fractional Gaussian Field from the fra
 	\begin{equation}
 		Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
 	\end{equation}
-	has the law of fractional Gaussian field with parameter $s$, then $s > \frac{d_h}{2d_w}$
+	has the law of fractional Gaussian field with parameter $s$, then $s > \frac{d_h}{2d_w}$.
 \end{prop}
 \begin{proof}
-	Assume $s > \frac{d_h}{2d_w}$. The from Fubini's theorem we have for every $f \in S(K)$ that a.s 
+	Assume $s > \frac{d_h}{2d_w}$. Then from Fubini's theorem we have for every $f \in S(K)$ a.s. that 
 	\begin{equation}
 		\int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x) =\int_{K}f(x) \int_{K} G_s(x,y) \dd W(y) \dd \mu(x) = \int_{K}(-\Delta)^{-s} f(y) \dd W(y)
 	\end{equation}
-	in which case by definition of $W$ we have that $X_s(f) = \int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x)$ is a Gaussian random variable with mean zero and variance
+	in which case by definition of $W$ we have that $X_s(f) = \int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x)$ is a Gaussian random variable with mean 0 and variance
 	\begin{equation}
-		\int_{K}\abs{(-\Delta)^{-s}f(x)}^{2}\dd \mu(x).
+		\int_{K}\abs{(-\Delta)^{-s}f(x)}^{2}\dd \mu(x)
 	\end{equation}
 	and thus a fractional Gaussian field with parameter $s$. 
 	
@@ -232,12 +241,12 @@ We will now show that one can construct a fractional Gaussian Field from the fra
 	\begin{equation}\label{theOneAbove}
 		Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
 	\end{equation}
-	has the law of fractional Gaussian field with parameter $s$. Then by spectral decomposition and equation \ref{theOneAbove} we have
+	has the law of fractional Gaussian field with parameter $s$. Then by spectral decomposition and equation \eqref{theOneAbove} we have
 	\begin{equation}
 		\widetilde{Y}_s(x) = \sum_{i= 1}^{\infty} \inn{\widetilde{Y}_{s}}{\phi_i} \phi_i(x) = \sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x).
 	\end{equation}
 	
-	Note that $(Y(\phi_i))_{i \geq 1}$ is a sequence of independent Gaussian random variables with mean zero and variance $(\lambda_{i}^{-2s})_{i \geq 1}$ since by \cref{fracGaussianField} and \cref{fracLaplacianProperties} we have that
+	Note that $\left(Y(\phi_i)\right)_{i \geq 1}$ is a sequence of independent Gaussian random variables with mean 0 and variance $(\lambda_{i}^{-2s})_{i \geq 1}$ since by \cref{fracGaussianField} and \cref{fracLaplacianProperties} we have that
 	\begin{equation}
 		\e \left[Y_s(\phi_i)\right] =\e \left[\int_{K} \phi_i \widetilde{Y}_s \dd \mu \right] = \e \left[\int_{K} \phi_i(x) \sum_{j = 1}^{\infty} \lambda_j^{-s}\phi_j(x)W_i \dd \mu(x) \right]= \e \left[W_i\right] =0
 	\end{equation}
@@ -252,11 +261,11 @@ We will now show that one can construct a fractional Gaussian Field from the fra
 		& = \sum_{i = 1}^{\infty}\e \left[Y_s(\phi_i)^2\right] \\
 		& = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
 	\end{align}
-	where we use that $\int_{K} (\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x))^2 \dd \mu(x) = \int_{K} \sum_{i = 1}^{\infty} Y_s(\phi_i)^2 \phi_i(x)^2 \dd \mu (x)$ which stems from the fact that $\int_{K}\phi_i \phi_j \dd \mu = \delta_{ij}$ and $Y_s(\phi_i)$ is a constant with respect to $\mu(x)$.
+	where we use that $\int_{K} \left(\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x) \right)^2 \dd \mu(x) = \int_{K} \sum_{i = 1}^{\infty} Y_s(\phi_i)^2 \phi_i(x)^2 \dd \mu (x)$ which stems from the fact that $\int_{K}\phi_i \phi_j \dd \mu = \delta_{ij}$ and $Y_s(\phi_i)$ is a constant with respect to $\mu(x)$.
 	
 	We now have that
 	\begin{equation}
 		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right] = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
 	\end{equation}
-	in which case by \cref{convergenceOfEigenvaluesOfLaplacian} we have that $s > \frac{d_h}{2d_w}$
+	in which case by \Cref{convergenceOfEigenvaluesOfLaplacian} we have that $s > \frac{d_h}{2d_w}$.
 \end{proof}
