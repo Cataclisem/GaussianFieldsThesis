@@ -1,0 +1,9 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[1] Config.pm:311> INFO - Logfile is 'thesis_master.blg'
+[205] biber-MSWIN64:340> INFO - === 
+[272] Biber.pm:420> INFO - Reading 'thesis_master.bcf'
+[491] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[536] Biber.pm:4463> INFO - Processing section 0
+[558] Biber.pm:4654> INFO - Looking for bibtex file 'cite.bib' for section 0
+[1167] Utils.pm:410> ERROR - Cannot find 'cite.bib'!
+[1167] Biber.pm:136> INFO - ERRORS: 1

@@ -102,7 +102,6 @@
       \field{labeltitlesource}{title}
       \field{title}{A short introduction to Dirichlet Spaces}
       \field{year}{2025}
-      \true{nocite}
     \endentry
     \entry{Fabrice}{article}{}{}
       \name{author}{2}{}{%
@@ -334,7 +333,6 @@
       \field{eprinttype}{arXiv}
       \field{title}{Generalized random fields and Lévy's continuity theorem on the space of tempered distributions}
       \field{year}{2017}
-      \true{nocite}
       \verb{eprint}
       \verb 1706.09326
       \endverb
@@ -411,7 +409,6 @@
       \field{volume}{88}
       \field{year}{1981}
       \field{urldateera}{ce}
-      \true{nocite}
       \field{pages}{686\bibrangedash 695}
       \range{pages}{10}
       \verb{urlraw}
@@ -448,7 +445,6 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{The Geometry of Fractal Sets}
       \field{year}{1985}
-      \true{nocite}
     \endentry
     \entry{falconer}{book}{}{}
       \name{author}{1}{}{%
@@ -515,7 +511,6 @@
       \field{labeltitlesource}{title}
       \field{title}{On a spectral analysis for the Sierpinski gasket}
       \field{year}{1992}
-      \true{nocite}
       \verb{doi}
       \verb https://doi.org/10.1007/BF00249784
       \endverb
@@ -607,7 +602,6 @@
       \field{type}{Självständiga arbeten i matematik}
       \field{year}{2022}
       \field{dateera}{ce}
-      \true{nocite}
     \endentry
     \entry{Henrikson1999CompletenessAT}{misc}{}{}
       \name{author}{1}{}{%
@@ -631,13 +625,80 @@
       \field{labeltitlesource}{title}
       \field{title}{Completeness and Total Boundedness of the Hausdorff Metric}
       \field{year}{1999}
-      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20020623095720/http://www-math.mit.edu/phase2/UJM/vol1/HAUSF.PDF
       \endverb
       \verb{url}
       \verb https://web.archive.org/web/20020623095720/http://www-math.mit.edu/phase2/UJM/vol1/HAUSF.PDF
       \endverb
+    \endentry
+    \entry{arithmatic}{book}{}{}
+      \name{author}{9}{}{%
+        {{hash=1c8306b910562ead0919cea893b5d022}{%
+           family={Jean-Michel},
+           familyi={J\bibinithyphendelim M\bibinitperiod},
+           given={Muller},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ecf4d4c9add3d32a9928a6482d078c2d}{%
+           family={Nicolas},
+           familyi={N\bibinitperiod},
+           given={Brunie},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8a65da932468c00d7ed3a03aba693c6f}{%
+           family={Florent},
+           familyi={F\bibinitperiod},
+           given={de\bibnamedelima Dinechin},
+           giveni={d\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=2fcc13ea80a5965c438b1211b94028f2}{%
+           family={Claude-Pierre},
+           familyi={C\bibinithyphendelim P\bibinitperiod},
+           given={Jeannerod},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9300ab3a7f5925571636d34c4a6ded0d}{%
+           family={Mioara},
+           familyi={M\bibinitperiod},
+           given={Joldes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1f6413c31fd3ab7ce6743af12dd3cc6c}{%
+           family={Vincent},
+           familyi={V\bibinitperiod},
+           given={Lefèvre},
+           giveni={L\bibinitperiod}}}%
+        {{hash=4a3f9146a5cab3bdd090e1882e7dd488}{%
+           family={Guillaume},
+           familyi={G\bibinitperiod},
+           given={Melquiond},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9baef795bb7f283cd5cbafbece3139e5}{%
+           family={Nathalie},
+           familyi={N\bibinitperiod},
+           given={Revol},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f80f1aa9c088996ec77b9db3d095338f}{%
+           family={Serge},
+           familyi={S\bibinitperiod},
+           given={Torres},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Cham}%
+      }
+      \strng{namehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{fullhash}{14dde3857a96f6b344f4bbd59d1284ee}
+      \strng{fullhashraw}{14dde3857a96f6b344f4bbd59d1284ee}
+      \strng{bibnamehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{authorbibnamehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{authornamehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{authorfullhash}{14dde3857a96f6b344f4bbd59d1284ee}
+      \strng{authorfullhashraw}{14dde3857a96f6b344f4bbd59d1284ee}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-319-76525-9}
+      \field{title}{Handbook of Floating-Point Arithmetic}
+      \field{year}{2018}
+      \true{nocite}
     \endentry
     \entry{minlos}{article}{}{}
       \name{author}{1}{}{%
@@ -665,7 +726,6 @@
       \field{title}{The Bochner – Minlos Theorem for nuclear spaces and an abstract white noise space}
       \field{year}{2003}
       \field{dateera}{ce}
-      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20160304081333/http://www3.math.uni-paderborn.de/~johansen/seminars/minlos.pdf
       \endverb
@@ -699,7 +759,6 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{Analysis on Fractals}
       \field{year}{2001}
-      \true{nocite}
     \endentry
     \entry{KURTZ1969354}{article}{}{}
       \name{author}{1}{}{%
@@ -727,7 +786,6 @@
       \field{title}{Extensions of Trotter's operator semigroup approximation theorems}
       \field{volume}{3}
       \field{year}{1969}
-      \true{nocite}
       \field{pages}{354\bibrangedash 375}
       \range{pages}{22}
       \verb{doi}
@@ -798,7 +856,6 @@
       \field{title}{Lectures on Probability Theory and Statistics}
       \field{year}{1998}
       \field{dateera}{ce}
-      \true{nocite}
       \field{pages}{1\bibrangedash 121}
       \range{pages}{121}
     \endentry
@@ -858,7 +915,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Über die Erzeugung von (F)-Räumen durch selbstadjungierte Operatoren.}
       \field{year}{1966}
-      \true{nocite}
     \endentry
     \entry{VA}{book}{}{}
       \name{author}{1}{}{%
@@ -912,7 +968,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Differential Equations on Fractals: A Tutorial}
       \field{year}{2006}
-      \true{nocite}
     \endentry
     \entry{taylor}{misc}{}{}
       \name{author}{1}{}{%
@@ -1018,7 +1073,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Topological Vector Spaces, Distributions and Kernels}
       \field{year}{1967}
-      \true{nocite}
     \endentry
     \entry{Walsh}{inproceedings}{}{}
       \name{author}{1}{}{%
@@ -1095,7 +1149,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Über die Erzeugung von (F)-Räumen durch selbstadjungierte Operatoren.}
       \field{year}{1966}
-      \true{nocite}
     \endentry
     \entry{Treves}{book}{}{}
       \name{author}{1}{}{%
@@ -1122,7 +1175,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Topological Vector Spaces, Distributions and Kernels}
       \field{year}{1967}
-      \true{nocite}
     \endentry
     \entry{KURTZ1969354}{article}{}{}
       \name{author}{1}{}{%
@@ -1150,7 +1202,6 @@
       \field{title}{Extensions of Trotter's operator semigroup approximation theorems}
       \field{volume}{3}
       \field{year}{1969}
-      \true{nocite}
       \field{pages}{354\bibrangedash 375}
       \range{pages}{22}
       \verb{doi}
@@ -1196,7 +1247,6 @@
       \field{volume}{88}
       \field{year}{1981}
       \field{urldateera}{ce}
-      \true{nocite}
       \field{pages}{686\bibrangedash 695}
       \range{pages}{10}
       \verb{urlraw}
@@ -1233,7 +1283,6 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{The Geometry of Fractal Sets}
       \field{year}{1985}
-      \true{nocite}
     \endentry
     \entry{Walsh}{inproceedings}{}{}
       \name{author}{1}{}{%
@@ -1344,7 +1393,6 @@
       \field{labeltitlesource}{title}
       \field{title}{On a spectral analysis for the Sierpinski gasket}
       \field{year}{1992}
-      \true{nocite}
       \verb{doi}
       \verb https://doi.org/10.1007/BF00249784
       \endverb
@@ -1405,7 +1453,6 @@
       \field{title}{Lectures on Probability Theory and Statistics}
       \field{year}{1998}
       \field{dateera}{ce}
-      \true{nocite}
       \field{pages}{1\bibrangedash 121}
       \range{pages}{121}
     \endentry
@@ -1431,7 +1478,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Completeness and Total Boundedness of the Hausdorff Metric}
       \field{year}{1999}
-      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20020623095720/http://www-math.mit.edu/phase2/UJM/vol1/HAUSF.PDF
       \endverb
@@ -1465,7 +1511,6 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{Analysis on Fractals}
       \field{year}{2001}
-      \true{nocite}
     \endentry
     \entry{falconer}{book}{}{}
       \name{author}{1}{}{%
@@ -1528,7 +1573,6 @@
       \field{title}{The Bochner – Minlos Theorem for nuclear spaces and an abstract white noise space}
       \field{year}{2003}
       \field{dateera}{ce}
-      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20160304081333/http://www3.math.uni-paderborn.de/~johansen/seminars/minlos.pdf
       \endverb
@@ -1621,7 +1665,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Differential Equations on Fractals: A Tutorial}
       \field{year}{2006}
-      \true{nocite}
     \endentry
     \entry{Geijn}{misc}{}{}
       \name{author}{1}{}{%
@@ -1716,7 +1759,6 @@
       \field{eprinttype}{arXiv}
       \field{title}{Generalized random fields and Lévy's continuity theorem on the space of tempered distributions}
       \field{year}{2017}
-      \true{nocite}
       \verb{eprint}
       \verb 1706.09326
       \endverb
@@ -1726,6 +1768,74 @@
       \verb{url}
       \verb https://arxiv.org/abs/1706.09326
       \endverb
+    \endentry
+    \entry{arithmatic}{book}{}{}
+      \name{author}{9}{}{%
+        {{hash=1c8306b910562ead0919cea893b5d022}{%
+           family={Jean-Michel},
+           familyi={J\bibinithyphendelim M\bibinitperiod},
+           given={Muller},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ecf4d4c9add3d32a9928a6482d078c2d}{%
+           family={Nicolas},
+           familyi={N\bibinitperiod},
+           given={Brunie},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8a65da932468c00d7ed3a03aba693c6f}{%
+           family={Florent},
+           familyi={F\bibinitperiod},
+           given={de\bibnamedelima Dinechin},
+           giveni={d\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=2fcc13ea80a5965c438b1211b94028f2}{%
+           family={Claude-Pierre},
+           familyi={C\bibinithyphendelim P\bibinitperiod},
+           given={Jeannerod},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9300ab3a7f5925571636d34c4a6ded0d}{%
+           family={Mioara},
+           familyi={M\bibinitperiod},
+           given={Joldes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1f6413c31fd3ab7ce6743af12dd3cc6c}{%
+           family={Vincent},
+           familyi={V\bibinitperiod},
+           given={Lefèvre},
+           giveni={L\bibinitperiod}}}%
+        {{hash=4a3f9146a5cab3bdd090e1882e7dd488}{%
+           family={Guillaume},
+           familyi={G\bibinitperiod},
+           given={Melquiond},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9baef795bb7f283cd5cbafbece3139e5}{%
+           family={Nathalie},
+           familyi={N\bibinitperiod},
+           given={Revol},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f80f1aa9c088996ec77b9db3d095338f}{%
+           family={Serge},
+           familyi={S\bibinitperiod},
+           given={Torres},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Cham}%
+      }
+      \strng{namehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{fullhash}{14dde3857a96f6b344f4bbd59d1284ee}
+      \strng{fullhashraw}{14dde3857a96f6b344f4bbd59d1284ee}
+      \strng{bibnamehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{authorbibnamehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{authornamehash}{9d5c2c1f244936304db6992f68c912e1}
+      \strng{authorfullhash}{14dde3857a96f6b344f4bbd59d1284ee}
+      \strng{authorfullhashraw}{14dde3857a96f6b344f4bbd59d1284ee}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-3-319-76525-9}
+      \field{title}{Handbook of Floating-Point Arithmetic}
+      \field{year}{2018}
+      \true{nocite}
     \endentry
     \entry{Fabrice2}{article}{}{}
       \name{author}{2}{}{%
@@ -1869,7 +1979,6 @@
       \field{type}{Självständiga arbeten i matematik}
       \field{year}{2022}
       \field{dateera}{ce}
-      \true{nocite}
     \endentry
     \entry{VS}{book}{}{}
       \name{author}{1}{}{%
@@ -2088,7 +2197,6 @@
       \field{labeltitlesource}{title}
       \field{title}{A short introduction to Dirichlet Spaces}
       \field{year}{2025}
-      \true{nocite}
     \endentry
     \entry{taylor}{misc}{}{}
       \name{author}{1}{}{%

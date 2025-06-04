@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  2 JUN 2025 13:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  4 JUN 2025 11:21
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1807,7 +1807,7 @@ ng of objects, relative to a reference object or in absolute terms
 \LMex=\skip290
 \LMpt=\skip291
 )
-(tket.sty
+(C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/tket\tket.sty
 Package: tket 2011/06/03 v2.1: Various TAAGEKAMMER related macros
 \tket@rbll=\skip292
 )
@@ -1827,9 +1827,7 @@ Package biblatex Warning: Incompatible package 'etextools' loaded,
 (biblatex)                restore the definition from 'etoolbox'
 (biblatex)                before you load biblatex.
 
-(thesis_master.aux (frontMatter/abstract.aux)
-(mainMatter/fractalConstruction.aux) (mainMatter/Laplacians.aux)
-(mainMatter/gaussianFields.aux) (mainMatter/mainTheorem.aux))
+(thesis_master.aux (mainMatter/mainTheorem.aux) (backMatter/simAppendix.aux))
 \openout1 = `thesis_master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
@@ -2044,18 +2042,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-\openout2 = `frontMatter/abstract.aux'.
-
-
-(frontMatter/abstract.tex
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 17.28pt on input line 4.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 17.28pt on input line 4.
-
-
+(Font)              scaled to size 24.88pt on input line 80.
 LaTeX Font Info:    Trying to load font information for T1+LinuxBiolinumT-TLF o
-n input line 21.
+n input line 80.
 
 (C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/libertine\t1linuxbiolinumt-tlf
 .fd
@@ -2063,144 +2053,53 @@ File: T1LinuxBiolinumT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Lin
 uxBiolinumT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 21.
+(Font)              scaled to size 24.88pt on input line 80.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `LinuxBiolinumT-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [1{C:/Users/chris/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/c
-hris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}
-
-
-
-{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_nh77jq.en
-c}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_76gpa5.
-enc}])
-
-[2]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 24.88pt on input line 80.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 24.88pt on input line 80.
  (thesis_master.toc
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 1.
+(Font)              scaled to size 10.95pt on input line 4.
 )
 
-[3
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 91.
+[1
 
 
+
+{C:/Users/chris/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/chri
+s/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{C:/Users/ch
+ris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Users/
+chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}]
+
+[2
 
 ]
+\openout2 = `mainMatter/mainTheorem.aux'.
 
-[4
-
-]
-\openout2 = `mainMatter/fractalConstruction.aux'.
-
- (mainMatter/fractalConstruction.tex
+ (mainMatter/mainTheorem.tex
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 17.28pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
 (Font)              scaled to size 17.28pt on input line 1.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 1.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 14.4pt on input line 5.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
+(Font)              scaled to size 14.4pt on input line 5.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 10.95pt on input line 15.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 9.
+(Font)              scaled to size 8.0pt on input line 19.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 9.
-Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 22.
+(Font)              scaled to size 6.0pt on input line 19.
 
-(svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, id=171, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf' 
-is 1 on input line 24.
 
-(svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf, id=173, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 26.
+LaTeX Warning: Citation 'KURTZ1969354' on page 1 undefined on input line 30.
 
-(svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, id=175, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf' 
-is 1 on input line 28.
-
-(svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf, id=177, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 30.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 5.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 5.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 5.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 5.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 5.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 5.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 10.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 7.0pt on input line 30.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 5.0pt on input line 30.
 
 
 [1
@@ -2210,526 +2109,472 @@ LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
 c}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertinust1math/libus
 MI.enc}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertinust1math/
 libusMR.enc}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertinust1
-math/libusEX.enc}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/liberti
-nust1math/libusBB.enc}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/li
-bertinust1math/libusSYM.enc}]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 43.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 43.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 48.
+math/libusSYM.enc}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libert
+ine/lbtn_7grukw.enc}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libe
+rtinust1math/libusEX.enc}]
+
+LaTeX Warning: Reference `genSemigroup' on page 1 undefined on input line 34.
 
 
-[2{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_omcwp2.
-enc}{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertine/lbtn_7gruk
-w.enc} <./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf> <./svg-inkscape/vicsek1M
-arkersTrue_svg-tex.pdf
+LaTeX Warning: Citation 'KURTZ1969354' on page 2 undefined on input line 36.
 
-pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
-> <./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf
 
-pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
-> <./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf
+LaTeX Warning: Reference `pointwiseFormula' on page 1 undefined on input line 3
+6.
 
-pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
->]
-Overfull \hbox (21.92905pt too wide) detected at line 91
-[]\LS1/libertinust1math/m/it/10.95 d[]\LS1/libertinust1math/m/n/10.95 .\LS1/lib
-ertinust1math/m/it/10.95 S\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1mat
-h/m/it/10.95 A\LS1/libertinust1math/m/n/10.95 /\LS1/libertinust1math/m/it/10.95
- ; S\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 B\LS1/lib
-ertinust1math/m/n/10.95 // = \LS1/libertinust1math/m/it/10.95 d[] [] \LS2/liber
-tinust1mathsym/m/n/10.95 w [] \LS1/libertinust1math/m/it/10.95 d[]\LS1/libertin
-ust1math/m/n/10.95 .\U/stixcal/m/n/10.95 S[]\LS1/libertinust1math/m/n/10.95 .\L
-S1/libertinust1math/m/it/10.95 A\LS1/libertinust1math/m/n/10.95 /\LS1/libertinu
-st1math/m/it/10.95 ; \U/stixcal/m/n/10.95 S[]\LS1/libertinust1math/m/n/10.95 .\
-LS1/libertinust1math/m/it/10.95 B\LS1/libertinust1math/m/n/10.95 // \LS2/libert
-inust1mathsym/m/n/10.95 w [] \LS1/libertinust1math/m/it/10.95 c[] \LS2/libertin
-ust1mathsym/m/n/10.95 ^^L \LS1/libertinust1math/m/it/10.95 d[]\LS1/libertinust1
-math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 A; B\LS1/libertinust1math/m/n/
-10.95 /\LS1/libertinust1math/m/it/10.95 :
+
+LaTeX Warning: Reference `constructDirichletLaplacian' on page 1 undefined on i
+nput line 36.
+
+
+LaTeX Warning: Citation 'fabriceDirichelt' on page 2 undefined on input line 38
+.
+
+
+LaTeX Warning: Citation 'KURTZ1969354' on page 2 undefined on input line 40.
+
+
+LaTeX Warning: Reference `convergenceOfMeasures' on page 1 undefined on input l
+ine 52.
+
+
+LaTeX Warning: Reference `fracLaplacian' on page 1 undefined on input line 68.
+
+
+LaTeX Warning: Reference `convergenceOfMeasures' on page 1 undefined on input l
+ine 72.
+
+
+
+[2]
+
+LaTeX Warning: Reference `coro:PtIsLinear' on page 1 undefined on input line 81
+.
+
+
+Overfull \hbox (19.29141pt too wide) detected at line 100
+[]
+ []
+
+
+LaTeX Warning: Citation 'bierm√©2017generalizedrandomfieldslevys' on page 3 und
+efined on input line 114.
+
+
+Overfull \hbox (13.64203pt too wide) in paragraph at lines 114--115
+[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Since $\LS1/libertinust1math/m/it/10.
+95 S\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 K\LS1/lib
+ertinust1math/m/n/10.95 /$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) is a nu-clea
+r space, by []
  []
 
 
 
 [3]
 
-[4]
+LaTeX Warning: Reference `theOneWeNeedInTheEndSomehow' on page 1 undefined on i
+nput line 118.
 
-[5]
 
-[6]
-
-[7]
-Overfull \hbox (3.19388pt too wide) detected at line 244
-[]
- []
-
-
-Overfull \hbox (13.45273pt too wide) detected at line 248
-[][] []\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 K[]\LS
-1/libertinust1math/m/n/10.95 /[] = [].\LS1/libertinust1math/m/it/10.95 c[] \LS1
-/libertinust1math/m/n/10.95 ß \LS1/libertinust1math/m/it/10.95 c[]\LS1/libertin
-ust1math/m/n/10.95 /[] [].\LS1/libertinust1math/m/it/10.95 K\LS1/libertinust1ma
-th/m/n/10.95 /[] = [] ß [] [].\LS1/libertinust1math/m/it/10.95 K\LS1/libertinus
-t1math/m/n/10.95 /[] = [].\LS1/libertinust1math/m/it/10.95 K\LS1/libertinust1ma
-th/m/n/10.95 /[]
- []
-
-
-Overfull \hbox (4.68332pt too wide) in paragraph at lines 248--250
-[]\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 K[]\LS1/lib
-ertinust1math/m/n/10.95 / [][] [].\LS1/libertinust1math/m/it/10.95 K\LS1/libert
-inust1math/m/n/10.95 / \LS2/libertinust1mathsym/m/n/10.95 w \LS1/libertinust1ma
-th/m/it/10.95 ^^N$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) since $[][] \LS1/lib
-ertinust1math/m/it/10.95 c[] \LS1/libertinust1math/m/n/10.95 À .0\LS1/libertinu
-st1math/m/it/10.95 ; \LS1/libertinust1math/m/n/10.95 1/$\T1/LinuxLibertineT-TLF
-/m/n/10.95 (-20) . Thus $[][]$
- []
-
-
-
-[8]
-
-[9]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 293.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 293.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 293.
-
-Overfull \hbox (1.23178pt too wide) in paragraph at lines 584--585
- [][] 
- []
-
-
-Overfull \hbox (1.23178pt too wide) in paragraph at lines 868--869
- [][] 
- []
-
-
-
-[10]
-Overfull \hbox (4.27339pt too wide) detected at line 908
-[]\LS1/libertinust1math/m/it/10.95 ^^V\LS1/libertinust1math/m/n/10.95 .\LS1/lib
-ertinust1math/m/it/10.95 B\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1mat
-h/m/it/10.95 x; r\LS1/libertinust1math/m/n/10.95 // \LS2/libertinust1mathsym/m/
-n/10.95 w \LS1/libertinust1math/m/n/10.95 5 \LS2/libertinust1mathsym/m/n/10.95 
-^^L \LS1/libertinust1math/m/it/10.95 ^^V [] \LS1/libertinust1math/m/n/10.95 = 5
- \LS2/libertinust1mathsym/m/n/10.95 ^^L \LS1/libertinust1math/m/n/10.95 5[] = 5
-[] \LS2/libertinust1mathsym/m/n/10.95 ^^L \LS1/libertinust1math/m/n/10.95 5[] \
-LS2/libertinust1mathsym/m/n/10.95 w \LS1/libertinust1math/m/n/10.95 5 \LS2/libe
-rtinust1mathsym/m/n/10.95 ^^L [][] w \LS1/libertinust1math/m/n/10.95 5 \LS2/lib
-ertinust1mathsym/m/n/10.95 ^^L \LS1/libertinust1math/m/n/10.95 2[] \LS2/liberti
-nust1mathsym/m/n/10.95 ^^L \LS1/libertinust1math/m/it/10.95 r[]
- []
-
-
-
-[11])
-
-[12]
-\openout2 = `mainMatter/Laplacians.aux'.
-
- (mainMatter/Laplacians.tex
-
-[13
-
-
-
-
-]
-
-[14]
-
-[15]
-
-[16]
-
-[17]
-Overfull \hbox (38.07857pt too wide) detected at line 313
-[]\U/stixcal/m/n/10.95 E[]\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1mat
-h/m/it/10.95 u;  []\LS1/libertinust1math/m/n/10.95 / = \LS1/libertinust1math/m/
-it/10.95 r[] []\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.9
-5 u\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 q\LS1/libe
-rtinust1math/m/n/10.95 / * \LS1/libertinust1math/m/it/10.95 u\LS1/libertinust1m
-ath/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 p\LS1/libertinust1math/m/n/10.9
-5 //.\LS1/libertinust1math/m/it/10.95  []\LS1/libertinust1math/m/n/10.95 .\LS1/
-libertinust1math/m/it/10.95 p\LS1/libertinust1math/m/n/10.95 / * \LS1/libertinu
-st1math/m/it/10.95  []\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/
-it/10.95 q\LS1/libertinust1math/m/n/10.95 // = \LS1/libertinust1math/m/it/10.95
- r[] []\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 u\LS1/
-libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 x\LS1/libertinust1
-math/m/n/10.95 / * \LS1/libertinust1math/m/it/10.95 u\LS1/libertinust1math/m/n/
-10.95 .\LS1/libertinust1math/m/it/10.95 q\LS1/libertinust1math/m/n/10.95 // = \
-LS1/libertinust1math/m/it/10.95 r[][]u\LS1/libertinust1math/m/n/10.95 .\LS1/lib
-ertinust1math/m/it/10.95 x\LS1/libertinust1math/m/n/10.95 /
- []
-
-
-Overfull \hbox (40.83372pt too wide) in paragraph at lines 341--342
-[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) If we set $\LS1/libertinust1math/m/n/
-10.95 
-[] = []$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) then $\LS1/libertinust1math/m/
-it/10.95 F[] \LS1/libertinust1math/m/n/10.95 = \LS1/libertinust1math/m/it/10.95
- K\LS1/libertinust1math/m/n/10.95 \ []$\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) 
-.
- []
-
-
-
-[18]
-Overfull \hbox (2.0679pt too wide) in paragraph at lines 375--376
-[]\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) Moving on to the sec-ond half of the 
-proof. Sup-pose that $\LS1/libertinust1math/m/it/10.95 r[] [][] []u\LS1/liberti
-nust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 x\LS1/libertinust1math/m/
-n/10.95 /$
- []
-
-
-
-[19]
-
-[20]
-Overfull \hbox (34.99535pt too wide) detected at line 422
-[][] \LS2/libertinust1mathsym/m/n/10.95 w [] \LS1/libertinust1math/m/n/10.95 + 
-[] \LS2/libertinust1mathsym/m/n/10.95 w [] \LS1/libertinust1math/m/n/10.95 + []
- + []
- []
-
-
-
-[21]
-Overfull \hbox (5.29816pt too wide) detected at line 483
-[]
- []
-
-
-
-[22]
-
-[23]
-Overfull \hbox (41.01929pt too wide) in paragraph at lines 577--578
-[]\T1/LinuxLibertineT-TLF/b/n/10.95 Remark: []\T1/LinuxLibertineT-TLF/m/n/10.95
- (-20) Note that $[] [][] \LS1/libertinust1math/m/it/10.95 ^^^[]\LS1/libertinus
-t1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 y\LS1/libertinust1math/m/n/1
-0.95 /\LS1/libertinust1math/m/it/10.95 f\LS1/libertinust1math/m/n/10.95 .\LS1/l
-ibertinust1math/m/it/10.95 y\LS1/libertinust1math/m/n/10.95 / = \LS2/libertinus
-t1mathex/m/n/10.95 Í\LS1/libertinust1math/m/it/10.95 ^^^[]; f\LS2/libertinust1m
-athex/m/n/10.95 Î[]$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) and there-fore tha
-t $\LS1/libertinust1math/m/n/10.95 .*^^A[]/[]\LS1/libertinust1math/m/it/10.95 f
-\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 x\LS1/liberti
-nust1math/m/n/10.95 / =
- []
-
-
-
-[24]
-Overfull \hbox (8.95317pt too wide) detected at line 609
-[]
- []
-
-
-
-[25]
-
-[26]
-
-[27]
-
-[28]
-
-[29]
-Overfull \hbox (9.05421pt too wide) detected at line 826
-[]
- []
-
-
-
-[30]
-
-[31]
-Overfull \hbox (27.10521pt too wide) in paragraph at lines 880--882
-\T1/LinuxLibertineT-TLF/m/n/10.95 (-20) where the last equal-ity comes from the
- fact that $[][] \LS1/libertinust1math/m/it/10.95 ^^^[]\LS1/libertinust1math/m/
-n/10.95 .\LS1/libertinust1math/m/it/10.95 y\LS1/libertinust1math/m/n/10.95 /\LS
-1/libertinust1math/m/it/10.95 ^^^[]\LS1/libertinust1math/m/n/10.95 .\LS1/libert
-inust1math/m/it/10.95 y\LS1/libertinust1math/m/n/10.95 / []\LS1/libertinust1mat
-h/m/it/10.95 ^^V \LS1/libertinust1math/m/n/10.95 = \LS1/libertinust1math/m/it/1
-0.95 ^^N[]$ \T1/LinuxLibertineT-TLF/m/n/10.95 (-20) so $[][] \LS1/libertinust1m
-ath/m/it/10.95 ^^^[]\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it
-/10.95 y\LS1/libertinust1math/m/n/10.95 /[] []\LS1/libertinust1math/m/it/10.95 
-^^V\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 y\LS1/libe
-rtinust1math/m/n/10.95 / =
- []
-
-
-
-[32]
-
-[33]
-
-[34]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 970.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/n' will be
-(Font)              scaled to size 9.0pt on input line 970.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/m/it' will be
-(Font)              scaled to size 9.0pt on input line 970.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathsym/m/n' will be
-(Font)              scaled to size 9.0pt on input line 970.
-LaTeX Font Info:    Font shape `LS2/libertinust1mathex/m/n' will be
-(Font)              scaled to size 9.0pt on input line 970.
-LaTeX Font Info:    Font shape `LS1/libertinust1mathbb/m/n' will be
-(Font)              scaled to size 9.0pt on input line 970.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/n' will be
-(Font)              scaled to size 9.0pt on input line 970.
-LaTeX Font Info:    Font shape `LS1/libertinust1math/b/it' will be
-(Font)              scaled to size 9.0pt on input line 970.
-
-
-[35])
-
-[36]
-\openout2 = `mainMatter/gaussianFields.aux'.
-
- (mainMatter/gaussianFields.tex
-
-[37
-
-
-
-
-{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertinust1math/libusBM
-R.enc}]
-Overfull \hbox (92.86029pt too wide) detected at line 73
-[]
- []
-
-
-
-[38]
-
-[39]
-
-[40]
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-68.
- (C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/doublestroke\udsrom.fd
-File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-
-[41]
-Overfull \hbox (45.55069pt too wide) detected at line 183
-[]\LS1/libertinust1math/m/it/10.95 G[]\LS1/libertinust1math/m/n/10.95 .\LS1/lib
-ertinust1math/m/it/10.95 x; y\LS1/libertinust1math/m/n/10.95 / = [] [][] \LS1/l
-ibertinust1math/m/it/10.95 t[]p[]\LS1/libertinust1math/m/n/10.95 .\LS1/libertin
-ust1math/m/it/10.95 x; y\LS1/libertinust1math/m/n/10.95 / []\LS1/libertinust1ma
-th/m/it/10.95 t \LS1/libertinust1math/m/n/10.95 = [] [][] \LS1/libertinust1math
-/m/it/10.95 t[] [] e[]^^^[]\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1ma
-th/m/it/10.95 x\LS1/libertinust1math/m/n/10.95 /\LS1/libertinust1math/m/it/10.9
-5 ^^^[]\LS1/libertinust1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 y\LS1/
-libertinust1math/m/n/10.95 / []\LS1/libertinust1math/m/it/10.95 t \LS1/libertin
-ust1math/m/n/10.95 = [] []\LS1/libertinust1math/m/it/10.95 ^^^[]\LS1/libertinus
-t1math/m/n/10.95 .\LS1/libertinust1math/m/it/10.95 x\LS1/libertinust1math/m/n/1
-0.95 /\LS1/libertinust1math/m/it/10.95 ^^^[]\LS1/libertinust1math/m/n/10.95 .\L
-S1/libertinust1math/m/it/10.95 y\LS1/libertinust1math/m/n/10.95 /\LS1/libertinu
-st1math/m/it/10.95 :
- []
-
-
-
-[42]
-
-[43])
-
-[44]
-\openout2 = `mainMatter/mainTheorem.aux'.
-
- (mainMatter/mainTheorem.tex
-
-[45
-
-
-
-
-]
-
-[46]
-Overfull \hbox (19.29141pt too wide) detected at line 94
-[]
- []
-
-
-Overfull \hbox (35.48164pt too wide) detected at line 114
+Overfull \hbox (31.45135pt too wide) detected at line 121
 []\LS1/libertinust1mathbb/m/n/10.95 E [] \LS1/libertinust1math/m/n/10.95 = [] [
-] = [] []
+] = [] [] \LS1/libertinust1math/m/it/10.95 :
  []
 
 
+LaTeX Warning: Reference `fracGaussianField' on page 1 undefined on input line 
+122.
 
-[47]
-LaTeX Font Info:    Trying to load font information for T1+newtxtt on input lin
-e 166.
- (C:\Users\chris\AppData\Roaming\MiKTeX\tex/fonts/newtxtt\t1newtxtt.fd
-File: t1newtxtt.fd 2020/02/15 Font definitions for T1/newtxtt.
+
+LaTeX Warning: Reference `coroForRieszKernelAndFractionalLaplacian' on page 1 u
+ndefined on input line 126.
+
 )
-LaTeX Font Info:    Font shape `T1/newtxtt/m/n' will be
-(Font)              scaled to size 10.40245pt on input line 166.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `newtxtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 
+[4{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/libertinust1math/libus
+BB.enc}]
 
-[48{C:/Users/chris/AppData/Roaming/MiKTeX/fonts/enc/dvips/newtxtt/txttAec.enc}]
+LaTeX Warning: Empty bibliography on input line 117.
 
+\openout2 = `backMatter/simAppendix.aux'.
 
-[49]
-<Pictures/vicsekSim/vicsekSim_V3-s0_001.png, id=1626, 462.22687pt x 347.04657pt
->
-File: Pictures/vicsekSim/vicsekSim_V3-s0_001.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s0_001.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s0_001.png  used on in
-put line 218.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/vicsekSim/vicsekSim_V3-s20.png, id=1628, 462.22687pt x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3-s20.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s20.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s20.png  used on input
- line 219.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
+(backMatter/simAppendix.tex
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 218--220
+LaTeX Warning: Reference `chap:simulations' on page 1 undefined on input line 2
+.
+
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 12.0pt on input line 4.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 4.
+LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 4.
+
+LaTeX Warning: Reference `fig:4differentsSimWithSametWhiteNoise' on page 1 unde
+fined on input line 4.
+
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png, id=72, 462.22687pt
+ x 345.70947pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png Graphic file (
+type png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001
+.png  used on input line 10.
+(pdftex.def)             Requested size: 314.3101pt x 235.07932pt.
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png, id=74, 462.22687pt x
+ 345.70947pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png Graphic file (ty
+pe png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.p
+ng  used on input line 11.
+(pdftex.def)             Requested size: 314.3101pt x 235.07932pt.
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 10--12
  [][] 
  []
 
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 218--220
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 10--12
  [] 
  []
 
-<Pictures/vicsekSim/vicsekSim_V3-s1.png, id=1629, 462.22687pt x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3-s1.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s1.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s1.png  used on input 
-line 223.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/vicsekSim/vicsekSim_V3-s50.png, id=1630, 462.22687pt x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3-s50.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s50.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s50.png  used on input
- line 224.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png, id=75, 462.22687pt x 3
+47.04657pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png Graphic file (type
+ png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png
+  used on input line 15.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png, id=76, 462.22687pt x 
+347.04657pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png Graphic file (typ
+e png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.pn
+g  used on input line 16.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 223--225
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 15--17
  [][] 
  []
 
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 223--225
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 15--17
  [] 
  []
 
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png, id=1632, 462.22687pt x 347
-.04657pt>
+
+Overfull \hbox (22.70525pt too wide) in paragraph at lines 7--20
+[]  $[]$ $[]$ 
+ []
+
+
+LaTeX Warning: Reference `fig:4differentsSimWithSametWhiteNoise2' on page 1 und
+efined on input line 22.
+
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png, id=77, 462.22687pt
+ x 347.04657pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png Graphic file (
+type png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001
+.png  used on input line 28.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png, id=78, 462.22687pt x
+ 347.04657pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png Graphic file (ty
+pe png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.p
+ng  used on input line 29.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 28--30
+ [][] 
+ []
+
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 28--30
+ [] 
+ []
+
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png, id=79, 462.22687pt x 3
+47.04657pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png Graphic file (type
+ png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png
+  used on input line 33.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png, id=80, 462.22687pt x 
+347.04657pt>
+File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png Graphic file (typ
+e png)
+<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png>
+Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.pn
+g  used on input line 34.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 33--35
+ [][] 
+ []
+
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 33--35
+ [] 
+ []
+
+
+Overfull \hbox (22.70525pt too wide) in paragraph at lines 25--38
+[]  $[]$ $[]$ 
+ []
+
+
+
+[5
+
+
+
+
+
+
+]
+
+LaTeX Warning: Reference `fig:Sierpinski4diffWhiteNoise' on page 1 undefined on
+ input line 41.
+
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png, id=88, 462.22687pt x 347.0
+4657pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png Graphic file (type png
 )
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png  us
-ed on input line 253.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png, id=1633, 462.22687pt x 347.04
-657pt>
+ed on input line 47.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png, id=89, 462.22687pt x 347.0465
+7pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png Graphic file (type png)
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png  used 
-on input line 254.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
+on input line 48.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 253--255
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 47--49
  [][] 
  []
 
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 253--255
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 47--49
  [] 
  []
 
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png, id=1634, 462.22687pt x 347.046
-57pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png, id=90, 462.22687pt x 347.04657
+pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png Graphic file (type png)
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png  used o
-n input line 258.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png, id=1635, 462.22687pt x 347.04
-657pt>
+n input line 52.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png, id=91, 462.22687pt x 347.0465
+7pt>
 File: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png Graphic file (type png)
 <use Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png>
 Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png  used 
-on input line 259.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
+on input line 53.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 258--260
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 52--54
  [][] 
  []
 
 
-Overfull \hbox (73.41353pt too wide) in paragraph at lines 258--260
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 52--54
  [] 
  []
 
 
-
-[50])
-
-[51 <./Pictures/vicsekSim/vicsekSim_V3-s0_001.png> <./Pictures/vicsekSim/vicsek
-Sim_V3-s20.png> <./Pictures/vicsekSim/vicsekSim_V3-s1.png> <./Pictures/vicsekSi
-m/vicsekSim_V3-s50.png>]
-
-[52 <./Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png> <./Pictures/sierpins
-kiSim/sierpinskiSim_V5-s20.png> <./Pictures/sierpinskiSim/sierpinskiSim_V5-s1.p
-ng> <./Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png>]
-
-[53
+Overfull \hbox (22.70525pt too wide) in paragraph at lines 44--57
+[]  $[]$ $[]$ 
+ []
 
 
 
+[6 <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png> <./Pictures/v
+icsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png> <./Pictures/vicsekSim/vicsekSim
+_V3_SameWhiteNoise2-s1.png> <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-
+s20.png>]
+
+LaTeX Warning: Reference `fig:sierpinski4differentsSimWithSametWhiteNoise' on p
+age 1 undefined on input line 60.
+
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png, id=101, 46
+2.22687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png Graphi
+c file (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+0-s0_001.png  used on input line 66.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png, id=102, 462.22
+687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png Graphic fi
+le (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+2-s1.png  used on input line 67.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 66--68
+ [][] 
+ []
 
 
-]
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 66--68
+ [] 
+ []
 
-[54]
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png, id=103, 462.
+22687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png Graphic 
+file (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+1-s0_5.png  used on input line 71.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png, id=104, 462.2
+2687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png Graphic f
+ile (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+3-s20.png  used on input line 72.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 71--73
+ [][] 
+ []
+
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 71--73
+ [] 
+ []
+
+
+Overfull \hbox (22.70525pt too wide) in paragraph at lines 63--76
+[]  $[]$ $[]$ 
+ []
+
+
+
+[7 <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png> <./Pictures/v
+icsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png> <./Pictures/vicsekSim/vicsekSim
+_V3_SameWhiteNoise6-s1.png> <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-
+s20.png>]
+
+LaTeX Warning: Reference `fig:sierpniski4differentsSimWithSametWhiteNoise2' on 
+page 1 undefined on input line 79.
+
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png, id=114, 46
+2.22687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png Graphi
+c file (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+4-s0_001.png  used on input line 85.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png, id=115, 462.22
+687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png Graphic fi
+le (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+6-s1.png  used on input line 86.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 85--87
+ [][] 
+ []
+
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 85--87
+ [] 
+ []
+
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png, id=116, 462.
+22687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png Graphic 
+file (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+5-s0_5.png  used on input line 90.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png, id=117, 462.2
+2687pt x 347.04657pt>
+File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png Graphic f
+ile (type png)
+<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png>
+Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
+7-s20.png  used on input line 91.
+(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 90--92
+ [][] 
+ []
+
+
+Overfull \hbox (92.90785pt too wide) in paragraph at lines 90--92
+ [] 
+ []
+
+)
+
+[8 <./Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png> <./Pictures/sierpinsk
+iSim/sierpinskiSim_V5-s20.png> <./Pictures/sierpinskiSim/sierpinskiSim_V5-s1.pn
+g> <./Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png>]
+
+[9 <./Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png> <./Pi
+ctures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png> <./Pictures/sierp
+inskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png> <./Pictures/sierpinskiSim/s
+ierpinskiSim_V5_SameWhiteNoise3-s20.png>]
+
+[10 <./Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png> <./P
+ictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png> <./Pictures/sier
+pinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png> <./Pictures/sierpinskiSim/
+sierpinskiSim_V5_SameWhiteNoise7-s20.png>]
 \tf@toc=\write7
 \openout7 = `thesis_master.toc'.
 
- (thesis_master.aux (frontMatter/abstract.aux)
-(mainMatter/fractalConstruction.aux) (mainMatter/Laplacians.aux)
-(mainMatter/gaussianFields.aux) (mainMatter/mainTheorem.aux))
+ (thesis_master.aux
+(mainMatter/mainTheorem.aux) (backMatter/simAppendix.aux))
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `thesis_master.out' has not changed.
-(rerunfilecheck)             Checksum: 428EF1C29E30D95E063E6D79A2517990;5265.
+(rerunfilecheck)             Checksum: 23DCA98CE908C42A7C2CE674B0B76144;809.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                thesis_master
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'thesis_master.run.xml'.
 \openout1 = `thesis_master.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47250 strings out of 473968
- 944568 string characters out of 5738363
- 1827476 words of memory out of 5000000
- 68865 multiletter control sequences out of 15000+600000
- 710405 words of font info for 270 fonts, out of 8000000 for 9000
+ 46176 strings out of 473968
+ 918972 string characters out of 5738363
+ 1793008 words of memory out of 5000000
+ 68173 multiletter control sequences out of 15000+600000
+ 658696 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,96p,1160b,2506s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,96p,1160b,2479s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/chris/AppData/Roaming/MiKTeX/fonts/type1/public/libertinust1math/Li
 bertinusT1Math.pfb><C:/Users/chris/AppData/Roaming/MiKTeX/fonts/type1/public/li
 bertine/LinBiolinumT.pfb><C:/Users/chris/AppData/Roaming/MiKTeX/fonts/type1/pub
@@ -2737,12 +2582,10 @@ lic/libertine/LinBiolinumTB.pfb><C:/Users/chris/AppData/Roaming/MiKTeX/fonts/ty
 pe1/public/libertine/LinLibertineT.pfb><C:/Users/chris/AppData/Roaming/MiKTeX/f
 onts/type1/public/libertine/LinLibertineTB.pfb><C:/Users/chris/AppData/Roaming/
 MiKTeX/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Users/chris/AppData/
-Roaming/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/chris/AppD
-ata/Roaming/MiKTeX/fonts/type1/public/newtxtt/newtxtt.pfb><C:/Users/chris/AppDa
-ta/Roaming/MiKTeX/fonts/type1/public/stix/stix-mathcal.pfb>
-Output written on thesis_master.pdf (58 pages, 1369436 bytes).
+Roaming/MiKTeX/fonts/type1/public/stix/stix-mathcal.pfb>
+Output written on thesis_master.pdf (12 pages, 1177873 bytes).
 PDF statistics:
- 1798 PDF objects out of 2073 (max. 8388607)
- 216 named destinations out of 1000 (max. 500000)
- 34109 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 201 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 500000)
+ 20625 words of extra memory for PDF output out of 20736 (max. 10000000)
 

@@ -14,8 +14,8 @@ a4paper
 % Page 'n' stuff
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Page set-up
-\setlrmarginsandblock{2.5cm}{*}{1}
-\setulmarginsandblock{2.5cm}{3.5cm}{*}
+\setlrmarginsandblock{2.75cm}{2.75cm}{1}
+\setulmarginsandblock{4cm}{*}{1}
 
 % Some memoir tricks
 \setlength{\topskip}{1.6\topskip}
@@ -27,11 +27,12 @@ a4paper
 % --> Only for this progress report! Normally the blank page should be there!!
 %\usepackage{atbegshi}
 
-
+% Warning supressions
+\pdfsuppresswarningpagegroup=1
 
 
 %\usepackage[a4paper, margin=2.5cm, marginparwidth=2cm, includefoot=true]{geometry}
-\usepackage[english]{babel} %Adds Danish grammer
+\usepackage[british]{babel} %Adds Danish grammer
 \usepackage{lmodern}
 \usepackage{csquotes}
 \usepackage{amsmath} %Enables a lot, such as align
@@ -40,6 +41,7 @@ a4paper
 \usepackage{amsthm} %Something with proof enviorments
 \usepackage{listings} %Make code blocks
 \usepackage{xfrac}
+\usepackage{ragged2e}
 \usepackage{dsfont}
 \usepackage{marginnote} %Make margin notes
 \usepackage{commath}
@@ -192,7 +194,6 @@ hypertexnames=false]{hyperref}
 \newcommand{\cbra}[1]{\left\lbrace #1 \right\rbrace} %Making curly brackets easier
 \newcommand{\func}[3]{#1\colon #2 \to #3} %Making a function easier
 
-
 \newcommand{\inn}[2]{\left\langle #1, #2 \right\rangle} %inner product
 \newcommand{\prt}[2]{\frac{\partial #1}{\partial #2}} %partial differential
 
@@ -336,7 +337,7 @@ hypertexnames=false]{hyperref}
 	\pagestyle{plain}
 	
 	\hypersetup{pageanchor=false}
-	\input{frontMatter/frontPage}
+	%\input{frontMatter/frontPage}
 	
 	\frontmatter
 	
@@ -359,22 +360,15 @@ hypertexnames=false]{hyperref}
 	
 	\input{mainMatter/mainTheorem}
 	
+	\hfuzz=33pt
 	\input{mainMatter/simulations}
 	
-	\backmatter
-\begin{refcontext}[sorting=nyt]
 	% Standard bibliography
 	\nocite{*}
 	\raggedyright[4em] \printbibliography
-	
-	% With custom title (activate in preamble)
-	% \raggedyright[4em] \printbibliography[heading=memoirbib]
-\end{refcontext}
-	}
-	\appendix
-	\renewcommand{\thechapter}{\alph{chapter}}
-	\renewcommand{\thesection}{\Roman{section}}
-	\renewcommand{\thesubsection}{\fnsymbol{subsection}}
-	
+
+\begin{appendices}
 	\input{backMatter/simAppendix}
+\end{appendices}
+}
 \end{document}

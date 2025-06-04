@@ -18,10 +18,10 @@ import multiprocessing as mp
 
 class simulation:
 
-    def __init__(self, n: int,  fractalConstruction, s: int, fractalType: str):
+    def __init__(self, n: int,  fractalConstruction, s: float, fractalType: str):
         self.fractal = fractalConstruction
         self.n = int(n)
-        self.s = int(s)
+        self.s = float(s)
         self.SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 
         if fractalType.lower() in {"sierpinski", "vicsek"}:
@@ -276,6 +276,6 @@ if __name__ == '__main__':
                 theOne.drawThePretty(sValues=[sVals], whiteNoise=WN)
                 #theOne.drawThePretty(sValues=[0.001, 0.5, 1, 20], sameWhiteNoise=True, whiteNoise=)
                 #plt.gca().set_position([0, 0, 1, 1])
-                plt.savefig(f"c:/Users/chris/GaussianFieldsThesis/code/sim/sierpinski/sameWhite/{theOne.fractalType}Sim_V{h}_SameWhiteNoise{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
+                plt.savefig(f"c:/Users/chris/gitProjects/GaussianFieldsThesis/code/sim/{theOne.fractalType}Sim_V{h}_SameWhiteNoise{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
                 i+=1
     #plt.show()

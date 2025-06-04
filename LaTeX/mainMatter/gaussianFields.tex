@@ -15,11 +15,11 @@ We will also give an example of an discrete fractional Gaussian field, which we 
 \end{equation}
 
 
-We then note that the discrete fractional Gaussian field has the following property:
+We then note that discrete fractional Gaussian fields has the following property:
 \begin{prop}\label{theOneWeNeedInTheEndSomehow}
 	For $f,g \in \ell(V_m)$ we have that
 	\begin{equation}
-		\e \left[X_s^{m}(f)X_s^{m}(g)\right] = \frac{1}{a_m} \sum_{p \in V_m} (-\Delta_{m})^{-s}f(p)(-\Delta_{m})^{-s}g(p)
+		\e \left[X_s^{m}(f)X_s^{m}(g)\right] = \frac{1}{a_m} \sum_{p \in V_m} (-\Delta_{m})^{-s}f(p)(-\Delta_{m})^{-s}g(p).
 	\end{equation}
 \end{prop}
 \begin{proof}
@@ -29,12 +29,12 @@ We then note that the discrete fractional Gaussian field has the following prope
 		&=  \frac{1}{2a_m} \sum_{p,q \in V_m}f(p)g(q)G_{2s}^{m}(p,q) \\
 		&= \frac{1}{a_m} \sum_{p \in V_m}f(p)\left(\frac{1}{a_m} \sum_{q \in V_m}g(q)G_{2s}^{m}(p,q)\right) \\
 		& = \frac{1}{a_m} \sum_{p \in V_m}f(p)(-\Delta_{m})^{-2s}g(p) \\
-		& = \frac{1}{a_m} \sum_{p \in V_m} (-\Delta_{m})^{-s}f(p)(-\Delta_{m})^{-s}g(p)
+		& = \frac{1}{a_m} \sum_{p \in V_m} (-\Delta_{m})^{-s}f(p)(-\Delta_{m})^{-s}g(p).
 	\end{align}
 \end{proof}
 
 \begin{example}\label{OneToSimulate}
-	Here we will give an example of a discrete fractional Gaussian field. Let $(W_i)_{1\leq i \leq N_m}$ be a sequence of i.i.d Gaussian random variables with mean 0 and variance 1, i.e. white noise. Then define
+	Here we will give an example of a discrete fractional Gaussian field. Let $(W_i)_{1\leq i \leq N_m}$ be a sequence of i.i.d. Gaussian random variables with mean 0 and variance 1, i.e. white noise. Then define
 	\begin{equation}
 		X_{s}^{m}(x) = \sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x)W_i, \quad x \in V_m.
 	\end{equation}
@@ -48,16 +48,16 @@ We then note that the discrete fractional Gaussian field has the following prope
 		0 \\
 		\vdots \\
 		0
-		\end{pmatrix}
+		\end{pmatrix},
 	\end{equation}
 	since
 	\begin{equation}
-		\e \left[X_s^{m}(x_i)\right] = \e \left[\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x)W_i\right] = \sum_{i = 1}^{N_m} \left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x) \e \left[W_i\right] = 0.
+		\e \left[X_s^{m}(x_j)\right] = \e \left[\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x_j)W_i\right] = \sum_{i = 1}^{N_m} \left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x_j) \e \left[W_i\right] = 0.
 	\end{equation}
 	Moving on to the covariance matrix, we have that
 	\begin{multline}
-		\mathbf{\Sigma} = \e \left( \left(X_s^{m} - \e \left[X_s^{m}\right] \right)\left(\left(X_s^{m}\right)^{T} - \e \left[X_s^{m}\right] \right)\right) = \\
-		\e \left[X_s^{m} \cdot \left(X_s^{m}\right)^{T}\right] = \e \left[\begin{pmatrix}
+		\mathbf{\Sigma} = \e \left( \left(X_s^{m} - \e \left[X_s^{m}\right] \right)\left(\left(X_s^{m}\right)^{T} - \e \left[X_s^{m}\right] \right)\right) \\
+		=\e \left[X_s^{m} \cdot \left(X_s^{m}\right)^{T}\right] = \e \left[\begin{pmatrix}
 			X_s^{m}(x_1)X_s^{m}(x_1) & \cdots  & X_s^{m}(x_1)X_s^{m}(x_{N_m}) \\
 			\vdots & \ddots  & \vdots \\
 			X_s^{m}(x_{N_m})X_s^{m}(x_1)  & \cdots & X_s^{m}(x_{N_m})X_s^{m}(x_{N_m}) 
@@ -66,8 +66,9 @@ We then note that the discrete fractional Gaussian field has the following prope
 	Looking at a single element $\mathbf{\Sigma}_{p,q}$, and using that $W_i$ are independent, we compute
 	\begin{align}
 		\e \left[X_{s}^{m}(x_p)X_s^{m}(x_q)\right] &= \e \left[\left(\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-s}\phi^{m}_{i}(x_p)W_i\right) \left(\sum_{j=1}^{N_m}\left(\lambda_j^{m}\right)^{-s}\phi^{m}_{j}(x_q)W_j\right)\right]\\ 
-		&= \e \left[\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q)W_i^2\right] +\e \left[\sum_{i,j=1, i \neq j }^{N_m}\left(\lambda_i^{m}\lambda_j^{m}\right)^{-s}\phi^{m}_{i}(x_p) \phi^{m}_{j}(x_q)W_iW_j\right] \\
-		&= \sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q)\e \left[W_i^2\right] +\sum_{i,j=1, i \neq j }^{N_m}\left(\lambda_i^{m}\lambda_j^{m}\right)^{-s}\phi^{m}_{i}(x_p) \phi^{m}_{j}(x_q)\e \left[W_i\right] \e \left[W_j\right] \\
+		&= \e \left[\sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q)W_i^2\right]\\ &\phantom{a} \qquad \qquad \qquad +\e \left[\sum_{i,j=1, i \neq j }^{N_m}\left(\lambda_i^{m}\lambda_j^{m}\right)^{-s}\phi^{m}_{i}(x_p) \phi^{m}_{j}(x_q)W_iW_j\right] \\
+		&= \sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q)\e \left[W_i^2\right]\\  
+		&\phantom{a} \qquad \qquad \qquad +\sum_{i,j=1, i \neq j }^{N_m}\left(\lambda_i^{m}\lambda_j^{m}\right)^{-s}\phi^{m}_{i}(x_p) \phi^{m}_{j}(x_q)\e \left[W_i\right] \e \left[W_j\right] \\
 		&= \sum_{i=1}^{N_m}\left(\lambda_i^{m}\right)^{-2s}\phi^{m}_{i}(x_p)\phi^{m}_{i}(x_q) \\
 		&= G_{2s}^{m}(x_p,x_q).
 	\end{align}
@@ -95,15 +96,16 @@ In the next lemma we will prove that a functional, which we will need, is positi
 	The functional $\Phi: \mathcal{X} \to \ree$ defined as  $\Phi(v) = \exp\left(-\frac{1}{2} \inn{v}{v} \right)$ is positive definite.
 \end{lemma}
 \begin{proof}
-	Let $v_1, \ldots v_n$ be elements of $\mathcal{X}$ and choose an orthonormal basis $e_1, \ldots e_m$ of $\text{span}\cbr{v_1, \ldots, v_n}$. Further let $Z = (Z_1, \ldots, Z_m)$ be a vector of independent standard normal random variables, and note that for all $u \in \ree^{m}$ we have that
+	Let $v_1, \ldots, v_n$ be elements of $\mathcal{X}$ and further choose an orthonormal basis $e_1, \ldots, e_m$ of $\text{span}\cbr{v_1, \ldots, v_n}$. Additionally let $Z = (Z_1, \ldots, Z_m)$ be a vector of independent standard normal random variables, and note that for all $u \in \ree^{m}$ we have that
 	\begin{equation}
 		\Phi \left(\sum_{j = 1}^{m} u_j e_j\right) = \exp \left(-\frac{1}{2} \sum_{i = 1}^{m} u_i^2\right) = \e \left[e^{ \img u \cd Z}\right].
 	\end{equation}
 	This leads us to for $z \in \cee^{n}$ 
 	\begin{multline}
 		\sum_{j, k = 1}^{n}z_j \overline{z_k} \Phi(v_j - v_k) = \sum_{j,  k = 1}^{n} z_j \overline{z_k} \e \left[e^{\img (v_j -v_k) \cd Z}\right] \\
-		= \e \left[\left(\sum_{j = 1}^{n} z_j e^{iv_j \cd Z}\right)\left(\sum_{k = 1}^{n}\overline{z_k e^{iv_k \cd Z}}\right)\right]= \e \left[ \: \abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0.
+		= \e \left[\left(\sum_{j = 1}^{n} z_j e^{iv_j \cd Z}\right)\left(\sum_{k = 1}^{n}\overline{z_k e^{iv_k \cd Z}}\right)\right]= \e \left[ \: \abs{\sum_{j = 1} z_j e^{i v_j \cdot Z}}^2\right] \geq 0
 	\end{multline}
+	and $\phi$ is positive semi-definite.
 \end{proof}
 
 \begin{theorem}
@@ -128,7 +130,7 @@ In the next lemma we will prove that a functional, which we will need, is positi
 	Now we prove that $\Lambda$ satisfies the requirements of \Cref{BochnerMinlos}. Obviously $\Lambda(0) = 1$, and from \cref{LambdaPosDefinite} $\Lambda$ is positive definite. Lastly we need to prove it is continuous at 0. 
 	
 	First we note that since $(-\Delta)^{-s}$ is a bounded operator we have that there exists some constant $C> 0$ so $\norm{(-\Delta)^{-s}f }_{L^{2}(K, \mu)} \leq C \norm{f}_{L^{2}(K, \mu)}$. Now let $\epsilon > 0$ be given and choose $$\delta = \begin{cases}
-		\left(\frac{-2\cd \ln(1-\epsilon)}{C}\right)^{\frac{1}{2}}, & \text{when } \epsilon \in (0,1) \\
+		\left(\frac{-2\cd \ln(1-\epsilon)}{C}\right)^{\sfrac{1}{2}}, & \text{when } \epsilon \in (0,1) \\
 		1,& \text{when } \epsilon \geq 1.
 	\end{cases}$$
 	If $\epsilon \geq 1$ notice that 
@@ -142,9 +144,9 @@ In the next lemma we will prove that a functional, which we will need, is positi
 		&\leq \abs{\exp\left(-\frac{1}{2} C \int_{K} \delta^2 \dd \mu\right) - 1} \\
 		&= \abs{\exp\left(-\frac{1}{2} C \int_{K} \frac{-2\cd \ln(1-\epsilon)}{ C} \dd \mu\right) - 1}  \\
 		&= \abs{\exp\left(\ln(1-\epsilon)\right) -1}\\
-		& = \epsilon
+		& = \epsilon,
 	\end{align}
-	using that $\mu$ is a probability measure in the third to last equality. In which case we have continuity in $0$ as desired.
+	using that $\mu$ is a probability measure in the second to last equality. In which case we have continuity in $0$ as desired.
 \end{proof}
 
 
@@ -159,11 +161,12 @@ In the following we want to prove that a fractional Gaussian field has a $L^2$ d
 	\end{enumerate}
 \end{defi}
 
+\medskip 
 \noi We will now show that such a process exists on $(K, \mathcal{K}, \mu)$ where  $\mathcal{K}$ is the Borel $\sigma$-algebra on $K$. 
 
 We can think of white noise as a Gaussian process indexed by the set 
 \begin{equation}
-	\mathcal{A} = \cbr{W(A) : A \in \mathcal{K}, \mu(A) < \infty^{\phantom{a}}}.
+	\mathcal{A} = \cbr{W(A) : A \in \mathcal{K}, \mu(A) < \infty}.
 \end{equation} 
 From \Cref{whiteNoise}, (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}) it is a mean-zero Gaussian process with covariance matrix
 \begin{equation}
@@ -171,7 +174,7 @@ From \Cref{whiteNoise}, (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D})
 \end{equation}
 Now let $A_1, \ldots, A_n \in \mathcal{K}$ and $a_1, \ldots, a_n$ be real numbers. Then
 \begin{equation}
-	\sum_{i,j} a_i a_j \mathbf{\Sigma}_{i,j} = \sum_{i,j}a_ia_j \int_{K}\mathds{1}_{A_i} \cd \mathds{1}_{A_j} \dd \mu = \int_{K} \left(\sum_{i} a_i \mathds{1}_{A_i}\right)^2 \dd \mu \geq 0
+	\sum_{i,j=1}^{n} a_i a_j \mathbf{\Sigma}_{i,j =1}^{n} = \sum_{i,j = 1}^{n}a_ia_j \int_{K}\mathds{1}_{A_i} \cd \mathds{1}_{A_j} \dd \mu = \int_{K} \left(\sum_{i=1}^{n} a_i \mathds{1}_{A_i}\right)^2 \dd \mu \geq 0
 \end{equation}
 Thus $\mathbf{\Sigma}$ is positive definite, so there exists a probability space $(\Omega, \mathcal{F}, p)$ and a mean-zero Gaussian process $\cbr{W(A)}$ on $(\Omega, \mathcal{F}, p)$ such that $W$ satisfies \Cref{whiteNoise} (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}). 
 
@@ -181,18 +184,19 @@ This means that for $f \in L^{2}(K, \mathcal{K}, \mu)$ the integral with respect
 \end{equation}
 
 
-In the following we want to define a fractional Brownian field, and we want to do it as the integral of the fractional Riesz kernel defined in \cref{fractionalRieszKernel}, thus we need $G_s(x, \cd ) \in L^{2}(K, \mu)$. 
+In the following we want to define a fractional Brownian field, and we want to do it as the integral of the fractional Riesz kernel, which was defined in \Cref{fractionalRieszKernel}, thus we need $G_s(x, \cd ) \in L^{2}(K, \mu)$. 
 
-Let $s > \frac{d_h}{2d_w}$. We observe from \cref{boundsOfRieszKernel} that $G_s(x, \cd ) \in L^{2}(K, \mu)$. Moreover we have that
-	\begin{equation}\label{rieszKernelAsSum}
-		G_s(x,y) = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}p_t(x,y)\dd t = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}\sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)\dd t = \sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{-s}} \phi_j(x)\phi_j(y).
-	\end{equation}
-	recalling that \ref{convergenceOfEigenvaluesOfLaplcianBounds} and $\frac{1}{\Gamma(s)}\int_{K} t^{s-1} e^{-\lambda_jt} \dd t = \lambda_j^{-s}$. Furthermore note that by \Cref{convergenceOfEigenvaluesOfLaplacian} we have \eqref{rieszKernelAsSum} converges, since $s > \frac{d_h}{2d_w}$.
+Let $s > \frac{d_h}{2d_w}$. We observe from \Cref{boundsOfRieszKernel} that $G_s(x, \cd ) \in L^{2}(K, \mu)$. Moreover we have that
+	\begin{multline}\label{rieszKernelAsSum}
+		G_s(x,y) = \frac{1}{\Gamma(s)}\int_{K} t^{s-1}p_t(x,y)\dd t\\ 
+		= \frac{1}{\Gamma(s)}\int_{K} t^{s-1}\sum_{j = 1}^{\infty} e^{-\lambda_j t} \phi_j(x)\phi_j(y)\dd t = \sum_{j = 1}^{\infty} \frac{1}{\lambda_j^{-s}} \phi_j(x)\phi_j(y).
+	\end{multline}
+	recalling \Cref{convergenceOfEigenvaluesOfLaplcianBounds} and $\frac{1}{\Gamma(s)}\int_{K} t^{s-1} e^{-\lambda_jt} \dd t = \lambda_j^{-s}$. Furthermore note that by \Cref{convergenceOfEigenvaluesOfLaplacian} we have \eqref{rieszKernelAsSum} converges, since $s > \frac{d_h}{2d_w}$.
 
 \begin{defi}
 	Let $s > \frac{d_h}{2d_w}$. The fractional Brownian field with parameter $s$ is defined as 
 	\begin{equation}
-		\widetilde{X}_s(x) = \int_{K} G_s(x,y)\dd W (y)
+		\widetilde{X}_s(x) = \int_{K} G_s(x,y)\dd W (y).
 	\end{equation}
 \end{defi}
 
@@ -200,20 +204,21 @@ Let $s > \frac{d_h}{2d_w}$. We observe from \cref{boundsOfRieszKernel} that $G_s
 \begin{remark}
 	Since $s > \frac{d_h}{2d_w}$ then by \eqref{rieszKernelAsSum} we can write
 	\begin{equation}
-		\widetilde{X}_s(x) = \sum_{i = 1}^{\infty} \lambda_i^{-s}\phi_i(x)W_i
+		\widetilde{X}_s(x) = \sum_{i = 1}^{\infty} \lambda_i^{-s}\phi_i(x)W_i,
 	\end{equation}
-	where $W_i = W(\phi_i)$ is an i.i.d sequence of Gaussian random variables with mean 0 and variance 1.
+	where $W_i = W(\phi_i)$ is an i.i.d. sequence of Gaussian random variables with mean 0 and variance 1.
 \end{remark}
 
+\medskip
 We will now show that one can construct a fractional Gaussian field from the fractional Brownian field.
 \begin{prop}
 	Let $s > \frac{d_h}{2d_w}$. Then the Gaussian random field defined by
 	\begin{equation}
 		X_s(f) = \int_{K}f(x) \widetilde{X}_{s}(x) \dd \mu (x), \quad f \in S(K)
 	\end{equation}
-	has the law of a fractional Gaussian field with parameter $s$. Moreover, if there exists a Gaussian field $\left(\widetilde{X}_{s}(x)\right)_{x \in K}$ on $K$ with
+	has the law of a fractional Gaussian field with parameter $s$. Moreover, if there exists a Gaussian field $\left(\widetilde{Y}_{s}(x)\right)_{x \in K}$ on $K$ with
 	\begin{equation}
-		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty
+		\e \left[\int_{K}\widetilde{Y}_s(x)^2 \dd \mu(x)\right] < \infty
 	\end{equation}
 	such that the Gaussian field defined by
 	\begin{equation}
@@ -224,7 +229,7 @@ We will now show that one can construct a fractional Gaussian field from the fra
 \begin{proof}
 	Assume $s > \frac{d_h}{2d_w}$. Then from Fubini's theorem we have for every $f \in S(K)$ a.s. that 
 	\begin{equation}
-		\int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x) =\int_{K}f(x) \int_{K} G_s(x,y) \dd W(y) \dd \mu(x) = \int_{K}(-\Delta)^{-s} f(y) \dd W(y)
+		\int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x) =\int_{K}f(x) \int_{K} G_s(x,y) \dd W(y) \dd \mu(x) = \int_{K}(-\Delta)^{-s} f(y) \dd W(y),
 	\end{equation}
 	in which case by definition of $W$ we have that $X_s(f) = \int_{K}f(x)\widetilde{X}_{s}(x) \dd \mu(x)$ is a Gaussian random variable with mean 0 and variance
 	\begin{equation}
@@ -233,13 +238,13 @@ We will now show that one can construct a fractional Gaussian field from the fra
 	and thus a fractional Gaussian field with parameter $s$. 
 	
 	\medskip
-	Now assume that there is a Gaussian field $\left(\widetilde{X}_{s}(x)\right)_{x \in K}$ on $K$ with
+	Now assume that there is a Gaussian field $\left(\widetilde{Y}_{s}(x)\right)_{x \in K}$ on $K$ with
 	\begin{equation}
-		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty
+		\e \left[\int_{K}\widetilde{Y}_S(x)^2 \dd \mu(x)\right] < \infty,
 	\end{equation}
 	such that the Gaussian field defined by
 	\begin{equation}\label{theOneAbove}
-		Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K)
+		Y_s(f) = \int_{K}f(x) \widetilde{Y}_{s}(x) \dd \mu (x), \quad f \in S(K),
 	\end{equation}
 	has the law of fractional Gaussian field with parameter $s$. Then by spectral decomposition and equation \eqref{theOneAbove} we have
 	\begin{equation}
@@ -248,7 +253,7 @@ We will now show that one can construct a fractional Gaussian field from the fra
 	
 	Note that $\left(Y(\phi_i)\right)_{i \geq 1}$ is a sequence of independent Gaussian random variables with mean 0 and variance $(\lambda_{i}^{-2s})_{i \geq 1}$ since by \cref{fracGaussianField} and \cref{fracLaplacianProperties} we have that
 	\begin{equation}
-		\e \left[Y_s(\phi_i)\right] =\e \left[\int_{K} \phi_i \widetilde{Y}_s \dd \mu \right] = \e \left[\int_{K} \phi_i(x) \sum_{j = 1}^{\infty} \lambda_j^{-s}\phi_j(x)W_i \dd \mu(x) \right]= \e \left[W_i\right] =0
+		\e \left[Y_s(\phi_i)\right] =\e \left[\int_{K} \phi_i \widetilde{Y}_s \dd \mu \right] = \e \left[\int_{K} \phi_i(x) \sum_{j = 1}^{\infty} \lambda_j^{-s}\phi_j(x)W_i \dd \mu(x) \right]= \e \left[W_j\right] =0
 	\end{equation}
 	and
 	\begin{equation}
@@ -259,13 +264,13 @@ We will now show that one can construct a fractional Gaussian field from the fra
 		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right]  &= \e \left[\int_{K} \left(\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x)\right)^{2}\dd\mu(x)\right] \\
 		& = \e \left[\sum_{i = 1}^{\infty} Y_s(\phi_i)^2\int_{K} \phi_i(x)\phi_i(x) \dd \mu (x) \right] \\
 		& = \sum_{i = 1}^{\infty}\e \left[Y_s(\phi_i)^2\right] \\
-		& = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
+		& = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{2s}} < \infty,
 	\end{align}
 	where we use that $\int_{K} \left(\sum_{i = 1}^{\infty} Y_s(\phi_i)\phi_i(x) \right)^2 \dd \mu(x) = \int_{K} \sum_{i = 1}^{\infty} Y_s(\phi_i)^2 \phi_i(x)^2 \dd \mu (x)$ which stems from the fact that $\int_{K}\phi_i \phi_j \dd \mu = \delta_{ij}$ and $Y_s(\phi_i)$ is a constant with respect to $\mu(x)$.
 	
 	We now have that
 	\begin{equation}
-		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right] = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{-2s}} < \infty
+		\e \left[\int_{K} \widetilde{Y}_{s}(x)^2 \dd \mu (x)\right] = \sum_{i = 1}^{\infty} \frac{1}{\lambda_i^{2s}} < \infty.
 	\end{equation}
 	in which case by \Cref{convergenceOfEigenvaluesOfLaplacian} we have that $s > \frac{d_h}{2d_w}$.
 \end{proof}
