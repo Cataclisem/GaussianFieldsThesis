@@ -39,7 +39,7 @@ It is precisely from this matrix $L_m$ we compute the eigenvalues and eigenfunct
 
 As we see from \Cref{TableOfValues}, the values explode in size as $m$ grows. The process to check each point is therefore slow. Furthermore the matrix $L_m$ that we construct becomes very large, very fast. Since it needs to hold every permutation of points, $L_m$ becomes a $\left(5^{m}\cd 4 + 1\right) \times \left(5^{m}\cd 4 + 1\right)$ matrix. It does however have the property of a sparse matrix, since there is at most five entries in every column, but for $m= 9$ the matrix still fills well over 1 terrabyte in memory.
 
-Having explained the limitations of the simulation, we will quickly delve into the code that generates the simulations. The code will be explained mathematically for clarity, but the full code can be found at: \\ \url{https://gitfront.io/r/Cataclisem/CxGoTRPqvjoM/GaussianFieldsThesis/}.
+Having explained the limitations of the simulation, we will quickly delve into the code that generates the simulations. The code will be explained mathematically for clarity, but the full code can be found at: \\ \url{https://gitfront.io/r/Cataclisem/PcJGEa5Am7bD/GaussianFieldThesisCode/tree/code/}.
 
 \section{Construction of the Vicsek set for simulation}
 The construction is done by first generating the first "plus" $V_0 = \cbr{ p_1, p_2, p_3, p_4, p_5}$ where $p_1 = (0,0), \ p_2=(\xi, 0), \ p_3 = (0, -\xi), \ p_4 = (-\xi, 0)$ and $p_5 = (0, \xi)$ for some $\xi > 0$. Then going from $V_0$ to $V_1$ we find the endpoints, the tips of the plus, of $V_0$ and then just add $V_0$ to it. Formally written we have:
