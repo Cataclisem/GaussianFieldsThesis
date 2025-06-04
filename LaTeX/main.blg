@@ -1,19 +1,21 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
-[8] Config.pm:311> INFO - Logfile is 'main.blg'
-[195] biber-MSWIN64:340> INFO - === 
-[257] Biber.pm:420> INFO - Reading 'main.bcf'
-[432] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[471] Biber.pm:4463> INFO - Processing section 0
-[491] Biber.pm:4654> INFO - Looking for bibtex file 'cite.bib' for section 0
-[669] bibtex.pm:1713> INFO - LaTeX decoding ...
-[770] bibtex.pm:1519> INFO - Found BibTeX data source 'cite.bib'
-[1058] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1058] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1058] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[1058] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1134] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1135] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1135] Biber.pm:4283> INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'en-US'
-[1135] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1184] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1231] bbl.pm:779> INFO - Output to main.bbl
+[0] Config.pm:311> INFO - Logfile is 'main.blg'
+[65] biber-MSWIN64:340> INFO - === 
+[86] Biber.pm:420> INFO - Reading 'main.bcf'
+[151] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[163] Biber.pm:4463> INFO - Processing section 0
+[171] Biber.pm:4654> INFO - Looking for bibtex file 'cite.bib' for section 0
+[203] bibtex.pm:1713> INFO - LaTeX decoding ...
+[225] bibtex.pm:1519> INFO - Found BibTeX data source 'cite.bib'
+[227] Utils.pm:410> ERROR - Name "Jean-Michel Muller, Nicolas Brunie, Florent de Dinechin, Claude-Pierre Jeannerod, Mioara Joldes, Vincent Lefèvre, Guillaume Melquiond, Nathalie Revol" has too many commas, skipping entry 'arithmatic'
+[329] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[329] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[329] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[329] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[356] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[356] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[356] Biber.pm:4283> INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'en-US'
+[356] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[375] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[392] bbl.pm:779> INFO - Output to main.bbl
+[392] Biber.pm:136> INFO - ERRORS: 1

@@ -29,7 +29,9 @@ class simulation:
             self.pointAmount = (pow(5, self.n) *4 +1)*(self.fractalType == "vicsek") + (int(3*(pow(3,self.n) + 1)/2))*(self.fractalType=="sierpinski")
         else:
             raise Exception("Did you mean 'vicsek' or 'sierpinski'")
-
+    
+    def pointAmont(self):
+        return self.pointAmont
 
     def laplacianOperatorMatrix(self, n: int = None) -> list:
         """ 
@@ -161,12 +163,16 @@ class simulation:
         return pointx, pointy, colorValues, pointxList, pointyList, colorValuesList
         
     
-    def drawThePretty(self, sValues: list, sameWhiteNoise: bool = False, nrows: int = 2):
+    def drawThePretty(self, sValues: list, sameWhiteNoise: bool = False, nrows: int = 2, whiteNoise = None):
         
         if sameWhiteNoise == True:
             whiteNoise = np.random.standard_normal(size = self.pointAmount)
+        elif whiteNoise.any() != None:
+            whiteNoise = whiteNoise
         else:
             whiteNoise = None
+        
+        print(f"WhiteNoise: {whiteNoise}")
 
         if len(sValues) > 2:
             sValHalfRdUp = math.ceil(len(sValues)/nrows) 
@@ -260,15 +266,16 @@ if __name__ == '__main__':
         print(f"It took {end - start} seconds")
     
     if whatToRun == 3:
-        for h in range(1,5):
-            i=0
-            for sVals in ["Multi"]:
+        i=0
+        for h in [5, 5]: 
+            WN = np.random.standard_normal(pow(5, h)*4 + 1)
+            for sVals in [0.001, 0.5, 1, 20]:
                 print(f"Vm: {h}")
-                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
-                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
-                #theOne.drawThePretty(sValues=[sVals])
-                theOne.drawThePretty(sValues=[0.001, 1, 20, 50], sameWhiteNoise=True)
+                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
+                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
+                theOne.drawThePretty(sValues=[sVals], whiteNoise=WN)
+                #theOne.drawThePretty(sValues=[0.001, 0.5, 1, 20], sameWhiteNoise=True, whiteNoise=)
                 #plt.gca().set_position([0, 0, 1, 1])
-                plt.savefig(f"c:/Users/chris/GaussianFieldsThesis/code/sim/vicsek/multi/{theOne.fractalType}Sim_V{h}_multiple{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
+                plt.savefig(f"c:/Users/chris/GaussianFieldsThesis/code/sim/sierpinski/sameWhite/{theOne.fractalType}Sim_V{h}_SameWhiteNoise{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
                 i+=1
     #plt.show()

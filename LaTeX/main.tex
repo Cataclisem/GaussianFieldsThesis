@@ -58,6 +58,7 @@ a4paper
 style=ieee,  % Citation style
 sorting=ynt,            % Sort citations as YEAR-NAME-TITLE
 sortcites=true,
+maxbibnames=3,
 dashed=false,
 uniquelist=false,
 uniquename=false,
@@ -335,7 +336,7 @@ hypertexnames=false]{hyperref}
 	\pagestyle{plain}
 	
 	\hypersetup{pageanchor=false}
-	%\input{frontMatter/frontPage}
+	\input{frontMatter/frontPage}
 	
 	\frontmatter
 	
@@ -370,4 +371,10 @@ hypertexnames=false]{hyperref}
 	% \raggedyright[4em] \printbibliography[heading=memoirbib]
 \end{refcontext}
 	}
+	\appendix
+	\renewcommand{\thechapter}{\alph{chapter}}
+	\renewcommand{\thesection}{\Roman{section}}
+	\renewcommand{\thesubsection}{\fnsymbol{subsection}}
+	
+	\input{backMatter/simAppendix}
 \end{document}

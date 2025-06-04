@@ -102,6 +102,7 @@
       \field{labeltitlesource}{title}
       \field{title}{A short introduction to Dirichlet Spaces}
       \field{year}{2025}
+      \true{nocite}
     \endentry
     \entry{Fabrice}{article}{}{}
       \name{author}{2}{}{%
@@ -333,6 +334,7 @@
       \field{eprinttype}{arXiv}
       \field{title}{Generalized random fields and Lévy's continuity theorem on the space of tempered distributions}
       \field{year}{2017}
+      \true{nocite}
       \verb{eprint}
       \verb 1706.09326
       \endverb
@@ -409,6 +411,7 @@
       \field{volume}{88}
       \field{year}{1981}
       \field{urldateera}{ce}
+      \true{nocite}
       \field{pages}{686\bibrangedash 695}
       \range{pages}{10}
       \verb{urlraw}
@@ -445,6 +448,7 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{The Geometry of Fractal Sets}
       \field{year}{1985}
+      \true{nocite}
     \endentry
     \entry{falconer}{book}{}{}
       \name{author}{1}{}{%
@@ -511,6 +515,7 @@
       \field{labeltitlesource}{title}
       \field{title}{On a spectral analysis for the Sierpinski gasket}
       \field{year}{1992}
+      \true{nocite}
       \verb{doi}
       \verb https://doi.org/10.1007/BF00249784
       \endverb
@@ -602,6 +607,7 @@
       \field{type}{Självständiga arbeten i matematik}
       \field{year}{2022}
       \field{dateera}{ce}
+      \true{nocite}
     \endentry
     \entry{Henrikson1999CompletenessAT}{misc}{}{}
       \name{author}{1}{}{%
@@ -625,6 +631,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Completeness and Total Boundedness of the Hausdorff Metric}
       \field{year}{1999}
+      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20020623095720/http://www-math.mit.edu/phase2/UJM/vol1/HAUSF.PDF
       \endverb
@@ -658,6 +665,7 @@
       \field{title}{The Bochner – Minlos Theorem for nuclear spaces and an abstract white noise space}
       \field{year}{2003}
       \field{dateera}{ce}
+      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20160304081333/http://www3.math.uni-paderborn.de/~johansen/seminars/minlos.pdf
       \endverb
@@ -691,6 +699,7 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{Analysis on Fractals}
       \field{year}{2001}
+      \true{nocite}
     \endentry
     \entry{KURTZ1969354}{article}{}{}
       \name{author}{1}{}{%
@@ -718,6 +727,7 @@
       \field{title}{Extensions of Trotter's operator semigroup approximation theorems}
       \field{volume}{3}
       \field{year}{1969}
+      \true{nocite}
       \field{pages}{354\bibrangedash 375}
       \range{pages}{22}
       \verb{doi}
@@ -788,6 +798,7 @@
       \field{title}{Lectures on Probability Theory and Statistics}
       \field{year}{1998}
       \field{dateera}{ce}
+      \true{nocite}
       \field{pages}{1\bibrangedash 121}
       \range{pages}{121}
     \endentry
@@ -847,6 +858,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Über die Erzeugung von (F)-Räumen durch selbstadjungierte Operatoren.}
       \field{year}{1966}
+      \true{nocite}
     \endentry
     \entry{VA}{book}{}{}
       \name{author}{1}{}{%
@@ -900,6 +912,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Differential Equations on Fractals: A Tutorial}
       \field{year}{2006}
+      \true{nocite}
     \endentry
     \entry{taylor}{misc}{}{}
       \name{author}{1}{}{%
@@ -1005,6 +1018,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Topological Vector Spaces, Distributions and Kernels}
       \field{year}{1967}
+      \true{nocite}
     \endentry
     \entry{Walsh}{inproceedings}{}{}
       \name{author}{1}{}{%
@@ -1081,6 +1095,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Über die Erzeugung von (F)-Räumen durch selbstadjungierte Operatoren.}
       \field{year}{1966}
+      \true{nocite}
     \endentry
     \entry{Treves}{book}{}{}
       \name{author}{1}{}{%
@@ -1107,6 +1122,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Topological Vector Spaces, Distributions and Kernels}
       \field{year}{1967}
+      \true{nocite}
     \endentry
     \entry{KURTZ1969354}{article}{}{}
       \name{author}{1}{}{%
@@ -1134,6 +1150,7 @@
       \field{title}{Extensions of Trotter's operator semigroup approximation theorems}
       \field{volume}{3}
       \field{year}{1969}
+      \true{nocite}
       \field{pages}{354\bibrangedash 375}
       \range{pages}{22}
       \verb{doi}
@@ -1179,6 +1196,7 @@
       \field{volume}{88}
       \field{year}{1981}
       \field{urldateera}{ce}
+      \true{nocite}
       \field{pages}{686\bibrangedash 695}
       \range{pages}{10}
       \verb{urlraw}
@@ -1215,6 +1233,7 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{The Geometry of Fractal Sets}
       \field{year}{1985}
+      \true{nocite}
     \endentry
     \entry{Walsh}{inproceedings}{}{}
       \name{author}{1}{}{%
@@ -1325,6 +1344,7 @@
       \field{labeltitlesource}{title}
       \field{title}{On a spectral analysis for the Sierpinski gasket}
       \field{year}{1992}
+      \true{nocite}
       \verb{doi}
       \verb https://doi.org/10.1007/BF00249784
       \endverb
@@ -1385,6 +1405,7 @@
       \field{title}{Lectures on Probability Theory and Statistics}
       \field{year}{1998}
       \field{dateera}{ce}
+      \true{nocite}
       \field{pages}{1\bibrangedash 121}
       \range{pages}{121}
     \endentry
@@ -1410,6 +1431,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Completeness and Total Boundedness of the Hausdorff Metric}
       \field{year}{1999}
+      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20020623095720/http://www-math.mit.edu/phase2/UJM/vol1/HAUSF.PDF
       \endverb
@@ -1443,6 +1465,7 @@
       \field{series}{Cambridge Tracts in Mathematics}
       \field{title}{Analysis on Fractals}
       \field{year}{2001}
+      \true{nocite}
     \endentry
     \entry{falconer}{book}{}{}
       \name{author}{1}{}{%
@@ -1505,6 +1528,7 @@
       \field{title}{The Bochner – Minlos Theorem for nuclear spaces and an abstract white noise space}
       \field{year}{2003}
       \field{dateera}{ce}
+      \true{nocite}
       \verb{urlraw}
       \verb https://web.archive.org/web/20160304081333/http://www3.math.uni-paderborn.de/~johansen/seminars/minlos.pdf
       \endverb
@@ -1597,6 +1621,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Differential Equations on Fractals: A Tutorial}
       \field{year}{2006}
+      \true{nocite}
     \endentry
     \entry{Geijn}{misc}{}{}
       \name{author}{1}{}{%
@@ -1691,6 +1716,7 @@
       \field{eprinttype}{arXiv}
       \field{title}{Generalized random fields and Lévy's continuity theorem on the space of tempered distributions}
       \field{year}{2017}
+      \true{nocite}
       \verb{eprint}
       \verb 1706.09326
       \endverb
@@ -1843,6 +1869,7 @@
       \field{type}{Självständiga arbeten i matematik}
       \field{year}{2022}
       \field{dateera}{ce}
+      \true{nocite}
     \endentry
     \entry{VS}{book}{}{}
       \name{author}{1}{}{%
@@ -2061,6 +2088,7 @@
       \field{labeltitlesource}{title}
       \field{title}{A short introduction to Dirichlet Spaces}
       \field{year}{2025}
+      \true{nocite}
     \endentry
     \entry{taylor}{misc}{}{}
       \name{author}{1}{}{%
