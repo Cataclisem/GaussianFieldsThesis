@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  5 JUN 2025 00:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  5 JUN 2025 07:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1368,6 +1368,7 @@ File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
+Package hyperref Info: Option `draft' set `true' on input line 4040.
 Package hyperref Info: Option `unicode' set `true' on input line 4040.
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 4040.
 Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 404
@@ -1550,7 +1551,7 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \tket@rbll=\skip311
 )
 Package tket Info: Reference-GF sat til `2024' 
-(tket)             (argumentet var `2024') on input line 252.
+(tket)             (argumentet var `2024') on input line 253.
 \c@theorem=\count520
 \c@mainTheorem=\count521
 Package csquotes Info: Checking for multilingual support...
@@ -1567,30 +1568,30 @@ Package biblatex Warning: Incompatible package 'etextools' loaded,
 (biblatex)                before you load biblatex.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-30.
+32.
 (C:\Program Files\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 330.
-LaTeX Font Info:    ... okay on input line 330.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 332.
+LaTeX Font Info:    ... okay on input line 332.
 \c@lstlisting=\count522
 
 (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
@@ -1616,7 +1617,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 330.
+(lastpage)             ! on input line 332.
 Package biblatex Info: Trying to load language 'british'...
 Package biblatex Info: ... file 'british.lbx' found.
 
@@ -1636,45 +1637,44 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 330.
-Package biblatex Info: Reference segment=0 on input line 330.
-Package hyperref Info: Link coloring OFF on input line 330.
+Package biblatex Info: Reference section=0 on input line 332.
+Package biblatex Info: Reference segment=0 on input line 332.
 
-(main.out) (main.out)
-\@outlinefile=\write6
-\openout6 = `main.out'.
 
+Package hyperref Warning: Draft mode on.
+
+Package hyperref Info: Link coloring OFF on input line 332.
 \autonum@environmentWidth=\skip312
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-30.
- (C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
+32.
+(C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-330.
+332.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-330.
+332.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 330.
+(Font)              <10.95> on input line 332.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 330.
+(Font)              <8> on input line 332.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 330.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 330
+(Font)              <6> on input line 332.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 332
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 330
+LaTeX Font Info:    Trying to load font information for U+msb on input line 332
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -1682,7 +1682,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Option `pageanchor' set `false' on input line 373.
+Package hyperref Info: Option `pageanchor' set `false' on input line 377.
  (frontMatter/abstract.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
  []\OT1/lmr/bx/n/17.28 Abstract
@@ -1695,132 +1695,91 @@ Files/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
  []\OT1/lmr/bx/n/17.28 Acknowledgments
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-55.
+58.
 (C:\Program Files\MiKTeX\tex/latex/lm\ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 60--60
+Underfull \hbox (badness 10000) in paragraph at lines 63--63
  []\OT1/lmr/m/it/10.95 J. Chris-topher Lent-fer Kris-ti-ansen,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
  \OT1/lmr/m/it/10.95 Aarhus, June 2025.
  []
 
 )
-Package hyperref Info: Option `pageanchor' set `true' on input line 373.
+Package hyperref Info: Option `pageanchor' set `true' on input line 377.
 
 
-[2{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rmtt.enc}] (main.toc
+[2{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rmtt.enc}] (main.toc)
 
 [3
 
-])
+]
 
-[4] (mainMatter/fractalConstruction.tex
-Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 23.
+[4
 
-(svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, id=194, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf' 
-is 1 on input line 25.
-
-(svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf, id=196, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 27.
-
-(svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, id=198, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf' 
-is 1 on input line 29.
-
-(svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf, id=200, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 101.17755pt x 101.1773pt.
-)
-Overfull \hbox (6.45268pt too wide) in paragraph at lines 41--42
-[]\OT1/lmr/m/n/10.95 Likewise the dis-crete frac-tional Gaus-sian fields are he
-ur-ist-ic-ally given by $\OML/lmm/m/it/10.95 X[] \OT1/lmr/m/n/10.95 = (\OMS/lms
-y/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 ^^A[])[]\OML/lmm/m/it/10.95 W[]$
- []
-
+] (mainMatter/fractalConstruction.tex
+<./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, id=22, 722.7pt x 722.7pt>
+<./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf, id=23, 722.7pt x 722.7pt>
+<./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, id=24, 722.7pt x 722.7pt>
+<./svg-inkscape/vicsek3MarkersTrue_svg-tex.pdf, id=25, 722.7pt x 722.7pt>
 
 
 [1
 
-
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiK
 TeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/l
 m/lm-mathsy.enc}]
+Overfull \hbox (6.45268pt too wide) in paragraph at lines 47--48
+[]\OT1/lmr/m/n/10.95 Likewise the dis-crete frac-tional Gaus-sian fields are he
+ur-ist-ic-ally given by $\OML/lmm/m/it/10.95 X[] \OT1/lmr/m/n/10.95 = (\OMS/lms
+y/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 ^^A[])[]\OML/lmm/m/it/10.95 W[]$|
+ []
+
+
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 82.
-[2{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rmsc.enc} <./svg-inkscape/vics
-ek0MarkersTrue_svg-tex.pdf> <./svg-inkscape/vicsek1MarkersTrue_svg-tex.pdf> <./
-svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf> <./svg-inkscape/vicsek3MarkersTrue
-_svg-tex.pdf>]
+(Font)              <12> on input line 78.
+[2{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rmsc.enc}]
 
-[3]
+[3
 
-[4]
+]
+
+[4
+
+]
 
 [5]
-Overfull \hbox (4.78014pt too wide) detected at line 251
+Overfull \hbox (4.78014pt too wide) detected at line 256
 [][][]\OML/lmm/m/it/10.95 K \OT1/lmr/m/n/10.95 = [] \OMS/lmsy/m/n/10.95 S[]\OT1
 /lmr/m/n/10.95 (\OML/lmm/m/it/10.95 K\OT1/lmr/m/n/10.95 ) = [] \OMS/lmsy/m/n/10
 .95 S[] [] \OT1/lmr/m/n/10.95 = [] [] (\OML/lmm/m/it/10.95 K\OT1/lmr/m/n/10.95 
 ) = [] = [] \OMS/lmsy/m/n/10.95 S[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 K\OT
-1/lmr/m/n/10.95 ) = [] \OML/lmm/m/it/10.95 K[]:
- []
-
-
-Overfull \hbox (11.59743pt too wide) detected at line 255
-[][][][] []\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 K[]\OT1/lmr/m/n/10.95 )[] = 
-[](\OML/lmm/m/it/10.95 c[] [] c[]\OT1/lmr/m/n/10.95 )[] [](\OML/lmm/m/it/10.95 
-K\OT1/lmr/m/n/10.95 )[] = [] [] [] [](\OML/lmm/m/it/10.95 K\OT1/lmr/m/n/10.95 )
-[] = [](\OML/lmm/m/it/10.95 K\OT1/lmr/m/n/10.95 )[]
+1/lmr/m/n/10.95 ) = [] \OML/lmm/m/it/10.95 K[]:|
  []
 
 
 
 [6]
-Overfull \hbox (8.28777pt too wide) in paragraph at lines 284--286
+Overfull \hbox (11.59743pt too wide) detected at line 260
+[][][][] []\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 K[]\OT1/lmr/m/n/10.95 )[] = 
+[](\OML/lmm/m/it/10.95 c[] [] c[]\OT1/lmr/m/n/10.95 )[] [](\OML/lmm/m/it/10.95 
+K\OT1/lmr/m/n/10.95 )[] = [] [] [] [](\OML/lmm/m/it/10.95 K\OT1/lmr/m/n/10.95 )
+[] = [](\OML/lmm/m/it/10.95 K\OT1/lmr/m/n/10.95 )[]|
+ []
+
+
+Overfull \hbox (8.28777pt too wide) in paragraph at lines 289--291
 \OML/lmm/m/it/10.95 V[]; [] ; V[]$ \OT1/lmr/m/n/10.95 for each $(\OML/lmm/m/it/
-10.95 i[]; [] ; i[]\OT1/lmr/m/n/10.95 )$. In par-tic-u-lar we have that $[]$
+10.95 i[]; [] ; i[]\OT1/lmr/m/n/10.95 )$. In par-tic-u-lar we have that $[]$|
  []
 
 
@@ -1829,7 +1788,20 @@ Overfull \hbox (8.28777pt too wide) in paragraph at lines 284--286
 
 [8]
 
-[9]
+[9
+
+]
+Overfull \hbox (2.85321pt too wide) detected at line 939
+[][][]\OML/lmm/m/it/10.95 ^^V\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 B\OT1/lmr/
+m/n/10.95 (\OML/lmm/m/it/10.95 x; r\OT1/lmr/m/n/10.95 )) \OMS/lmsy/m/n/10.95 ^^
+T \OT1/lmr/m/n/10.95 5 \OMS/lmsy/m/n/10.95 ^^A \OML/lmm/m/it/10.95 ^^V [] \OT1/
+lmr/m/n/10.95 = 5 \OMS/lmsy/m/n/10.95 ^^A \OT1/lmr/m/n/10.95 5[] = 5[] \OMS/lms
+y/m/n/10.95 ^^A \OT1/lmr/m/n/10.95 5[] \OMS/lmsy/m/n/10.95 ^^T \OT1/lmr/m/n/10.
+95 5 \OMS/lmsy/m/n/10.95 ^^A [][] ^^T \OT1/lmr/m/n/10.95 5 \OMS/lmsy/m/n/10.95 
+^^A \OT1/lmr/m/n/10.95 2[] \OMS/lmsy/m/n/10.95 ^^A \OML/lmm/m/it/10.95 r[]|
+ []
+
+
 
 [10]) (mainMatter/Laplacians.tex
 
@@ -1843,34 +1815,26 @@ Overfull \hbox (8.28777pt too wide) in paragraph at lines 284--286
 
 [14]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 179.
+(Font)              <5> on input line 180.
 
 
 [15]
+LaTeX Font Info:    Calculating math sizes for size <7.665> on input line 264.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7.665> on input line 264.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5.36546> on input line 264.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <3.83249> on input line 264.
+
 
 [16]
-Overfull \hbox (10.81195pt too wide) detected at line 316
-[][][]\OMS/lmsy/m/n/10.95 E[]\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 u;  []\OT1
-/lmr/m/n/10.95 ) = \OML/lmm/m/it/10.95 r[] []\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/
-10.95 u\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 q\OT1/lmr/m/n/10.95 ) \OMS/lmsy/
-m/n/10.95 ^^@ \OML/lmm/m/it/10.95 u\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 p\OT
-1/lmr/m/n/10.95 ))(\OML/lmm/m/it/10.95  []\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.
-95 p\OT1/lmr/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ \OML/lmm/m/it/10.95  []\OT1/lm
-r/m/n/10.95 (\OML/lmm/m/it/10.95 q\OT1/lmr/m/n/10.95 )) = \OML/lmm/m/it/10.95 r
-[] []\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 u\OT1/lmr/m/n/10.95 (\OML/lmm/m/it
-/10.95 x\OT1/lmr/m/n/10.95 ) \OMS/lmsy/m/n/10.95 ^^@ \OML/lmm/m/it/10.95 u\OT1/
-lmr/m/n/10.95 (\OML/lmm/m/it/10.95 q\OT1/lmr/m/n/10.95 )) = \OML/lmm/m/it/10.95
- r[][]u\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 x\OT1/lmr/m/n/10.95 )\OML/lmm/m/
-it/10.95 ;
- []
-
-
 
 [17]
-Overfull \hbox (11.6393pt too wide) in paragraph at lines 344--345
+Overfull \hbox (11.6393pt too wide) in paragraph at lines 349--350
 []\OT1/lmr/m/n/10.95 If we set $
 [] = []$ then $\OML/lmm/m/it/10.95 F[] \OT1/lmr/m/n/10.95 = \OML/lmm/m/it/10.95
- K \OMS/lmsy/m/n/10.95 n []$\OT1/lmr/m/n/10.95 .
+ K \OMS/lmsy/m/n/10.95 n []$\OT1/lmr/m/n/10.95 .|
  []
 
 
@@ -1878,26 +1842,25 @@ Overfull \hbox (11.6393pt too wide) in paragraph at lines 344--345
 [18]
 
 [19]
-Overfull \hbox (10.59311pt too wide) detected at line 427
+Overfull \hbox (10.59311pt too wide) detected at line 432
 [][][][] \OMS/lmsy/m/n/10.95 ^^T [] \OT1/lmr/m/n/10.95 + [] \OMS/lmsy/m/n/10.95
- ^^T [] \OT1/lmr/m/n/10.95 + [] + []
+ ^^T [] \OT1/lmr/m/n/10.95 + [] + []|
  []
 
 
 
 [20]
-Overfull \hbox (2.59381pt too wide) in paragraph at lines 427--429
-\OT1/lmr/m/n/10.95 First choose $\OML/lmm/m/it/10.95 m[]$ \OT1/lmr/m/n/10.95 so
- $[] \OMS/lmsy/m/n/10.95 ^^T []$\OT1/lmr/m/n/10.95 . Next by con-tinu-ity of $\
-OML/lmm/m/it/10.95 f$ \OT1/lmr/m/n/10.95 choose $\OML/lmm/m/it/10.95 m[]$ \OT1/
-lmr/m/n/10.95 so $[] \OMS/lmsy/m/n/10.95 ^^T
+
+[21]
+Overfull \hbox (4.11281pt too wide) in paragraph at lines 471--472
+[]\OT1/lmr/m/n/10.95 If we now look at an $\OML/lmm/m/it/10.95  \OMS/lmsy/m/n/
+10.95 2 [] \OML/lmm/m/it/10.95  []$ \OT1/lmr/m/n/10.95 it is go-ing to have a s
+e-quence of the form $\OML/lmm/m/it/10.95 K[]$|
  []
 
 
-
-[21]
-Overfull \hbox (28.54703pt too wide) detected at line 486
-[]
+Overfull \hbox (40.93637pt too wide) detected at line 492
+[]|
  []
 
 
@@ -1912,51 +1875,51 @@ Overfull \hbox (28.54703pt too wide) detected at line 486
 
 [26]
 
-[27]
+[27
+
+]
 
 [28]
 
 [29]
 
 [30]
-Overfull \hbox (2.50984pt too wide) detected at line 846
-[]
+Overfull \hbox (2.50984pt too wide) detected at line 861
+[]|
  []
 
 
 
-[31]
-LaTeX Font Info:    Calculating math sizes for size <7.665> on input line 902.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7.665> on input line 902.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.36546> on input line 902.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <3.83249> on input line 902.
+[31
 
+]
 
 [32]
-Overfull \hbox (2.03136pt too wide) in paragraph at lines 925--927
+
+[33
+
+]
+Overfull \hbox (2.54848pt too wide) in paragraph at lines 943--945
 \OT1/lmr/m/n/10.95 The in-teg-ral $[] [][] \OML/lmm/m/it/10.95 t[]p[]\OT1/lmr/m
 /n/10.95 (\OML/lmm/m/it/10.95 x; y\OT1/lmr/m/n/10.95 ) []\OML/lmm/m/it/10.95 t$
- \OT1/lmr/m/n/10.95 can be uni-formly bounded by a con-stant, us-ing []lemma []
-2.34[].
+ \OT1/lmr/m/n/10.95 can be uni-formly bounded by a con-stant us-ing Lemma 2.37.
+|
  []
 
 
 
-[33]
-
 [34]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 996.
-
 
 [35]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 1014.
+
 
 [36]
 
-[37]) (mainMatter/gaussianFields.tex
+[37
+
+]) (mainMatter/gaussianFields.tex
 
 [38]
 
@@ -1968,38 +1931,40 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [41]
 
-[42]
+[42
+
+]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-77.
+90.
  (C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-
-[43]
-Overfull \hbox (2.2956pt too wide) in paragraph at lines 193--195
-\OT1/lmr/m/n/10.95 recalling Equa-tion ([]2.9[]) and $[] [][] \OML/lmm/m/it/10.
-95 t[]e[] []t \OT1/lmr/m/n/10.95 = \OML/lmm/m/it/10.95 ^^U[]$\OT1/lmr/m/n/10.95
- . Fur-ther-more note that by Lemma []2.29[]
+Overfull \hbox (2.2956pt too wide) in paragraph at lines 206--208
+\OT1/lmr/m/n/10.95 recalling Equa-tion (2.9) and $[] [][] \OML/lmm/m/it/10.95 t
+[]e[] []t \OT1/lmr/m/n/10.95 = \OML/lmm/m/it/10.95 ^^U[]$\OT1/lmr/m/n/10.95 . F
+ur-ther-more note that by Lemma 2.30|
  []
 
 
 
-[44]
+[43]
 
-[45]) (mainMatter/mainTheorem.tex
+[44]) (mainMatter/mainTheorem.tex
 
-[46]
+[45]
 
-[47
+[46
 
 ]
+
+[47]
 
 [48]
 
 [49]
-Overfull \hbox (8.76193pt too wide) detected at line 125
+Overfull \hbox (9.41174pt too wide) detected at line 130
 [][][]\U/msb/m/n/10.95 E [] \OT1/lmr/m/n/10.95 = [] [] = [] [] \OML/lmm/m/it/10
-.95 :
+.95 :|
  []
 
 ) (mainMatter/simulations.tex
@@ -2013,570 +1978,265 @@ Overfull \hbox (8.76193pt too wide) detected at line 125
 [52]
 
 [53]
-<Pictures/vicsekSim/vicsekSim_V3-s0_001.png, id=1887, 462.22687pt x 347.04657pt
->
-File: Pictures/vicsekSim/vicsekSim_V3-s0_001.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s0_001.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s0_001.png  used on in
-put line 88.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/vicsekSim/vicsekSim_V3-s20.png, id=1889, 462.22687pt x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3-s20.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s20.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s20.png  used on input
- line 89.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
+<Pictures/vicsekSim/vicsekSim_V3-s0_001.png, id=212, 462.22687pt x 347.04657pt>
 
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 88--90
- [][] 
+<Pictures/vicsekSim/vicsekSim_V3-s20.png, id=214, 462.22687pt x 347.04657pt>
+
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 89--91
+ [][] |
  []
 
 
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 88--90
- [] 
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 89--91
+ [] |
  []
 
-<Pictures/vicsekSim/vicsekSim_V3-s1.png, id=1890, 462.22687pt x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3-s1.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s1.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s1.png  used on input 
-line 93.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/vicsekSim/vicsekSim_V3-s50.png, id=1891, 462.22687pt x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3-s50.png Graphic file (type png)
-<use Pictures/vicsekSim/vicsekSim_V3-s50.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3-s50.png  used on input
- line 94.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
+<Pictures/vicsekSim/vicsekSim_V3-s1.png, id=215, 462.22687pt x 347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3-s50.png, id=216, 462.22687pt x 347.04657pt>
 
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 93--95
- [][] 
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 94--96
+ [][] |
  []
 
 
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 93--95
- [] 
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 94--96
+ [] |
  []
 
 
 
-[54 <./Pictures/vicsekSim/vicsekSim_V3-s0_001.png> <./Pictures/vicsekSim/vicsek
-Sim_V3-s20.png> <./Pictures/vicsekSim/vicsekSim_V3-s1.png> <./Pictures/vicsekSi
-m/vicsekSim_V3-s50.png>]
+[54]
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png, id=220, 462.22687p
+t x 345.70947pt>
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png, id=221, 462.22687pt 
+x 345.70947pt>
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png, id=222, 462.22687pt x 
+347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png, id=223, 462.22687pt x
+ 347.04657pt>
+
+Overfull \hbox (29.8054pt too wide) in paragraph at lines 112--126
+[]  $[]$   $[]$ |
+ []
+
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png, id=224, 462.22687p
+t x 347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png, id=225, 462.22687pt 
+x 347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png, id=226, 462.22687pt x 
+347.04657pt>
+<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png, id=227, 462.22687pt x
+ 347.04657pt>
+
+Overfull \hbox (29.8054pt too wide) in paragraph at lines 132--146
+[]  $[]$   $[]$ |
+ []
+
+
 
 [55]
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png, id=1914, 462.22687
-pt x 345.70947pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png Graphic file (
-type png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001
-.png  used on input line 115.
-(pdftex.def)             Requested size: 129.42264pt x 96.79799pt.
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png, id=1915, 462.22687pt
- x 345.70947pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png Graphic file (ty
-pe png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.p
-ng  used on input line 116.
-(pdftex.def)             Requested size: 129.42264pt x 96.79799pt.
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png, id=1916, 462.22687pt x
- 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png Graphic file (type
- png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png
-  used on input line 121.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png, id=1917, 462.22687pt 
-x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png Graphic file (typ
-e png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.pn
-g  used on input line 122.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-
-Overfull \hbox (29.8054pt too wide) in paragraph at lines 112--124
-[]  $[]$   $[]$ 
- []
-
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png, id=1920, 462.22687
-pt x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png Graphic file (
-type png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001
-.png  used on input line 133.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png, id=1921, 462.22687pt
- x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png Graphic file (ty
-pe png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.p
-ng  used on input line 134.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png, id=1922, 462.22687pt x
- 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png Graphic file (type
- png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png
-  used on input line 139.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png, id=1923, 462.22687pt 
-x 347.04657pt>
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png Graphic file (typ
-e png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.pn
-g  used on input line 140.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-
-Overfull \hbox (29.8054pt too wide) in paragraph at lines 130--142
-[]  $[]$   $[]$ 
- []
-
-
-
-[56
-
- <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png> <./Pictures/vic
-sekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png> <./Pictures/vicsekSim/vicsekSim_V
-3_SameWhiteNoise2-s1.png> <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s2
-0.png> <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png> <./Pictur
-es/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png> <./Pictures/vicsekSim/vicse
-kSim_V3_SameWhiteNoise6-s1.png> <./Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoi
-se7-s20.png>]
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png, id=1941, 462.22687pt x 347
-.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png Graphic file (type png
-)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png  us
-ed on input line 154.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png, id=1942, 462.22687pt x 347.04
-657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png Graphic file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png  used 
-on input line 155.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 154--156
- [][] 
- []
-
-
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 154--156
- [] 
- []
-
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png, id=1943, 462.22687pt x 347.046
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png, id=231, 462.22687pt x 347.
+04657pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png, id=232, 462.22687pt x 347.046
 57pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png Graphic file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png  used o
-n input line 159.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png, id=1944, 462.22687pt x 347.04
-657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png Graphic file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png  used 
-on input line 160.
-(pdftex.def)             Requested size: 254.22556pt x 190.87619pt.
 
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 159--161
- [][] 
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 158--160
+ [][] |
  []
 
 
-Overfull \hbox (38.13313pt too wide) in paragraph at lines 159--161
- [] 
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 158--160
+ [] |
  []
 
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png, id=1952, 4
-62.22687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png Graphi
-c file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-0-s0_001.png  used on input line 175.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png, id=1953, 462
-.22687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png Graphic 
-file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-1-s0_5.png  used on input line 177.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png, id=1954, 462.2
-2687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png Graphic fi
-le (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-2-s1.png  used on input line 182.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png, id=1955, 462.
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png, id=233, 462.22687pt x 347.0465
+7pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png, id=234, 462.22687pt x 347.046
+57pt>
+
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 163--165
+ [][] |
+ []
+
+
+Overfull \hbox (38.13313pt too wide) in paragraph at lines 163--165
+ [] |
+ []
+
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png, id=235, 46
+2.22687pt x 347.04657pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png, id=236, 462.
 22687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png Graphic f
-ile (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-3-s20.png  used on input line 183.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-
-Overfull \hbox (29.8054pt too wide) in paragraph at lines 172--185
-[]  $[]$   $[]$ 
- []
-
-
-
-[57 <./Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png> <./Pictures/sierpins
-kiSim/sierpinskiSim_V5-s20.png> <./Pictures/sierpinskiSim/sierpinskiSim_V5-s1.p
-ng> <./Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png>]
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png, id=1970, 4
-62.22687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png Graphi
-c file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-4-s0_001.png  used on input line 194.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png, id=1971, 462
-.22687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png Graphic 
-file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-5-s0_5.png  used on input line 195.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png, id=1972, 462.2
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png, id=237, 462.22
+687pt x 347.04657pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png, id=238, 462.2
 2687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png Graphic fi
-le (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-6-s1.png  used on input line 200.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
-<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png, id=1973, 462.
-22687pt x 347.04657pt>
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png Graphic f
-ile (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-7-s20.png  used on input line 201.
-(pdftex.def)             Requested size: 129.42264pt x 97.17236pt.
 
-Overfull \hbox (29.8054pt too wide) in paragraph at lines 191--203
-[]  $[]$   $[]$ 
+Overfull \hbox (29.8054pt too wide) in paragraph at lines 176--190
+[]  $[]$   $[]$ |
  []
 
 
 
-[58 <./Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png> <./P
-ictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png> <./Pictures/si
-erpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png> <./Pictures/sierpinskiSim/
-sierpinskiSim_V5_SameWhiteNoise3-s20.png> <./Pictures/sierpinskiSim/sierpinskiS
-im_V5_SameWhiteNoise4-s0_001.png> <./Pictures/sierpinskiSim/sierpinskiSim_V5_Sa
-meWhiteNoise5-s0_5.png> <./Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoi
-se6-s1.png> <./Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png>
-])
+[56]
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png, id=242, 46
+2.22687pt x 347.04657pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png, id=243, 462.
+22687pt x 347.04657pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png, id=244, 462.22
+687pt x 347.04657pt>
+<Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png, id=245, 462.2
+2687pt x 347.04657pt>
 
-[59]
+Overfull \hbox (29.8054pt too wide) in paragraph at lines 196--210
+[]  $[]$   $[]$ |
+ []
 
-[60
+
+
+[57])
+
+[58]
+
+[59
+
+] (backMatter/simAppendix.tex
+
+[60]
+Overfull \hbox (18.85541pt too wide) in paragraph at lines 10--24
+[]  $[]$   $[]$ |
+ []
+
+
+
+[61
 
 ]
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 33--35
+ [][] |
+ []
 
-[61] (backMatter/simAppendix.tex
+
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 33--35
+ [] |
+ []
+
+
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 38--40
+ [][] |
+ []
+
+
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 38--40
+ [] |
+ []
+
+
+Overfull \hbox (38.32207pt too wide) in paragraph at lines 30--43
+[]  $[]$ $[]$ |
+ []
+
+
 
 [62]
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png Graphic file (
-type png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise0-s0_001
-.png  used on input line 10.
-(pdftex.def)             Requested size: 268.09177pt x 200.51163pt.
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png Graphic file (ty
-pe png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise1-s0_5.p
-ng  used on input line 11.
-(pdftex.def)             Requested size: 268.09177pt x 200.51163pt.
-
-Overfull \hbox (3.48907pt too wide) in paragraph at lines 10--12
- [][] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 52--54
+ [][] |
  []
 
 
-Overfull \hbox (3.48907pt too wide) in paragraph at lines 10--12
- [] 
- []
-
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png Graphic file (type
- png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise2-s1.png
-  used on input line 16.
-(pdftex.def)             Requested size: 268.09177pt x 201.28714pt.
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png Graphic file (typ
-e png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise3-s20.pn
-g  used on input line 17.
-(pdftex.def)             Requested size: 268.09177pt x 201.28714pt.
-
-Overfull \hbox (3.48907pt too wide) in paragraph at lines 16--18
- [][] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 52--54
+ [] |
  []
 
 
-Overfull \hbox (3.48907pt too wide) in paragraph at lines 16--18
- [] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 57--59
+ [][] |
  []
 
 
-Overfull \hbox (29.8054pt too wide) in paragraph at lines 7--21
-[]  $[]$   $[]$ 
- []
-
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png Graphic file (
-type png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise4-s0_001
-.png  used on input line 29.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png Graphic file (ty
-pe png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise5-s0_5.p
-ng  used on input line 30.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 29--31
- [][] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 57--59
+ [] |
  []
 
 
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 29--31
- [] 
- []
-
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png Graphic file (type
- png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise6-s1.png
-  used on input line 34.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png Graphic file (typ
-e png)
-<use Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.png>
-Package pdftex.def Info: Pictures/vicsekSim/vicsekSim_V3_SameWhiteNoise7-s20.pn
-g  used on input line 35.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 34--36
- [][] 
- []
-
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 34--36
- [] 
- []
-
-
-Overfull \hbox (38.32207pt too wide) in paragraph at lines 26--39
-[]  $[]$ $[]$ 
+Overfull \hbox (38.32207pt too wide) in paragraph at lines 49--62
+[]  $[]$ $[]$ |
  []
 
 
 
-[63
-
-]
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png Graphic file (type png
-)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s0_001.png  us
-ed on input line 48.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png Graphic file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s20.png  used 
-on input line 49.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 48--50
- [][] 
+[63]
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 71--73
+ [][] |
  []
 
 
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 48--50
- [] 
- []
-
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png Graphic file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s1.png  used o
-n input line 53.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png Graphic file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5-s50.png  used 
-on input line 54.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 53--55
- [][] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 71--73
+ [] |
  []
 
 
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 53--55
- [] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 76--78
+ [][] |
  []
 
 
-Overfull \hbox (38.32207pt too wide) in paragraph at lines 45--58
-[]  $[]$ $[]$ 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 76--78
+ [] |
+ []
+
+
+Overfull \hbox (38.32207pt too wide) in paragraph at lines 68--81
+[]  $[]$ $[]$ |
  []
 
 
 
 [64]
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png Graphi
-c file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise0-s0_001.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-0-s0_001.png  used on input line 67.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png Graphic fi
-le (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise2-s1.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-2-s1.png  used on input line 68.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 67--69
- [][] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 90--92
+ [][] |
  []
 
 
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 67--69
- [] 
- []
-
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png Graphic 
-file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise1-s0_5.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-1-s0_5.png  used on input line 72.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png Graphic f
-ile (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise3-s20.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-3-s20.png  used on input line 73.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 72--74
- [][] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 90--92
+ [] |
  []
 
 
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 72--74
- [] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 95--97
+ [][] |
  []
 
 
-Overfull \hbox (38.32207pt too wide) in paragraph at lines 64--77
-[]  $[]$ $[]$ 
- []
-
-
-
-[65]
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png Graphi
-c file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise4-s0_001.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-4-s0_001.png  used on input line 86.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png Graphic fi
-le (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise6-s1.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-6-s1.png  used on input line 87.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 86--88
- [][] 
- []
-
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 86--88
- [] 
- []
-
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png Graphic 
-file (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise5-s0_5.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-5-s0_5.png  used on input line 91.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-File: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png Graphic f
-ile (type png)
-<use Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise7-s20.png>
-Package pdftex.def Info: Pictures/sierpinskiSim/sierpinskiSim_V5_SameWhiteNoise
-7-s20.png  used on input line 92.
-(pdftex.def)             Requested size: 314.3101pt x 235.98854pt.
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 91--93
- [][] 
- []
-
-
-Overfull \hbox (49.70741pt too wide) in paragraph at lines 91--93
- [] 
+Overfull \hbox (35.84122pt too wide) in paragraph at lines 95--97
+ [] |
  []
 
 ) 
 AED: lastpage setting LastPage
 
 
-[66]
-
-[67]
-
-[68]
-\tf@toc=\write7
-\openout7 = `main.toc'.
+[65]
+\tf@toc=\write6
+\openout6 = `main.toc'.
 
  (main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 144C1D8EB82D45135B5220A0BCA9347C;5945.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42217 strings out of 473968
- 796816 string characters out of 5738363
- 1696009 words of memory out of 5000000
- 63889 multiletter control sequences out of 15000+600000
- 692141 words of font info for 144 fonts, out of 8000000 for 9000
+ 41693 strings out of 473968
+ 788708 string characters out of 5738363
+ 1698154 words of memory out of 5000000
+ 63818 multiletter control sequences out of 15000+600000
+ 695277 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,18n,93p,1151b,2478s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,19n,93p,1151b,2478s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/chris/AppData/Roaming/MiKTeX/fonts/type1/public/doublestroke/dsrom1
 0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Fil
 es/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1
@@ -2595,9 +2255,9 @@ msy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Program F
 iles/MiKTeX/fonts/type1/public/lm/lmsy9.pfb><C:/Program Files/MiKTeX/fonts/type
 1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on main.pdf (72 pages, 1696785 bytes).
+Output written on main.pdf (69 pages, 651698 bytes).
 PDF statistics:
- 2255 PDF objects out of 2487 (max. 8388607)
- 434 named destinations out of 1000 (max. 500000)
- 429 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 377 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 

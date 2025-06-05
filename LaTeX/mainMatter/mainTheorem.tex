@@ -1,4 +1,6 @@
-\chapter{Convergence in distribution of fractional Gaussian Fields}
+\setlength\beforechapskip{-1em}
+\chapter{Convergence in distribution of Fractional Gaussian Fields}
+\chaptermark{Convergence of Fractional Gaussian Fields}
 
 Now that we have presented and proved the existence of fractional Gaussian fields $X_s$ on $K$ and discrete fractional Gaussian fields $X_s^{m}$ on $V_m$, our next task is proving that they converge. Therefore, in this section our main goal is to show that $X_s^{m}$ converges in distribution to $X_s$.
 
@@ -12,7 +14,7 @@ In this section we will prove a collection of lemmas that will be needed.
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	 The lemma follows immediately from the calculations:
+	 The lemma follows immediately from these calculations:
 	\begin{multline}
 		P_t \phi_i(x) = \int_{K}p_t(x,y)\phi_i(y) \dd \mu(y) = \int_{K} \left(\sum_{j = 1}^{\infty}e^{-\lambda_j} \phi_j(x)\phi_j(y)\right) \phi_i(y) \dd \mu(y) \\
 		= \int_{K} e^{-\lambda_i t}\phi_i(x) \dd \mu(y) = e^{-\lambda_i t}\phi_i(x).
@@ -27,7 +29,7 @@ In this section we will prove a collection of lemmas that will be needed.
 	where $f_m = f \mid_{V_m}$.
 \end{lemma}
 \begin{proof}
-	In this proof we wish to use \cite[Theorem 2.1]{KURTZ1969354}  so we will check that $\Delta$ fulfils the criteria. First there is a bounded linear operator such that for all $f \in L^{2}(K, \mu)$ we have
+	In this proof we wish to use \cite[Theorem 2.1]{KURTZ1969354}  so we will check that $\Delta$ fulfils the criteria of \cite[Theorem 2.1]{KURTZ1969354}. First there is a bounded linear operator such that for all $f \in L^{2}(K, \mu)$ we have
 	$$\lim_{n \to \infty} \norm{P_n f} = \norm{P_n}.$$
 	 This holds in our case, since we have $P_n f = f \mid_{V_n} = f_n$.
 	
@@ -49,14 +51,14 @@ In this section we will prove a collection of lemmas that will be needed.
 	\begin{equation}
 		\int_{V_m} f_m P_t^{m} f_m \dd\mu_m = \int_{V_m} f_m \left(P_t^{m} f_m - (P_t f)_m \right) \dd\mu_m + \int_{V_m} f_m (P_t f)_m \dd \mu_m .
 	\end{equation}
-	The first integral converges to $0$ as $m\to \infty$ because of \eqref{convergensofPt}. Further, by \cref{convergenceOfMeasures} we have
+	The first integral converges to $0$ as $m\to \infty$ because of \eqref{convergensofPt}. Furthermore, by \Cref{convergenceOfMeasures} we have that
 	\begin{equation}
 		\int_{V_m} f_m (P_t f)_m \dd \mu_m \to \int_{K} fP_tf \dd \mu,\quad \text{as } m \to \infty.
 	\end{equation}
 \end{proof}
 
 \begin{lemma}\label{convergence}
-	For all $f \in S(K)$ and $s \geq 0$ the following holds
+	For all $f \in S(K)$ and $s \geq 0$ the following holds,
 	\begin{equation}
 		\frac{1}{a_m} \sum_{p \in V_m} f_m(p) (-\Delta_m)^{-2s}f_m(p) \to \int_{K}f(x)(-\Delta)^{-2s}f(x) \dd \mu(x), \quad \text{as } m \to \infty.
 	\end{equation}
@@ -74,8 +76,7 @@ In this section we will prove a collection of lemmas that will be needed.
 	\end{align}
 	and the lemma for $s = 0$ follows from \Cref{convergenceOfMeasures}. 
 	
-	\medskip
-	Now assume $s > 0$, then by \Cref{remark:DiscreteLaplacianSemiGroup} we have that
+		\noi Now assume $s > 0$, then by \Cref{remark:DiscreteLaplacianSemiGroup} we have that
 	\begin{align}
 		(-\Delta_m)^{s}f_m(x) &= \frac{1}{a_m} \sum_{j = 1}^{N_m} (\lambda_j^{m})^{-s} \phi_j^{m}(x) \sum_{y \in V_m} \phi_j(y) f_m(y) \\
 		&= \frac{1}{a_m} \sum_{j = 1}^{N_m} \frac{1}{\Gamma(s)}\int_{0}^{\infty} t^{s-1}e^{-\lambda_j t} \dd t \ \phi_j^{m}(x) \sum_{y \in V_m} \phi_j(y) f_m(y) \\
@@ -95,7 +96,11 @@ In this section we will prove a collection of lemmas that will be needed.
 	\end{align}
 	where we can guarantee the inequality for all $j$ since $0 < \lambda_1 < \lambda_2 <\ldots$. 
 	
-	Note that $\sup_{m} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)^2 < \infty$ since $f \in S(K) \subset C(K)$ whereby $f$ is bounded and $\# V_m < \infty$ for all $m$. We can now by dominated convergence, Fubini's theorem and \Cref{convergenceOfSemigroups} find that 
+	Note that 
+	\begin{equation}
+		\sup_{m} \frac{1}{a_m} \sum_{p \in V_m} f_m(p)^2 < \infty,
+	\end{equation}
+	 since $f \in S(K) \subset C(K)$ hence $f$ is bounded and $\# V_m < \infty$ for all $m$. We can now by dominated convergence, Fubini's theorem, \Cref{coro:ForRieszKernelAndFractionalLaplacian} and \Cref{convergenceOfSemigroups} conclude that 
 	\begin{align}
 		\lim_{m \to \infty} \frac{1}{a_m} \sum_{p \in V_m} f_m(p) (-\Delta_{m})^{-2s} f_m(p) &= \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \lim_{m \to \infty}\frac{1}{a_m} \sum_{p \in V_m} f_m(p) P_{t}^{m} f_m(p) \dd t \\
 		&= \frac{1}{\Gamma(2s)} \int_{0}^{\infty} t^{2s-1} \int_{K} f(x) P_t f(x) \dd\mu(x) \dd t \\
@@ -111,7 +116,7 @@ With everything in mind we can now prove the convergence in distribution of disc
 
 \medskip
 \begin{mainTheorem}
-	Let $s \geq 0$, then $X_{s}^{m}$ converges to $X_s$ in distribution in $S'(K)$ when $m \to \infty$
+	Let $s \geq 0$, then $X_{s}^{m}$ converges to $X_s$ in distribution in $S'(K)$ when $m \to \infty$.
 \end{mainTheorem}
 
 \begin{proof}
@@ -121,13 +126,13 @@ With everything in mind we can now prove the convergence in distribution of disc
 	\end{equation} 
 	where $f_m = f \mid_{V_m}$. It follows from \Cref{theOneWeNeedInTheEndSomehow} that
 	\begin{equation}
-		\e \left[\exp\left(itX_{s}^{m}(f_m)\right)\right] = \exp \left(-\frac{t^2}{2} \e \left[(X_{s}^{m}(f_m))^2\right]\right) = \exp \left(-\frac{t^2}{2a_m} \sum_{p \in V_m} f_m(p) (-\Delta_m)^{-2s} f_m(p)\right).
+		\e \left[\exp\left(itX_{s}^{m}(f_m)\right)\right] = \exp \left(-\frac{t^2}{2} \e \left[ \left(X_{s}^{m}(f_m) \right)^2\right]\right) = \exp \left(-\frac{t^2}{2a_m} \sum_{p \in V_m} f_m(p) (-\Delta_m)^{-2s} f_m(p)\right).
 	\end{equation}
 	Likewise, via \Cref{fracGaussianField} we find
 	\begin{equation}
 		\e \left[\exp(i t X_{s}(f))\right] = \exp\left(-\frac{t^2}{2} \e \left[(X_{s}(f))^2\right]\right) = \exp\left(-\frac{t^2}{2}\int_{K} f (-\Delta)^{-2s}f \dd \mu\right)
 	\end{equation} 
-	where we notice by \cref{coroForRieszKernelAndFractionalLaplacian} that
+	where we notice by \cref{coro:ForRieszKernelAndFractionalLaplacian} that
 	\begin{align}
 		\e \left[(X_{s}(f))^2\right] &= \int_{K} (-\Delta)^{-s}f (-\Delta)^{-s}f \dd \mu \\
 		& = \int_{K} \int_{K} f(p)f(q) G_{2s}(p,q) \dd\mu(p) \dd \mu(q) \\

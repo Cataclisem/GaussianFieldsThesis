@@ -60,19 +60,32 @@ class simulation:
         print(f"Start Laplacian {int(timeStart)}")
         allPointsDict = self.fractal(n)
         pool = mp.Pool(mp.cpu_count()) #Initialize the multiprocessing
-        who = pool.starmap(self.laplacianOperatorMatrixFunction, [([x], allPointsDict) for x in allPointsDict])
+        who = pool.starmap(self.laplacianOperatorMatrixFunctionWithConstants, [([x], allPointsDict) for x in allPointsDict]) #CHANGE FUNC HERE
         timeEnd = timeit.default_timer()
         print(f"end Laplacian {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
         return who
     
     
+    def laplacianOperatorMatrixFunctionWithConstants(self, i, allPointsDict: dict):
+        """ This is a function for multiprocessing
+        
+        """
+        if len(allPointsDict[i[0]]["neighbours"]) == 1:
+            const = pow(5, -self.n - 1)
+        elif len(allPointsDict[i[0]]["neighbours"]) == 2:
+            const = 2*pow(5, -self.n - 1)
+        elif len(allPointsDict[i[0]]["neighbours"]) == 4:
+            const = pow(5, -self.n)
+        else:
+            const = 1
+        return np.multiply(pow(3, self.n), [const*len(allPointsDict[i[0]]["neighbours"]) if i[0] == j else -1*const if j in allPointsDict[i[0]]["neighbours"] else 0 for j in allPointsDict])
+
+
     def laplacianOperatorMatrixFunction(self, i, allPointsDict: dict):
         """ This is a function for multiprocessing
         
         """
         return [len(allPointsDict[i[0]]["neighbours"]) if i[0] == j else -1 if j in allPointsDict[i[0]]["neighbours"] else 0 for j in allPointsDict]
-
-
 
     def printLaplacianOperatorMatrix(self, n: int = None) -> None:
         """ Function to print out the laplacian in a managable way.
@@ -100,6 +113,7 @@ class simulation:
         vector, matrix = np.linalg.eigh(self.laplacianOperatorMatrix())
         timeEnd = timeit.default_timer()
         print(f"end Eigen {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
+        print(f"vec: {vector}")
         return vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1)
     
     def scipyEigenVectorsAndValues(self):
@@ -118,8 +132,6 @@ class simulation:
             s = self.s
         
         eigVal, eigVec = eigenfunction()
-        print(f"eigenVec: {eigVec}")
-        print(f"eigenvec: {eigVec[0,1]}")
         Vn = self.fractal()
 
         if not isinstance(whiteNoise, np.ndarray):
@@ -132,6 +144,7 @@ class simulation:
             if j % 1000 == 0:
                 print(f"Point reached: {j}")
 
+        #print(f"Vn: {Vn}")
         return Vn
     
 
@@ -172,7 +185,7 @@ class simulation:
         else:
             whiteNoise = None
         
-        print(f"WhiteNoise: {whiteNoise}")
+        #print(f"WhiteNoise: {whiteNoise}")
 
         if len(sValues) > 2:
             sValHalfRdUp = math.ceil(len(sValues)/nrows) 
@@ -267,15 +280,15 @@ if __name__ == '__main__':
     
     if whatToRun == 3:
         i=0
-        for h in [5, 5]: 
+        for h in [5]: 
             WN = np.random.standard_normal(pow(5, h)*4 + 1)
-            for sVals in [0.001, 0.5, 1, 20]:
+            for sVals in [1]:
                 print(f"Vm: {h}")
-                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
-                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
+                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
+                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
                 theOne.drawThePretty(sValues=[sVals], whiteNoise=WN)
                 #theOne.drawThePretty(sValues=[0.001, 0.5, 1, 20], sameWhiteNoise=True, whiteNoise=)
                 #plt.gca().set_position([0, 0, 1, 1])
-                plt.savefig(f"c:/Users/chris/gitProjects/GaussianFieldsThesis/code/sim/{theOne.fractalType}Sim_V{h}_SameWhiteNoise{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
+                plt.savefig(f"c:/Users/chris/gitProjects/GaussianFieldsThesis/code/{theOne.fractalType}Sim_V{h}_SameWhiteNoise{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
                 i+=1
     #plt.show()
