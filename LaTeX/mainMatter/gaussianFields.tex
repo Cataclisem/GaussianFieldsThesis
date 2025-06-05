@@ -1,7 +1,7 @@
 \setlength\beforechapskip{-1em}
 \chapter{Fractional Gaussian Fields}\label{chap:gaussianFields}
 
-\vspace{-1em}
+\vspace{-2em}
 In this chapter we will be constructing both the fractional Gaussian fields and the discrete fractional Gaussain fields, that we will later see converge in distribution. The construction of the fractional Gaussian fields very much depends on the Riesz kernel and the Dirichlet Laplacian, with the discrete fractional Gaussian field depending on the discrete fractional Laplacian and discrete Riesz kernel.
 
 We will also give an example of a discrete fractional Gaussian field, which we will use for simulations in \Cref{chap:simulations}.
@@ -29,7 +29,7 @@ We then note that discrete fractional Gaussian fields has the following property
 	\end{equation}
 \end{prop}
 
-\vspace{-0.5em}
+\vspace{-0.7em}
 \begin{proof}
 	Using \Cref{discreteFractionalLaplacianProperties} we find
 	\begin{align}
@@ -187,7 +187,7 @@ From \Cref{whiteNoise}, (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D})
 \end{equation}
 Now let $A_1, \ldots, A_n \in \mathcal{K}$ and $a_1, \ldots, a_n$ be real numbers. Then
 \begin{equation}
-	\sum_{i,j=1}^{n} a_i a_j \mathbf{\Sigma}_{i,j =1}^{n} = \sum_{i,j = 1}^{n}a_ia_j \int_{K}\mathds{1}_{A_i} \cd \mathds{1}_{A_j} \dd \mu = \int_{K} \left(\sum_{i=1}^{n} a_i \mathds{1}_{A_i}\right)^2 \dd \mu \geq 0
+	\sum_{i,j=1}^{n} a_i a_j \mathbf{\Sigma}_{i,j}= \sum_{i,j = 1}^{n}a_ia_j \int_{K}\mathds{1}_{A_i} \cd \mathds{1}_{A_j} \dd \mu = \int_{K} \left(\sum_{i=1}^{n} a_i \mathds{1}_{A_i}\right)^2 \dd \mu \geq 0
 \end{equation}
 Thus $\mathbf{\Sigma}$ is positive definite, so there exists a probability space $(\Omega, \mathcal{F}, p)$ and a mean-zero Gaussian process $\cbr{W(A)}$ on $(\Omega, \mathcal{F}, p)$ such that $W$ satisfies \Cref{whiteNoise} (\ref{whiteNoiseIsNormal}) and (\ref{whiteNoiseIsI.I.D}). 
 

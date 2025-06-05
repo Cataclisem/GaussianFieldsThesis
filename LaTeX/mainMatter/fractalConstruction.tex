@@ -21,8 +21,7 @@ Here $p_i \in V_0$ are the edge points of a "plus" with a point in the middle, s
 
 We can then create a discrete graph of the Vicsek set as shown in \Cref{fig:vicsekGraphDiagram}.
 
-
-\def\vecScale{0.14}
+\def\vecScale{0.13}
 \def\vecDist{0.5em}
 \begin{figure}[!ht]
 	\begin{center}
@@ -110,7 +109,7 @@ The proof that $d_H$ is a metric can be found in \cite{Henrikson1999Completeness
 
 \clearpage
 \begin{remark}
-	A consequence of \Cref{uniqueInvariantSet}, is that we get a way to create a sequence $(i_1, i_2, \ldots)$, which not necessarily unique, where $1 \leq i_j \leq m$, such that for each $x \in F$ we can write
+	A consequence of \Cref{uniqueInvariantSet}, is that we get a way to create a sequence $(i_1, i_2, \ldots)$, which is not necessarily unique, where $1 \leq i_j \leq m$, such that for each $x \in F$ we can write
 	\begin{equation}\label{pointAsIntersectSet}
 		\cbr{x} = \cbr{x_{i_1, i_2, \ldots}} = \bigcap_{k \geq 0} K_{i_1, \ldots i_k}
 	\end{equation}
@@ -143,7 +142,7 @@ Since we are going to study the convergence of discretely defined operators we c
 \begin{equation}
 	V_{m+1} = \bigcup_{i = 1}^{5} \fracConst_i(V_m).
 \end{equation}
-This gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$. 
+This gives us a sequence of Vicsek set graphs $(G_m)_{m\geq 0}$ whose vertices are $(V_m)_{m \geq 0}$, as seen in \Cref{fig:vicsekGraphDiagram}. 
 
 \medskip
 \textbf{Notation:} We denote $V^{\ast} = \bigcup_{m \geq 0} V_m$ and for any $p \in V_m$ we write the collection of neighbours of $p$ in $G_m$ as $V_{m,p}$. We may write $x \underset{m}{\sim} y$ when $x$ and $y$ are neighbours in $V_m$. We may also write $x \sim y$ when $x$ and $y$ are neighbours and there is no confusion as to what $V_m$ $x$ and $y$ belongs to. Lastly, note that $N_m = \# V_m = 5^{m}\cd 4 + 1$.
@@ -208,7 +207,7 @@ As stated before, it is quite difficult to determine the Hausdorff dimension fro
 \end{defi}
 
 \medskip
-The following \Cref{massDistribution} describes a lower bound for the Hausdorff dimension.
+The following lemma describes a lower bound for the Hausdorff dimension.
 \begin{lemma}\label{massDistribution}
 	Let $\mu$ be a measure such that $\mu(F) \in (0, \infty)$ and suppose there are constants $c, \epsilon > 0$ such that for some $s \geq 0$
 	\begin{equation}
@@ -329,7 +328,7 @@ where $\tau(x,r) = \inf\cbr{t \geq 0 : B_t \notin B(x,r)}$.  The intuition is th
 	\end{equation}
 \end{defi}
 
-\section{Hausdorff, Walk and Spectral \nl Dimension of the Vicsek set}
+\section[Hausdorff, Walk and Spectral Dimension of the Vicsek set]{Hausdorff, Walk and Spectral \\ Dimension of the Vicsek set}
 
 Since the main purpose of the thesis is to study the Vicsek set, we will in this section, state the different dimensions needed. 
 
@@ -340,7 +339,7 @@ Recalling that the Vicsek set is the unique set $K$ for the IFS $\cbr{\fracConst
 
 We want to use \Cref{HausdorffDimTheorem} to find the Hausdorff dimension of the Vicsek set, so we need to check that ${\fracConst_i}_{1 \leq i \leq 5}$ satisfies \Cref{OpenSetCondition}. 
 
-If we choose the open set $V$ to be the open square where each corner is a point in $V_0$ (see \Cref{fig:openSetDiagram}), then by continuity of $\fracConst_{i}$ we have that $\fracConst_{i}(V)$ is open and disjoint. The disjointness of $\fracConst_{i}$ is that each $\fracConst_{i}$ "retracts" the whole set towards the point $p_i$ and we get that the sets are disjoint. One might worry about the points where the open sets meet, but since the points in $V_0$, excluding the middle point, are not included in the initial open box, we have that they do not intersect.
+If we choose the open set $V$ to be the open square where each corner is a point in $V_0$, as seen in \Cref{fig:openSetDiagram}, then by continuity of $\fracConst_{i}$ we have that $\fracConst_{i}(V)$ is open and disjoint. The disjointness of $\fracConst_{i}$ is that each $\fracConst_{i}$ "retracts" the whole set towards the point $p_i$ and we get that the sets are disjoint. One might worry about the points where the open sets meet, but since the points in $V_0$, excluding the middle point, are not included in the initial open box, we have that they do not intersect.
 
 \begin{figure}[!ht]
 	\centering
@@ -937,7 +936,10 @@ The measure $\mu$ has the following property:
 	\begin{equation}
 		\mu(B(x,r)) \leq 5\cd \mu\left( \left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_n}\right)(K)\right) = 5\cd 5^{-n}= 5^2\cd5 ^{-(n+1)} \leq 5 \cd \left(R\cd 3^{-(n+1)}\right)^{d_h} \leq 5\cd 2^{-n} \cd r^{d_h}
 	\end{equation} 
-	noting that $2^{-n}r \leq r$. This upper bound also works for $R < 1$ since we just omit the constant from the calculations and have $3^{-(n+1)} \leq R^{-1}2^{-(n+1)}r$ and the upper bound becomes $5\cd \left(R^{-1} 2^{-(n+1)} r\right)^{d_h}$. Likewise, for the lower bound we have that there exists a sequence $i_1, \ldots i_{n+1}$ such that $B(x,r)\supset S_{i_1} \circ \ldots \circ S_{i_{n+1}}$ in which case
+	noting that $2^{-n}r \leq r$. \\  \\
+	This upper bound also works for $R < 1$ since we just omit the constant from the calculations and have $3^{-(n+1)} \leq R^{-1}2^{-(n+1)}r$ and the upper bound becomes $5\cd \left(R^{-1} 2^{-(n+1)} r\right)^{d_h}$. 
+	
+	Likewise, for the lower bound we have that there exists a sequence $i_1, \ldots i_{n+1}$ such that $B(x,r)\supset S_{i_1} \circ \ldots \circ S_{i_{n+1}}$ in which case
 	\begin{equation}
 		\mu(B(x,r)) \geq \mu \left(\left(\fracConst_{i_1} \circ \ldots \circ \fracConst_{i_{n+1}}\right)(K)\right) = 5^{-(n+1)} \geq R\cd 5^{-(n+1)} \geq  5\cd \left(R^{-1}2^{-n}r\right)^{d_h}.
 	\end{equation}

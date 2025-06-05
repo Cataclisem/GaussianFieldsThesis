@@ -40,7 +40,7 @@ It is precisely from this matrix $L_m$ we compute the eigenvalues and eigenfunct
 
 As we see from \Cref{TableOfValues}, the values explode in size as $m$ grows. The process to check each point is therefore slow. Furthermore the matrix $L_m$ that we construct becomes very large, very fast. Since it needs to hold every permutation of any two points, the matrix $L_m$ becomes a $\left(5^{m}\cd 4 + 1\right) \times \left(5^{m}\cd 4 + 1\right)$ matrix. It does however have the property of a sparse matrix, since there are at most five entries in every column, but for $m= 9$ the matrix still fills well over 1 terrabyte in memory.
 
-Having explained the limitations of the simulation, we will quickly delve into the code that generates the simulations. The code will be explained mathematically for clarity, but the full code can be found at: \\ \url{https://gitfront.io/r/Cataclisem/PcJGEa5Am7bD/GaussianFieldThesisCode/tree/code/}.
+Having explained the limitations of the simulation, we will quickly delve into the code that generates the simulations. The code will be explained mathematically for clarity, but the full code can be found at: \\ \url{https://github.com/Cataclisem/GaussianFieldsThesisCode}.
 
 \section[Construction of the Vicsek set for Simulations]{Construction of the Vicsek set for Simulations}
 The construction is done by first generating the first "plus" $V_0 = \cbr{ p_1, p_2, p_3, p_4, p_5}$ where $p_1 = (0,0), \ p_2=(\xi, 0), \ p_3 = (0, -\xi), \ p_4 = (-\xi, 0)$ and $p_5 = (0, \xi)$ for some $\xi > 0$. Then going from $V_0$ to $V_1$ we find the endpoints, the tips of the plus, of $V_0$ and then just add $V_0$ to it. We can write this formally as:
@@ -67,7 +67,7 @@ With the construction of the Vicsek set, the neighbours of each point and the di
 
 All the constructions mentioned above can be found in \verb*|code/VicsekSet/VicsekSet.py| and \verb*|code/simulations.py|.
 
-\subsection{Eigenvalues and eigenfunctions}
+\subsection{Eigenvalues and Eigenfunctions}
 The way we find eigenvalues is through the \verb*|numpy.linalg.eigh| function. The function is for finding eigenvalues and eigenvectors of real symmetric matrices. Some of the best eigenvalue finding algorithms have a runtime of $O(n^2)$, where $n$ is the number of rows in the matrix. As $5^{m}\cd 4 +1$ is a number that grows fast as $m$ increases $(5^{m}\cd 4 +1)^2$ grows even faster making the algorithm slow as $m$ increases.
 
 The code we are describing can be found in \verb*|simulations.py| line 95-101 and line 114-133. Now the function \verb*|numpy.linalg.eigh| gives us a vector of eigenvalues $v_{\text{eig}}$ and a matrix where each column is an eigenvector $M_{\text{eig}}$, having sizes $\left(5^m\cd4 +1\right) \times (1)$ and $\left(5^m\cd4 +1\right) \times \left(5^m\cd4 +1\right)$ respectively. The matrix of eigenvectors is actually also our eigenfunctions, since
@@ -211,7 +211,7 @@ If we study the influence of white noise in the simulation of the Sierpinski gas
 	\label{fig:sierpniski4differentsSimWithSametWhiteNoise2}
 \end{figure}
 
-
+\clearpage
 \section[Conclusion and Future work on the Simulations]{Conclusion and Future work on the \\ Simulations}
 
 While it was unfortunate that we were not able to simulate convergence of distribution we were still able to find some points of interest in the simulations. The first being how quickly the simulations diverge and clusters from quite a varied state. Further, one can see a clear influence of the white noise when observing what values the simulations converge to.

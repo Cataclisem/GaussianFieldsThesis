@@ -116,14 +116,14 @@ In the previous section we talked about a harmonic function, but without ever co
 \begin{equation}
 	E_0(u) = \left(u(q_1) - u(q_2)\right)^2 + \left(u(q_1) - u(q_3)\right)^2 + \left(u(q_1) - u(q_4)\right)^2 + \left(u(q_1) - u(q_5)\right)^2.
 \end{equation} 
-We are going to exploit the symmetry of the Vicsek set. Since all four "extremities" of the Vicsek set are identical, see \Cref{renormVicsekDiagram}, we will only look at one of the extremities, since the other extremities will be the same computations. So if we want to minimize $E_1(u')$, for $u'\colon V_1 \to \ree$, we see for the extremity between $q_1$ and $q_2$ that
+We are going to exploit the symmetry of the Vicsek set. Since all four "extremities" of the Vicsek set are identical, as seen in \Cref{renormVicsekDiagram}, we will only look at one of the extremities, since the other extremities will be the same computations. So if we want to minimize $E_1(u')$, for $u'\colon V_1 \to \ree$, we see for the extremity between $q_1$ and $q_2$ that
 \begin{multline}\label{E1Energy}
 	\hspace{2em} E_1(u') = \left(u'(q_2) - u'(p_1)\right)^2 + \left(u'(p_1) - u'(p_3)\right)^2 + \left(u'(p_1) - u'(p_4)\right)^2 
 	\\ + \left(u'(p_1) - u'(p_5)\right)^2 + \left(u'(p_4) - u'(q_1)\right)^2. \hspace{2em}
 \end{multline}
 
 
-\begin{figure}[!ht] \label{renormVicsekDiagram}
+\begin{figure}[!ht]
 	\centering
 	\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
 	
@@ -197,6 +197,7 @@ We are going to exploit the symmetry of the Vicsek set. Since all four "extremit
 				
 	\end{tikzpicture}
 	\caption{Points on the Vicsek set $V_1$.}
+	 \label{renormVicsekDiagram}
 \end{figure}
 Next we are going to minimize the graph energies with regards to $u'(p_i)$ for $i = 0, 1, 2, 4$. Taking the derivative of the right side of \eqref{E1Energy} and solving for $0$ we get the following
 \begin{align}
@@ -302,7 +303,7 @@ We will introduce a new notation for the discrete graph Laplacian without its co
 \end{defi}
 
 \begin{defi}
-	Given $m \geq 0$ and a point $x \in V_m \backslash V_0$ then define the \emph{harmonic function} \\ $\psi_{x}^{(m)}\colon V^{*} \to [0,1]$ that for a $y \in V_m$ is $\psi_x^{(m)}(y) = \delta_{xy}$.
+	Given $m \geq 0$ and a point $x \in V_m \setminus V_0$ then define the \emph{harmonic function} \\ $\psi_{x}^{(m)}\colon V^{*} \to [0,1]$ that for a $y \in V_m$ is $\psi_x^{(m)}(y) = \delta_{xy}$.
 \end{defi}
 Note that $\psi_x^{(m)} \in \dom \mathcal{E}$. Furthermore, it might seem odd that we only defined $\psi_x^{(m)}$ to have values on $V_m$. However the function is defined on the whole of $V^{*}$, where the values in $K \setminus V_m$ come from the fact that it is a harmonic extension. We even have that function $\psi_x^{(m)}$ can be used to describe $\widetilde{\Delta}_{m}$.
 \medskip
@@ -559,7 +560,7 @@ where $\Delta$ a unique densely defined self-adjoint operator. The operator $\De
 Notice that the Kigami Laplacian $\Delta_{\mu}$ was not used in the construction of the Dirichlet Laplacian $\Delta$, but that we used the limit of the renormalized graph energy from \Cref{renormalizedGraphEnergiesLimit}. This stems from the fact that there are two ways to define $\Delta$, one through Dirichlet forms and one trough $\Delta_{\mu}$. We have chosen to define $\Delta$ through Dirichlet forms, but defining $\Delta$ through $\Delta_{\mu}$ follows a similarly condensed argument. One would prove that $\Delta_{\mu}\colon \dom \Delta_\mu \to L^{2}(K, \mu)$ is a densely defined non-positive symmetric operator. It then follows from \cite[Lemma 1.3.5]{fabriceDirichelt} that the quadratic form $\mathcal{E}(f,g) = -\inn{f}{\Delta_{\mu} g}$ for $f,g \in \dom \Delta_{\mu}$ is closable and the generator of $\mathcal{E}$ is the self-adjoint extension $\Delta$.
 
 \medskip
-\section{Discrete Fractional Laplacian}
+\section{The Discrete Fractional Laplacian}
 Recalling \Cref{discreteMatrix} we consider the eigenvalues $0 < \lambda_1^{m} \leq \lambda_{2}^{m} \leq \ldots \leq \lambda_{N_m}^{m}$, each being repeated accordingly to multiplicity, of $-\Delta_m$. Next let $(\phi_i^{m})_{1 \leq i \leq N_m}$ be the corresponding eigenfunctions with respect to the measure $\mu_m$. This leads us to defining the following.
 
 \medskip
@@ -737,7 +738,7 @@ With semigroups out of the way we can define the heat kernel.
 	\end{equation}
 \end{remark}
 
-\section{Fractional Laplacian}\label{sec:FractionalLaplacian}
+\section{The Fractional Laplacian}\label{sec:FractionalLaplacian}
 Before we can define the continuous fractional Laplacian, we need to define the eigenvalues and eigenfunctions for $-\Delta$. 
 
 Recall that the Laplacian $\Delta$, with domain $\dom\Delta$, is a densely defined self-adjoint operator. Therefore by \Cref{genSemigroup} it is the generator of a strongly continuous Markov semigroup $\cbr{P_t}_{t \geq 0}$ on $L^2(K, \mu)$. 
@@ -749,7 +750,7 @@ From \cite[Theorem 8.4]{barlow} this semigroup admits a heat kernel $p_t(x,y), t
 for every $x,y \in K \times K$ and $t \in (0, \infty)$ where $d_h$ is the Hausdorff dimension and $d_w$ is the walk dimension. 
 
 \medskip
-The Dirichlet heat kernel is quite central in the definition of the continuous fractional Laplacian, as its bounds and definition will be used quite a bit throughout the proofs in the following section. One of the more important properties of the heat kernel is, that it can be described as a sum of eigenvalues and eigenfunctions of $\Delta$. The following theorem gives us the existence of the eigenvalues, functions and the sum representation of the Dirichlet heat kernel. This theorem will not be proved, but a detailed proof can be found in \cite[Theorem 2.2]{Jozef}.
+The Dirichlet heat kernel is quite central in the definition of the continuous fractional Laplacian, as its bounds and definition will be used quite a bit throughout the proofs in the following sections. One of the more important properties of the heat kernel is, that it can be described as a sum of eigenvalues and eigenfunctions of $\Delta$. The following theorem gives us the existence of the eigenvalues, functions and the sum representation of the Dirichlet heat kernel. This theorem will not be proved, but a detailed proof can be found in \cite[Theorem 2.2]{Jozef}.
 
 \medskip
 \begin{theorem}\label{heatKernelWritten}
@@ -996,6 +997,8 @@ By \cite[Theorem 2]{germanOne} and \Cref{convergenceOfEigenvaluesOfLaplacian} we
 	
 	Furthermore, the trace-norm $\norm{u}_{\text{Tr}}$ is equal to the infimum of the numbers $\sum_{k} \abs{\lambda_k}$ over the set of all representations of $u$ as such a series.
 \end{defi}
+
+\medskip
 \begin{remark}
 	We have just defined a nuclear map on a Banach spaces, but note that the definition can be generalized to locally convex Hausdorff spaces.
 \end{remark}

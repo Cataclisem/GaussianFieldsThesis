@@ -1,19 +1,15 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [1] Config.pm:311> INFO - Logfile is 'main.blg'
-[189] biber-MSWIN64:340> INFO - === 
-[253] Biber.pm:420> INFO - Reading 'main.bcf'
-[445] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[484] Biber.pm:4463> INFO - Processing section 0
-[500] Biber.pm:4654> INFO - Looking for bibtex file 'cite.bib' for section 0
-[714] bibtex.pm:1713> INFO - LaTeX decoding ...
-[810] bibtex.pm:1519> INFO - Found BibTeX data source 'cite.bib'
-[1110] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1111] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1111] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[1111] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1190] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1190] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1190] Biber.pm:4283> INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'en-US'
-[1190] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1237] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[1287] bbl.pm:779> INFO - Output to main.bbl
+[185] biber-MSWIN64:340> INFO - === 
+[254] Biber.pm:420> INFO - Reading 'main.bcf'
+[447] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[476] Biber.pm:4463> INFO - Processing section 0
+[495] Biber.pm:4654> INFO - Looking for bibtex file 'cite.bib' for section 0
+[614] bibtex.pm:1713> INFO - LaTeX decoding ...
+[717] bibtex.pm:1519> INFO - Found BibTeX data source 'cite.bib'
+[1033] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1033] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1033] Biber.pm:4283> INFO - Sorting list 'ynt/global//global/global/global' of type 'entry' with template 'ynt' and locale 'en-GB'
+[1033] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-GB'
+[1097] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[1119] bbl.pm:779> INFO - Output to main.bbl
