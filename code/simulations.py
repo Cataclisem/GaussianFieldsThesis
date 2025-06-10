@@ -1,3 +1,4 @@
+import sys
 import SierpinskiGausket.SierpinskiGausket as sg
 import VicsekSet.VicsekSet as vicsekSet
 import matplotlib.pyplot as plt
@@ -60,7 +61,7 @@ class simulation:
         print(f"Start Laplacian {int(timeStart)}")
         allPointsDict = self.fractal(n)
         pool = mp.Pool(mp.cpu_count()) #Initialize the multiprocessing
-        who = pool.starmap(self.laplacianOperatorMatrixFunctionWithConstants, [([x], allPointsDict) for x in allPointsDict]) #CHANGE FUNC HERE
+        who = pool.starmap(self.laplacianOperatorMatrixFunction, [([x], allPointsDict) for x in allPointsDict]) #CHANGE FUNC HERE
         timeEnd = timeit.default_timer()
         print(f"end Laplacian {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
         return who
@@ -113,8 +114,19 @@ class simulation:
         vector, matrix = np.linalg.eigh(self.laplacianOperatorMatrix())
         timeEnd = timeit.default_timer()
         print(f"end Eigen {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
-        print(f"vec: {vector}")
+        pprint(f"vec: {vector}, isclose: {vector[0]*-(np.isclose(vector[0], 0)-1)}")
         return vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1)
+    
+
+    def partwiseNPEigenVecAndValues(self):
+        timeStart =timeit.default_timer()
+        print(f"Start Eigen Partwise: {int(timeStart)}")
+        laplacian = self.laplacianOperatorMatrix()
+        vector, matrix = np.linalg.eigh(laplacian)
+        timeEnd = timeit.default_timer()
+        print(f"end Eigen {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
+        pprint(f"vec: {vector}, isclose: {vector[0]*-(np.isclose(vector[0], 0)-1)}")
+        return laplacian, vector, matrix, vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1), self.fractal(self.n)
     
     def scipyEigenVectorsAndValues(self):
         """ scipys sparse, cant find all eigenvectors but it can find close to all. We can therefore use the fact that the graph is connected to know that there is 1 zero eigenvalue. By some miracle it is also the one scipy doesn't find.
@@ -139,6 +151,10 @@ class simulation:
 
         j = 0
         for point in Vn:
+            print(f"-s: {-s}, point: {point}")
+            for i in range(len(eigVal)):
+                if eigVal[i] > 0:
+                    print(f"eig: {pow(eigVal[i],-s)}, vec: {eigVec[j,i]}, WN: {whiteNoise[i]}, sum: {sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[i]])} ")
             Vn[point][f"X"] = sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[i] if eigVal[i] > 0 else 0 for i in range(len(eigVal))])
             j +=1
             if j % 1000 == 0:
@@ -220,69 +236,57 @@ class simulation:
             y_min, y_max = -buffer, pow(2, self.n) + buffer
         
         ax.set_xlim(x_min, x_max)
-        ax.set_ylim(y_min, y_max)
+        ax.set_ylim(y_min, y_max) # type: ignore
         ax.set_axis_off()
         fig.colorbar(cm.ScalarMappable(norm=colors.Normalize(vmin=min(colorValues), vmax=max(colorValues)), cmap=cm.brg),ax = ax, location="right", orientation="vertical")
 
 
 
-h = 4
+h = 0
 
 sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours, fractalType="sierpinski")
-#vicsek = simulation(n = h, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours)
 vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
-
-#needs = sg.sierpinski(n=h).pointsAndNeighbours()
-#for x in needs:
-#   print(f"{x}: {needs[x]}")
-
 
 if __name__ == '__main__':    
     print(f"h : {h}")
-    #vicsek.printLaplacianOperatorMatrix()
-    #vec, mat = vicsek.scipyEigenVectorsAndValues()
-    #npm, npe = vicsek.npEigenVectorsAndValues()
-
-    #print(f"Scipy vec: \n {vec}")
-    #print(f"NP Eigenvalues: \n {npm}")
-
-    #for i in range(len(vec)):
-    #    if not np.isclose(vec[i], npm[i+1]) or vec[i] == 0:
-    #        print(f"sci: {vec[i]}, NP: {npm[i+1]}")
-
-    #for x in mat:
-    #    print(x)
-
     whatToRun = 3
 
     dh = math.log(5)/math.log(3)
     dw = dh +1
+    
+    def printMatrix(matrix):
+        for i in matrix:
+            print(i)
 
     if whatToRun == 1:
-        print(f"# points: {sierpinski.pointAmount}")
-        start = timeit.default_timer()
-        print("Sier")
-        sierpinski.drawThePretty(sValues=[1], sameWhiteNoise=False)
-        end = timeit.default_timer()
-        print(f"It took {end - start} seconds")
+        np.set_printoptions(threshold=sys.maxsize)
+        laplacian, OGvec, OGmat, vec, mat, allPoints = vicsek.partwiseNPEigenVecAndValues()
+        White_Noise= np.array([-1.74976547,  0.3426804,   1.1530358,  -0.25243604,  0.98132079], dtype="d")
+        printMatrix(allPoints)
+        sim = vicsek.DFDGsim(eigenfunction=vicsek.npEigenVectorsAndValues,s=20, whiteNoise=White_Noise)
+        print(sim)
+        #printMatrix(laplacian)
+        #pprint(f"vec: {vec}")
+        #printMatrix(mat)
+        #pprint(OGmat)
+        
+        #print("Doing som calcs. ")
+        #j = 1000
+        #print(f"eigVal: {vec[j]}")
+        #print(f"eigVec: {mat[:, j]}")
+#
+        #print(vec[j] * mat[:,j])
+        #print(laplacian @ mat[:, j])
+        #print(np.isclose(vec[j] * mat[:,j], laplacian @ mat[:, j]))
 
-    if whatToRun == 2:
-        print(f"Starting process with: \n # Vicsek points: {vicsek.pointAmount}")
-        start = timeit.default_timer()
-        vicsek.drawThePretty(sValues=[(2* (math.log(5)/math.log(3)))/(1+(math.log(5)/math.log(3))), (2* (math.log(5)/math.log(3)))/(1+(math.log(5)/math.log(3)))])
-        vicsek.drawThePretty(sValues=[(math.log(5)/math.log(3))/(2* (1+(math.log(5)/math.log(3)))), (math.log(5)/math.log(3))/(2* (1+(math.log(5)/math.log(3))))])
-        #vicsek.drawThePretty(sValues=[0.001, 0.001], sameWhiteNoise=False)
-        #vicsek.drawThePretty(sValues=[1,1], sameWhiteNoise=False)
-        #vicsek.drawThePretty(sValues=[5,5], sameWhiteNoise=False)
-        #vicsek.drawThePretty(sValues=[20,20], sameWhiteNoise=False)
-        end = timeit.default_timer()
-        print(f"It took {end - start} seconds")
-    
     if whatToRun == 3:
         i=0
-        for h in [5]: 
-            WN = np.random.standard_normal(pow(5, h)*4 + 1)
-            for sVals in [1]:
+        np.random.seed(100)
+        WN = np.random.standard_normal(pow(5, h)*4 + 1)
+        #WN = np.random.standard_normal(int((pow(3,h+1)*3)/2))
+        print(f"White Noise: {WN}")
+        for h in [0]: 
+            for sVals in [0.001, 0.5, 1, 20, 50]:
                 print(f"Vm: {h}")
                 theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
                 #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")

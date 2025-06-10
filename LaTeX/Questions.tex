@@ -1,25 +1,48 @@
 {\Huge{\textbf{Questions from \today}}}
 
-\subsection*{Question 1}
-In proposition 2.9 in my thesis i simply cannot understand how that \emph{Chain of points} construction works. I have tried to prove it myself without it. What i found was: Let $x, y \in V^{*}$ and $\epsilon$ given.  Then $x \in V_p$ and $y \in V_q$ then WLOG assume $p \leq q$, thus $x \in V_q$. We can therefore construct a path of neighbours from $x$ to $y$ so 
-\begin{equation}
-	x \underset{q}{\sim} \ldots \underset{q}{\sim} y
-\end{equation}
+\subsection*{Question 1} 
+On page 17, line 4-5, i write "From the geometry of $K$ we see that if $x, y \in V^{*}$ belongs to the same or adjacent $\left(\fracConst_{i_1} \circ \dots \circ \fracConst_{i_n}\right)(K)$ then we can connect $x$ to $y$ buy one such chain". I still cannot figure out how we can connect through these chains.
 
-Now we are interested in the length of this. Now we know if $x \underset{m}{\sim} y$ then $\abs{x -y} \leq 1/2 r^{m} \cd \diam (K)$, so the total number of jumps need are $$jumps = \frac{\delta}{1/2 r^{q} \cd \diam (K)} \leq \delta \cd 2 \cd r^{-q}$$
-(here $\delta$ is part of the $\epsilon$-$\delta$ proof), and $jumps$ is only correct if it is a straight line, but as the amount of jumps are finite we can multiply by a constant $C_1$ and find thus by triangle inequality and many $\pm$ we get
-\begin{equation}
-	\abs{u(x) - u(y)} \leq jumps \cd r^{q/2} \mathcal{E}^{1/2} \leq C_1 \delta \cd 2 \cd r^{-q} r^{q/2}
-\end{equation}
-and from here i simply don't know how to uniformly bound it.
+Since by the restriction of $x_{m+j} \underset{m+j+1}{\sim} x_{m+j+1}$ we cannot move very far in the fractal.
 
 \subsection*{Question 2}
-In lemma 2.35 in my thesis, i am stuck at showing that
-$$\int_{K} G_s(x,y) \dd \mu(y) < \infty$$
-when $s = d_h/d_w$. I understand the proof when $s > d_h/d_w$ as this is a contant and $s < d_h/d_w$ since by constructing the open balls $B(x,R2^{-j})$ we can bound $s^{-j-1} \leq R^{-1}d(x,y) \leq 2^{-j}$ with $R = \diam K$ and follows from there. But i simply cannot find a way to bound $\abs{\ln(d(x,y))}$.
+The whole of remark 2.28, there i am sure i misunderstood something. Especially with regards to $P_t^m f(x)$. But this also relates to the start of Section 2.4, where we say they are eigenfunctions, but end up using them as a basis. 
 
 \subsection*{Question 3}
-In lemma 3.6 of my thesis. I still don't understand how they get that last equality. I keep trying to do some decomposition into the basis but i come up short $v_k$ and $v_j$ a subtracted and not multiplied together.
+In the proof of Theorem 2.25: How does the semigroup properties translate from $Q_t$ to $P_t$. And also the same for Corollary 2.26
 
 \subsection*{Question 4}
-Why does the discrete laplacian $\Delta_m$ generate a semi-group. I tried to use theorem 2.23 from my thesis, but wondered if that is overkill and there is a simpler explenation.
+On page 43, why do we wish to show these FGF have an $L^2$ density? And how does it follow from Proposition 3.11?
+
+\subsection*{Question 5}
+In the proof of Lemma 4.2 on page 47, we use \url{https://www.sciencedirect.com/science/article/pii/0022123669900317}{[3, Theorem 2.1]} but that requires $\Delta_m$ to be infinitesimal gen of $P_t^{m}$, and the Theorem states there then exists a semigroup $P_t$ on which $P_t^{m}$ and $P_t$ converge, but why do we know that it is the one from Theorem 2.25 of $\Delta$?
+\subsection*{Smaller Questions: }
+\begin{enumerate}
+	\item On page 14, just under Definition 2.5, i have written that "In somce cases we have that $E_{m+n}(\widetilde{u}) \leq r^{n}E_{m}(u)$ for some $r \in (0,1)$". But what cases are we talking about? This is also written on the bottom of page 10 in \emph{Differential Equations on Fractals}.
+	\item Page 27, line 8, i write that $U$ is a unitary map, and therefore a linear bijection. Is this correct? \href{https://mtaylor.web.unc.edu/wp-content/uploads/sites/16915/2018/04/specthm.pdf}{Link to source}
+	\item Page 41, proof of lemma 3.6. Don't not get why the last equality holds since there will always be some real number left after multiplying the sums.
+	\item Page 43. Why is $W(f) = \int_{K} f \dd W$ a well defined gaussian random variable. And why does it give rise to a isonormal. And why do we want this. 
+\end{enumerate}
+
+\newpage
+\subsection*{Mistakes}
+\begin{enumerate}
+	\item Page 4, line 2. "... for each $x \in F$... " should be "... for each $x \in K$...".
+	\item Page 6, Lemma 1.10, line 1. "... such that $\mu(F) \in (0, \infty)$..." should be "... such that $\mu(K) \in (0, \infty)$...".
+	\item Page 6, Lemma 1.11, line 3. "... intersects at most $(1+2a_2)^{n}a_{1}^{n}$..." should be "... intersects at most $(1+2a_2)^{n}a_{1}^{-n}$...".
+	\item Page 8, Line 9 from the bottom. "$x_{i_{1}, \ldots, i_{k}} \in K \bigcap B$ ..." should be "$x_{i_{1},i_{2} \ldots} \in K \bigcap B$ ...".
+	\item Page 14, Definition 2.5, line 1. "Let $\widetilde{u}: V_{m+n} \to \ree$ with $\widetilde{u}\mid_{V_m} =u$ being a \emph{harmonic function} if ..." should be "Let $\widetilde{u}: V_{m+n} \to \ree$ with $\widetilde{u}\mid_{V_m} =u$. We call $\widetilde{u}$ a \emph{harmonic function} if ...".
+	\item Page 16, Definition 2.8, line 4. "$\dom \mathcal{E} = \cbr{u \in \ell(V_{*}) : \mathcal{E}(u) < \infty}$" should be "$\dom \mathcal{E} = \cbr{u \in \ell(V^{*}) : \mathcal{E}(u) < \infty}$".
+	\item Page 17, line 16. "The constants $3^{m}$ and $5^{m}$ are not random, ..." should be "The constants $3^{m}$ and $(N_p)^{-1}$ from $\Delta_{m}$ are not random, ...".
+	\item Page 17, line 4 from the bottom. "... the values in $K \setminus V_m$ comes from ...." should be "... the values in $V^{*} \setminus V_m$ comes from ...".
+	\item Page 18, line 11 from the bottom. "... Then $F_m = K \setminus \left(\bigcup_{\alpha \in \Omega_m} \overline{B}_{\alpha} \right)$." should be "... Then $F_m = K \setminus \left(\bigcup_{\alpha \in \Omega_m} \overline{T}_{\alpha} \right)$.".
+	\item Page 25, Definition 2.21, line 2. "... the \emph{discrete fractional Laplacian} \nl $(-\Delta_m)^{s}\colon L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ ..." should be "... the \emph{discrete fractional Laplacian} \nl $(-\Delta_m)^{-s}\colon L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ ...".
+	\item Page 29, line 13. ".... generator of a strongly continuous Markov semigroup" should be ".... generator of a strongly continuous self-adjoint contraction semigroup".
+	\item Page 33, line 1 from the bottom. "$\abs{\phi_j} \leq C e^{\sfrac{\lambda_j}{4}}$" should be "$\abs{\phi_j(x)} \leq C e^{\sfrac{\lambda_j}{4}}$"
+	\item Page 37, line 1. "Now choose $k'$ such $u_{k'} \leq R$ ..." should be "Now choose $k'$ such $u_{k'} \geq R$ ...".
+	\item Page 37, line 5. "We can likewise bound $G_s(x,y)$ by" should be "We can likewise bound $G_s(x,y)$ for $s < \frac{d_h}{d_w}$ by".
+	\item Page 41, line 5 from the bottom. "and $\phi$ is positive semidefinite" should be "and $\Phi$ is positive semidefinite" 
+	%\item Page 49, line 8. Corollary 2.26 wrong?
+	\item Page 50, line 6. "... the characteristic functional, e.i. that ... " should be "... the characteristic functional, i.e. that ... "
+	\item Page 58, line 4. "... what values the simulation converges to." should be "... what values the simulation diverges to."
+\end{enumerate}

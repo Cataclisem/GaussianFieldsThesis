@@ -1,0 +1,5 @@
+\providecommand \autonum@processReference [2]{}
+\babel@toc {british}{}\relax 
+\beamer@sectionintoc {1}{Preliminaries}{2}{0}{1}
+\beamer@sectionintoc {2}{Something}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Reformulated Lemma 2.4}{5}{0}{2}

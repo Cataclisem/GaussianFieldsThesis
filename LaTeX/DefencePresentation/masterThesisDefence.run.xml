@@ -41,13 +41,13 @@
   >
 ]>
 <requests version="1.0">
-  <internal package="biblatex" priority="9" active="1">
+  <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>main.bcf</file>
+      <file>masterThesisDefence.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>main.bbl</file>
+      <file>masterThesisDefence.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,26 +64,23 @@
       <file>british.lbx</file>
     </requires>
   </internal>
-  <external package="biblatex" priority="5" active="1">
+  <external package="biblatex" priority="5" active="0">
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>main</infile>
+      <infile>masterThesisDefence</infile>
     </cmdline>
     <input>
-      <file>main.bcf</file>
+      <file>masterThesisDefence.bcf</file>
     </input>
     <output>
-      <file>main.bbl</file>
+      <file>masterThesisDefence.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>main.bbl</file>
+      <file>masterThesisDefence.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>main.bcf</file>
-    </requires>
-    <requires type="editable">
-      <file>cite.bib</file>
+      <file>masterThesisDefence.bcf</file>
     </requires>
   </external>
 </requests>
