@@ -1,5 +1,16 @@
-{\Huge{\textbf{Questions from \today}}}
+\pagestyle{plain}
+\vspace{-3em}
+\begin{center}
+	 \huge\bfseries Corrections to the Thesis:
+	 
+	  \huge\bfseries Fractional Gaussian Fields on the 
+	  
+	   \huge\bfseries Vicsek Fractal 
+	   
+	   \today
+\end{center}
 
+\begin{comment}
 \subsection*{Question 1} 
 On page 17, line 4-5, i write "From the geometry of $K$ we see that if $x, y \in V^{*}$ belongs to the same or adjacent $\left(\fracConst_{i_1} \circ \dots \circ \fracConst_{i_n}\right)(K)$ then we can connect $x$ to $y$ buy one such chain". I still cannot figure out how we can connect through these chains.
 
@@ -23,26 +34,63 @@ In the proof of Lemma 4.2 on page 47, we use \url{https://www.sciencedirect.com/
 	\item Page 41, proof of lemma 3.6. Don't not get why the last equality holds since there will always be some real number left after multiplying the sums.
 	\item Page 43. Why is $W(f) = \int_{K} f \dd W$ a well defined gaussian random variable. And why does it give rise to a isonormal. And why do we want this. 
 \end{enumerate}
+\end{comment}
 
-\newpage
-\subsection*{Mistakes}
+\vspace{1em}
+\noi \textbf{\Large Bigger corrections:}
+\begin{center}
+	\setcounter{chapter}{2}
+	\setcounter{theorem}{13}
+\begin{lemma}
+		Let $v\colon V^{*} \to \ree$ be a harmonic function on the Vicsek set. If $v(x) = v(y_i) = 0$ for all $y_i \in V_{m,x}$ then $v(\omega) = 0$ for all $\omega \in \overline{T_x}$ where $T_x = \left( \bigcup_{k > 0} S^{k}(x) \right) \cup \left(\bigcup_{i} \{y_i\} \right)$.
+\end{lemma}
+\begin{proof}
+	It is clear that $v(\omega) = 0$ for any $\omega \in T_x$, since the value of the points $S^{k}(x)$ with $k > 0$ depends on the value of $x$ and its neighbours. 
+	
+	So we need to check the points in $\overline{T_x} \setminus T_x$. Now since $T_x$ is dense in $\overline{T_x}$, then for any $\omega \in \overline{T_x}$ we have ...  
+\end{proof}
+\end{center}
+This should be corrected to:
+
+\vspace{1em}
+	If $x, y \in K$ then $\cbr{x} = x_{i_1, i_2, \ldots}$ and $\cbr{y} = y_{j_1, j_2, \ldots}$. Furthermore, if $x \underset{m}{\sim} y$ they must share an a $\alpha$ such $i_m = j_m$ for $m \leq \alpha$. 
+	\setcounter{chapter}{2}
+	\setcounter{theorem}{13}
+	\begin{lemma}
+		Let $u: V^{*} \to \ree$ be a harmonic function on the Vicsek set . If $v(x) = v(y) = 0$ and $y \in V_{m,x}$, then $v(\omega) = 0$ for all $\omega \in T_x$ where $T_x = \bigcup_{\mathcal{I}_{i_1, \ldots, i_\alpha}} \fracConst_{i_1, i_2, \ldots}(K)$.
+	\end{lemma}
+	\begin{proof}
+		It is clear $v(\omega) = 0$ for $\omega \in T_x \bigcap V^{*}$ since $v$ is harmonic and depends on the values of its neighbours.
+		
+		So we need to check the points in $T_x \setminus V^{*}$. Now since $T_x \bigcap V^{*}$ is dense in $T_x$, then for any $\omega \in T_x$ we have that there exists a sequence $x_n \in T_x \bigcap V^{*}$ such that $x_n \to \omega$. By the fact that $v$ is continuous on $K$ it is continuous on $T_x$, in which case $\abs{v(x_n) - v(\omega)} \to 0$ as $n \to \infty$, but $v(x_n) = 0$ for all $x_n$, so $v(\omega) = 0$ as desired. 
+	\end{proof}
+
+\vspace{1em}
+\noi \textbf{\Large Smaller corrections:}
 \begin{enumerate}
 	\item Page 4, line 2. "... for each $x \in F$... " should be "... for each $x \in K$...".
 	\item Page 6, Lemma 1.10, line 1. "... such that $\mu(F) \in (0, \infty)$..." should be "... such that $\mu(K) \in (0, \infty)$...".
+	\item Page 6, Lemma 1.10, line 1. "Let $\mu$ be a measure such..." should be "Let $\mu$ be an outer measure..."
 	\item Page 6, Lemma 1.11, line 3. "... intersects at most $(1+2a_2)^{n}a_{1}^{n}$..." should be "... intersects at most $(1+2a_2)^{n}a_{1}^{-n}$...".
 	\item Page 8, Line 9 from the bottom. "$x_{i_{1}, \ldots, i_{k}} \in K \bigcap B$ ..." should be "$x_{i_{1},i_{2} \ldots} \in K \bigcap B$ ...".
 	\item Page 14, Definition 2.5, line 1. "Let $\widetilde{u}: V_{m+n} \to \ree$ with $\widetilde{u}\mid_{V_m} =u$ being a \emph{harmonic function} if ..." should be "Let $\widetilde{u}: V_{m+n} \to \ree$ with $\widetilde{u}\mid_{V_m} =u$. We call $\widetilde{u}$ a \emph{harmonic function} if ...".
 	\item Page 16, Definition 2.8, line 4. "$\dom \mathcal{E} = \cbr{u \in \ell(V_{*}) : \mathcal{E}(u) < \infty}$" should be "$\dom \mathcal{E} = \cbr{u \in \ell(V^{*}) : \mathcal{E}(u) < \infty}$".
 	\item Page 17, line 16. "The constants $3^{m}$ and $5^{m}$ are not random, ..." should be "The constants $3^{m}$ and $(N_p)^{-1}$ from $\Delta_{m}$ are not random, ...".
 	\item Page 17, line 4 from the bottom. "... the values in $K \setminus V_m$ comes from ...." should be "... the values in $V^{*} \setminus V_m$ comes from ...".
+	\item Page 18, Lemma 2.14. "...
 	\item Page 18, line 11 from the bottom. "... Then $F_m = K \setminus \left(\bigcup_{\alpha \in \Omega_m} \overline{B}_{\alpha} \right)$." should be "... Then $F_m = K \setminus \left(\bigcup_{\alpha \in \Omega_m} \overline{T}_{\alpha} \right)$.".
+	%\item Page 23, line 11. ".. $(\inn{Af}{f}\leq0\text{resp.})$." should be ".. $(\inn{Af}{f}\leq0 \text{ resp.})$.".
 	\item Page 25, Definition 2.21, line 2. "... the \emph{discrete fractional Laplacian} \nl $(-\Delta_m)^{s}\colon L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ ..." should be "... the \emph{discrete fractional Laplacian} \nl $(-\Delta_m)^{-s}\colon L^{2}(V_m, \mu_m) \to L^{2}(V_m, \mu_m)$ ...".
 	\item Page 29, line 13. ".... generator of a strongly continuous Markov semigroup" should be ".... generator of a strongly continuous self-adjoint contraction semigroup".
-	\item Page 33, line 1 from the bottom. "$\abs{\phi_j} \leq C e^{\sfrac{\lambda_j}{4}}$" should be "$\abs{\phi_j(x)} \leq C e^{\sfrac{\lambda_j}{4}}$"
+	\item Page 31, line 5 \& 16. "... $\frac{1}{\lambda_n^{-s}}\phi_n$." should be "... $\frac{1}{\lambda_n^{s}}\phi_n$.".
+	\item Page 32, line 10 from the bottom. "... $\inn{f}{(-\Delta)^{s}g}$." should be "... $\inn{f}{(-\Delta)^{-s}g}$." .
+	\item Page 33, line 1 from the bottom. "$\abs{\phi_j} \leq C e^{\sfrac{\lambda_j}{4}}$" should be "$\abs{\phi_j(x)} \leq C e^{\sfrac{\lambda_j}{4}}$".
+	\item Page 36, line 6 from the bottom. "... $R2^{-j-1} \leq d(x,y) \leq R2^{-j-1} \Rightarrow 2^{-j-1} \leq R^{-1} \cd d(x,y) \leq 2^{-j-1} .$" should be "... $R2^{-j-1} \leq d(x,y) \leq R2^{-j-1}.$".
 	\item Page 37, line 1. "Now choose $k'$ such $u_{k'} \leq R$ ..." should be "Now choose $k'$ such $u_{k'} \geq R$ ...".
 	\item Page 37, line 5. "We can likewise bound $G_s(x,y)$ by" should be "We can likewise bound $G_s(x,y)$ for $s < \frac{d_h}{d_w}$ by".
 	\item Page 41, line 5 from the bottom. "and $\phi$ is positive semidefinite" should be "and $\Phi$ is positive semidefinite" 
-	%\item Page 49, line 8. Corollary 2.26 wrong?
-	\item Page 50, line 6. "... the characteristic functional, e.i. that ... " should be "... the characteristic functional, i.e. that ... "
-	\item Page 58, line 4. "... what values the simulation converges to." should be "... what values the simulation diverges to."
+	\item Page 49, line 8. "By Lemma 4.1 and Corollary 2.26 we find that ..." should be "By Lemma 4.1 and Remark 2.28 we find that ..."
+	\item Page 50, line 6. "... the characteristic functional, e.i. that ... " should be "... the characteristic functional, i.e. that ... ".
+	\item Page 53, line 6 from the bottom. "... so $-\Delta_m (M_{\text{eig}})_{i, j} = (v_{\text{eig}})_i \cd(M_{\text{eig}})_{i, j} = \phi_i(x_j)$." should be "... $-\Delta_m (M_{\text{eig}})_{i, j} = (v_{\text{eig}})_i \cd(M_{\text{eig}})_{i, j} = \lambda_i^{m} \phi_i(x_j)$.".
+	\item Page 58, line 4. "... what values the simulation converges to." should be "... what values the simulation diverges to.".
 \end{enumerate}

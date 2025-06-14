@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  10 JUN 2025 17:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  14 JUN 2025 22:58
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **./masterThesisDefence.tex
 (masterThesisDefence.tex
@@ -935,20 +935,8 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
 (C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/tools\shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+Package shellesc Info: Restricted shell escape enabled on input line 77.
 )
-(C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/ifplatform\ifplatform.sty
-Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
-
-(C:\Users\chris\AppData\Roaming\MiKTeX\tex/generic/catchfile\catchfile.sty
-Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
-
-(C:\Users\chris\AppData\Roaming\MiKTeX\tex/generic/etexcmds\etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-))
-(C:\Program Files\MiKTeX\tex/generic/iftex\ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-))
 \c@svg@param@lastpage=\count366
 \svg@box=\box82
 \c@svg@param@currpage=\count367
@@ -1137,14 +1125,22 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \tket@rbll=\skip100
 )
 Package tket Info: Reference-GF sat til `2024' 
-(tket)             (argumentet var `2024') on input line 134.
+(tket)             (argumentet var `2024') on input line 139.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 159.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\new@ifnextchar' on input line 159.
+
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'british'.
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-159.
-
+164.
 (C:\Program Files\MiKTeX\tex/latex/lm\ot1lmss.fd
 File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -1156,24 +1152,24 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 (masterThesisDefence.aux)
 \openout1 = `masterThesisDefence.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 164.
+LaTeX Font Info:    ... okay on input line 164.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1230,58 +1226,58 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (C:\Program Files\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 159.
+Package hyperref Info: Link coloring OFF on input line 164.
 
 (masterThesisDefence.out) (masterThesisDefence.out)
 \@outlinefile=\write5
 \openout5 = `masterThesisDefence.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 159.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 164.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 159.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 164.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 159.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 164.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 159.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 164.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 159.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 159.
+(Font)                  OT1/lmss/m/n --> OT1/lmr/m/n on input line 164.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 159.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 159.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 159.
+(Font)                  OT1/lmr/bx/n --> OT1/lmss/b/n on input line 164.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 159.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/m/n on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 159.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 159.
+(Font)                  OT1/lmss/bx/n --> OT1/lmss/m/n on input line 164.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 159.
+(Font)                  OT1/lmr/m/it --> OT1/lmss/m/it on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 159.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 159.
+(Font)                  OT1/lmr/bx/it --> OT1/lmss/m/it on input line 164.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 159.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 159.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/m/n on input line 164.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 159.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 164.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 159.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> OT1/lmr/b/n on input line 159.
+(Font)                  OT1/lmss/b/n --> OT1/lmr/b/n on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmss/b/n --> OT1/lmss/b/n on input line 159.
+(Font)                  OT1/lmss/b/n --> OT1/lmss/b/n on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 159.
+(Font)                  OT1/lmss/m/n --> OT1/lmss/b/n on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 159.
+(Font)                  OT1/lmss/m/it --> OT1/lmss/b/it on input line 164.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> OT1/lmtt/b/n on input line 159.
+(Font)                  OT1/lmtt/m/n --> OT1/lmtt/b/n on input line 164.
 
 (C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/translator\translator-basic-di
 ctionary-English.dict
@@ -1310,76 +1306,76 @@ Dictionary: translator-theorem-dictionary, Language: English
 \c@lstlisting=\count390
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 159.
+(lastpage)             ! on input line 164.
 \autonum@environmentWidth=\skip101
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-59.
+64.
  (C:\Program Files\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-159.
+164.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-159.
+164.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 159.
+(Font)              <10.95> on input line 164.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 159.
+(Font)              <8> on input line 164.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 159.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 159
+(Font)              <6> on input line 164.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 164
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 159
+LaTeX Font Info:    Trying to load font information for U+msb on input line 164
 .
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 159.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 164.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <8> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 159.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 164.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <6> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 159.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 164.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (masterThesisDefence.nav)
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-59.
+64.
 
 (C:\Program Files\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
 LaTeX Font Warning: Font shape `OT1/lmss/m/sc' in size <6> not available
-(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 159.
+(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 164.
 
 
 LaTeX Font Warning: Font shape `OT1/lmss/m/sc' in size <14.4> not available
-(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 162.
+(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 167.
 
 
 LaTeX Font Warning: Font shape `OT1/lmss/m/sc' in size <10.95> not available
-(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 162.
+(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 167.
 
 
 LaTeX Font Warning: Font shape `OT1/lmss/m/sc' in size <8> not available
-(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 162.
+(Font)              Font shape `OT1/lmr/m/sc' tried instead on input line 167.
 
 
 
@@ -1388,10 +1384,10 @@ Files/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}
 
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rmsc.enc}]
 Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
  (svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, id=99, page=1, 722.7pt x 722.7p
-t>
+<./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, id=249, page=1, 722.7pt x 722.7
+pt>
 File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
 Package pdftex.def Info: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf , page1 
@@ -1399,10 +1395,10 @@ used on input line 56.
 (pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
 )
 Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
 
 (svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, id=101, page=1, 722.7pt x 722.7
+<./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, id=251, page=1, 722.7pt x 722.7
 pt>
 File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, page 1>
@@ -1411,10 +1407,10 @@ used on input line 56.
 (pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
 )
 Package svg Info: Last page of `./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
 
 (svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf, id=103, page=1, 722.7pt x 722.7
+<./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf, id=253, page=1, 722.7pt x 722.7
 pt>
 File: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf, page 1>
@@ -1423,19 +1419,19 @@ used on input line 56.
 (pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 187.
+(Font)              <10> on input line 191.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 187.
+(Font)              <7> on input line 191.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 187.
+(Font)              <5> on input line 191.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 187.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 191.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 187.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 191.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 187.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 191.
 
 
 
@@ -1454,7 +1450,7 @@ pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pd
 f): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
  (svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
 File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
@@ -1463,7 +1459,7 @@ used on input line 56.
 (pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
 )
 Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
 
 (svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
 File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
@@ -1473,7 +1469,7 @@ used on input line 56.
 (pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
 )
 Package svg Info: Last page of `./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
 
 (svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf_tex
 File: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf Graphic file (type pdf)
@@ -1487,7 +1483,7 @@ used on input line 56.
 
 ]
 Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
  (svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
 File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
@@ -1496,7 +1492,7 @@ used on input line 56.
 (pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
 )
 Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
 
 (svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
 File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
@@ -1506,7 +1502,7 @@ used on input line 56.
 (pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
 )
 Package svg Info: Last page of `./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf' 
-is 1 on input line 187.
+is 1 on input line 191.
 
 (svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf_tex
 File: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf Graphic file (type pdf)
@@ -1527,6 +1523,282 @@ used on input line 56.
 [6
 
 ]
+
+[7
+
+]
+
+[8
+
+]
+
+[9
+
+]
+
+[10
+
+]
+Overfull \hbox (4.86566pt too wide) detected at line 833
+[][] \OT1/lmss/m/n/10.95 = [] = [] [] \OML/lmm/m/it/10.95 :
+ []
+
+
+
+[11
+
+]
+Overfull \hbox (4.86566pt too wide) detected at line 833
+[][] \OT1/lmss/m/n/10.95 = [] = [] [] \OML/lmm/m/it/10.95 :
+ []
+
+
+
+[12
+
+]
+
+[13
+
+]
+
+[14
+
+]
+
+[15
+
+]
+
+[16
+
+]
+
+[17
+
+]
+
+[18
+
+]
+
+[19
+
+]
+
+[20
+
+]
+
+[21
+
+]
+
+[22
+
+]
+
+[23
+
+]
+
+[24
+
+]
+
+[25
+
+]
+
+[26
+
+]
+
+[27
+
+]
+
+[28
+
+]
+
+[29
+
+]
+
+[30
+
+]
+
+[31
+
+]
+
+[32
+
+]
+
+[33
+
+]
+
+[34
+
+]
+
+[35
+
+]
+
+[36
+
+]
+
+[37
+
+]
+
+[38
+
+]
+
+[39
+
+]
+Overfull \hbox (3.7781pt too wide) detected at line 1104
+[] [][]\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/10.95 ^^A)[]\O
+T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/1
+0.95 ^^A)[]\OT1/lmss/m/sl/10.95 g []\OML/lmm/m/it/10.95 ^^V \OT1/lmss/m/n/10.95
+ = [][] [][] \OT1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\
+OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 g\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/1
+0.95 y\OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 G[]\OT1/lmss/m/n/10.95 (\OT1/lm
+ss/m/sl/10.95 x\OML/lmm/m/it/10.95 ; \OT1/lmss/m/sl/10.95 y\OT1/lmss/m/n/10.95 
+) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\OT1/lmss
+/m/n/10.95 ) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95
+ y\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 :
+ []
+
+
+
+[40
+
+]
+Overfull \hbox (3.7781pt too wide) detected at line 1104
+[] [][]\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/10.95 ^^A)[]\O
+T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/1
+0.95 ^^A)[]\OT1/lmss/m/sl/10.95 g []\OML/lmm/m/it/10.95 ^^V \OT1/lmss/m/n/10.95
+ = [][] [][] \OT1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\
+OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 g\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/1
+0.95 y\OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 G[]\OT1/lmss/m/n/10.95 (\OT1/lm
+ss/m/sl/10.95 x\OML/lmm/m/it/10.95 ; \OT1/lmss/m/sl/10.95 y\OT1/lmss/m/n/10.95 
+) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\OT1/lmss
+/m/n/10.95 ) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95
+ y\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 :
+ []
+
+
+
+[41
+
+]
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 1132
+.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 1132
+.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 1132
+.
+
+
+[42
+
+]
+
+[43
+
+]
+
+[44
+
+]
+
+[45
+
+]
+
+[46
+
+]
+
+[47
+
+]
+
+[48
+
+]
+
+[49
+
+]
+
+[50
+
+]
+
+[51
+
+]
+
+[52
+
+]
+
+[53
+
+]
+
+[54
+
+]
+
+[55
+
+]
+
+[56
+
+]
+
+[57
+
+]
+
+[58
+
+]
+
+[59
+
+]
+
+[60
+
+]
+
+[61
+
+]
+
+[62
+
+]
+
+[63
+
+]
 \tf@nav=\write6
 \openout6 = `masterThesisDefence.nav'.
 
@@ -1544,29 +1816,36 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `masterThesisDefence.out' has not changed.
-(rerunfilecheck)             Checksum: D4373394F99CEA906426454C0C9DCA4C;369.
+(rerunfilecheck)             Checksum: C0DD2E403A072A4B80940CFF13631594;617.
  ) 
 Here is how much of TeX's memory you used:
- 34276 strings out of 473968
- 677544 string characters out of 5738363
- 1112631 words of memory out of 5000000
- 56338 multiletter control sequences out of 15000+600000
- 615393 words of font info for 82 fonts, out of 8000000 for 9000
+ 34741 strings out of 473968
+ 689858 string characters out of 5738363
+ 1724863 words of memory out of 5000000
+ 56680 multiletter control sequences out of 15000+600000
+ 623538 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,514b,823s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/
-MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/pu
-blic/lm/lmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:
-/Program Files/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX/
-fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm
-/lmss12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss8.pfb><C:/Progra
-m Files/MiKTeX/fonts/type1/public/lm/lmsso10.pfb><C:/Program Files/MiKTeX/fonts
-/type1/public/lm/lmsso8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy
-10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on masterThesisDefence.pdf (6 pages, 4429266 bytes).
+ 128i,19n,123p,514b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{pointwiseEquation} has been referenced but does not
+ exist, replaced by a fixed one
+
+<C:/Program Files/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/Mi
+KTeX/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
+ic/lm/lmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/P
+rogram Files/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Program Files/MiKTeX/fo
+nts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lm
+ss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Program 
+Files/MiKTeX/fonts/type1/public/lm/lmss8.pfb><C:/Program Files/MiKTeX/fonts/typ
+e1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsso1
+0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsso8.pfb><C:/Program Fil
+es/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1
+/public/lm/lmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><
+C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on masterThesisDefence.pdf (63 pages, 5519342 bytes).
 PDF statistics:
- 19310 PDF objects out of 22161 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 271 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 24634 PDF objects out of 26593 (max. 8388607)
+ 153 named destinations out of 1000 (max. 500000)
+ 2213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
