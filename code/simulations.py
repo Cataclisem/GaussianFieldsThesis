@@ -34,7 +34,7 @@ class simulation:
     def pointAmont(self):
         return self.pointAmont
 
-    def laplacianOperatorMatrix(self, n: int = None) -> list:
+    def laplacianOperatorMatrix(self, n: int = None, withConst: bool = False) -> list:
         """ 
         Finds the laplacain operators matrix. It is given by L = A - D, where
 
@@ -60,8 +60,12 @@ class simulation:
         timeStart =timeit.default_timer()
         print(f"Start Laplacian {int(timeStart)}")
         allPointsDict = self.fractal(n)
+        point_order = list(allPointsDict.keys())
         pool = mp.Pool(mp.cpu_count()) #Initialize the multiprocessing
-        who = pool.starmap(self.laplacianOperatorMatrixFunction, [([x], allPointsDict) for x in allPointsDict]) #CHANGE FUNC HERE
+        if withConst == True:
+            who = pool.starmap(self.laplacianOperatorMatrixFunctionWithConstants, [([x], allPointsDict) for x in allPointsDict])
+        else:
+            who = pool.starmap(self.laplacianOperatorMatrixFunction, [([x], allPointsDict) for x in allPointsDict])
         timeEnd = timeit.default_timer()
         print(f"end Laplacian {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
         return who
@@ -71,15 +75,30 @@ class simulation:
         """ This is a function for multiprocessing
         
         """
-        if len(allPointsDict[i[0]]["neighbours"]) == 1:
-            const = pow(5, -self.n - 1)
-        elif len(allPointsDict[i[0]]["neighbours"]) == 2:
-            const = 2*pow(5, -self.n - 1)
-        elif len(allPointsDict[i[0]]["neighbours"]) == 4:
-            const = pow(5, -self.n)
+        if self.fractalType == "vicsek":
+            print("IN VICSEK LAPLACIAN")
+            if len(allPointsDict[i[0]]["neighbours"]) == 1:
+                const = (3**self.n) *(pow(5, -self.n - 1)**(-1))
+            elif len(allPointsDict[i[0]]["neighbours"]) == 2:
+                const = (3**self.n) *((2*pow(5, -self.n - 1))**(-1))
+            elif len(allPointsDict[i[0]]["neighbours"]) == 4:
+                const = (3**self.n) * (pow(5, -self.n)**(-1))
+            else:
+                const = 1
+        
+        elif self.fractalType == "sierpinski":
+            print("IN SIERPINSKI LAPLACIAN")
+            if len(allPointsDict[i[0]]["neighbours"]) == 2:
+                const = 3*pow(5, self.n)
+            elif len(allPointsDict[i[0]]["neighbours"]) == 4:
+                const = (3/2)*pow(5, self.n)
+            else:
+                const = 1
         else:
+            print("IN NO LAPLACIAN")
             const = 1
-        return np.multiply(pow(3, self.n), [const*len(allPointsDict[i[0]]["neighbours"]) if i[0] == j else -1*const if j in allPointsDict[i[0]]["neighbours"] else 0 for j in allPointsDict])
+
+        return [-const*len(allPointsDict[i[0]]["neighbours"]) if i[0] == j else 1*const if j in allPointsDict[i[0]]["neighbours"] else 0 for j in allPointsDict]
 
 
     def laplacianOperatorMatrixFunction(self, i, allPointsDict: dict):
@@ -108,24 +127,24 @@ class simulation:
         vector, matrix = mpmath.mp.eigh(mpmath.mp.matrix(self.laplacianOperatorMatrix()))
         return np.array([float(x) for x in vector]) * -(np.isclose(np.array([float(x) for x in vector], dtype=np.float64), 0) - 1), np.matrix(matrix.tolist(), dtype=np.float64) * -(np.isclose(np.matrix(matrix.tolist(), dtype=np.float64),0)-1)
     
-    def npEigenVectorsAndValues(self):
+    def npEigenVectorsAndValues(self, withConst: bool = False):
         timeStart =timeit.default_timer()
         print(f"Start Eigen {int(timeStart)}")
-        vector, matrix = np.linalg.eigh(self.laplacianOperatorMatrix())
+        vector, matrix = np.linalg.eigh(self.laplacianOperatorMatrix(withConst = withConst))
         timeEnd = timeit.default_timer()
         print(f"end Eigen {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
-        pprint(f"vec: {vector}, isclose: {vector[0]*-(np.isclose(vector[0], 0)-1)}")
+        #pprint(f"vec: {vector}, isclose: {vector[0]*-(np.isclose(vector[0], 0)-1)}")
         return vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1)
     
 
     def partwiseNPEigenVecAndValues(self):
         timeStart =timeit.default_timer()
         print(f"Start Eigen Partwise: {int(timeStart)}")
-        laplacian = self.laplacianOperatorMatrix()
+        laplacian = self.laplacianOperatorMatrix(withConst=True)
         vector, matrix = np.linalg.eigh(laplacian)
         timeEnd = timeit.default_timer()
         print(f"end Eigen {int(timeEnd)}, and it took: {int(timeEnd - timeStart)} seconds")
-        pprint(f"vec: {vector}, isclose: {vector[0]*-(np.isclose(vector[0], 0)-1)}")
+        #pprint(f"vec: {vector}, isclose: {vector[0]*-(np.isclose(vector[0], 0)-1)}")
         return laplacian, vector, matrix, vector * -(np.isclose(vector, 0) - 1), matrix * -(np.isclose(matrix, 0)-1), self.fractal(self.n)
     
     def scipyEigenVectorsAndValues(self):
@@ -139,11 +158,11 @@ class simulation:
         return vector, matrix
     
 
-    def DFDGsim(self, eigenfunction, s: int = None, whiteNoise: np.ndarray = None):
+    def DFDGsim(self, eigenfunction, s: int = None, whiteNoise: np.ndarray = None, withConst: bool = False):
         if s == None:
             s = self.s
         
-        eigVal, eigVec = eigenfunction()
+        eigVal, eigVec = eigenfunction(withConst = withConst)
         Vn = self.fractal()
 
         if not isinstance(whiteNoise, np.ndarray):
@@ -154,7 +173,8 @@ class simulation:
             print(f"-s: {-s}, point: {point}")
             for i in range(len(eigVal)):
                 if eigVal[i] > 0:
-                    print(f"eig: {pow(eigVal[i],-s)}, vec: {eigVec[j,i]}, WN: {whiteNoise[i]}, sum: {sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[i]])} ")
+                    print(f"eig: {pow(eigVal[i],-s)}, vec: {eigVec[j,i]}, WN: {whiteNoise[i]}, sum: {sum([pow(eigVal[k],-s)*eigVec[j,k]*whiteNoise[k] if eigVal[k] > 0 else 0 for k in range(len(eigVal))])}")
+
             Vn[point][f"X"] = sum([pow(eigVal[i],-s)*eigVec[j,i]*whiteNoise[i] if eigVal[i] > 0 else 0 for i in range(len(eigVal))])
             j +=1
             if j % 1000 == 0:
@@ -164,8 +184,8 @@ class simulation:
         return Vn
     
 
-    def MakeThePretty(self, s: int, whiteNoise: list = None):
-        sim = self.DFDGsim(eigenfunction=self.npEigenVectorsAndValues, s = s, whiteNoise=whiteNoise)
+    def MakeThePretty(self, s: int, whiteNoise: list = None, withConst: bool = False):
+        sim = self.DFDGsim(eigenfunction=self.npEigenVectorsAndValues, s = s, whiteNoise=whiteNoise, withConst=withConst)
         pointx, pointy, colorValues = zip(*[[x[0], x[1], sim[x]["X"]] for x in sim])
         pointxList, pointyList, colorValuesList = [], [], []
         
@@ -192,11 +212,12 @@ class simulation:
         return pointx, pointy, colorValues, pointxList, pointyList, colorValuesList
         
     
-    def drawThePretty(self, sValues: list, sameWhiteNoise: bool = False, nrows: int = 2, whiteNoise = None):
+    def drawThePretty(self, sValues: list, sameWhiteNoise: bool = False, nrows: int = 2, whiteNoise: np.ndarray = None, withConst: bool = False):
         
+        print(f"isin: {isinstance(whiteNoise, np.ndarray)}")
         if sameWhiteNoise == True:
             whiteNoise = np.random.standard_normal(size = self.pointAmount)
-        elif whiteNoise.any() != None:
+        elif isinstance(whiteNoise, np.ndarray):
             whiteNoise = whiteNoise
         else:
             whiteNoise = None
@@ -208,19 +229,19 @@ class simulation:
             fig, axes = plt.subplots(nrows= nrows, ncols=sValHalfRdUp)
             for i in range(nrows):
                 for ax, s in zip(axes[i], sValues[i*sValHalfRdUp:i*sValHalfRdUp + sValHalfRdUp]):
-                    self.genGraph(fig = fig, ax=ax, s=s, whiteNoise=whiteNoise)
+                    self.genGraph(fig = fig, ax=ax, s=s, whiteNoise=whiteNoise, withConst = withConst)
         elif len(sValues) == 2:
             fig, axes = plt.subplots(ncols=2)
             for ax, s in zip(axes, sValues):
-                self.genGraph(fig = fig, ax=ax, s=s, whiteNoise=whiteNoise)
+                self.genGraph(fig = fig, ax=ax, s=s, whiteNoise=whiteNoise, withConst = withConst)
         else:
             fig, ax = plt.subplots()
-            self.genGraph(fig=fig, ax=ax, s=sValues[0], whiteNoise=whiteNoise)
+            self.genGraph(fig=fig, ax=ax, s=sValues[0], whiteNoise=whiteNoise, withConst = withConst)
 
 
-    def genGraph(self, fig: plt.Figure, ax: plt.Axes, s: int, whiteNoise: np.ndarray):
+    def genGraph(self, fig: plt.Figure, ax: plt.Axes, s: int, whiteNoise: np.ndarray, withConst: bool = False):
         print(f"Starting on s={s}")
-        pointx, pointy, colorValues, pointxList, pointyList, colorValuesList = self.MakeThePretty(s=s, whiteNoise=whiteNoise)
+        pointx, pointy, colorValues, pointxList, pointyList, colorValuesList = self.MakeThePretty(s=s, whiteNoise=whiteNoise, withConst = withConst)
         ax.set_title(f"V{self.n}: s = {s}")
         ax.scatter(pointxList, pointyList, c=cm.brg(colorValuesList), s = 1)
         ax.scatter(pointx, pointy, c=cm.brg(colorValues), s = 3)
@@ -242,14 +263,14 @@ class simulation:
 
 
 
-h = 0
+h = 1
 
 sierpinski = simulation(n = h, s = 1, fractalConstruction=sg.sierpinski(n = h).pointsAndNeighbours, fractalType="sierpinski")
 vicsek = simulation(n = h, s = 1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
 
 if __name__ == '__main__':    
     print(f"h : {h}")
-    whatToRun = 3
+    whatToRun = 1
 
     dh = math.log(5)/math.log(3)
     dw = dh +1
@@ -260,11 +281,23 @@ if __name__ == '__main__':
 
     if whatToRun == 1:
         np.set_printoptions(threshold=sys.maxsize)
+        White_Noise = np.random.standard_normal(pow(5, h)*4 + 1)
         laplacian, OGvec, OGmat, vec, mat, allPoints = vicsek.partwiseNPEigenVecAndValues()
-        White_Noise= np.array([-1.74976547,  0.3426804,   1.1530358,  -0.25243604,  0.98132079], dtype="d")
-        printMatrix(allPoints)
-        sim = vicsek.DFDGsim(eigenfunction=vicsek.npEigenVectorsAndValues,s=20, whiteNoise=White_Noise)
-        print(sim)
+        #White_Noise= np.array([-1.74976547,  0.3426804,   1.1530358,  -0.25243604,  0.98132079], dtype="d")
+        #printMatrix(allPoints)
+        sim = vicsek.DFDGsim(eigenfunction=vicsek.npEigenVectorsAndValues,s=20, whiteNoise=White_Noise, withConst=True)
+        
+        #printMatrix(mat)
+        #for x in sim:
+        #    print(sim[x])
+
+        print(f"vec: {vec}")
+        print(f"mat: {mat[:,0]}")
+        print("Lap: ")
+        printMatrix(laplacian)
+        pos = len([x for x in White_Noise if x > 0])
+        zeroes = len([x for x in White_Noise if x == 0])
+        print(f"zereos: {zeroes}, pos: {pos}, neg: {len(White_Noise)-pos}")
         #printMatrix(laplacian)
         #pprint(f"vec: {vec}")
         #printMatrix(mat)
@@ -280,19 +313,29 @@ if __name__ == '__main__':
         #print(np.isclose(vec[j] * mat[:,j], laplacian @ mat[:, j]))
 
     if whatToRun == 3:
-        i=0
-        np.random.seed(100)
+        i=1
+        #np.random.seed(100)
+        h = 3
         WN = np.random.standard_normal(pow(5, h)*4 + 1)
         #WN = np.random.standard_normal(int((pow(3,h+1)*3)/2))
-        print(f"White Noise: {WN}")
-        for h in [0]: 
-            for sVals in [0.001, 0.5, 1, 20, 50]:
-                print(f"Vm: {h}")
-                theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
-                #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
-                theOne.drawThePretty(sValues=[sVals], whiteNoise=WN)
-                #theOne.drawThePretty(sValues=[0.001, 0.5, 1, 20], sameWhiteNoise=True, whiteNoise=)
-                #plt.gca().set_position([0, 0, 1, 1])
-                plt.savefig(f"c:/Users/chris/gitProjects/GaussianFieldsThesis/code/{theOne.fractalType}Sim_V{h}_SameWhiteNoise{i}-s{str(sVals).replace(".","_")}.svg", format="svg")
-                i+=1
+        #print(f"White Noise: {WN}")
+        whiteNoiseList = []
+        for h in [1]: 
+            WN = np.random.standard_normal(pow(5, h)*4 + 1)
+            for withConst in [True]:
+                for sVals in [[0.001, 0.5, 1, 20]]:
+                    print(f"Vm: {h}")
+
+                    print(f"WN: {WN[0:5]}")
+                    theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=vicsekSet.vicsek(n=h).pointsAndNeighbourswhat, fractalType="vicsek")
+                    #theOne = simulation(n = h, s = dh/(2*dw) +0.1, fractalConstruction=sg.sierpinski(n=h).pointsAndNeighbours, fractalType="sierpinski")
+                    #theOne.drawThePretty(sValues=[sVals],whiteNoise=WN, withConst=withConst)
+                    #[0.001, 0.5, 1, 20][20, 50, 75, 100]
+                    theOne.drawThePretty(sValues=sVals, whiteNoise=WN, withConst=withConst)
+                    #plt.gca().set_position([0, 0, 1, 1])
+                    #plt.gcf().set_size_inches(12.8, 4.8)
+                    plt.savefig(f"c:/Users/chris/gitProjects/GaussianFieldsThesis/code/sim/Final/{theOne.fractalType}Sim_V{h}_{i}_withConst{withConst}-s{str(sVals).replace(".","_")}.png", format="png", dpi=100)
+                    plt.close()
+                    whiteNoiseList.append(WN)
+                    
     #plt.show()

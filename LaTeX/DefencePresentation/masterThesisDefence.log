@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  14 JUN 2025 22:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.20)  16 JUN 2025 16:39
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./masterThesisDefence.tex
 (masterThesisDefence.tex
@@ -935,8 +935,20 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )
 (C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/tools\shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 )
+(C:\Users\chris\AppData\Roaming\MiKTeX\tex/latex/ifplatform\ifplatform.sty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+
+(C:\Users\chris\AppData\Roaming\MiKTeX\tex/generic/catchfile\catchfile.sty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(C:\Users\chris\AppData\Roaming\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+))
+(C:\Program Files\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+))
 \c@svg@param@lastpage=\count366
 \svg@box=\box82
 \c@svg@param@currpage=\count367
@@ -1383,55 +1395,38 @@ LaTeX Font Warning: Font shape `OT1/lmss/m/sc' in size <8> not available
 Files/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}
 
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rmsc.enc}]
-Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
- (svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, id=249, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
-
-(svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, id=251, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
-
-(svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf_tex
-<./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf, id=253, page=1, 722.7pt x 722.7
-pt>
-File: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
+<../Pictures/vicsek0MarkersTrue.png, id=263, 722.7pt x 722.7pt>
+File: ../Pictures/vicsek0MarkersTrue.png Graphic file (type png)
+<use ../Pictures/vicsek0MarkersTrue.png>
+Package pdftex.def Info: ../Pictures/vicsek0MarkersTrue.png  used on input line
+ 190.
+(pdftex.def)             Requested size: 93.95428pt x 93.95428pt.
+<../Pictures/vicsek2MarkersTrue.png, id=265, 722.7pt x 722.7pt>
+File: ../Pictures/vicsek2MarkersTrue.png Graphic file (type png)
+<use ../Pictures/vicsek2MarkersTrue.png>
+Package pdftex.def Info: ../Pictures/vicsek2MarkersTrue.png  used on input line
+ 190.
+(pdftex.def)             Requested size: 93.95428pt x 93.95428pt.
+<../Pictures/vicsek5MarkersTrue.png, id=266, 722.7pt x 722.7pt>
+File: ../Pictures/vicsek5MarkersTrue.png Graphic file (type png)
+<use ../Pictures/vicsek5MarkersTrue.png>
+Package pdftex.def Info: ../Pictures/vicsek5MarkersTrue.png  used on input line
+ 190.
+(pdftex.def)             Requested size: 93.95428pt x 93.95428pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 191.
+(Font)              <10> on input line 190.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 191.
+(Font)              <7> on input line 190.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 191.
+(Font)              <5> on input line 190.
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <10> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 191.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 190.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <7> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 191.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 190.
 
 LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
-(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 191.
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 190.
 
 
 
@@ -1439,78 +1434,28 @@ LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <5> not available
 
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiK
 TeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/l
-m/lm-mathit.enc} <./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf> <./svg-inkscap
-e/vicsek2MarkersTrue_svg-tex.pdf
+m/lm-mathit.enc} <../Pictures/vicsek0MarkersTrue.png> <../Pictures/vicsek2Marke
+rsTrue.png> <../Pictures/vicsek5MarkersTrue.png>]
+File: ../Pictures/vicsek0MarkersTrue.png Graphic file (type png)
+<use ../Pictures/vicsek0MarkersTrue.png>
+Package pdftex.def Info: ../Pictures/vicsek0MarkersTrue.png  used on input line
+ 190.
+(pdftex.def)             Requested size: 93.95428pt x 93.95428pt.
+File: ../Pictures/vicsek2MarkersTrue.png Graphic file (type png)
+<use ../Pictures/vicsek2MarkersTrue.png>
+Package pdftex.def Info: ../Pictures/vicsek2MarkersTrue.png  used on input line
+ 190.
+(pdftex.def)             Requested size: 93.95428pt x 93.95428pt.
+File: ../Pictures/vicsek5MarkersTrue.png Graphic file (type png)
+<use ../Pictures/vicsek5MarkersTrue.png>
+Package pdftex.def Info: ../Pictures/vicsek5MarkersTrue.png  used on input line
+ 190.
+(pdftex.def)             Requested size: 93.95428pt x 93.95428pt.
 
-pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
-> <./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf
-
-pdfTeX warning: pdflatex.exe (file ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pd
-f): PDF inclusion: multiple pdfs with page group included in a single page
->]
-Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
- (svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
-File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
-
-(svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
-File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
-
-(svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf_tex
-File: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
 
 [3
 
 ]
-Package svg Info: Last page of `./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
- (svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf_tex
-File: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek0MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
-
-(svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf_tex
-File: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek2MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
-Package svg Info: Last page of `./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf' 
-is 1 on input line 191.
-
-(svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf_tex
-File: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf Graphic file (type pdf)
-<use ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf, page 1>
-Package pdftex.def Info: ./svg-inkscape/vicsek5MarkersTrue_svg-tex.pdf , page1 
-used on input line 56.
-(pdftex.def)             Requested size: 93.95451pt x 93.95428pt.
-)
 
 [4
 
@@ -1539,20 +1484,10 @@ used on input line 56.
 [10
 
 ]
-Overfull \hbox (4.86566pt too wide) detected at line 833
-[][] \OT1/lmss/m/n/10.95 = [] = [] [] \OML/lmm/m/it/10.95 :
- []
-
-
 
 [11
 
 ]
-Overfull \hbox (4.86566pt too wide) detected at line 833
-[][] \OT1/lmss/m/n/10.95 = [] = [] [] \OML/lmm/m/it/10.95 :
- []
-
-
 
 [12
 
@@ -1641,14 +1576,52 @@ Overfull \hbox (4.86566pt too wide) detected at line 833
 [33
 
 ]
+Overfull \hbox (3.7781pt too wide) detected at line 514
+[] [][]\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/10.95 ^^A)[]\O
+T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/1
+0.95 ^^A)[]\OT1/lmss/m/sl/10.95 g []\OML/lmm/m/it/10.95 ^^V \OT1/lmss/m/n/10.95
+ = [][] [][] \OT1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\
+OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 g\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/1
+0.95 y\OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 G[]\OT1/lmss/m/n/10.95 (\OT1/lm
+ss/m/sl/10.95 x\OML/lmm/m/it/10.95 ; \OT1/lmss/m/sl/10.95 y\OT1/lmss/m/n/10.95 
+) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\OT1/lmss
+/m/n/10.95 ) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95
+ y\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 :
+ []
+
+
 
 [34
 
 ]
+Overfull \hbox (3.7781pt too wide) detected at line 514
+[] [][]\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/10.95 ^^A)[]\O
+T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/1
+0.95 ^^A)[]\OT1/lmss/m/sl/10.95 g []\OML/lmm/m/it/10.95 ^^V \OT1/lmss/m/n/10.95
+ = [][] [][] \OT1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\
+OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 g\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/1
+0.95 y\OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 G[]\OT1/lmss/m/n/10.95 (\OT1/lm
+ss/m/sl/10.95 x\OML/lmm/m/it/10.95 ; \OT1/lmss/m/sl/10.95 y\OT1/lmss/m/n/10.95 
+) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\OT1/lmss
+/m/n/10.95 ) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95
+ y\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 :
+ []
+
+
 
 [35
 
 ]
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 543.
+
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <8> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 543.
+
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <6> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 543.
+
+
 
 [36
 
@@ -1665,52 +1638,14 @@ Overfull \hbox (4.86566pt too wide) detected at line 833
 [39
 
 ]
-Overfull \hbox (3.7781pt too wide) detected at line 1104
-[] [][]\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/10.95 ^^A)[]\O
-T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/1
-0.95 ^^A)[]\OT1/lmss/m/sl/10.95 g []\OML/lmm/m/it/10.95 ^^V \OT1/lmss/m/n/10.95
- = [][] [][] \OT1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\
-OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 g\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/1
-0.95 y\OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 G[]\OT1/lmss/m/n/10.95 (\OT1/lm
-ss/m/sl/10.95 x\OML/lmm/m/it/10.95 ; \OT1/lmss/m/sl/10.95 y\OT1/lmss/m/n/10.95 
-) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\OT1/lmss
-/m/n/10.95 ) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95
- y\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 :
- []
-
-
 
 [40
 
 ]
-Overfull \hbox (3.7781pt too wide) detected at line 1104
-[] [][]\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/10.95 ^^A)[]\O
-T1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OMS/lmsy/m/n/10.95 ^^@\OT1/lmss/m/n/1
-0.95 ^^A)[]\OT1/lmss/m/sl/10.95 g []\OML/lmm/m/it/10.95 ^^V \OT1/lmss/m/n/10.95
- = [][] [][] \OT1/lmss/m/sl/10.95 f\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\
-OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 g\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/1
-0.95 y\OT1/lmss/m/n/10.95 )\OT1/lmss/m/sl/10.95 G[]\OT1/lmss/m/n/10.95 (\OT1/lm
-ss/m/sl/10.95 x\OML/lmm/m/it/10.95 ; \OT1/lmss/m/sl/10.95 y\OT1/lmss/m/n/10.95 
-) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95 x\OT1/lmss
-/m/n/10.95 ) []\OML/lmm/m/it/10.95 ^^V\OT1/lmss/m/n/10.95 (\OT1/lmss/m/sl/10.95
- y\OT1/lmss/m/n/10.95 )\OML/lmm/m/it/10.95 :
- []
-
-
 
 [41
 
 ]
-LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 1132
-.
-LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <8> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 1132
-.
-LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <6> not available
-(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 1132
-.
-
 
 [42
 
@@ -1779,24 +1714,165 @@ LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <6> not available
 [58
 
 ]
+<pictures/vicsekSim_V3_withConstTrue-s0_5.png, id=5442, 462.528pt x 346.896pt>
+File: pictures/vicsekSim_V3_withConstTrue-s0_5.png Graphic file (type png)
+<use pictures/vicsekSim_V3_withConstTrue-s0_5.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_withConstTrue-s0_5.png  used on 
+input line 789.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (13.76196pt too wide) in paragraph at lines 789--789
+[] [] 
+ []
+
+<pictures/vicsekSim_V3_withConstFalse-s0_5.png, id=5443, 462.528pt x 346.896pt>
+
+File: pictures/vicsekSim_V3_withConstFalse-s0_5.png Graphic file (type png)
+<use pictures/vicsekSim_V3_withConstFalse-s0_5.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_withConstFalse-s0_5.png  used on
+ input line 789.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (46.61195pt too wide) in paragraph at lines 789--789
+[] [] 
+ []
+
+
 
 [59
 
-]
+ <./pictures/vicsekSim_V3_withConstTrue-s0_5.png> <./pictures/vicsekSim_V3_with
+ConstFalse-s0_5.png>]
+<pictures/vicsekSim_V3_0_withConstTrue-s[0_001, 0_5, 1, 20].png, id=5546, 462.5
+28pt x 346.896pt>
+File: pictures/vicsekSim_V3_0_withConstTrue-s[0_001, 0_5, 1, 20].png Graphic fi
+le (type png)
+<use pictures/vicsekSim_V3_0_withConstTrue-s[0_001, 0_5, 1, 20].png>
+Package pdftex.def Info: pictures/vicsekSim_V3_0_withConstTrue-s[0_001, 0_5, 1,
+ 20].png  used on input line 794.
+(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 794.
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 794.
+
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <10> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 794.
+
+LaTeX Font Info:    Font shape `OT1/lmss/b/n' in size <7> not available
+(Font)              Font shape `OT1/lmss/bx/n' tried instead on input line 794.
+
+LaTeX Font Info:    Font shape `OT1/lmss/m/it' in size <14.4> not available
+(Font)              Font shape `OT1/lmss/m/sl' tried instead on input line 794.
+
+
 
 [60
 
-]
+ <./pictures/vicsekSim_V3_0_withConstTrue-s[0_001, 0_5, 1, 20].png>]
+<pictures/vicsekSim_V3_1_withConstTrue-s[20, 50, 75, 100].png, id=5649, 462.528
+pt x 346.896pt>
+File: pictures/vicsekSim_V3_1_withConstTrue-s[20, 50, 75, 100].png Graphic file
+ (type png)
+<use pictures/vicsekSim_V3_1_withConstTrue-s[20, 50, 75, 100].png>
+Package pdftex.def Info: pictures/vicsekSim_V3_1_withConstTrue-s[20, 50, 75, 10
+0].png  used on input line 799.
+(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+
 
 [61
 
-]
+ <./pictures/vicsekSim_V3_1_withConstTrue-s[20, 50, 75, 100].png>]
+<pictures/vicsekSim_V3_0_withConstTrue-s0_001.png, id=5752, 462.528pt x 346.896
+pt>
+File: pictures/vicsekSim_V3_0_withConstTrue-s0_001.png Graphic file (type png)
+<use pictures/vicsekSim_V3_0_withConstTrue-s0_001.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_0_withConstTrue-s0_001.png  used
+ on input line 811.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (19.23697pt too wide) in paragraph at lines 811--811
+[] [] 
+ []
+
+<pictures/vicsekSim_V3_1_withConstTrue-s0_001.png, id=5753, 462.528pt x 346.896
+pt>
+File: pictures/vicsekSim_V3_1_withConstTrue-s0_001.png Graphic file (type png)
+<use pictures/vicsekSim_V3_1_withConstTrue-s0_001.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_1_withConstTrue-s0_001.png  used
+ on input line 811.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (52.08696pt too wide) in paragraph at lines 811--811
+[] [] 
+ []
+
+
 
 [62
 
-]
+ <./pictures/vicsekSim_V3_0_withConstTrue-s0_001.png> <./pictures/vicsekSim_V3_
+1_withConstTrue-s0_001.png>]
+<pictures/vicsekSim_V3_0_withConstTrue-s1.png, id=5856, 462.528pt x 346.896pt>
+File: pictures/vicsekSim_V3_0_withConstTrue-s1.png Graphic file (type png)
+<use pictures/vicsekSim_V3_0_withConstTrue-s1.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_0_withConstTrue-s1.png  used on 
+input line 822.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (19.23697pt too wide) in paragraph at lines 822--822
+[] [] 
+ []
+
+<pictures/vicsekSim_V3_1_withConstTrue-s1.png, id=5857, 462.528pt x 346.896pt>
+File: pictures/vicsekSim_V3_1_withConstTrue-s1.png Graphic file (type png)
+<use pictures/vicsekSim_V3_1_withConstTrue-s1.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_1_withConstTrue-s1.png  used on 
+input line 822.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (52.08696pt too wide) in paragraph at lines 822--822
+[] [] 
+ []
+
+
 
 [63
+
+ <./pictures/vicsekSim_V3_0_withConstTrue-s1.png> <./pictures/vicsekSim_V3_1_wi
+thConstTrue-s1.png>]
+<pictures/vicsekSim_V3_0_withConstTrue-s20.png, id=5960, 462.528pt x 346.896pt>
+
+File: pictures/vicsekSim_V3_0_withConstTrue-s20.png Graphic file (type png)
+<use pictures/vicsekSim_V3_0_withConstTrue-s20.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_0_withConstTrue-s20.png  used on
+ input line 833.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (19.23697pt too wide) in paragraph at lines 833--833
+[] [] 
+ []
+
+<pictures/vicsekSim_V3_1_withConstTrue-s20.png, id=5961, 462.528pt x 346.896pt>
+
+File: pictures/vicsekSim_V3_1_withConstTrue-s20.png Graphic file (type png)
+<use pictures/vicsekSim_V3_1_withConstTrue-s20.png>
+Package pdftex.def Info: pictures/vicsekSim_V3_1_withConstTrue-s20.png  used on
+ input line 833.
+(pdftex.def)             Requested size: 208.13567pt x 156.10175pt.
+
+Overfull \hbox (52.08696pt too wide) in paragraph at lines 833--833
+[] [] 
+ []
+
+
+
+[64
+
+ <./pictures/vicsekSim_V3_0_withConstTrue-s20.png> <./pictures/vicsekSim_V3_1_w
+ithConstTrue-s20.png>]
+
+[65
 
 ]
 \tf@nav=\write6
@@ -1819,13 +1895,13 @@ Package rerunfilecheck Info: File `masterThesisDefence.out' has not changed.
 (rerunfilecheck)             Checksum: C0DD2E403A072A4B80940CFF13631594;617.
  ) 
 Here is how much of TeX's memory you used:
- 34741 strings out of 473968
- 689858 string characters out of 5738363
- 1724863 words of memory out of 5000000
- 56680 multiletter control sequences out of 15000+600000
- 623538 words of font info for 85 fonts, out of 8000000 for 9000
+ 34867 strings out of 473968
+ 692442 string characters out of 5738363
+ 1145040 words of memory out of 5000000
+ 56810 multiletter control sequences out of 15000+600000
+ 635516 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,19n,123p,514b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,19n,123p,514b,1046s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{pointwiseEquation} has been referenced but does not
  exist, replaced by a fixed one
@@ -1838,14 +1914,15 @@ nts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lm
 ss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Program 
 Files/MiKTeX/fonts/type1/public/lm/lmss8.pfb><C:/Program Files/MiKTeX/fonts/typ
 e1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsso1
-0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsso8.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1
-/public/lm/lmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><
-C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Prog
-ram Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on masterThesisDefence.pdf (63 pages, 5519342 bytes).
+0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsso12.pfb><C:/Program Fi
+les/MiKTeX/fonts/type1/public/lm/lmsso8.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy6.pfb
+><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on masterThesisDefence.pdf (65 pages, 1807843 bytes).
 PDF statistics:
- 24634 PDF objects out of 26593 (max. 8388607)
- 153 named destinations out of 1000 (max. 500000)
- 2213 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6204 PDF objects out of 7423 (max. 8388607)
+ 157 named destinations out of 1000 (max. 500000)
+ 2116 words of extra memory for PDF output out of 10000 (max. 10000000)
 

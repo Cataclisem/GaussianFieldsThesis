@@ -1,7 +1,7 @@
 \providecommand \autonum@processReference [2]{}
 \babel@toc {british}{}\relax 
 \beamer@sectionintoc {1}{Preliminaries}{2}{0}{1}
-\beamer@sectionintoc {2}{Laplacians}{16}{0}{2}
-\beamer@sectionintoc {3}{Fractional Gaussian Fields}{42}{0}{3}
-\beamer@sectionintoc {4}{Convergence of FGF}{52}{0}{4}
-\beamer@sectionintoc {5}{Simulations}{57}{0}{5}
+\beamer@sectionintoc {2}{Laplacians}{10}{0}{2}
+\beamer@sectionintoc {3}{Fractional Gaussian Fields}{36}{0}{3}
+\beamer@sectionintoc {4}{Convergence of FGF}{46}{0}{4}
+\beamer@sectionintoc {5}{Simulations}{51}{0}{5}
